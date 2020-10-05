@@ -1,4 +1,8 @@
-window._ = require('lodash');
+// window._ = require('lodash');
+
+import debounce from 'lodash/debounce';
+
+window._ = { debounce };
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support

@@ -14,7 +14,13 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+const webpack = require('webpack');
+ mix.webpackConfig({
+  plugins: [
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+  ]
+});
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
-    // .extract();
+    .sass('resources/sass/app.scss', 'public/css')
+    .extract();

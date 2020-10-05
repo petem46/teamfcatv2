@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +11,11 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
 
   <!-- Scripts -->
+  {{-- <script src="{{ mix('js/manifest.js') }}"></script> --}}
+  {{-- <script src="{{ mix('js/vendor.js') }}"></script> --}}
+  {{-- <script src="/js/app.js"></script> --}}
+  <script src="{{ mix('js/manifest.js') }}" Cache-Control: no-cache, must-revalidate defer></script>
+  <script src="{{ mix('js/vendor.js') }}" Cache-Control: no-cache, must-revalidate defer></script>
   <script src="{{ mix('js/app.js') }}" Cache-Control: no-cache, must-revalidate defer></script>
 
   <!-- Fonts -->
@@ -23,11 +29,14 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
+
 <body>
   <div id="app">
-  {{-- <main class="py-4" style="padding-bottom: 56px !important; background-color: #121212 !important"> --}}
-    @yield('content')
-  {{-- </main> --}}
-</div>
+    {{-- <main class="py-4"
+      style="padding-bottom: 56px !important; background-color: #121212 !important"> --}}
+      @yield('content')
+      {{-- </main> --}}
+  </div>
 </body>
+
 </html>
