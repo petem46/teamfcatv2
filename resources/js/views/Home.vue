@@ -12,11 +12,16 @@
 						class="lead grey--text text-subtitle text-center text-md-left"
 					>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit omnis perspiciatis dolor dolorum libero eveniet, officia sint praesentium modi ratione voluptate dolore, provident corporis. Rerum quod error dolor eum numquam!</p>
 					<v-row>
-						<v-col>
-              <google-picker></google-picker>
+						<!-- <v-col> -->
+              <!-- <google-picker></google-picker> -->
 							<!-- <v-btn @click="driveIconClicked" dark class="teal" x-large>
 								<v-icon class="mr-2">fa fa-arrow-right</v-icon>PICKER
 							</v-btn> -->
+						<!-- </v-col> -->
+						<v-col>
+							<v-btn dark class="teal" x-large>
+								<v-icon class="mr-2">far fa-star</v-icon>Button
+							</v-btn>
 						</v-col>
 						<v-col>
 							<v-btn dark class="orange darken-2" x-large>

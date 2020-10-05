@@ -13,9 +13,11 @@ class SocialGoogleAccountService
   public function createOrGetUser(ProviderUser $providerUser)
   {
     $account = SocialGoogleAccount::whereProvider('google')
-      ->whereProviderUserId($providerUser->getId())
-      ->first();
+    ->whereProviderUserId($providerUser->getId())
+    ->first();
 
+    // dd(User::getGoogleSchool($providerUser->getEmail()));
+    // dd($providerUser->getName());
     if ($account) {
       $user = User::whereEmail($providerUser->getEmail())->first();
       if ($user) {
