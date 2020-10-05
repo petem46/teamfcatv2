@@ -1,6 +1,6 @@
 <template>
-	<div id="pageview">
-		<v-container class="xtop-border--teal grey lighten-5" id="top">
+	<div id="pageview" class="">
+		<div class="xtop-border--teal grey lighten-5 container" id="top">
 			<page-header
 				v-if="!loading"
 				:title="page.title"
@@ -9,8 +9,6 @@
 			/>
 			<!-- Content Row -->
 			<v-row>
-				<!-- <div class="grey lighten-3">
-				<v-container v-if="!this.showEdit">-->
 				<!-- Sidebar Column -->
 				<div v-if="!loading" class="col-lg-3 mb-4 order-md-2 order-2">
 					<page-side-bar
@@ -31,7 +29,7 @@
 				</div>
 				<!-- Content Column -->
 				<div v-if="!loading" class="col-lg-9 pl-4 mb-4 order-md-1 order-1 white">
-					<page-content v-if="!showEdit" :page="page"></page-content>
+					<page-content v-if="!showEdit" :page="page" fluid app class="container"></page-content>
 
 					<v-container v-if="showEdit" fluid app class="px-0">
 						<v-form ref="form" v-model="valid">
@@ -329,7 +327,7 @@
 					</v-card>
 				</v-dialog>
 			</v-row>
-		</v-container>
+		</div>
 
 		<v-snackbar
 			v-model="snackbar.show"

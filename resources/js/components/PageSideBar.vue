@@ -77,7 +77,21 @@
 						</v-list-item>
 					</draggable>
 					<google-picker v-if="showEdit" @addGoolgeDriveFile="addGoolgeDriveFile"></google-picker>
-					<v-list-item v-if="slug != 'newpage'" :to="'/p2' + section.link + '/newpage'">
+					<v-list-item v-if="showEdit" @click="addImage">
+						<v-list-item-content>
+							<v-list-item-title>
+								<v-icon small class="mr-3">far fa-image fa-fw</v-icon>Upload Image
+							</v-list-item-title>
+						</v-list-item-content>
+					</v-list-item>
+					<v-list-item v-if="showEdit" @click="addFile">
+						<v-list-item-content>
+							<v-list-item-title>
+								<v-icon small class="mr-3">far fa-file-alt fa-fw</v-icon>Upload File
+							</v-list-item-title>
+						</v-list-item-content>
+					</v-list-item>
+					<v-list-item v-if="slug != 'newpage' && !showEdit" :to="'/p2' + section.link + '/newpage'">
 						<v-list-item-content>
 							<v-list-item-title>
 								<v-icon small class="mr-3">far fa-plus-square fa-fw</v-icon>Add New Page
@@ -116,21 +130,6 @@ export default {
 					content:
 						'<hr role="separator" aria-orientation="horizontal" class="v-divider teal">'
 				},
-				{
-					name: "Image",
-					icon: "far fa-image fa-fw",
-					content: ""
-				},
-				{
-					name: "File",
-					icon: "far fa-file-alt fa-fw",
-					content: ""
-				},
-				{
-					name: "Link",
-					icon: "fa-link fa-fw",
-					content: ""
-				}
 			]
 		};
 	},
@@ -152,6 +151,12 @@ export default {
 			if (item.name == "Image" || item.name == "File") {
 				this.$emit("showFileManager");
 			}
+		},
+		addImage() {
+			this.$emit("showFileManager");
+		},
+		addFile() {
+			this.$emit("showFileManager");
 		},
 		addGoolgeDriveFile(files) {
 			this.$emit("addGoolgeDriveFile", files);

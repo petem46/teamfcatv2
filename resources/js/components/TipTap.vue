@@ -11,7 +11,7 @@
 			</v-col>
 			<v-col cols="1" class="py-0">
         <!-- Show Delete Icon for Blank Section Line -->
-				<v-btn icon v-if="this.item.name == ''" @click="showConfirmDelete = true">
+				<v-btn icon v-if="this.item.content == ''" @click="showConfirmDelete = true">
 					<v-icon small color="red lighten-1">far fa-trash-alt</v-icon>
 				</v-btn>
         <!-- Show Delete Icon for Divider Line -->
@@ -59,6 +59,7 @@
 						:editor="editor"
 						v-slot="{ commands, isActive }"
 					></tip-tap-editor-bar-image>
+
 					<editor-content class="elevation-8 editor__content" :editor="editor" />
 					<v-card-actions>
 						<v-btn text color="red" @click="showConfirmDelete = true">Delete Section</v-btn>

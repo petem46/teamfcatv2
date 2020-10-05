@@ -9,7 +9,7 @@
 				<v-icon>mdi-redo</v-icon>
 			</v-btn>
 
-			<v-divider class="mx-4" inset vertical></v-divider>
+			<v-divider class="mx-2" inset vertical></v-divider>
 
 			<v-btn icon text small :class="{ 'is-active': isActive.bold() }" @click="commands.bold">
 				<v-icon>mdi-format-bold</v-icon>
@@ -20,7 +20,7 @@
 			</v-btn>
 
 			<v-btn
-				tile
+				icon
 				text
 				small
 				:class="{ 'is-active': isActive.underline() }"
@@ -29,13 +29,13 @@
 				<v-icon>mdi-format-underline</v-icon>
 			</v-btn>
 
-			<v-divider class="mx-4" inset vertical></v-divider>
+			<v-divider class="mx-2" inset vertical></v-divider>
 
 			<v-btn
-				tile
+				icon
 				text
 				small
-				class="teal--text"
+				class="teal--text px-0"
 				:class="{'is-active':getMarkAttrs('colortext').class == 'teal--text'}"
 				@click="setTealText(commands.colortext, getMarkAttrs('colortext').class)"
 			>
@@ -43,10 +43,10 @@
 			</v-btn>
 
 			<v-btn
-				tile
+				icon
 				text
 				small
-				class="red--text"
+				class="red--text px-0"
 				:class="{'is-active':getMarkAttrs('colortext').class == 'red--text'}"
 				@click="setRedText(commands.colortext, getMarkAttrs('colortext').class)"
 			>
@@ -54,10 +54,10 @@
 			</v-btn>
 
 			<v-btn
-				tile
+				icon
 				text
 				small
-				class="orange--text text-darken-2"
+				class="orange--text text-darken-2 px-0"
 				:class="{
           'is-active':getMarkAttrs('colortext').class == 'orange--text text--darken2',
           }"
@@ -66,23 +66,24 @@
 				<v-icon class>mdi-format-color-text</v-icon>
 			</v-btn>
 
-			<v-divider class="mx-4" inset vertical></v-divider>
+			<v-divider class="mx-2" inset vertical></v-divider>
 
-			<!-- <v-btn
-				tile
+			<v-btn
+				icon
 				text
 				small
 				@click="commands.link({ href: 'www.google.com'})"
 			>
-				<v-icon class>mdi-format-color-text</v-icon>
+				<v-icon class>mdi-link-plus</v-icon>
 			</v-btn>
 
-			<v-divider class="mx-4" inset vertical></v-divider>-->
+			<v-divider class="mx-2" inset vertical></v-divider>
 
 			<v-btn
-				tile
+				icon
 				text
 				small
+        class="px-0"
 				:class="{ 'is-active': isActive.textH({class: 'text-h5'}) }"
 				@click="commands.textH({ class: 'text-h5'})"
 			>
@@ -90,7 +91,23 @@
 				<v-icon v-if="isActive.textH({class: 'text-h5'})">mdi-format-font-size-decrease</v-icon>
 			</v-btn>
 
-			<v-divider class="mx-4" inset vertical></v-divider>
+			<v-btn
+				text
+				small
+        class="px-0"
+				:class="{ 'is-active': isActive.heading({ level: 2 }) }"
+				@click="commands.heading({ level: 2 })"
+			>Heading 2</v-btn>
+
+			<v-btn
+				text
+				small
+        class="px-0"
+				:class="{ 'is-active': isActive.heading({ level: 3 }) }"
+				@click="commands.heading({ level: 3 })"
+			>Heading 3</v-btn>
+
+			<v-divider class="mx-2" inset vertical></v-divider>
 
 			<v-btn
 				tile
