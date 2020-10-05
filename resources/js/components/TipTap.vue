@@ -10,6 +10,10 @@
 				<div v-if="!showEdit" v-html="this.item.content" fluid app class="py-2 px-3" :id="item.id"></div>
 			</v-col>
 			<v-col cols="1" class="py-0">
+        <!-- Show Delete Icon for Blank Section Line -->
+				<v-btn icon v-if="this.item.name == ''" @click="showConfirmDelete = true">
+					<v-icon small color="red lighten-1">far fa-trash-alt</v-icon>
+				</v-btn>
         <!-- Show Delete Icon for Divider Line -->
 				<v-btn icon v-if="this.item.name == 'Divider Line'" @click="showConfirmDelete = true">
 					<v-icon small color="red lighten-1">far fa-trash-alt</v-icon>
