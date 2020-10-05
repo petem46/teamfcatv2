@@ -16,8 +16,7 @@
 				text
 				small
 				class="orange--text text-darken-2"
-				:class="{
-          "is-active":getMarkAttrs("imageWidth").class == "w100",
+				:class="{'is-active':getMarkAttrs('imageWidth').class == 'w100',
           }"
 				@click="commands.imageWidth({ class: 'w100'})"
 			>
@@ -30,7 +29,7 @@
 				small
 				class="orange--text text-darken-2"
 				:class="{
-          "is-active":getMarkAttrs("imageWidth").class == "w50",
+          'is-active':getMarkAttrs('imageWidth').class == 'w50',
           }"
 				@click="commands.imageWidth({ class: 'w50'})"
 			>
@@ -43,7 +42,7 @@
 				small
 				class="orange--text text-darken-2"
 				:class="{
-          "is-active":getMarkAttrs("imageWidth").class == "w200px",
+          'is-active':getMarkAttrs('imageWidth').class == 'w200px',
           }"
 				@click="commands.imageWidth({ class: 'w200px'})"
 			>
@@ -56,7 +55,7 @@
 				small
 				class="orange--text text-darken-2"
 				:class="{
-          "is-active":getMarkAttrs("imageWidth").class == "w400px",
+          'is-active':getMarkAttrs('imageWidth').class == 'w400px',
           }"
 				@click="commands.imageWidth({ class: 'w400px'})"
 			>
