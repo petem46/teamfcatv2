@@ -26,16 +26,16 @@
 						<v-list-item-title class="grey--text">Updates</v-list-item-title>
 					</v-list-item-content>
 				</v-list-item>
-				<v-list-item link>
-					<v-list-item-action link to='https://cpd.teamfcat.co.uk'>
+				<v-list-item link to='https://cpd.teamfcat.co.uk'>
+					<v-list-item-action>
 						<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
 					</v-list-item-action>
 					<v-list-item-content>
 						<v-list-item-title class="grey--text">CPD Portal</v-list-item-title>
 					</v-list-item-content>
 				</v-list-item>
-				<v-list-item link>
-					<v-list-item-action link to='https://www.spongyelephant.com/login/?register=true&access_code=FCAT-AFE2'>
+				<v-list-item link to='https://www.spongyelephant.com/login/?register=true&access_code=FCAT-AFE2'>
+					<v-list-item-action>
 						<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
 					</v-list-item-action>
 					<v-list-item-content>
