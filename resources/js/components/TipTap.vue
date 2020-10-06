@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<v-row>
+		<v-row @mouseover="showIcons = true" @mouseleave="showIcons = false">
 			<v-col cols="1" class="align-center py-0">
 				<v-btn icon id="handle">
 					<v-icon color="grey lighten-1">fa-bars</v-icon>
@@ -9,16 +9,16 @@
 			<v-col cols="10" class="py-0">
 				<div v-if="!showEdit" v-html="this.item.content" fluid app class="py-2 px-3" :id="item.id"></div>
 			</v-col>
-			<v-col cols="1" class="py-0">
-        <!-- Show Delete Icon for Blank Section Line -->
+			<v-col v-if="showIcons" cols="1" class="py-0">
+				<!-- Show Delete Icon for Blank Section Line -->
 				<v-btn icon v-if="this.item.content == ''" @click="showConfirmDelete = true">
 					<v-icon small color="red lighten-1">far fa-trash-alt</v-icon>
 				</v-btn>
-        <!-- Show Delete Icon for Divider Line -->
+				<!-- Show Delete Icon for Divider Line -->
 				<v-btn icon v-if="this.item.name == 'Divider Line'" @click="showConfirmDelete = true">
 					<v-icon small color="red lighten-1">far fa-trash-alt</v-icon>
 				</v-btn>
-        <!-- Show Delete Icon for Google Drive Files -->
+				<!-- Show Delete Icon for Google Drive Files -->
 				<v-btn icon v-if="this.item.name == 'Google Drive File'" @click="showConfirmDelete = true">
 					<v-icon small color="red lighten-1">far fa-trash-alt</v-icon>
 				</v-btn>
@@ -159,7 +159,8 @@ export default {
 				}
 			}),
 			loading: true,
-			showEdit: false,
+      showEdit: false,
+      showIcons: false,
 			// json: "",
 			html: "",
 			newItem: {
@@ -201,9 +202,9 @@ img {
 .editor__content #handle {
 	cursor: grab;
 }
-.editor__content:hover {
-	border-top: thin solid red;
-}
+// .editor__content:hover {
+// 	border-top: thin solid red;
+// }
 
 .editor .editor__content {
 	cursor: auto !important;

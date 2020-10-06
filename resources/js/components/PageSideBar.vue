@@ -80,14 +80,14 @@
 					<v-list-item v-if="showEdit" @click="addImage">
 						<v-list-item-content>
 							<v-list-item-title>
-								<v-icon small class="mr-3">far fa-image fa-fw</v-icon>Upload Image
+								<v-icon small class="mr-3">far fa-image fa-fw</v-icon>Add/Upload Image
 							</v-list-item-title>
 						</v-list-item-content>
 					</v-list-item>
 					<v-list-item v-if="showEdit" @click="addFile">
 						<v-list-item-content>
 							<v-list-item-title>
-								<v-icon small class="mr-3">far fa-file-alt fa-fw</v-icon>Upload File
+								<v-icon small class="mr-3">far fa-file-alt fa-fw</v-icon>Add/Upload File
 							</v-list-item-title>
 						</v-list-item-content>
 					</v-list-item>

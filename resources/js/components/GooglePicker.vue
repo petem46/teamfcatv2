@@ -3,7 +3,7 @@
 		<v-list-item @click="driveIconClicked">
 			<v-list-item-content>
 				<v-list-item-title>
-					<v-icon small class="mr-3">fab fa-google-drive fa-fw</v-icon>Google Drive
+					<v-icon small class="mr-3">fab fa-google-drive fa-fw</v-icon>Add Google Drive File
 				</v-list-item-title>
 			</v-list-item-content>
 		</v-list-item>
