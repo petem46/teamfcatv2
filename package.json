@@ -32,7 +32,7 @@
         "chartjs-plugin-datalabels": "^0.7.0",
         "date-fns": "^2.16.1",
         "jquery-easing": "0.0.1",
-        "moment": "^2.29.0",
+        "moment": "^2.29.1",
         "serialize-javascript": "^3.1.0",
         "simplebar-vue": "^1.6.0",
         "tiptap": "^1.30.0",

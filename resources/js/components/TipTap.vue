@@ -159,8 +159,8 @@ export default {
 				}
 			}),
 			loading: true,
-      showEdit: false,
-      showIcons: false,
+			showEdit: false,
+			showIcons: false,
 			// json: "",
 			html: "",
 			newItem: {
@@ -202,10 +202,14 @@ img {
 .editor__content #handle {
 	cursor: grab;
 }
-// .editor__content:hover {
-// 	border-top: thin solid red;
-// }
-
+.editor__content:hover {
+	border-top: thin solid red;
+}
+.ProseMirror-selectednode {
+	outline-style: dashed;
+	outline-color: darkorange;
+	outline-width: medium;
+}
 .editor .editor__content {
 	cursor: auto !important;
 	padding-bottom: 0 !important;

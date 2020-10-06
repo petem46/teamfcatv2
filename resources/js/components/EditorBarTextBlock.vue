@@ -1,6 +1,6 @@
 <template>
 	<editor-menu-bar :editor="editor" v-slot="{ commands, getMarkAttrs, isActive }">
-		<v-toolbar prominent flat color="grey lighten-3">
+		<v-toolbar flat color="grey lighten-3">
 			<v-row>
 				<v-col cols="12">
 					<v-btn icon text small @click="commands.undo">
@@ -71,10 +71,6 @@
 						<v-icon class>mdi-format-color-text</v-icon>
 					</v-btn>
 					<v-divider class="mx-2" inset vertical></v-divider>
-					<v-spacer></v-spacer>
-					<v-btn icon text small @click="commands.link({ href: 'www.google.com'})">
-						<v-icon class>mdi-link-plus</v-icon>
-					</v-btn>
 					<v-btn
 						icon
 						text
@@ -86,21 +82,22 @@
 						<v-icon v-if="!isActive.textH({class: 'text-h5'})">mdi-format-font-size-increase</v-icon>
 						<v-icon v-if="isActive.textH({class: 'text-h5'})">mdi-format-font-size-decrease</v-icon>
 					</v-btn>
-					<v-divider class="mx-2" inset vertical></v-divider>
-					<!-- <v-btn
-						text
-						small
-						class="px-0"
-						:class="{ 'is-active': isActive.heading({ level: 2 }) }"
-						@click="commands.heading({ level: 2 })"
-					>Heading 2</v-btn> -->
+
 					<v-btn
 						text
 						small
 						class="px-0"
 						:class="{ 'is-active': isActive.heading({ level: 3 }) }"
 						@click="commands.heading({ level: 3 })"
-					>Heading 3</v-btn>
+					>Heading</v-btn>
+					<!-- <v-btn
+						text
+						small
+						class="px-0"
+						:class="{ 'is-active': isActive.heading({ level: 2 }) }"
+						@click="commands.heading({ level: 2 })"
+					>Heading 2</v-btn>-->
+
 					<v-divider class="mx-2" inset vertical></v-divider>
 					<v-btn
 						icon
@@ -120,54 +117,59 @@
 					>
 						<v-icon>mdi-format-list-numbered</v-icon>
 					</v-btn>
-          <v-spacer></v-spacer>
+					<v-spacer></v-spacer>
+					<!-- <v-btn icon text small @click="commands.link({ href: 'www.google.com'})">
+						<v-icon class>mdi-link-plus</v-icon>
+					</v-btn>-->
 
-			<v-btn
-				tile
-				text
-				small
-				:class="{'is-active':getMarkAttrs('imageWidth').class == 'w100',
+					<v-spacer></v-spacer>
+
+					<v-btn
+						tile
+						text
+						small
+						:class="{'is-active':getMarkAttrs('imageWidth').class == 'w100',
           }"
-				@click="commands.imageWidth({ class: 'w100'})"
-			>
-				<v-icon class>mdi-image</v-icon>100%
-			</v-btn>
+						@click="commands.imageWidth({ class: 'w100'})"
+					>
+						<v-icon class>mdi-image</v-icon>100%
+					</v-btn>
 
-			<v-btn
-				tile
-				text
-				small
-				:class="{
+					<v-btn
+						tile
+						text
+						small
+						:class="{
           'is-active':getMarkAttrs('imageWidth').class == 'w50',
           }"
-				@click="commands.imageWidth({ class: 'w50'})"
-			>
-				<v-icon class>mdi-image</v-icon>50%
-			</v-btn>
+						@click="commands.imageWidth({ class: 'w50'})"
+					>
+						<v-icon class>mdi-image</v-icon>50%
+					</v-btn>
 
-			<v-btn
-				tile
-				text
-				small
-				:class="{
+					<v-btn
+						tile
+						text
+						small
+						:class="{
           'is-active':getMarkAttrs('imageWidth').class == 'w200px',
           }"
-				@click="commands.imageWidth({ class: 'w200px'})"
-			>
-				<v-icon class>mdi-image</v-icon>Small
-			</v-btn>
+						@click="commands.imageWidth({ class: 'w200px'})"
+					>
+						<v-icon class>mdi-image</v-icon>Small
+					</v-btn>
 
-			<v-btn
-				tile
-				text
-				small
-				:class="{
+					<v-btn
+						tile
+						text
+						small
+						:class="{
           'is-active':getMarkAttrs('imageWidth').class == 'w400px',
           }"
-				@click="commands.imageWidth({ class: 'w400px'})"
-			>
-				<v-icon class>mdi-image</v-icon>Medium
-			</v-btn>
+						@click="commands.imageWidth({ class: 'w400px'})"
+					>
+						<v-icon class>mdi-image</v-icon>Medium
+					</v-btn>
 				</v-col>
 			</v-row>
 		</v-toolbar>
