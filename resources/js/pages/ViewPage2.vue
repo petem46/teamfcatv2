@@ -1,5 +1,5 @@
 <template>
-	<div id="pageview" class="">
+	<div id="pageview" class>
 		<div class="xtop-border--teal grey lighten-5 container" id="top">
 			<page-header
 				v-if="!loading"
@@ -21,6 +21,7 @@
 						@addTextBlock="addTextBlock"
 						@addDivider="addDivider"
 						@addGoolgeDriveFile="addGoolgeDriveFile"
+						@deletePage="onShowDeletePageConfirm"
 						@savePage="savePage"
 						@showEdit="onShowEditClick"
 						@showFileManager="onShowFileManager"
@@ -329,6 +330,26 @@
 			</v-row>
 		</div>
 
+
+    <!-- START OF CONFIRM DELETE PAGE DIALOG BOX -->
+		<v-dialog v-model="showConfirmDelete" persistent min-width="300" max-width="30%">
+			<v-card>
+				<v-card-title class="headline red darken-2 white--text">Confirm Delete Page</v-card-title>
+				<v-card-text class="text-body-1 pt-3">Are you sure you want to delete this page?</v-card-text>
+				<v-card-text class="text-body-1 red--text">This action will delete this page and all content!</v-card-text>
+				<v-card-actions>
+					<v-btn color="grey darken-1" outlined @click="showConfirmDelete = false">NO, Cancel</v-btn>
+					<v-spacer></v-spacer>
+					<v-btn
+						color="red darken-1"
+						text
+						@click="showConfirmDelete = false; deletePage()"
+					>YES, DELETE</v-btn>
+				</v-card-actions>
+			</v-card>
+		</v-dialog>
+    <!-- END OF CONFIRM DELETE PAGE DIALOG BOX -->
+
 		<v-snackbar
 			v-model="snackbar.show"
 			:color="snackbar.color"
@@ -356,7 +377,8 @@ export default {
 			fab: false,
 			drag: false,
 			showEdit: false,
-			showFileManager: false,
+      showFileManager: false,
+      showConfirmDelete: false,
 			loading: true,
 			title: "",
 			// newItem: {},
@@ -476,6 +498,22 @@ export default {
 						this.snackbar.show = true;
 						console.log(error.response);
 					});
+			}
+    },
+    onShowDeletePageConfirm() {
+      this.showConfirmDelete = true;
+    },
+		deletePage() {
+			if (this.valid) {
+        var section = this.page.section.link;
+        axios.delete("/delete/page/" + this.page.id).then(res => {
+					if (res.status == 200) {
+						this.$router.push(section).catch(() => {
+							this.getContent();
+						});
+						this.onShowEditClick();
+					}
+				});
 			}
 		},
 		onShowFileManager() {

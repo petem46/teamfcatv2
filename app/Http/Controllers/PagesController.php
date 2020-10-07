@@ -150,4 +150,12 @@ class PagesController extends Controller
       }
     }
   }
+
+  public function delete($id) {
+    $page = Page::find($id);
+    if($page) {
+      $page->delete();
+    }
+    return response('New Page Created', Response::HTTP_OK)->header('section_id', $page->section_id);
+  }
 }

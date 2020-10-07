@@ -12,9 +12,8 @@
 				<v-row>
 					<v-col
 						data-aos="zoom-out-left"
-						data-aos-easing="ease-out-quad"
+						data-aos-easing="ease-in-out"
 						data-aos-duration="1500"
-						data-aos-mirror="true"
 						cols="12"
 						lg="6"
 						class="d=flex align-center order-md-1 order-2"
@@ -129,10 +128,10 @@
 						<v-col
 							cols="12"
 							lg="4"
-							data-aos="slide-left"
+							data-aos="fade-in"
 							data-aos-easing="ease-out-quad"
 							data-aos-duration="1500"
-              data-aos-mirror="true"
+							data-aos-mirror="true"
 							v-for="(card, index) in section.actioncards"
 							:key="card.id"
 						>
@@ -419,6 +418,7 @@ export default {
 	watch: {
 		$route: function() {
 			this.getContent();
+			alert("ALERT");
 		}
 	},
 	data() {
@@ -489,12 +489,12 @@ export default {
 		};
 	},
 	created() {
+		this.loading = true;
 		AOS.init({
 			// Global settings:
 			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
 			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-			once: false, // whether animation should happen only once - while scrolling down
-			mirror: true // whether elements should animate out while scrolling past them
+			once: false // whether animation should happen only once - while scrolling down
 		});
 	},
 	mounted() {
@@ -518,7 +518,9 @@ export default {
 			this.loading = true;
 			axios.get("/get/listpages/" + this.section.id).then(({ data }) => {
 				this.pages = data;
-				this.loading = false;
+				setTimeout(() => {
+					this.loading = false;
+				}, 550);
 			});
 		},
 		scrollToTop() {

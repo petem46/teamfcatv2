@@ -91,6 +91,13 @@
 							</v-list-item-title>
 						</v-list-item-content>
 					</v-list-item>
+					<v-list-item v-if="slug != 'newpage' && showEdit" @click="$emit('deletePage')" class="red">
+						<v-list-item-content>
+							<v-list-item-title class="white--text">
+								<v-icon small class="mr-3 white--text">fas fa-trash fa-fw</v-icon>Delete Page
+							</v-list-item-title>
+						</v-list-item-content>
+					</v-list-item>
 					<v-list-item v-if="slug != 'newpage' && !showEdit" :to="'/p2' + section.link + '/newpage'">
 						<v-list-item-content>
 							<v-list-item-title>
@@ -112,6 +119,7 @@ export default {
 	props: ["slug", "sidemenuitems", "loading", "showEdit", "section"],
 	data() {
 		return {
+			showConfirmDelete: false,
 			listOne: [
 				{
 					name: "Heading",
@@ -129,7 +137,7 @@ export default {
 					icon: "fa-grip-lines fa-fw",
 					content:
 						'<hr role="separator" aria-orientation="horizontal" class="v-divider teal">'
-				},
+				}
 			]
 		};
 	},

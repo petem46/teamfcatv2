@@ -34,5 +34,8 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('/makeFolder', 'UploadsController@makeFolder');
   Route::post('/upload', 'UploadsController@upload');
 
+  //Delete a page based on id
+  Route::delete('/delete/page/{id}', 'PagesController@delete');
+
   Route::get('/{any}', 'AppController@index')->where('any', '.*');
 });
