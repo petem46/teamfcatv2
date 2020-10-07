@@ -11,6 +11,10 @@
 			>
 				<v-row>
 					<v-col
+						data-aos="zoom-out-left"
+						data-aos-easing="ease-out-quad"
+						data-aos-duration="1500"
+						data-aos-mirror="true"
 						cols="12"
 						lg="6"
 						class="d=flex align-center order-md-1 order-2"
@@ -37,7 +41,14 @@
 					</v-col>
 					<v-col cols="12" lg="6" class="order-md-2 order-1">
 						<v-btn dark fab absolute top right v-if="showEditHeaderButton" @click="editTitle = true">EDIT</v-btn>
-						<v-img height="350" contain :src="section.landingImage"></v-img>
+						<v-img
+							data-aos="zoom-in"
+							data-aos-easing="ease-in-out"
+							data-aos-duration="1500"
+							height="350"
+							contain
+							:src="section.landingImage"
+						></v-img>
 						<div class="text-right">
 							<div v-html="section.landingImageCaption"></div>
 						</div>
@@ -115,7 +126,16 @@
 				<!-- <v-parallax src="/images/grey.jpg" min-height="350"> -->
 				<v-container fluid>
 					<v-row class="py-5">
-						<v-col cols="12" lg="4" v-for="(card, index) in section.actioncards" :key="card.id">
+						<v-col
+							cols="12"
+							lg="4"
+							data-aos="slide-left"
+							data-aos-easing="ease-out-quad"
+							data-aos-duration="1500"
+              data-aos-mirror="true"
+							v-for="(card, index) in section.actioncards"
+							:key="card.id"
+						>
 							<v-card class="text-center" @mouseover="showEditCard(card.id)" @mouseleave="showEditCard(0)">
 								<v-btn
 									small
@@ -319,8 +339,15 @@
 				</v-card>
 			</v-dialog>
 
-			<v-container class="z2 pb-md-30">
-				<v-card class="z2" elevation="8" style="min-height: 400px;">
+			<v-container class="z2 pb-md-30" id="example-anchor">
+				<v-card
+					class="z2"
+					elevation="8"
+					style="min-height: 400px;"
+					data-aos="zoom-in-up"
+					data-aos-duration="1000"
+					data-aos-anchor="#example-anchor"
+				>
 					<v-toolbar dark flat class="teal" src>
 						<v-toolbar-title class="text-uppercase text-h4 py-2">{{section.tealTitle}} Pages</v-toolbar-title>
 						<v-tooltip left>
@@ -364,7 +391,12 @@
 					</v-list>
 				</v-card>
 			</v-container>
-			<div class="position-relative mt-n16">
+			<div
+				data-aos="fade-up"
+				data-aod-delay="100"
+				data-aos-duration="1500"
+				class="position-relative mt-n16"
+			>
 				<div class="shape shape-bottom shape-fluid-x svg-shim teal--text text--darken-4">
 					<svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor" />
@@ -380,6 +412,8 @@
 <script>
 import Axios from "axios";
 import moment from "moment";
+import AOS from "aos";
+
 export default {
 	props: ["id", "sectionname"],
 	watch: {
@@ -453,6 +487,15 @@ export default {
 			editTitle: false,
 			typing: false
 		};
+	},
+	created() {
+		AOS.init({
+			// Global settings:
+			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+			once: false, // whether animation should happen only once - while scrolling down
+			mirror: true // whether elements should animate out while scrolling past them
+		});
 	},
 	mounted() {
 		this.scrollToTop();
@@ -538,10 +581,8 @@ export default {
 		chipStatusShow(page) {
 			var now = moment();
 			var updatedAt = moment(page.updated_at);
-      var createdAt = moment(page.created_at);
-			if (
-				moment(updatedAt).isAfter(moment(createdAt.add(5, "d")))
-			) {
+			var createdAt = moment(page.created_at);
+			if (moment(updatedAt).isAfter(moment(createdAt.add(5, "d")))) {
 				return true;
 			}
 			if (moment(createdAt).isAfter(moment(now).subtract(7, "d"))) {
@@ -553,9 +594,7 @@ export default {
 			var now = moment();
 			var updatedAt = moment(page.updated_at);
 			var createdAt = moment(page.created_at);
-			if (
-				moment(updatedAt).isAfter(moment(createdAt.add(5, "d")))
-			) {
+			if (moment(updatedAt).isAfter(moment(createdAt.add(5, "d")))) {
 				return "Updated";
 			}
 			if (moment(createdAt).isAfter(moment(now).subtract(7, "d"))) {
