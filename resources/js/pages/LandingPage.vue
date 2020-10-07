@@ -128,10 +128,8 @@
 						<v-col
 							cols="12"
 							lg="4"
-							data-aos="fade-in"
-							data-aos-easing="ease-out-quad"
+							data-aos="flip-left"
 							data-aos-duration="1500"
-							data-aos-mirror="true"
 							v-for="(card, index) in section.actioncards"
 							:key="card.id"
 						>
@@ -491,10 +489,7 @@ export default {
 	created() {
 		this.loading = true;
 		AOS.init({
-			// Global settings:
 			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-			once: false // whether animation should happen only once - while scrolling down
 		});
 	},
 	mounted() {
