@@ -330,8 +330,7 @@
 			</v-row>
 		</div>
 
-
-    <!-- START OF CONFIRM DELETE PAGE DIALOG BOX -->
+		<!-- START OF CONFIRM DELETE PAGE DIALOG BOX -->
 		<v-dialog v-model="showConfirmDelete" persistent min-width="300" max-width="30%">
 			<v-card>
 				<v-card-title class="headline red darken-2 white--text">Confirm Delete Page</v-card-title>
@@ -340,15 +339,11 @@
 				<v-card-actions>
 					<v-btn color="grey darken-1" outlined @click="showConfirmDelete = false">NO, Cancel</v-btn>
 					<v-spacer></v-spacer>
-					<v-btn
-						color="red darken-1"
-						text
-						@click="showConfirmDelete = false; deletePage()"
-					>YES, DELETE</v-btn>
+					<v-btn color="red darken-1" text @click="showConfirmDelete = false; deletePage()">YES, DELETE</v-btn>
 				</v-card-actions>
 			</v-card>
 		</v-dialog>
-    <!-- END OF CONFIRM DELETE PAGE DIALOG BOX -->
+		<!-- END OF CONFIRM DELETE PAGE DIALOG BOX -->
 
 		<v-snackbar
 			v-model="snackbar.show"
@@ -377,8 +372,8 @@ export default {
 			fab: false,
 			drag: false,
 			showEdit: false,
-      showFileManager: false,
-      showConfirmDelete: false,
+			showFileManager: false,
+			showConfirmDelete: false,
 			loading: true,
 			title: "",
 			// newItem: {},
@@ -499,14 +494,14 @@ export default {
 						console.log(error.response);
 					});
 			}
-    },
-    onShowDeletePageConfirm() {
-      this.showConfirmDelete = true;
-    },
+		},
+		onShowDeletePageConfirm() {
+			this.showConfirmDelete = true;
+		},
 		deletePage() {
 			if (this.valid) {
-        var section = this.page.section.link;
-        axios.delete("/delete/page/" + this.page.id).then(res => {
+				var section = this.page.section.link;
+				axios.delete("/delete/page/" + this.page.id).then(res => {
 					if (res.status == 200) {
 						this.$router.push(section).catch(() => {
 							this.getContent();
@@ -655,19 +650,46 @@ export default {
 			console.log(gFiles);
 			length = gFiles.length;
 			for (var i = 0; i < length; i++) {
-				this.list2.push({
-					name: "Google Drive File",
-					id: gFiles[i].id,
-					content:
-						'<div class="row"><div class="text-left col-12"><a href="' +
-						gFiles[i].url +
-						'" target="_blank"' +
-						'"><div role="listitem" class="v-list-item v-list-item--link"><div class="v-avatar v-list-item__avatar rounded-0 v-avatar--tile" style="height: 16px; min-width: 16px; width: 16px;"><img src="' +
-						gFiles[i].iconUrl +
-						'"/></div>' +
-						gFiles[i].name +
-						"</div></a></div></div>"
-				});
+				if (gFiles[i].type == "file") {
+					this.list2.push({
+						name: "Google Drive File",
+						id: gFiles[i].id,
+						content:
+							'<div class="row"><div class="text-left col-12"><a href="' +
+							gFiles[i].url +
+							'" target="_blank"' +
+							'"><div role="listitem" class="v-list-item v-list-item--link"><div class="v-avatar v-list-item__avatar rounded-0 v-avatar--tile" style="height: 16px; min-width: 16px; width: 16px;"><img src="' +
+							gFiles[i].iconUrl +
+							'"/></div>' +
+							gFiles[i].name +
+							"</div></a></div></div>"
+					});
+				}
+				if (gFiles[i].type == "photo") {
+					this.list2.push({
+						name: "Google Drive Image",
+						id: gFiles[i].id,
+						content:
+							'<div role="imageHolder"><a href="' +
+							gFiles[i].url +
+							'" target="_blank" class="' +
+							gFiles[i].type +
+							'"><img src="' +
+							gFiles[i].url +
+							'" /></a>' +
+							"</div>"
+					});
+				}
+				if (gFiles[i].type == "video") {
+					this.list2.push({
+						name: "Google Drive Video",
+						id: gFiles[i].id,
+						content:
+              '<div role="imageHolder"><video width="600" controls><source src="https://drive.google.com/uc?export=download&amp;id='
+              + gFiles[i].id + '" type="video/mp4" /></video>'
+              + '</div>'
+					});
+				}
 			}
 		},
 		randID() {
