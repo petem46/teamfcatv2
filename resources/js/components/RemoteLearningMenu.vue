@@ -54,21 +54,21 @@ export default {
 				iconClass: "teal--text text--lighten-2",
 				title: "Support",
 				subtitle: "Subtext for menu item",
-				link: "/hr"
+				link: "/remotetl"
 			},
 			{
 				icon: "mdi-account-cash-outline",
 				iconClass: "teal--text text--lighten-2",
 				title: "Research",
 				subtitle: "Subtext for menu item",
-				link: "/finance"
+				link: "/remotetl"
 			},
 			{
 				icon: "mdi-bullhorn",
 				iconClass: "teal--text text--lighten-2",
 				title: "Safeguarding",
 				subtitle: "Subtext for menu item",
-				link: "/mediaandpr"
+				link: "/remotetl"
 			}
 		],
 		itemscol2: [
@@ -77,21 +77,21 @@ export default {
 				iconClass: "teal--text text--lighten-2",
 				title: "Google Teacher Training",
 				subtitle: "Subtext for menu item",
-				link: "/dataprotection"
+				link: "/remotetl"
 			},
 			{
 				icon: "mdi-bookmark-check-outline",
 				iconClass: "teal--text text--lighten-2",
 				title: "Microsoft Educator Training",
 				subtitle: "Subtext for menu item",
-				link: "/healthandsafety"
+				link: "/remotetl"
 			},
 			{
 				icon: "mdi-hammer-screwdriver",
 				iconClass: "teal--text text--lighten-2",
 				title: "Podcasts/Channels",
 				subtitle: "Subtext for menu item",
-				link: "/ict"
+				link: "/remotetl"
 			}
 		]
 	})
