@@ -26,6 +26,9 @@ class SocialGoogleAccountService
         $user->avatar = $providerUser->getAvatar();
         $user->password = md5(rand(1, 10000));
         $user->last_login_at = Carbon::now()->toDateTimeString();
+        $user->token = $providerUser->token;
+        $user->refreshToken = $providerUser->refreshToken;
+        $user->expiresIn = $providerUser->expiresIn;
         $user->touch();
         $user->save();
         $account->user()->associate($user);
@@ -37,6 +40,9 @@ class SocialGoogleAccountService
         $user->avatar = $providerUser->getAvatar();
         $user->password = md5(rand(1, 10000));
         $user->last_login_at = Carbon::now()->toDateTimeString();
+        $user->token = $providerUser->token;
+        $user->refreshToken = $providerUser->refreshToken;
+        $user->expiresIn = $providerUser->expiresIn;
         $user->touch();
         $user->save();
         $account->user()->associate($user);
@@ -60,6 +66,9 @@ class SocialGoogleAccountService
           'usergroup_id' => '5',
           'role_id' => '3',
           'last_login_at' => Carbon::now()->toDateTimeString(),
+          'token' => $providerUser->token,
+          'refreshToken' => $providerUser->refreshToken,
+          'expiresIn' => $providerUser->expiresIn,
           // 'last_login_ip' => $request->getClientIp()
         ]);
       }

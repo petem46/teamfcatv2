@@ -8,7 +8,8 @@ export default new Vuex.Store({
     userid: null,
     roleid: null,
     avatar: null,
-    name: null
+    name: null,
+    gtoken: null,
   },
   mutations: {
     setUserId(state, id) {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
     },
     setAvatar(state, id) {
       state.avatar = id;
+    },
+    setGtoken(state, id) {
+      state.gtoken = id;
     }
   },
   actions: {},
@@ -37,6 +41,9 @@ export default new Vuex.Store({
     },
     getAvatar(state) {
       return state.avatar;
+    },
+    getGtoken(state) {
+      return state.gtoken;
     }
   }
 });

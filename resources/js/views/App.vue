@@ -26,7 +26,7 @@
 						<v-list-item-title class="grey--text">Updates</v-list-item-title>
 					</v-list-item-content>
 				</v-list-item>
-				<v-list-item link to='https://cpd.teamfcat.co.uk'>
+				<v-list-item link to="https://cpd.teamfcat.co.uk">
 					<v-list-item-action>
 						<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
 					</v-list-item-action>
@@ -34,7 +34,10 @@
 						<v-list-item-title class="grey--text">CPD Portal</v-list-item-title>
 					</v-list-item-content>
 				</v-list-item>
-				<v-list-item link to='https://www.spongyelephant.com/login/?register=true&access_code=FCAT-AFE2'>
+				<v-list-item
+					link
+					to="https://www.spongyelephant.com/login/?register=true&access_code=FCAT-AFE2"
+				>
 					<v-list-item-action>
 						<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
 					</v-list-item-action>
@@ -61,7 +64,13 @@
 			</v-list>
 		</v-navigation-drawer>
 
-		<v-app-bar height="100px" app clipped-left elevate-on-scroll white class="top-border--teal">
+		<v-app-bar
+			app
+			clipped-left
+			elevate-on-scroll
+			white
+			class="top-border--teal"
+		>
 			<!-- <v-app-bar app clipped-left flat hide-on-scroll scroll-threshold="500" class="top-border--teal"> -->
 			<v-app-bar-nav-icon @click.stop="navdrawer = !navdrawer"></v-app-bar-nav-icon>
 			<v-toolbar-title class="pl-1">
@@ -78,7 +87,7 @@
 
 			<!-- <latest-menu></latest-menu> -->
 			<key-info-menu></key-info-menu>
-			<!-- <academies-menu></academies-menu> -->
+			<remote-learning-menu></remote-learning-menu>
 			<central-services-menu></central-services-menu>
 
 			<v-menu :nudge-width="200" offset-y>
@@ -148,10 +157,9 @@
 <script>
 import ClickOutside from "vue-click-outside";
 export default {
-	props: ["userid", "roleid", "avatar", "name", "school"],
+	props: ["userid", "roleid", "avatar", "name", "school", "token"],
 	watch: {
-		$route: function() {
-		}
+		$route: function() {}
 	},
 	data: () => ({
 		navdrawer: null
@@ -164,6 +172,8 @@ export default {
 		this.$store.commit("setUserId", this.userid);
 		this.$store.commit("setRoleId", this.roleid);
 		this.$store.commit("setAvatar", this.avatar);
+		this.$store.commit("setGtoken", this.token);
+		this.token = "";
 	},
 	methods: {
 		gotoCovid() {

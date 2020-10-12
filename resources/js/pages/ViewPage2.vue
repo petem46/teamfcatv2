@@ -674,9 +674,8 @@ export default {
 							gFiles[i].url +
 							'" target="_blank" class="' +
 							gFiles[i].type +
-							'"><img src="' +
-							gFiles[i].url +
-							'" /></a>' +
+							'"><img src="https://drive.google.com/uc?export=download&amp;id='
+              + gFiles[i].id + '" /></a>' +
 							"</div>"
 					});
 				}

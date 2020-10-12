@@ -5,7 +5,7 @@
 		</div>
 		<div v-if="!loading">
 			<div
-				class="container pt-md-6rem"
+				class="container pt-md-6rem vh-100"
 				@mouseover="showEditHeaderButton = true"
 				@mouseleave="showEditHeaderButton = false"
 			>
@@ -19,15 +19,16 @@
 						@dblclick="editTitle = true"
 					>
 						<h1 class="text-h3 py-0 align-center-md">
-							{{section.title}}
-							<span class="teal--text">{{section.tealTitle }}</span>
+							Remote Teaching
+							<br />
+							<span class="teal--text">&amp; Learning</span>
 						</h1>
-						<h2 class="text-h4 text-subtitle py-0 align-center-md">{{section.subTitle}}</h2>
+						<h2 class="text-h4 text-subtitle py-0 align-center-md"></h2>
 						<p
 							v-if="!editWelcomeSubText"
 							class="lead grey--text text-subtitle text-center text-md-left"
 							style="white-space: pre-line !important;"
-						>{{ section.welcomeSubText }}</p>
+						>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit omnis perspiciatis dolor dolorum libero eveniet, officia sint praesentium modi ratione voluptate dolore, provident corporis. Rerum quod error dolor eum numquam!</p>
 						<v-row>
 							<v-col cols="12" lg="4" v-for="button in section.buttons" :key="button.id" :to="button.link">
 								<v-btn dark :class="button.color + ' v-size--' + getBtnSize" class="btn-block">
@@ -44,7 +45,7 @@
 							data-aos-duration="1750"
 							height="350"
 							contain
-							:src="section.landingImage"
+							src="images/remote-tl-landing.jpg"
 						></v-img>
 						<div class="text-right">
 							<div v-html="section.landingImageCaption"></div>
@@ -119,6 +120,74 @@
 				</v-card>
 			</v-dialog>
 
+			<section class="teal lighten-2 ">
+				<div class="container white--text">
+					<div class="row align-items-center">
+						<div class="col-lg-6">
+							<div class="p-5">
+								<img
+									class="img-fluid rounded-circle"
+									src="https://startbootstrap.github.io/startbootstrap-one-page-wonder/img/02.jpg"
+									alt
+								/>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="p-5">
+								<h2 class="display-4">Heading Teal</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6 order-lg-2">
+							<div class="p-5">
+								<img
+									class="img-fluid rounded-circle"
+									src="https://startbootstrap.github.io/startbootstrap-one-page-wonder/img/01.jpg"
+									alt
+								/>
+							</div>
+						</div>
+						<div class="col-lg-6 order-lg-1">
+							<div class="p-5">
+								<h2 class="display-4">Heading White</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="orange darken-2 ">
+				<div class="container white--text">
+					<div class="row align-items-center">
+						<div class="col-lg-6">
+							<div class="p-5">
+								<img
+									class="img-fluid rounded-circle"
+									src="https://startbootstrap.github.io/startbootstrap-one-page-wonder/img/02.jpg"
+									alt
+								/>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="p-5">
+								<h2 class="display-4">Heading Orange</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+
 			<v-card flat tile class="grey lighten-2 mb-md-10">
 				<!-- <v-parallax src="/images/grey.jpg" min-height="350"> -->
 				<v-container fluid>
@@ -128,7 +197,7 @@
 							lg="4"
 							:data-aos="cardtrans(card.id)"
 							data-aos-duration="1750"
-              data-aos-anchor-placement="bottom-bottom"
+							data-aos-anchor-placement="bottom-bottom"
 							v-for="(card, index) in section.actioncards"
 							:key="card.id"
 						>

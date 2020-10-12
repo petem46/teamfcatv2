@@ -14,6 +14,7 @@ import DataInformationLandingPage from './pages/DataInformationLandingPage'
 import UpdatesLandingPage from './pages/UpdatesLandingPage'
 import PolicyDocsLandingPage from './pages/PolicyDocsLandingPage'
 import EventsDatesLandingPage from './pages/EventsDatesLandingPage'
+import RemoteTLPage from './pages/RemoteTLPage'
 import Panda from './pages/Panda'
 import Penguin from './pages/Penguin'
 import ViewPage from './pages/ViewPage'
@@ -128,6 +129,12 @@ export default new Router({
       path: '/calendar',
       name: 'calendar',
       component: EventsDatesLandingPage,
+      props: true
+    },
+    {
+      path: '/remotetl',
+      name: 'remotetl',
+      component: RemoteTLPage,
       props: true
     },
     {

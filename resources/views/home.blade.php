@@ -12,6 +12,7 @@
   avatar="{{ Auth::user()->avatar }}"
   name="{{ Auth::user()->name }}"
   school="{{ Auth::user()->school }}"
+  token="{{ Auth::user()->token }}"
 >
 </app>
 

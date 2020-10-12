@@ -29,6 +29,7 @@ Vue.component("tip-tap-editor-bar-textblock", require("./components/EditorBarTex
 Vue.component("tip-tap-editor-bar-image", require("./components/EditorBarImage.vue").default);
 Vue.component("latest-menu", require("./components/LatestMenu.vue").default);
 Vue.component("key-info-menu", require("./components/KeyInfoMenu.vue").default);
+Vue.component("remote-learning-menu", require("./components/RemoteLearningMenu.vue").default);
 Vue.component(
   "academies-menu",
   require("./components/AcademiesMenu.vue").default
