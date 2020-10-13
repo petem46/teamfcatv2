@@ -68,13 +68,20 @@ export default {
 			// console.log("Create Picker", google.picker);
 			if (this.pickerApiLoaded && this.oauthToken) {
 				const googleViewId = google.picker.ViewId.DOCS;
-				const docsView = new google.picker.DocsView()
+				const docsView = new google.picker.DocsView(googleViewId)
 					.setIncludeFolders(true)
 					.setSelectFolderEnabled(true)
-					.setOwnedByMe(true);
+          .setOwnedByMe(true);
+
+      const folderView = new google.picker.DocsView(googleViewId)
+        .setIncludeFolders(true)
+        .setEnableDrives(true)
+        .setSelectFolderEnabled(true);
+
 				var picker = new google.picker.PickerBuilder()
 					.enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
 					.addView(docsView)
+					.addView(folderView)
 					// .addView(google.picker.ViewId.FOLDERS)
 					// .addView(google.picker.ViewId.DOCS)
 					.setOAuthToken(this.oauthToken)
