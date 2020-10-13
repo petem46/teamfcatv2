@@ -90,7 +90,7 @@
 			<remote-learning-menu></remote-learning-menu>
 			<central-services-menu></central-services-menu>
 
-      <g-apps-menu :avatar="avatar"></g-apps-menu>
+      <g-apps-menu :avatar="avatar" @logout="logout"></g-apps-menu>
 
 			<!-- <v-menu :nudge-width="200" offset-y>
 				<template v-slot:activator="{ on }">

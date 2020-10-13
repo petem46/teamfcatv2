@@ -21,7 +21,11 @@
 							<v-btn elevation="0" fab tile color="white">
 								<a href="http://mail.google.com" target="_blank">
 									<v-avatar tile>
-										<v-img contain src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Gmail_Icon.svg" alt="GMail"></v-img>
+										<v-img
+											contain
+											src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Gmail_Icon.svg"
+											alt="GMail"
+										></v-img>
 									</v-avatar>
 								</a>
 							</v-btn>
@@ -135,12 +139,19 @@
 						</v-col>
 					</v-row>
 				</v-card-text>
+				<v-divider></v-divider>
+				<v-card-actions>
+					<v-spacer></v-spacer>
+					<v-btn small text @click.prevent='$emit("logout")'>
+						<v-icon class="mr-2">fa-sign-out-alt</v-icon>Log Out
+					</v-btn>
+				</v-card-actions>
 			</v-card>
 		</v-menu>
 	</div>
 </template>
 <script>
 export default {
-	props: ["avatar"]
+  props: ["avatar"]
 };
 </script>

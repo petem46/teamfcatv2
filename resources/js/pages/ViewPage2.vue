@@ -684,10 +684,11 @@ export default {
 						name: "Google Drive Video",
 						id: gFiles[i].id,
 						content:
-              '<div role="imageHolder"><video width="600" controls><source src="https://drive.google.com/uc?export=download&amp;id='
-              + gFiles[i].id + '" type="video/mp4" /></video>'
+              '<div role="videoGoogleDrive"><iframe src="https://drive.google.com/file/d/'
+              + gFiles[i].id + '/preview" width="600" height="337" frameborder="0" scrolling="no" ></iframe>'
               + '</div>'
-					});
+          });
+          // <iframe src="https://drive.google.com/file/d/1BO0-AXwZUggZ2FzHtWSvRI0_7IkR3-Ez/preview" width="640" height="480"></iframe>
 				}
 			}
 		},
