@@ -90,7 +90,9 @@
 			<remote-learning-menu></remote-learning-menu>
 			<central-services-menu></central-services-menu>
 
-			<v-menu :nudge-width="200" offset-y>
+      <g-apps-menu :avatar="avatar"></g-apps-menu>
+
+			<!-- <v-menu :nudge-width="200" offset-y>
 				<template v-slot:activator="{ on }">
 					<v-btn icon v-on="on">
 						<v-icon>mdi-dots-vertical</v-icon>
@@ -136,7 +138,7 @@
 						</v-btn>
 					</v-card-actions>
 				</v-card>
-			</v-menu>
+			</v-menu> -->
 		</v-app-bar>
 
 		<!-- MAIN ROUTER-VIEW ------------------------------------->

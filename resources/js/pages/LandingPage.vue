@@ -5,7 +5,7 @@
 		</div>
 		<div v-if="!loading">
 			<div
-				class="container pt-md-6rem"
+				class="container pt-md-6rem vh-md-100"
 				@mouseover="showEditHeaderButton = true"
 				@mouseleave="showEditHeaderButton = false"
 			>

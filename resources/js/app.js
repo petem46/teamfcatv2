@@ -18,6 +18,7 @@ Vue.use(ClickOutside);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component("landing-page", require("./pages/LandingPage.vue").default);
+Vue.component("g-apps-menu", require("./components/GAppsMenu.vue").default);
 Vue.component("google-picker", require("./components/GooglePicker.vue").default);
 Vue.component("page-header", require("./components/PageHeader.vue").default);
 Vue.component("page-side-bar", require("./components/PageSideBar.vue").default);

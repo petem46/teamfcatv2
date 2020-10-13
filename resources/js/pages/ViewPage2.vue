@@ -794,6 +794,8 @@ export default {
 			slug = slug.replace(/\s*$/g, "");
 			// Change whitespace to "-"
 			slug = slug.replace(/\s+/g, "-");
+			// Change dodgy characters to ""
+			slug = slug.replace(/\W/g, "");
 
 			return slug;
 		},
@@ -869,7 +871,7 @@ export default {
 	},
 	watch: {
 		slug(val) {
-			this.page.slug = val.replace(/\W/g, "");
+      this.page.slug = val.replace(/\W/g, "");
 		}
 	}
 };
