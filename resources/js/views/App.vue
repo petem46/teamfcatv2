@@ -1,145 +1,8 @@
 <template>
 	<v-app id="teamfcat">
-		<v-navigation-drawer stateless v-model="navdrawer" app fixed clipped floating light>
-			<v-list dense nav shaped>
-				<v-list-item link to="/">
-					<v-list-item-action>
-						<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
-					</v-list-item-action>
-					<v-list-item-content>
-						<v-list-item-title class="grey--text">Home</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
-				<v-list-item link to="/covid">
-					<v-list-item-action>
-						<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
-					</v-list-item-action>
-					<v-list-item-content>
-						<v-list-item-title class="grey--text">COVID-19</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
-				<v-list-item link to="/updates">
-					<v-list-item-action>
-						<v-icon class="grey--icon grey--text">mdi-account-group</v-icon>
-					</v-list-item-action>
-					<v-list-item-content>
-						<v-list-item-title class="grey--text">Updates</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
-				<v-list-item link to="https://cpd.teamfcat.co.uk">
-					<v-list-item-action>
-						<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
-					</v-list-item-action>
-					<v-list-item-content>
-						<v-list-item-title class="grey--text">CPD Portal</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
-				<v-list-item
-					link
-					to="https://www.spongyelephant.com/login/?register=true&access_code=FCAT-AFE2"
-				>
-					<v-list-item-action>
-						<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
-					</v-list-item-action>
-					<v-list-item-content>
-						<v-list-item-title class="grey--text">GDPR Training</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
-				<v-list-item link>
-					<v-list-item-action>
-						<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
-					</v-list-item-action>
-					<v-list-item-content>
-						<v-list-item-title class="grey--text">Menu</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
-				<v-list-item link>
-					<v-list-item-action>
-						<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
-					</v-list-item-action>
-					<v-list-item-content>
-						<v-list-item-title class="grey--text">Menu</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
-			</v-list>
-		</v-navigation-drawer>
+		<nav-drawer :navdrawer="navdrawer"></nav-drawer>
 
-		<v-app-bar
-			app
-			clipped-left
-			elevate-on-scroll
-			white
-			class="top-border--teal"
-		>
-			<!-- <v-app-bar app clipped-left flat hide-on-scroll scroll-threshold="500" class="top-border--teal"> -->
-			<v-app-bar-nav-icon @click.stop="navdrawer = !navdrawer"></v-app-bar-nav-icon>
-			<v-toolbar-title class="pl-1">
-				<v-avatar :size="avatarsize" tile class="mr-3 teal--text">
-					<img src="/images/hexagon-icon.png" />
-				</v-avatar>
-				<span class>Team FCAT</span>
-			</v-toolbar-title>
-			<v-spacer></v-spacer>
-
-			<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/updates">
-				<v-icon class="mr-2 grey--text lighten-1">mdi-clock-alert-outline</v-icon>Updates
-			</v-btn>
-
-			<!-- <latest-menu></latest-menu> -->
-			<key-info-menu></key-info-menu>
-			<remote-learning-menu></remote-learning-menu>
-			<central-services-menu></central-services-menu>
-
-      <g-apps-menu :avatar="avatar" @logout="logout"></g-apps-menu>
-
-			<!-- <v-menu :nudge-width="200" offset-y>
-				<template v-slot:activator="{ on }">
-					<v-btn icon v-on="on">
-						<v-icon>mdi-dots-vertical</v-icon>
-					</v-btn>
-				</template>
-
-				<v-card class="top-border--teal">
-					<v-list>
-						<v-list-item>
-							<v-list-item-avatar>
-								<img :src="avatar" />
-							</v-list-item-avatar>
-
-							<v-list-item-content>
-								<v-list-item-title>{{name}}</v-list-item-title>
-								<v-list-item-subtitle>{{school}}</v-list-item-subtitle>
-							</v-list-item-content>
-						</v-list-item>
-					</v-list>
-					<v-divider></v-divider>
-					<v-list>
-						<v-list-item>
-							<v-list-item-title>
-								<v-icon class="mr-2 grey--text lighten-2">far fa-check-circle</v-icon>Menu choice
-							</v-list-item-title>
-						</v-list-item>
-						<v-list-item>
-							<v-list-item-title>
-								<v-icon class="mr-2 grey--text lighten-2">far fa-check-circle</v-icon>Menu choice
-							</v-list-item-title>
-						</v-list-item>
-						<v-list-item>
-							<v-list-item-title>
-								<v-icon class="mr-2 grey--text lighten-2">far fa-check-circle</v-icon>Menu choice
-							</v-list-item-title>
-						</v-list-item>
-					</v-list>
-					<v-divider></v-divider>
-					<v-card-actions>
-						<v-spacer></v-spacer>
-						<v-btn small text @click.prevent="logout()">
-							<v-icon class="mr-2">fa-sign-out-alt</v-icon>Log Out
-						</v-btn>
-					</v-card-actions>
-				</v-card>
-			</v-menu> -->
-		</v-app-bar>
+		<top-nav-bar :navdrawer="navdrawer" @navdrawerClick="navdrawerClick" @showCheckDetailsDialog="showCheckDetailsDialog=true"></top-nav-bar>
 
 		<!-- MAIN ROUTER-VIEW ------------------------------------->
 		<v-main class="pb-0">
@@ -150,6 +13,79 @@
 			<!-- </transition> -->
 		</v-main>
 
+		<v-dialog v-model="showCheckDetailsDialog" persistent class="container">
+			<v-card class>
+				<v-toolbar color="teal" dark>
+					<v-toolbar-title class="container">Please check and update your details</v-toolbar-title>
+					<v-spacer></v-spacer>
+					<v-btn text @click="saveDetails">Save</v-btn>
+				</v-toolbar>
+				<v-container fluid pt-3>
+					<v-row>
+						<v-col cols="12" lg="6">
+							<v-text-field v-model="user.name" label="Name" color="teal" disabled hide-details dense>
+								<v-icon slot="prepend" class="mx-2" color="teal">fa-user fa-fw</v-icon>
+							</v-text-field>
+						</v-col>
+						<v-col cols="12" lg="6">
+							<v-text-field
+								v-model="user.email"
+								label="Email Address"
+								color="teal"
+								disabled
+								hide-details
+								dense
+							>
+								<v-icon slot="prepend" class="mx-2" color="teal">far fa-id-badge fa-fw</v-icon>
+							</v-text-field>
+						</v-col>
+					</v-row>
+					<v-row>
+						<v-col cols="12">
+							<v-text-field
+								v-model="user.keyrole"
+								outlined
+								label="Role(s)"
+								color="teal"
+								hint="Please enter your role(s) in school. (DSL, French Teacher, Attendance Officer, etc)"
+								persistent-hint
+							>
+								<v-icon slot="prepend" class="mx-2" color="teal">fa-user-tag fa-fw</v-icon>
+							</v-text-field>
+						</v-col>
+					</v-row>
+					<v-row>
+						<v-col cols="12">
+							<v-text-field
+								v-model="user.ext"
+								outlined
+								label="Phone or extension number(s)"
+								color="teal"
+								hint="If you have a phone or extension number please enter it here"
+								persistent-hint
+							>
+								<v-icon slot="prepend" class="mx-2" color="teal">fa-phone fa-fw</v-icon>
+							</v-text-field>
+						</v-col>
+					</v-row>
+					<v-row>
+						<v-col cols="12">
+							<v-text-field
+								v-model="user.mobile"
+								outlined
+								label="Mobile phone number(s)"
+								color="teal"
+								hint="If you have a mobile phone for work use please enter it here"
+								persistent-hint
+							>
+								<v-icon slot="prepend" class="mx-2" color="teal">fa-mobile-alt fa-fw</v-icon>
+							</v-text-field>
+						</v-col>
+					</v-row>
+				</v-container>
+			</v-card>
+		</v-dialog>
+
 		<!-- FOOTER SECTION ------------------------------------->
 		<v-footer hidden app clipped class="px-10">
 			<span>TeamFCAT &copy; 2020</span>
@@ -159,27 +95,54 @@
 <script>
 import ClickOutside from "vue-click-outside";
 export default {
-	props: ["userid", "roleid", "avatar", "name", "school", "token"],
 	watch: {
 		$route: function() {}
 	},
 	data: () => ({
-		navdrawer: null
+		navdrawer: false,
+		showCheckDetailsDialog: false,
+		user: ""
 	}),
 	created() {
 		// this.$vuetify.theme.dark = false;
 	},
 	mounted() {
-		this.$store.commit("setName", this.name);
-		this.$store.commit("setUserId", this.userid);
-		this.$store.commit("setRoleId", this.roleid);
-		this.$store.commit("setAvatar", this.avatar);
-		this.$store.commit("setGtoken", this.token);
-		this.token = "";
+		this.getUserDetails();
 	},
 	methods: {
+		getUserDetails() {
+			axios
+				.get("/get/userDetails")
+				.then(({ data }) => {
+					this.$store.commit("setUser", data);
+					this.$store.commit("setName", data.name);
+					this.$store.commit("setUserId", data.userid);
+					this.$store.commit("setRoleId", data.roleid);
+					this.$store.commit("setAvatar", data.avatar);
+					this.$store.commit("setGtoken", data.token);
+				})
+				.then(() => {
+					this.checkDetails();
+				});
+		},
+		checkDetails() {
+			this.user = this.$store.getters.getUser;
+			if(!this.user.keyrole) {this.showCheckDetailsDialog = true};
+		},
+		saveDetails() {
+			console.log("Saving Details");
+			axios.post("/post/userDetails/" + this.user.id, this.user).then(() => {});
+			this.showCheckDetailsDialog = false;
+		},
 		gotoCovid() {
 			this.$router.push("/covid");
+		},
+		navdrawerClick() {
+			if (!this.navdrawer) {
+				this.navdrawer = true;
+			} else {
+				this.navdrawer = false;
+			}
 		},
 		logout() {
 			console.log("logout");
@@ -191,15 +154,6 @@ export default {
 				.catch(error => {
 					window.location.href = "/login";
 				});
-		}
-	},
-	computed: {
-		avatarsize() {
-			if (this.$vuetify.breakpoint.smAndDown) {
-				return 32;
-			} else {
-				return 48;
-			}
 		}
 	}
 };

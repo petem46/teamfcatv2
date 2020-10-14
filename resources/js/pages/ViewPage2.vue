@@ -650,7 +650,10 @@ export default {
 			console.log(gFiles);
 			length = gFiles.length;
 			for (var i = 0; i < length; i++) {
-				if (gFiles[i].type == "file") {
+				if (
+					gFiles[i].type == "file" ||
+					gFiles[i].type == "folder"
+				) {
 					this.list2.push({
 						name: "Google Drive File",
 						id: gFiles[i].id,
@@ -674,22 +677,49 @@ export default {
 							gFiles[i].url +
 							'" target="_blank" class="' +
 							gFiles[i].type +
-							'"><img src="https://drive.google.com/uc?export=download&amp;id='
-              + gFiles[i].id + '" /></a>' +
+							'"><img src="https://drive.google.com/uc?export=download&amp;id=' +
+							gFiles[i].id +
+							'" /></a>' +
 							"</div>"
 					});
 				}
-				if (gFiles[i].type == "video") {
-					this.list2.push({
-						name: "Google Drive Video",
-						id: gFiles[i].id,
-						content:
-              '<div role="videoGoogleDrive"><iframe src="https://drive.google.com/file/d/'
-              + gFiles[i].id + '/preview" width="600" height="337" frameborder="0" scrolling="no" ></iframe>'
-              + '</div>'
-          });
-          // <iframe src="https://drive.google.com/file/d/1BO0-AXwZUggZ2FzHtWSvRI0_7IkR3-Ez/preview" width="640" height="480"></iframe>
-				}
+					if (gFiles[i].type == "video") {
+						this.list2.push({
+							name: "Google Drive Video",
+							id: gFiles[i].id,
+							content:
+				        '<div role="videoGoogleDrive"><iframe src="https://drive.google.com/file/d/'
+				        + gFiles[i].id + '/preview" width="600" height="337" frameborder="0" scrolling="no" ></iframe>'
+				        + '</div>' +
+							'<div class="row"><div class="text-left col-12"><a href="' +
+							gFiles[i].url +
+							'" target="_blank"' +
+							'"><div role="listitem" class="v-list-item v-list-item--link"><div class="v-avatar v-list-item__avatar rounded-0 v-avatar--tile" style="height: 16px; min-width: 16px; width: 16px;"><img src="' +
+							gFiles[i].iconUrl +
+							'"/></div>' +
+							gFiles[i].name +
+							"</div></a></div></div>"
+				    });
+					}
+				// if (gFiles[i].type == "video") {
+				// 	this.list2.push({
+				// 		name: "Google Drive Video",
+				// 		id: gFiles[i].id,
+				// 		content:
+				// 			'<div role="imageHolder"><video width="600" controls><source src="https://drive.google.com/uc?export=download&amp;id=' +
+				// 			gFiles[i].id +
+				// 			'" type="video/mp4" /></video>' +
+				// 			"</div>" +
+				// 			'<div class="row"><div class="text-left col-12"><a href="' +
+				// 			gFiles[i].url +
+				// 			'" target="_blank"' +
+				// 			'"><div role="listitem" class="v-list-item v-list-item--link"><div class="v-avatar v-list-item__avatar rounded-0 v-avatar--tile" style="height: 16px; min-width: 16px; width: 16px;"><img src="' +
+				// 			gFiles[i].iconUrl +
+				// 			'"/></div>' +
+				// 			gFiles[i].name +
+				// 			"</div></a></div></div>"
+				// 	});
+				// }
 			}
 		},
 		randID() {
@@ -872,7 +902,7 @@ export default {
 	},
 	watch: {
 		slug(val) {
-      this.page.slug = val.replace(/\W/g, "");
+			this.page.slug = val.replace(/\W/g, "");
 		}
 	}
 };

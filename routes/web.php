@@ -18,6 +18,10 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/gdpr', 'HomeController@gdpr')->name('gdpr');
 
 Route::group(['middleware' => ['auth']], function () {
+
+  Route::get('/get/userDetails','AppController@getUserDetails');
+  Route::post('/post/userDetails/{id}','AppController@updateUserDetails');
+
   Route::get('/get/sectionlanding/{id}', 'PagesController@getSectionLanding');
   Route::get('/get/listpages/{id}', 'PagesController@getListPages');
   Route::put('/put/updateSectionLanding/{id}', 'PagesController@updateSectionLanding');

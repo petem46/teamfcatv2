@@ -5,14 +5,14 @@
 		</div>
 		<div v-if="!loading">
 			<div
-				class="container pt-md-6rem vh-md-100"
+				class="container pt-md-6rem"
 				@mouseover="showEditHeaderButton = true"
 				@mouseleave="showEditHeaderButton = false"
 			>
 				<v-row>
 					<v-col
 						data-aos="zoom-out-left"
-						data-aos-duration="1750"
+						data-aos-duration="1200"
 						cols="12"
 						lg="6"
 						class="d=flex align-center order-md-1 order-2"
@@ -41,7 +41,7 @@
 						<v-btn dark fab absolute top right v-if="showEditHeaderButton" @click="editTitle = true">EDIT</v-btn>
 						<v-img
 							data-aos="zoom-in"
-							data-aos-duration="1750"
+							data-aos-duration="1200"
 							height="350"
 							contain
 							:src="section.landingImage"
@@ -120,15 +120,14 @@
 			</v-dialog>
 
 			<v-card flat tile class="grey lighten-2 mb-md-10">
-				<!-- <v-parallax src="/images/grey.jpg" min-height="350"> -->
+				<v-parallax src="/images/grey.jpg" min-height="350">
 				<v-container fluid>
 					<v-row class="py-5">
 						<v-col
 							cols="12"
 							lg="4"
 							:data-aos="cardtrans(card.id)"
-							data-aos-duration="1750"
-              data-aos-anchor-placement="bottom-bottom"
+							data-aos-duration="1200"
 							v-for="(card, index) in section.actioncards"
 							:key="card.id"
 						>
@@ -186,7 +185,7 @@
 						</v-col>
 					</v-row>
 				</v-container>
-				<!-- </v-parallax> -->
+				</v-parallax>
 			</v-card>
 
 			<v-dialog v-model="showEditCardDialog" width="600px">
@@ -340,9 +339,6 @@
 					class="z2"
 					elevation="8"
 					style="min-height: 400px;"
-					data-aos="zoom-in-up"
-					data-aos-duration="1750"
-					data-aos-anchor-placement="bottom-bottom"
 				>
 					<v-toolbar dark flat class="teal" src>
 						<v-toolbar-title class="text-uppercase text-h4 py-2">{{section.tealTitle}} Pages</v-toolbar-title>
@@ -390,7 +386,7 @@
 			<div
 				data-aos="fade-up"
 				data-aod-delay="100"
-				data-aos-duration="1750"
+				data-aos-duration="1200"
 				class="position-relative mt-n16"
 			>
 				<div class="shape shape-bottom shape-fluid-x svg-shim teal--text text--darken-4">
@@ -567,7 +563,7 @@ export default {
 								console.log(res.status);
 							}
 						});
-				}, 1750);
+				}, 1200);
 			}
 			this.typing = true;
 		},
@@ -600,13 +596,13 @@ export default {
 		},
 		cardtrans(id) {
 			if (id == 1) {
-				return "zoom-out-right";
+				return "fade-down";
 			}
 			if (id == 2) {
-				return "zoom-in";
+				return "fade-down";
 			}
 			if (id == 3) {
-				return "zoom-in-left";
+				return "fade-down";
 			}
 		}
 	},

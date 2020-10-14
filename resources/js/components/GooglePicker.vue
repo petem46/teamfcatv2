@@ -33,7 +33,7 @@ export default {
 	methods: {
 		// The function which handles Google Auth and Loads the Picker
 		async driveIconClicked() {
-			// console.log("Clicked");
+			console.log("Clicked");
 			if (this.pickerApiLoaded && this.oauthToken) {
 				this.createPicker();
 			} else {

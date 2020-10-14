@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    user: null,
     userid: null,
     roleid: null,
     avatar: null,
@@ -12,6 +13,9 @@ export default new Vuex.Store({
     gtoken: null,
   },
   mutations: {
+    setUser(state, id) {
+      state.user = id;
+    },
     setUserId(state, id) {
       state.userid = id;
     },
@@ -30,6 +34,9 @@ export default new Vuex.Store({
   },
   actions: {},
   getters: {
+    getUser(state) {
+      return state.user;
+    },
     getName(state) {
       return state.name;
     },
