@@ -17,7 +17,7 @@ Vue.use(vueFilterPrettyBytes);
 Vue.use(ClickOutside);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component("nav-drawer", require("./components/NavDrawer.vue").default);
+Vue.component("nav-drawer", require("./components/SideNavDrawer.vue").default);
 Vue.component("top-nav-bar", require("./components/TopNavBar.vue").default);
 Vue.component("landing-page", require("./pages/LandingPage.vue").default);
 Vue.component("g-apps-menu", require("./components/GAppsMenu.vue").default);
