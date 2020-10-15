@@ -24,7 +24,6 @@
 				<v-list-item-content>
 					<v-list-item-title class="grey--text">Updates</v-list-item-title>
 				</v-list-item-content>
-
 			</v-list-item>
 			<v-list-item link to="https://cpd.teamfcat.co.uk">
 				<v-list-item-action>

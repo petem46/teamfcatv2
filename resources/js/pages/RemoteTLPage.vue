@@ -5,7 +5,7 @@
 		</div>
 		<div v-if="!loading">
 			<div
-				class="container pt-md-6rem vh-100"
+				class="container pt-md-6rem"
 				@mouseover="showEditHeaderButton = true"
 				@mouseleave="showEditHeaderButton = false"
 			>
@@ -120,7 +120,7 @@
 				</v-card>
 			</v-dialog>
 
-			<section class="teal lighten-2 ">
+			<section class="teal lighten-2">
 				<div class="container white--text">
 					<div class="row align-items-center">
 						<div class="col-lg-6">
@@ -134,7 +134,133 @@
 						</div>
 						<div class="col-lg-6">
 							<div class="p-5">
-								<h2 class="display-4">Heading Teal</h2>
+								<h2 class="display-4">Support</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6 order-lg-2">
+							<div class="p-5">
+								<img class="img-fluid rounded-circle" src="/images/rtl-research-1.jpg" alt />
+							</div>
+						</div>
+						<div class="col-lg-6 order-lg-1">
+							<div class="p-5">
+								<h2 class="display-4">Research</h2>
+								<h2 class="display-1 teal--text">EEF Remote Learning: Rapid Evidence Assessment</h2>
+								<p>This rapid evidence assessment aimed to investigate methods that schools could use to support remote learning during school closures caused by the 2020 coronavirus pandemic (Covid-19). The review sought to find the best evidence behind the wide array of approaches that schools might choose to use during the crisis.</p>
+								<a
+									href="https://educationendowmentfoundation.org.uk/public/files/Remote_Learning_Rapid_Evidence_Assessment.pdf"
+									target="_blank"
+								>
+									<v-btn large>Read more about this research ....</v-btn>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6">
+							<div class="p-5">
+								<img class="img-fluid rounded-circle" src="/images/rtl-research-2.jpg" alt />
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="p-5">
+								<h2
+									class="display-1 teal--text"
+								>NFER: Schools' responses to Covid-19: pupil engagement in remote learning</h2>
+								<p>On 20th March 2020, the British Government ordered schools to close to the majority of pupils. This was a pivotal moment as the majority of pupils transitioned to learning remotely from home and schools had to adapt rapidly to this new way of teaching. With the majority of pupils not expected to return to the classroom until the autumn, remote learning remains at the heart of how schools will need to continue to support pupils’ learning in the coming months.</p>
+								<p>Given the potential impact of this extended period of remote learning, NFER undertook an independent assessment to see how engaged pupils are, and the factors that might be driving this, as well as how schools are providing remote learning support for pupils. The report is based on findings from a national survey of 1,233 senior leaders and 1,821 teachers in publicly-funded, mainstream primary and secondary schools in England. Responses between 7th and 17th May have been weighted by phase and free school meal (FSM) eligibility to provide a nationally representative picture.</p>
+								<a
+									href="https://www.nfer.ac.uk/schools-responses-to-covid-19-pupil-engagement-in-remote-learning/"
+									target="_blank"
+								>
+									<v-btn large>Read more about this research ....</v-btn>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section dark class="teal white--text">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6 order-lg-2">
+							<div class="p-5">
+								<img
+									class="img-fluid rounded-circle"
+									src="images/google-training-img.jpg"
+									alt="Google Teacher Center Image"
+								/>
+							</div>
+						</div>
+						<div class="col-lg-6 order-lg-1">
+							<div class="p-5">
+								<h2 class="display-4">Google Teacher Center</h2>
+								<span>Learning never stops.</span>
+								<br />
+								<span>Explore free technology training and resources for educators.</span>
+								<br />
+								<span>Learn basic and advanced skills across Google tools with free online training courses designed for educators of all levels.</span>
+								<br />
+								<a href="https://edu.google.com/teacher-center" target="_blank">
+									<v-btn large class="mt-5" dark>Visit Google Teacher Center</v-btn>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="grey lighten-2">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6 order-lg-2">
+							<div class="p-5">
+								<img class="img-fluid rounded-circle" src="/images/rtl-microsoft-center.jpg" alt />
+							</div>
+						</div>
+						<div class="col-lg-6 order-lg-1">
+							<div class="p-5">
+								<h2 class="display-4">Microsoft Education</h2>
+								<h2 class="teal--text">Making the transition to remote learning</h2>
+								<p>As schools around the world respond to COVID-19, the need for remote learning tools is urgent. To make the transition to distance learning easier, we’ve created resources, training, and how-to guides that we hope will help schools, educators, students, and their families as they navigate remote learning.</p>
+								<a href="https://www.microsoft.com/en-gb/education/remote-learning" target="_blank">
+									<v-btn large class="mt-5" dark>Visit Microsoft Education Remote Learning</v-btn>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="orange darken-2">
+				<div class="container white--text">
+					<div class="row align-items-center">
+						<div class="col-lg-6">
+							<div class="p-5">
+								<img
+									class="img-fluid rounded-circle"
+									src="https://startbootstrap.github.io/startbootstrap-one-page-wonder/img/02.jpg"
+									alt
+								/>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="p-5">
+								<h2 class="display-4">Podcasts/Channels</h2>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
 							</div>
 						</div>
@@ -156,37 +282,13 @@
 						</div>
 						<div class="col-lg-6 order-lg-1">
 							<div class="p-5">
-								<h2 class="display-4">Heading White</h2>
+								<h2 class="display-4">Safeguarding</h2>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-
-			<section class="orange darken-2 ">
-				<div class="container white--text">
-					<div class="row align-items-center">
-						<div class="col-lg-6">
-							<div class="p-5">
-								<img
-									class="img-fluid rounded-circle"
-									src="https://startbootstrap.github.io/startbootstrap-one-page-wonder/img/02.jpg"
-									alt
-								/>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="p-5">
-								<h2 class="display-4">Heading Orange</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-
 
 			<v-card flat tile class="grey lighten-2 mb-md-10">
 				<!-- <v-parallax src="/images/grey.jpg" min-height="350"> -->

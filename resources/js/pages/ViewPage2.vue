@@ -197,7 +197,7 @@
 						<v-col cols="12" sm="12">
 							<v-card>
 								<v-toolbar color="teal" dark>
-									<v-toolbar-title class="white--text">Pete's File Manager | {{ currentFolderName }}</v-toolbar-title>
+									<v-toolbar-title class="white--text">File Manager | {{ currentFolderName }}</v-toolbar-title>
 									<!-- <v-btn fab color="green" bottom right absolute @click="$refs.fileInputUpload.click()">
 										<v-icon>mdi-plus</v-icon>
 									</v-btn>-->

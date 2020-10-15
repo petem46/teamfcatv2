@@ -10,13 +10,20 @@
 		</v-toolbar-title>
 		<v-spacer></v-spacer>
 
-		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/updates">
+		<!-- <v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/updates">
 			<v-icon class="mr-2 grey--text lighten-1">mdi-clock-alert-outline</v-icon>Updates
+		</v-btn> -->
+		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/covid">
+			<v-icon class="mr-2 grey--text lighten-1">mdi-clock-alert-outline</v-icon>COVID-19
+		</v-btn>
+
+		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/remotetl">
+			<v-icon class="mr-2 grey--text lighten-1">mdi-clock-alert-outline</v-icon>REMOTE T&amp;L
 		</v-btn>
 
 		<!-- <latest-menu></latest-menu> -->
+		<!-- <remote-learning-menu></remote-learning-menu> -->
 		<key-info-menu></key-info-menu>
-		<remote-learning-menu></remote-learning-menu>
 		<central-services-menu></central-services-menu>
 
 		<g-apps-menu :avatar="this.$store.getters.getAvatar" @logout="logout" v-on="$listeners"></g-apps-menu>
