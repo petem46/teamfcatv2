@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="top: 64px;">
 		<div v-if="loading" class="container pt-md-6rem">
 			<v-progress-circular indeterminate teal></v-progress-circular>
 		</div>
@@ -120,20 +120,41 @@
 				</v-card>
 			</v-dialog>
 
-			<section class="teal lighten-2">
+			<v-app-bar app absolute elevate-on-scroll color="white" style="position: sticky; top: 64px;">
+				<v-toolbar-title>Remote Teaching &amp; Learning</v-toolbar-title>
+
+				<v-spacer></v-spacer>
+				<a href="#support">
+					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Support</v-btn>
+				</a>
+				<a href="#research">
+					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Research</v-btn>
+				</a>
+				<a href="#google">
+					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Google</v-btn>
+				</a>
+				<a href="#microsoft">
+					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Microsoft</v-btn>
+				</a>
+				<a href="#safeguarding">
+					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Safeguarding</v-btn>
+				</a>
+			</v-app-bar>
+
+			<section id="support" class="teal lighten-2 top-border--teal rtl-vh-100">
 				<div class="container white--text">
 					<div class="row align-items-center">
 						<div class="col-lg-6">
-							<div class="p-5">
+							<div class="p-lg-5">
 								<img
 									class="img-fluid rounded-circle"
-									src="https://startbootstrap.github.io/startbootstrap-one-page-wonder/img/02.jpg"
+									src="/images/remote-tl-landing.jpg"
 									alt
 								/>
 							</div>
 						</div>
 						<div class="col-lg-6">
-							<div class="p-5">
+							<div class="p-lg-5">
 								<h2 class="display-4">Support</h2>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
 							</div>
@@ -142,24 +163,24 @@
 				</div>
 			</section>
 
-			<section>
+			<section id="research" app class="top-border--teal grey lighten-4 rtl-vh-100">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6 order-lg-2">
-							<div class="p-5">
+							<div class="p-lg-5">
 								<img class="img-fluid rounded-circle" src="/images/rtl-research-1.jpg" alt />
 							</div>
 						</div>
 						<div class="col-lg-6 order-lg-1">
-							<div class="p-5">
-								<h2 class="display-4">Research</h2>
-								<h2 class="display-1 teal--text">EEF Remote Learning: Rapid Evidence Assessment</h2>
+							<div class="p-lg-5">
+								<h2 class="display-4 teal--text">Research</h2>
+								<h2 class="display-1">EEF Remote Learning: Rapid Evidence Assessment</h2>
 								<p>This rapid evidence assessment aimed to investigate methods that schools could use to support remote learning during school closures caused by the 2020 coronavirus pandemic (Covid-19). The review sought to find the best evidence behind the wide array of approaches that schools might choose to use during the crisis.</p>
 								<a
 									href="https://educationendowmentfoundation.org.uk/public/files/Remote_Learning_Rapid_Evidence_Assessment.pdf"
 									target="_blank"
 								>
-									<v-btn large>Read more about this research ....</v-btn>
+									<v-btn dark large>Read more about this research</v-btn>
 								</a>
 							</div>
 						</div>
@@ -167,18 +188,18 @@
 				</div>
 			</section>
 
-			<section>
+			<section class="grey lighten-4">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6">
-							<div class="p-5">
+							<div class="p-lg-5">
 								<img class="img-fluid rounded-circle" src="/images/rtl-research-2.jpg" alt />
 							</div>
 						</div>
 						<div class="col-lg-6">
-							<div class="p-5">
+							<div class="p-lg-5">
 								<h2
-									class="display-1 teal--text"
+									class="display-1"
 								>NFER: Schools' responses to Covid-19: pupil engagement in remote learning</h2>
 								<p>On 20th March 2020, the British Government ordered schools to close to the majority of pupils. This was a pivotal moment as the majority of pupils transitioned to learning remotely from home and schools had to adapt rapidly to this new way of teaching. With the majority of pupils not expected to return to the classroom until the autumn, remote learning remains at the heart of how schools will need to continue to support pupils’ learning in the coming months.</p>
 								<p>Given the potential impact of this extended period of remote learning, NFER undertook an independent assessment to see how engaged pupils are, and the factors that might be driving this, as well as how schools are providing remote learning support for pupils. The report is based on findings from a national survey of 1,233 senior leaders and 1,821 teachers in publicly-funded, mainstream primary and secondary schools in England. Responses between 7th and 17th May have been weighted by phase and free school meal (FSM) eligibility to provide a nationally representative picture.</p>
@@ -186,7 +207,7 @@
 									href="https://www.nfer.ac.uk/schools-responses-to-covid-19-pupil-engagement-in-remote-learning/"
 									target="_blank"
 								>
-									<v-btn large>Read more about this research ....</v-btn>
+									<v-btn dark large>Read more about this research</v-btn>
 								</a>
 							</div>
 						</div>
@@ -194,11 +215,11 @@
 				</div>
 			</section>
 
-			<section dark class="teal white--text">
+			<section id="google" dark class="green darken-2 white--text">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6 order-lg-2">
-							<div class="p-5">
+							<div class="p-lg-5">
 								<img
 									class="img-fluid rounded-circle"
 									src="images/google-training-img.jpg"
@@ -207,7 +228,7 @@
 							</div>
 						</div>
 						<div class="col-lg-6 order-lg-1">
-							<div class="p-5">
+							<div class="p-lg-5">
 								<h2 class="display-4">Google Teacher Center</h2>
 								<span>Learning never stops.</span>
 								<br />
@@ -216,7 +237,7 @@
 								<span>Learn basic and advanced skills across Google tools with free online training courses designed for educators of all levels.</span>
 								<br />
 								<a href="https://edu.google.com/teacher-center" target="_blank">
-									<v-btn large class="mt-5" dark>Visit Google Teacher Center</v-btn>
+									<v-btn large class="mt-5 orange darken-3" dark>Visit Google Teacher Center</v-btn>
 								</a>
 							</div>
 						</div>
@@ -224,21 +245,21 @@
 				</div>
 			</section>
 
-			<section class="grey lighten-2">
+			<section id="microsoft" class="grey lighten-2 vh-rtl-100">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6 order-lg-2">
-							<div class="p-5">
+							<div class="p-lg-5">
 								<img class="img-fluid rounded-circle" src="/images/rtl-microsoft-center.jpg" alt />
 							</div>
 						</div>
 						<div class="col-lg-6 order-lg-1">
-							<div class="p-5">
+							<div class="p-lg-5">
 								<h2 class="display-4">Microsoft Education</h2>
-								<h2 class="teal--text">Making the transition to remote learning</h2>
+								<h2 class="blue--text text--darken-1">Making the transition to remote learning</h2>
 								<p>As schools around the world respond to COVID-19, the need for remote learning tools is urgent. To make the transition to distance learning easier, we’ve created resources, training, and how-to guides that we hope will help schools, educators, students, and their families as they navigate remote learning.</p>
 								<a href="https://www.microsoft.com/en-gb/education/remote-learning" target="_blank">
-									<v-btn large class="mt-5" dark>Visit Microsoft Education Remote Learning</v-btn>
+									<v-btn large class="mt-5 blue darken-1" dark>Visit Microsoft Education Remote Learning</v-btn>
 								</a>
 							</div>
 						</div>
@@ -246,42 +267,152 @@
 				</div>
 			</section>
 
-			<section class="orange darken-2">
+			<section id="tutorials" class="grey darken-2 vh-rtl-100">
 				<div class="container white--text">
 					<div class="row align-items-center">
 						<div class="col-lg-6">
-							<div class="p-5">
-								<img
-									class="img-fluid rounded-circle"
-									src="https://startbootstrap.github.io/startbootstrap-one-page-wonder/img/02.jpg"
-									alt
-								/>
+							<div class="p-lg-5">
+								<img class="img-fluid rounded-circle" src="/images/rtl-podcasts-yellow.jpg" alt />
 							</div>
 						</div>
 						<div class="col-lg-6">
-							<div class="p-5">
-								<h2 class="display-4">Podcasts/Channels</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+							<div class="p-lg-5">
+								<h2 class="display-4">Podcasts, Webinars &amp; YouTube Tutorials</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container white--text">
+					<div class="row align-items-center">
+						<div class="col-lg-6 order-lg-1">
+							<div class="p-lg-5">
+								<!-- <h2 class="display-4">Loom</h2> -->
+								<h2 class>How to use Loom and record your lesson for Remote and Online learning</h2>
+								<p>As more and more teachers are looking into remote learning and teaching. Here's a tutorial on using Loom to record your own lessons, screen-casts and presentations. It's easy to install, use and once you've recorded your first video, you will love the responses your students give you.</p>
+							</div>
+						</div>
+						<div class="col-lg-6 order-lg-2">
+							<div class="p-lg-5">
+								<iframe
+									width="560"
+									height="315"
+									src="https://www.youtube-nocookie.com/embed/11pfvBNsXkA"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen
+								></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="container white--text">
+					<div class="row align-items-center">
+						<div class="col-lg-6 order-lg-1">
+							<div class="p-lg-5">
+								<!-- <h2 class="display-4">Loom</h2> -->
+								<h2 class>Remote teaching webinar: an introduction to the EEF planning framework</h2>
+								<p>Roger Higgins (Director of Norwich Research School) and Dr Niki Kaiser (Network Research Lead, Norwich Research School; Science Content Specialist, EEF) present a webinar on remote teaching. Originally delivered to Suffolk and Norfolk SCITT ITT trainees, June 2020.</p>
+							</div>
+						</div>
+						<div class="col-lg-6 order-lg-2">
+							<div class="p-lg-5">
+								<iframe
+									width="560"
+									height="315"
+									src="https://www.youtube-nocookie.com/embed/r-r02r3Lkxw"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen
+								></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="container white--text">
+					<div class="row align-items-center">
+						<div class="col-lg-6 order-lg-1">
+							<div class="p-lg-5">
+								<!-- <h2 class="display-4">Loom</h2> -->
+								<h2 class>How to Use Google Classroom 2020 - Tutorial for Beginners</h2>
+								<p>This video tutorial will show you how to use Google Classroom for Beginners 2020. Google Classroom for Teachers is a fantastic way to help with remote or online learning. I will also show how Google Classroom for students works.</p>
+							</div>
+						</div>
+						<div class="col-lg-6 order-lg-2">
+							<div class="p-lg-5">
+								<iframe
+									width="560"
+									height="315"
+									src="https://www.youtube-nocookie.com/embed/pl-tBjAM9g4"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen
+								></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="container white--text">
+					<div class="row align-items-center">
+						<div class="col-lg-6 order-lg-1">
+							<div class="p-lg-5">
+								<!-- <h2 class="display-4">Loom</h2> -->
+								<h2 class>Remote Learning with ClassDojo - Webinar 19/09/2020</h2>
+								<p>Join Caitlin, a former teacher now on the ClassDojo team, as she shares how to transition your in-person community to a remote learning community where you can continue to foster relationships with students and families.</p>
+							</div>
+						</div>
+						<div class="col-lg-6 order-lg-2">
+							<div class="p-lg-5">
+								<iframe
+									width="560"
+									height="315"
+									src="https://www.youtube-nocookie.com/embed/OAEkfrwtAOI"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen
+								></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="container white--text">
+					<div class="row align-items-center">
+						<div class="col-lg-6 order-lg-1">
+							<div class="p-lg-5">
+								<!-- <h2 class="display-4">Loom</h2> -->
+								<h2 class>What is Nearpod?</h2>
+								<p>Get an overview of Nearpod, the platform that combines engaging media and formative assessments to make every lesson interactive.</p>
+							</div>
+						</div>
+						<div class="col-lg-6 order-lg-2">
+							<div class="p-lg-5">
+								<iframe
+									width="560"
+									height="315"
+									src="https://www.youtube-nocookie.com/embed/cYVHSAqEeMM"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen
+								></iframe>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section>
+			<section id="safeguarding" class="amber darken-3 vh-rtl-100">
 				<div class="container">
 					<div class="row align-items-center">
-						<div class="col-lg-6 order-lg-2">
-							<div class="p-5">
-								<img
-									class="img-fluid rounded-circle"
-									src="https://startbootstrap.github.io/startbootstrap-one-page-wonder/img/01.jpg"
-									alt
-								/>
+						<div class="col-lg-6 order-lg-1">
+							<div class="p-lg-5">
+								<img class="img-fluid rounded-circle white" src="/images/rtl-safeguarding-image.jpg" alt />
 							</div>
 						</div>
-						<div class="col-lg-6 order-lg-1">
-							<div class="p-5">
+						<div class="col-lg-6 order-lg-2">
+							<div class="p-lg-5">
 								<h2 class="display-4">Safeguarding</h2>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
 							</div>
@@ -289,290 +420,6 @@
 					</div>
 				</div>
 			</section>
-
-			<v-card flat tile class="grey lighten-2 mb-md-10">
-				<!-- <v-parallax src="/images/grey.jpg" min-height="350"> -->
-				<v-container fluid>
-					<v-row class="py-5">
-						<v-col
-							cols="12"
-							lg="4"
-							:data-aos="cardtrans(card.id)"
-							data-aos-duration="1750"
-							data-aos-anchor-placement="bottom-bottom"
-							v-for="(card, index) in section.actioncards"
-							:key="card.id"
-						>
-							<v-card class="text-center" @mouseover="showEditCard(card.id)" @mouseleave="showEditCard(0)">
-								<v-btn
-									small
-									fab
-									class="mt-2"
-									absolute
-									right
-									v-if="showEditCardOneButton && card.id == 1"
-									@click="onEditCard(index)"
-								>
-									<v-icon small :color="card.color">fa-edit</v-icon>
-								</v-btn>
-								<v-btn
-									small
-									fab
-									class="mt-2"
-									absolute
-									right
-									v-if="showEditCardTwoButton && card.id == 2"
-									@click="onEditCard(index)"
-								>
-									<v-icon small :color="card.color">fa-edit</v-icon>
-								</v-btn>
-								<v-btn
-									small
-									fab
-									class="mt-2"
-									absolute
-									right
-									v-if="showEditCardThreeButton && card.id == 3"
-									@click="onEditCard(index)"
-								>
-									<v-icon small :color="card.color">fa-edit</v-icon>
-								</v-btn>
-								<v-card-title class="p-1" :class="card.color"></v-card-title>
-								<v-card-text>
-									<div class="text-h4 pt-2 mb-5" v-text="card.title"></div>
-									<v-avatar size="66" class="mb-5">
-										<v-icon
-											v-if="card.icon != 'fa-flag-usa'"
-											v-text="card.icon"
-											size="32"
-											class="white--text"
-											:class="card.color"
-										/>
-									</v-avatar>
-									<p class="text-gray-700 mb-5" v-text="card.text"></p>
-									<v-chip v-text="card.chip"></v-chip>
-								</v-card-text>
-								<!-- </v-img> -->
-							</v-card>
-						</v-col>
-					</v-row>
-				</v-container>
-				<!-- </v-parallax> -->
-			</v-card>
-
-			<v-dialog v-model="showEditCardDialog" width="600px">
-				<v-card>
-					<v-toolbar :color="editedCard.color" dark>
-						<v-toolbar-title>Edit Card Style &amp; Content</v-toolbar-title>
-						<v-spacer></v-spacer>
-						<v-btn text @click="showEditCardDialog = false">Close</v-btn>
-					</v-toolbar>
-					<v-container fluid pt-3>
-						<v-row>
-							<v-col cols="12">
-								<v-select
-									class="pb-3"
-									:items="actioncardsColorsList"
-									v-model="editedCard.color"
-									@keyup="save"
-									@change="save"
-									outlined
-									label="Card Color"
-									:color="editedCard.color"
-								>
-									<template slot="item" slot-scope="data">
-										<v-icon class="mr-3" :color="data.item">fa-square</v-icon>
-										<span class="cb-item">{{data.item}}</span>
-									</template>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-square fa-fw</v-icon>
-									<template v-slot:append-outer>
-										<v-tooltip bottom>
-											<template v-slot:activator="{ on }">
-												<v-icon
-													slot="append-outer"
-													v-on="on"
-													class="mx-2"
-													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>This option sets the color for the card and central icon
-										</v-tooltip>
-									</template>
-								</v-select>
-							</v-col>
-							<v-col cols="12">
-								<v-text-field
-									class="pb-3"
-									v-model="editedCard.title"
-									@keyup="save"
-									outlined
-									label="Title Text"
-									:color="editedCard.color"
-								>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-pencil-alt fa-fw</v-icon>
-									<template v-slot:append-outer>
-										<v-tooltip bottom>
-											<template v-slot:activator="{ on }">
-												<v-icon
-													slot="append-outer"
-													v-on="on"
-													class="mx-2"
-													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>This text will appear above the central icon
-										</v-tooltip>
-									</template>
-								</v-text-field>
-							</v-col>
-							<v-col cols="12">
-								<v-select
-									class="pb-3"
-									:items="actioncardsIconsList"
-									v-model="editedCard.icon"
-									@keyup="save"
-									@change="save"
-									outlined
-									label="Card Icon"
-									:color="editedCard.color"
-								>
-									<template slot="item" slot-scope="data">
-										<v-icon class="mr-3" :color="editedCard.color">{{data.item}} fa-fw</v-icon>
-										<span class="cb-item">{{data.item}}</span>
-									</template>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">{{editedCard.icon}} fa-fw</v-icon>
-									<template v-slot:append-outer>
-										<v-tooltip bottom>
-											<template v-slot:activator="{ on }">
-												<v-icon
-													slot="append-outer"
-													v-on="on"
-													class="mx-2"
-													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>The selected icon will appear in the central of the card with a coloured circle background
-										</v-tooltip>
-									</template>
-								</v-select>
-							</v-col>
-							<v-col cols="12">
-								<v-text-field
-									class="pb-3"
-									v-model="editedCard.text"
-									@keyup="save"
-									outlined
-									label="Card Text"
-									:color="editedCard.color"
-								>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-pencil-alt fa-fw</v-icon>
-									<template v-slot:append-outer>
-										<v-tooltip bottom>
-											<template v-slot:activator="{ on }">
-												<v-icon
-													slot="append-outer"
-													v-on="on"
-													class="mx-2"
-													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>This text will appear below the central icon
-										</v-tooltip>
-									</template>
-								</v-text-field>
-							</v-col>
-							<v-col cols="12">
-								<v-text-field
-									class="pb-3"
-									v-model="editedCard.chip"
-									@keyup="save"
-									outlined
-									label="Bottom Text"
-									:color="editedCard.color"
-								>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-comment-medical fa-fw</v-icon>
-									<template v-slot:append-outer>
-										<v-tooltip bottom>
-											<template v-slot:activator="{ on }">
-												<v-icon
-													slot="append-outer"
-													v-on="on"
-													class="mx-2"
-													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>Text here will appear in the grey bar at the bottom of the card. Email addresses and phone numbers work best here.
-										</v-tooltip>
-									</template>
-								</v-text-field>
-							</v-col>
-						</v-row>
-					</v-container>
-				</v-card>
-			</v-dialog>
-
-			<v-container class="z2 pb-md-30">
-				<v-card
-					class="z2"
-					elevation="8"
-					style="min-height: 400px;"
-					data-aos="zoom-in-up"
-					data-aos-duration="1750"
-					data-aos-anchor-placement="bottom-bottom"
-				>
-					<v-toolbar dark flat class="teal" src>
-						<v-toolbar-title class="text-uppercase text-h4 py-2">{{section.tealTitle}} Pages</v-toolbar-title>
-						<v-tooltip left>
-							<template v-slot:activator="{ on, attrs }">
-								<v-btn
-									v-bind="attrs"
-									v-on="on"
-									small
-									dark
-									fab
-									absolute
-									bottom
-									right
-									color="green"
-									:to="'/p2' + section.link + '/newpage'"
-								>
-									<v-icon small>fa fa-plus fa-fw</v-icon>
-								</v-btn>
-							</template>
-							Add New Page
-						</v-tooltip>
-					</v-toolbar>
-					<v-list two-line shaped class="grey lighten-5">
-						<v-row>
-							<v-col cols="12" md="6" v-for="page in pages" :key="page.id">
-								<v-list-item :to="'/p2' + section.link + '/' + page.slug">
-									<v-list-item-avatar class="mr-3">
-										<!-- <v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon> -->
-										<v-icon class="teal--text">fa-book-open</v-icon>
-									</v-list-item-avatar>
-									<v-list-item-content>
-										<v-list-item-title v-html="page.title" class></v-list-item-title>
-										<v-list-item-subtitle v-html="page.subtitle" class="text--secondary"></v-list-item-subtitle>
-									</v-list-item-content>
-									<v-list-item-action>
-										<v-chip v-if="chipStatusShow(page)" small color="teal" dark>{{chipStatusText(page)}}</v-chip>
-									</v-list-item-action>
-								</v-list-item>
-							</v-col>
-						</v-row>
-					</v-list>
-				</v-card>
-			</v-container>
-			<div
-				data-aos="fade-up"
-				data-aod-delay="100"
-				data-aos-duration="1750"
-				class="position-relative mt-n16"
-			>
-				<div class="shape shape-bottom shape-fluid-x svg-shim teal--text text--darken-4">
-					<svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor" />
-					</svg>
-				</div>
-			</div>
-			<div class="teal darken-4">
-				<v-card class="teal darken-4" min-height="400px"></v-card>
-			</div>
 		</div>
 	</div>
 </template>
@@ -584,10 +431,10 @@ import AOS from "aos";
 export default {
 	props: ["id", "sectionname"],
 	watch: {
-		$route: function() {
-			this.getContent();
-			alert("ALERT");
-		}
+		// $route: function() {
+		// 	this.getContent();
+		// 	alert("ALERT");
+		// }
 	},
 	data() {
 		return {
@@ -857,5 +704,18 @@ svg {
 
 .v-input input {
 	color: teal !important;
+}
+.vh-rtl-100 {
+	min-height: calc(100vh - 128px);
+}
+section:before {
+	content: "";
+	display: block;
+	height: 100px;
+}
+section:after {
+	content: "";
+	display: block;
+	height: 100px;
 }
 </style>
