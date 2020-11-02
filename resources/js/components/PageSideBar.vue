@@ -15,7 +15,7 @@
 					<v-list-item
 						v-for="item in sidemenuitems"
 						:key="item.id"
-						:to="'/p2' + item.section.link + '/' + item.slug"
+						:to="'/p2' + area.link + '/' + item.slug"
 					>
 						<v-list-item-content>
 							<v-list-item-title>
@@ -98,7 +98,7 @@
 							</v-list-item-title>
 						</v-list-item-content>
 					</v-list-item>
-					<v-list-item v-if="slug != 'newpage' && !showEdit" :to="'/p2' + section.link + '/newpage'">
+					<v-list-item v-if="slug != 'newpage' && !showEdit" :to="'/p2' + area.link + '/newpage'">
 						<v-list-item-content>
 							<v-list-item-title>
 								<v-icon small class="mr-3">far fa-plus-square fa-fw</v-icon>Add New Page
@@ -116,9 +116,17 @@ export default {
 	components: {
 		draggable
 	},
-	props: ["slug", "sidemenuitems", "loading", "showEdit", "section"],
+	props: [
+		"slug",
+		"sidemenuitems",
+		"loading",
+		"showEdit",
+		"section",
+		"areaname"
+	],
 	data() {
 		return {
+			area: [],
 			showConfirmDelete: false,
 			listOne: [
 				{
@@ -143,9 +151,17 @@ export default {
 	},
 	mounted() {
 		this.getPageTitle();
+		this.getAreaDetails(this.areaname);
 	},
 	methods: {
 		getPageTitle() {},
+		getAreaDetails(areaname) {
+			// this.loading = true;
+			axios.get("/get/areadetails/" + this.areaname).then(res => {
+				this.area = res.data;
+			});
+			console.log(this.area);
+		},
 		addSection(item) {
 			if (item.name == "Heading") {
 				this.$emit("addHeading", item);

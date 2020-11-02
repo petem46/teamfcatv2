@@ -7,7 +7,7 @@
 				<v-breadcrumbs-divider>
 					<v-icon>mdi-chevron-right</v-icon>
 				</v-breadcrumbs-divider>
-				<v-breadcrumbs-item :to="section.link">{{section.tealTitle}}</v-breadcrumbs-item>
+				<v-breadcrumbs-item :to="area.link">{{area.tealTitle}}</v-breadcrumbs-item>
 				<v-breadcrumbs-divider>
 					<v-icon>mdi-chevron-right</v-icon>
 				</v-breadcrumbs-divider>
@@ -18,6 +18,23 @@
 </template>
 <script>
 export default {
-  props: ["title", "subtitle", "section"],
+	props: ["title", "subtitle", "section", "areaname"],
+	data() {
+		return {
+			area: []
+		};
+	},
+	mounted() {
+		this.getAreaDetails(this.areaname);
+	},
+	methods: {
+		getAreaDetails(areaname) {
+			// this.loading = true;
+			axios.get("/get/areadetails/" + this.areaname).then(res => {
+				this.area = res.data;
+			});
+			console.log(this.area);
+		}
+	}
 };
 </script>

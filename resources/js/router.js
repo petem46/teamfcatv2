@@ -54,13 +54,13 @@ export default new Router({
     //   props: true
     // },
     {
-      path: '/p2/:sectionname/:slug',
+      path: '/p2/:areaname/:slug',
       name: 'viewpage2',
       component: ViewPage2,
       props: true
     },
     {
-      path: '/newpage/:sectionname/:slug',
+      path: '/newpage/:areaname/:slug',
       name: 'newpage',
       component: ViewPage2,
       props: true

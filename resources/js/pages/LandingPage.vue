@@ -19,21 +19,23 @@
 						@dblclick="editTitle = true"
 					>
 						<h1 class="text-h3 py-0 align-center-md">
-							{{section.title}}
-							<span class="teal--text">{{section.tealTitle }}</span>
+							{{area.title}}
+							<span class="teal--text">{{area.tealTitle }}</span>
 						</h1>
-						<h2 class="text-h4 text-subtitle py-0 align-center-md">{{section.subTitle}}</h2>
+						<h2 class="text-h4 text-subtitle py-0 align-center-md">{{area.subTitle}}</h2>
 						<p
 							v-if="!editWelcomeSubText"
 							class="lead grey--text text-subtitle text-center text-md-left"
 							style="white-space: pre-line !important;"
-						>{{ section.welcomeSubText }}</p>
+						>{{ area.welcomeSubText }}</p>
 						<v-row>
-							<v-col cols="12" lg="4" v-for="button in section.buttons" :key="button.id" :to="button.link">
-								<v-btn dark :class="button.color + ' v-size--' + getBtnSize" class="btn-block">
-									<v-icon class="mr-2">{{button.icon}}</v-icon>
-									{{button.text}}
-								</v-btn>
+							<v-col cols="12" lg="4" v-for="button in area.buttons" :key="button.id">
+								<a :href="button.link">
+									<v-btn dark :class="button.color + ' v-size--' + getBtnSize" class="btn-block">
+										<v-icon class="mr-2">{{button.icon}}</v-icon>
+										{{button.text}}
+									</v-btn>
+								</a>
 							</v-col>
 						</v-row>
 					</v-col>
@@ -44,16 +46,16 @@
 							data-aos-duration="1200"
 							height="350"
 							contain
-							:src="section.landingImage"
+							:src="area.landingImage"
 						></v-img>
 						<div class="text-right">
-							<div v-html="section.landingImageCaption"></div>
+							<div v-html="area.landingImageCaption"></div>
 						</div>
 					</v-col>
 				</v-row>
 			</div>
 
-			<v-dialog v-model="editTitle" width="600px">
+			<v-dialog v-model="editTitle">
 				<v-card>
 					<v-toolbar color="teal" dark>
 						<v-toolbar-title>Edit Content</v-toolbar-title>
@@ -65,7 +67,7 @@
 							<v-col cols="12" sm="6">
 								<v-text-field
 									class="pb-3"
-									v-model="section.title"
+									v-model="area.title"
 									@keyup="save"
 									outlined
 									label="Title Text"
@@ -78,7 +80,7 @@
 								<v-text-field
 									class="pb-3"
 									style="color: teal !important"
-									v-model="section.tealTitle"
+									v-model="area.tealTitle"
 									@keyup="save"
 									outlined
 									label="Teal Text Title"
@@ -92,7 +94,7 @@
 							<v-col cols="12" sm="12">
 								<v-text-field
 									class="pb-3"
-									v-model="section.subTitle"
+									v-model="area.subTitle"
 									@keyup="save"
 									outlined
 									label="Sub Title Text"
@@ -105,12 +107,102 @@
 						<v-textarea
 							class="pb-3"
 							color="teal"
-							v-model="section.welcomeSubText"
+							v-model="area.welcomeSubText"
 							@keyup="save"
 							label="Welcome Text"
 							outlined
 							:hint="hint"
 						></v-textarea>
+
+						<v-row>
+							<v-col cols="12">
+								<v-text-field
+									class="pb-3 mb-3"
+									color="teal"
+									@keyup="save"
+									@click="save"
+									label="Banner Image"
+									value=" "
+									outlined
+									:hint="hint"
+									hidden
+								>
+									<template v-slot:prepend-inner>
+										<v-hover v-slot="{ hover }">
+											<v-img contain :src="area.landingImage" @change="save" width="450" class="pb-3">
+												<v-expand-transition>
+													<div
+														@click="onShowFileManager"
+														v-if="hover"
+														class="d-flex transition-fast-in-fast-out teal lighten-2 v-card--reveal white--text"
+														style="height: 100%;"
+													>CLICK TO CHANGE</div>
+												</v-expand-transition>
+											</v-img>
+										</v-hover>
+									</template>
+									<template v-slot:default>
+										<v-col cols="1"></v-col>
+									</template>
+								</v-text-field>
+							</v-col>
+						</v-row>
+						<v-row>
+							<v-col cols="12" lg="4" v-for="button in area.buttons" :key="button.id" :to="button.link">
+								<v-card>
+									<v-toolbar dense :color="button.color" dark>
+										<v-toolbar-title>Edit Button {{button.id}}</v-toolbar-title>
+									</v-toolbar>
+									<v-container fluid pt-3>
+										<v-text-field
+											@keyup="save"
+											:hint="hint"
+											outlined
+											color="teal"
+											v-model="button.text"
+											label="Button Text"
+										></v-text-field>
+										<v-text-field
+											@keyup="save"
+											:hint="hint"
+											outlined
+											color="teal"
+											v-model="button.icon"
+											label="Button Icon"
+										></v-text-field>
+										<v-text-field
+											@keyup="save"
+											@change="save"
+											:hint="hint"
+											outlined
+											color="teal"
+											v-model="button.link"
+											label="Button Link"
+										></v-text-field>
+										<v-select
+											outlined
+											color="teal"
+											@change="save"
+											v-model="button.link"
+											:items="sections"
+											item-text="title"
+											item-value="idlink"
+											label="Section Link"
+										></v-select>
+										<v-select
+											outlined
+											color="teal"
+											@change="save"
+											v-model="button.link"
+											:items="pages"
+											item-text="title"
+											item-value="link"
+											label="Page Link"
+										></v-select>
+									</v-container>
+								</v-card>
+							</v-col>
+						</v-row>
 						<v-card-actions hidden>
 							<v-spacer></v-spacer>
 							<v-btn text @click="editTitle = false">Close</v-btn>
@@ -119,74 +211,87 @@
 				</v-card>
 			</v-dialog>
 
-			<v-card flat tile class="grey lighten-2 mb-md-10">
-				<v-parallax src="/images/grey.jpg" min-height="350">
-				<v-container fluid>
-					<v-row class="py-5">
-						<v-col
-							cols="12"
-							lg="4"
-							:data-aos="cardtrans(card.id)"
-							data-aos-duration="1200"
-							v-for="(card, index) in section.actioncards"
-							:key="card.id"
-						>
-							<v-card class="text-center" @mouseover="showEditCard(card.id)" @mouseleave="showEditCard(0)">
-								<v-btn
-									small
-									fab
-									class="mt-2"
-									absolute
-									right
-									v-if="showEditCardOneButton && card.id == 1"
-									@click="onEditCard(index)"
+			<file-manager
+				:showFileManager="showFileManager"
+				@showFileManager="onShowFileManager"
+				@insertImage="insertImage"
+				@hideFileManager="onHideFileManager"
+			></file-manager>
+
+			<section>
+				<v-card flat tile class="grey lighten-2">
+					<!-- <v-parallax src="/images/grey.jpg" min-height="350" max-height="1200"> -->
+						<v-container fluid>
+							<v-row class="py-5">
+								<v-col
+									cols="12"
+									lg="4"
+									:data-aos="cardtrans(card.id)"
+									data-aos-duration="1200"
+									v-for="(card, index) in area.actioncards"
+									:key="card.id"
 								>
-									<v-icon small :color="card.color">fa-edit</v-icon>
-								</v-btn>
-								<v-btn
-									small
-									fab
-									class="mt-2"
-									absolute
-									right
-									v-if="showEditCardTwoButton && card.id == 2"
-									@click="onEditCard(index)"
-								>
-									<v-icon small :color="card.color">fa-edit</v-icon>
-								</v-btn>
-								<v-btn
-									small
-									fab
-									class="mt-2"
-									absolute
-									right
-									v-if="showEditCardThreeButton && card.id == 3"
-									@click="onEditCard(index)"
-								>
-									<v-icon small :color="card.color">fa-edit</v-icon>
-								</v-btn>
-								<v-card-title class="p-1" :class="card.color"></v-card-title>
-								<v-card-text>
-									<div class="text-h4 pt-2 mb-5" v-text="card.title"></div>
-									<v-avatar size="66" class="mb-5">
-										<v-icon
-											v-if="card.icon != 'fa-flag-usa'"
-											v-text="card.icon"
-											size="32"
-											class="white--text"
-											:class="card.color"
-										/>
-									</v-avatar>
-									<p class="text-gray-700 mb-5" v-text="card.text"></p>
-									<v-chip v-text="card.chip"></v-chip>
-								</v-card-text>
-								<!-- </v-img> -->
-							</v-card>
-						</v-col>
-					</v-row>
-				</v-container>
-				</v-parallax>
-			</v-card>
+									<v-card
+										class="text-center"
+										@mouseover="showEditCard(card.id)"
+										@mouseleave="showEditCard(0)"
+									>
+										<v-btn
+											small
+											fab
+											class="mt-2"
+											absolute
+											right
+											v-if="showEditCardOneButton && card.id == 1"
+											@click="onEditCard(index)"
+										>
+											<v-icon small :color="card.color">fa-edit</v-icon>
+										</v-btn>
+										<v-btn
+											small
+											fab
+											class="mt-2"
+											absolute
+											right
+											v-if="showEditCardTwoButton && card.id == 2"
+											@click="onEditCard(index)"
+										>
+											<v-icon small :color="card.color">fa-edit</v-icon>
+										</v-btn>
+										<v-btn
+											small
+											fab
+											class="mt-2"
+											absolute
+											right
+											v-if="showEditCardThreeButton && card.id == 3"
+											@click="onEditCard(index)"
+										>
+											<v-icon small :color="card.color">fa-edit</v-icon>
+										</v-btn>
+										<v-card-title class="p-1" :class="card.color"></v-card-title>
+										<v-card-text>
+											<div class="text-h4 pt-2 mb-5" v-text="card.title"></div>
+											<v-avatar size="66" class="mb-5">
+												<v-icon
+													v-if="card.icon != 'fa-flag-usa'"
+													v-text="card.icon"
+													size="32"
+													class="white--text"
+													:class="card.color"
+												/>
+											</v-avatar>
+											<p class="text-gray-700 mb-5" v-text="card.text"></p>
+											<v-chip v-text="card.chip"></v-chip>
+										</v-card-text>
+										<!-- </v-img> -->
+									</v-card>
+								</v-col>
+							</v-row>
+						</v-container>
+					<!-- </v-parallax> -->
+				</v-card>
+			</section>
 
 			<v-dialog v-model="showEditCardDialog" width="600px">
 				<v-card>
@@ -333,57 +438,12 @@
 					</v-container>
 				</v-card>
 			</v-dialog>
-
-			<v-container class="z2 pb-md-30">
-				<v-card
-					class="z2"
-					elevation="8"
-					style="min-height: 400px;"
-				>
-					<v-toolbar dark flat class="teal" src>
-						<v-toolbar-title class="text-uppercase text-h4 py-2">{{section.tealTitle}} Pages</v-toolbar-title>
-						<v-tooltip left>
-							<template v-slot:activator="{ on, attrs }">
-								<v-btn
-									v-bind="attrs"
-									v-on="on"
-									small
-									dark
-									fab
-									absolute
-									bottom
-									right
-									color="green"
-									:to="'/p2' + section.link + '/newpage'"
-								>
-									<v-icon small>fa fa-plus fa-fw</v-icon>
-								</v-btn>
-							</template>
-							Add New Page
-						</v-tooltip>
-					</v-toolbar>
-					<v-list two-line shaped class="grey lighten-5">
-						<v-row>
-							<v-col cols="12" md="6" v-for="page in pages" :key="page.id">
-								<v-list-item :to="'/p2' + section.link + '/' + page.slug">
-									<v-list-item-avatar class="mr-3">
-										<!-- <v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon> -->
-										<v-icon class="teal--text">fa-book-open</v-icon>
-									</v-list-item-avatar>
-									<v-list-item-content>
-										<v-list-item-title v-html="page.title" class></v-list-item-title>
-										<v-list-item-subtitle v-html="page.subtitle" class="text--secondary"></v-list-item-subtitle>
-									</v-list-item-content>
-									<v-list-item-action>
-										<v-chip v-if="chipStatusShow(page)" small color="teal" dark>{{chipStatusText(page)}}</v-chip>
-									</v-list-item-action>
-								</v-list-item>
-							</v-col>
-						</v-row>
-					</v-list>
-				</v-card>
-			</v-container>
-			<div
+			<section v-for="section in sections" :key="section.id" class="my-md-10">
+				<pages-section v-if="section.sectiontype_id == 1 || !section.sectiontype_id" :section="section"></pages-section>
+				<!-- <pages-section v-if="section.sectiontype_id == 2" :section="section"></pages-section> -->
+				<!-- <pages-section v-if="section.sectiontype_id == 3" :section="section"></pages-section> -->
+			</section>
+			<!-- <div
 				data-aos="fade-up"
 				data-aod-delay="100"
 				data-aos-duration="1200"
@@ -394,10 +454,10 @@
 						<path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor" />
 					</svg>
 				</div>
-			</div>
-			<div class="teal darken-4">
+			</div>-->
+			<!-- <div class="teal darken-4">
 				<v-card class="teal darken-4" min-height="400px"></v-card>
-			</div>
+			</div>-->
 		</div>
 	</div>
 </template>
@@ -407,17 +467,18 @@ import moment from "moment";
 import AOS from "aos";
 
 export default {
-	props: ["id", "sectionname"],
+	props: ["id", "areaname"],
 	watch: {
-		$route: function() {
-			this.getContent();
-			alert("ALERT");
-		}
+		// $route: function() {
+		// 	this.getContent();
+		// }
 	},
 	data() {
 		return {
 			loading: true,
-			section: {},
+			showFileManager: false,
+			area: {},
+			sections: {},
 			pages: {},
 			showEditHeaderButton: false,
 			showEditCardOneButton: false,
@@ -496,9 +557,9 @@ export default {
 			this.loading = true;
 			this.scrollToTop();
 			axios
-				.get("/get/sectionlanding/" + this.$route.name)
+				.get("/get/arealanding/" + this.$route.name)
 				.then(({ data }) => {
-					this.section = data;
+					this.area = data;
 				})
 				.then(() => {
 					this.getPages();
@@ -506,8 +567,9 @@ export default {
 		},
 		getPages() {
 			this.loading = true;
-			axios.get("/get/listpages/" + this.section.id).then(({ data }) => {
-				this.pages = data;
+			axios.get("/get/listpages/" + this.area.id).then(({ data }) => {
+				this.sections = data.sections;
+				this.pages = data.pages;
 				setTimeout(() => {
 					this.loading = false;
 				}, 550);
@@ -546,9 +608,9 @@ export default {
 			}
 		},
 		onEditCard(index) {
-			console.log(this.section.actioncards[index]);
+			console.log(this.area.actioncards[index]);
 			this.showEditCardDialog = true;
-			this.editedCard = this.section.actioncards[index];
+			this.editedCard = this.area.actioncards[index];
 			this.editedCard.index = index;
 		},
 		save(event) {
@@ -557,7 +619,7 @@ export default {
 					console.log(event.key);
 					this.typing = false;
 					axios
-						.put("/put/updateSectionLanding/" + this.section.id, this.section)
+						.put("/put/updateAreaLanding/" + this.area.id, this.area)
 						.then(res => {
 							if (res.status == 200) {
 								console.log(res.status);
@@ -569,6 +631,16 @@ export default {
 		},
 		newPage() {
 			console.log("NEW PAGE CLICK");
+		},
+		onShowFileManager() {
+			this.showFileManager = true;
+		},
+		onHideFileManager() {
+			this.showFileManager = false;
+		},
+		insertImage(file) {
+			this.area.landingImage = file.url;
+			this.save("POOK");
 		},
 		chipStatusShow(page) {
 			var now = moment();
@@ -596,13 +668,13 @@ export default {
 		},
 		cardtrans(id) {
 			if (id == 1) {
-				return "fade-down";
+				return "fade-right";
 			}
 			if (id == 2) {
-				return "fade-down";
+				return "fade-left";
 			}
 			if (id == 3) {
-				return "fade-down";
+				return "fade-right";
 			}
 		}
 	},
@@ -682,5 +754,14 @@ svg {
 
 .v-input input {
 	color: teal !important;
+}
+.v-card--reveal {
+	align-items: center;
+	bottom: 0;
+	justify-content: center;
+	opacity: 0.5;
+	position: absolute;
+	width: 100%;
+	cursor: pointer;
 }
 </style>

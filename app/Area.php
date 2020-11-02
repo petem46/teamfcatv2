@@ -10,7 +10,22 @@ class Area extends Model
   use SoftDeletes;
 
   protected $fillable = [
-    'name', 'active'
+    'name',
+    'active',
+    'title',
+    'tealTitle',
+    'subTitle',
+    'welcomeSubtext',
+    'link',
+    'landingImage',
+    'landingImageCaption',
+    'buttons',
+    'actioncards',
+  ];
+
+  protected $casts = [
+    'buttons' => 'array',
+    'actioncards' => 'array'
   ];
 
   public function section()

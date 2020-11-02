@@ -4,39 +4,63 @@ namespace App\Http\Controllers;
 
 use App\Page;
 use App\Section;
+use App\Area;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
-  public function getSectionLanding($name)
+  public function getAreaDetails($name)
   {
-    return $sectionLandingContent = Section::where('name', $name)->first();
+    return Area::where('name', $name)->first();
   }
 
-  public function updateSectionLanding($id, Request $request)
+  public function getAreaLanding($name)
   {
-    $section = Section::find($id);
-    if ($section) {
-      $section->title = $request->get('title');
-      $section->tealTitle = $request->get('tealTitle');
-      $section->subTitle = $request->get('subTitle');
-      $section->welcomeSubText = $request->get('welcomeSubText');
-      $section->actioncards = $request->get('actioncards');
-      $section->touch();
-      $section->save();
-      return response('Page Updated!!!', Response::HTTP_OK)->header('section_id', $section->id);
+    return $sectionLandingContent = Area::where('name', $name)->first();
+  }
+
+  public function updateAreaLanding($id, Request $request)
+  {
+    $area = Area::find($id);
+    if ($area) {
+      $area->title = $request->get('title');
+      $area->tealTitle = $request->get('tealTitle');
+      $area->subTitle = $request->get('subTitle');
+      $area->welcomeSubText = $request->get('welcomeSubText');
+      $area->landingImage = $request->get('landingImage');
+      $area->actioncards = $request->get('actioncards');
+      $area->buttons = $request->get('buttons');
+      $area->touch();
+      $area->save();
+      return response('Page Updated!!!', Response::HTTP_OK)->header('section_id', $area->id);
     }
     return 'NO OKAY';
   }
 
-  public function getListPages($id)
+  public function getListSections($area_id) {
+    return $section = Section::select('id','title', 'link')->where('area_id', $area_id)->where('active', 1)->orderBy('created_at', 'DESC')->get();
+  }
+
+  public function getListPages($area_id)
   {
-    return $pages = Page::where('section_id', $id)->orderBy('created_at', 'DESC')->get();
+    $data = [
+      'sections' => Section::with('area')->with('page')->where('area_id', $area_id)->orderBy('created_at', 'DESC')->select('*', DB::raw("CONCAT('#',sections.id) as idlink"))->get(),
+      'pages' => DB::table('pages')
+                  ->join('sections','sections.id','=','pages.section_id')
+                  ->join('areas', function($join) use($area_id) {
+                    $join->on('areas.id','=','sections.area_id')
+                      ->where('areas.id', '=', $area_id);
+                  })
+                  ->select('pages.*', DB::raw("CONCAT('/p2',areas.link,'/',pages.slug) as link"), 'sections.link as section_link', 'areas.id as area_id', 'areas.tealTitle as area_title')
+                  ->get(),
+    ];
+    return $data;
   }
 
   public function test($slug)

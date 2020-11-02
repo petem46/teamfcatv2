@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddKeyRoleFieldToUsersTable extends Migration
+class AddTypeToSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class AddKeyRoleFieldToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-          $table->string('keyrole')->nullable();
-          $table->string('ext')->nullable();
-          $table->string('mobile')->nullable();
+        Schema::table('sections', function (Blueprint $table) {
+            $table->integer('sectiontype_id')->after('subTitle');
         });
     }
 
@@ -27,8 +25,8 @@ class AddKeyRoleFieldToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-          $table->dropColumn(['keyrole','ext','mobile']);
+        Schema::table('sections', function (Blueprint $table) {
+            $table->dropColumn('sectiontype_id');
         });
     }
 }

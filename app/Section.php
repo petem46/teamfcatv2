@@ -12,21 +12,9 @@ class Section extends Model
   protected $fillable = [
     'area_id',
     'name',
-    'active',
     'title',
-    'tealTitle',
     'subTitle',
-    'welcomeSubtext',
-    'link',
-    'landingImage',
-    'landingImageCaption',
-    'buttons',
-    'actioncards',
-  ];
-
-  protected $casts = [
-    'buttons' => 'array',
-    'actioncards' => 'array'
+    'active',
   ];
 
   public function area()

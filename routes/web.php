@@ -17,17 +17,21 @@ Route::get('/callback', 'SocialAuthGoogleController@callback');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/gdpr', 'HomeController@gdpr')->name('gdpr');
 
+Route::get('/get/listsections/{area_id}', 'PagesController@getListSections');
+Route::get('/get/listpages/{area_id}', 'PagesController@getListPages');
+Route::get('/get/areadetails/{areaname}', 'PagesController@getAreaDetails');
+
+
 Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/get/userDetails','AppController@getUserDetails');
   Route::post('/post/userDetails/{id}','AppController@updateUserDetails');
 
-  Route::get('/get/sectionlanding/{id}', 'PagesController@getSectionLanding');
-  Route::get('/get/listpages/{id}', 'PagesController@getListPages');
-  Route::put('/put/updateSectionLanding/{id}', 'PagesController@updateSectionLanding');
+  Route::get('/get/arealanding/{id}', 'PagesController@getAreaLanding');
+  Route::put('/put/updateAreaLanding/{id}', 'PagesController@updateAreaLanding');
 
 
-  Route::get('/get/page/content/{sectionname}/{slug}', 'PagesController@getContent');
+  Route::get('/get/page/content/{areaname}/{slug}', 'PagesController@getContent');
   Route::post('/post/savepage', 'PagesController@savePage');
   Route::post('/post/savepage2', 'PagesController@savePage2');
 
