@@ -18,7 +18,7 @@
 </template>
 <script>
 export default {
-	props: ["title", "subtitle", "section", "areaname"],
+	props: ["title", "section", "areaname"],
 	data() {
 		return {
 			area: []

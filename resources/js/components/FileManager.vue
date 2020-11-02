@@ -32,6 +32,11 @@
 											<v-icon large color="green" class="mr-3">mdi-image</v-icon>Upload Image
 										</v-list-item-title>
 									</v-list-item>
+									<v-list-item @click="fileInputClick(fileVideoAccept)">
+										<v-list-item-title>
+											<v-icon large color="red" class="mr-3">mdi-video</v-icon>Upload Video
+										</v-list-item-title>
+									</v-list-item>
 									<v-list-item hidden>
 										<input
 											type="file"
@@ -171,6 +176,7 @@ export default {
 			fileAccept: "",
 			fileDocAccept: ".pdf,.doc,.zip,.docx,.xlsx,.xls",
 			fileImageAccept: ".png, .jpeg, .jpg, video/mp4,audio/mp3",
+			fileVideoAccept: ".mp4, video/mp4",
 			showNewFolderDialog: false,
 			newFolderName: "",
 			imageData: "",
@@ -209,6 +215,10 @@ export default {
 			this.getFolders();
 		},
 		onFileClick(file) {
+      console.log(file);
+      if (file.type.indexOf("video/") >= 0) {
+        this.$emit("insertVideo", file);
+      }
 			if (file.type.indexOf("image/") >= 0) {
 				this.$emit("insertImage", file);
 			}
@@ -235,6 +245,9 @@ export default {
 			}
 			if (AcceptType == this.fileDocAccept) {
 				this.fileAccept = this.fileDocAccept;
+			}
+			if (AcceptType == this.fileVideoAccept) {
+				this.fileAccept = this.fileVideoAccept;
 			}
 			setTimeout(() => {
 				this.$refs.fileInputUpload.click();

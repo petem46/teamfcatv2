@@ -2,7 +2,7 @@
 	<div>
 		<div class="mb-4 px-5 order-md-2 order-1">
 			<h1 class="">{{page.title}}</h1>
-			<h4 class="text--secondary">{{page.subtitle}}</h4>
+			<h4 v-if="page.subtitle" class="text--secondary">{{page.subtitle}}</h4>
 			<div v-html="page.htmlcontent"></div>
 		</div>
 	</div>

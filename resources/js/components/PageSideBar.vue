@@ -77,6 +77,13 @@
 						</v-list-item>
 					</draggable>
 					<google-picker v-if="showEdit" @addGoolgeDriveFile="addGoolgeDriveFile"></google-picker>
+					<v-list-item v-if="showEdit" @click="addVideo">
+						<v-list-item-content>
+							<v-list-item-title>
+								<v-icon small class="mr-3">far fa-file-video fa-fw</v-icon>Add/Upload Video
+							</v-list-item-title>
+						</v-list-item-content>
+					</v-list-item>
 					<v-list-item v-if="showEdit" @click="addImage">
 						<v-list-item-content>
 							<v-list-item-title>
@@ -175,6 +182,9 @@ export default {
 			if (item.name == "Image" || item.name == "File") {
 				this.$emit("showFileManager");
 			}
+		},
+		addVideo() {
+			this.$emit("showFileManager");
 		},
 		addImage() {
 			this.$emit("showFileManager");

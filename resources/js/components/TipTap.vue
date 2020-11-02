@@ -28,6 +28,9 @@
 				<v-btn icon v-if="this.item.name == 'Google Drive Video'" @click="showConfirmDelete = true">
 					<v-icon small color="red lighten-1">far fa-trash-alt</v-icon>
 				</v-btn>
+				<v-btn icon v-if="this.item.name.indexOf('video/') >= 0" @click="showConfirmDelete = true">
+					<v-icon small color="red lighten-1">far fa-trash-alt</v-icon>
+				</v-btn>
 				<v-btn
 					icon
 					v-if="this.item.name.indexOf('application/') >= 0"

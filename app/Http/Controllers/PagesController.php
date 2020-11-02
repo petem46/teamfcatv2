@@ -86,52 +86,12 @@ class PagesController extends Controller
     ];
   }
 
-  public function savePage(Request $request)
-  {
-    $uid = $request->get('uid');
-    if (!$uid) {
-      $uid = Auth::id();
-    }
-    if (!$uid) {
-      $uid = 1;
-    }
-    $page = Page::find($request->get('id'));
-    return ('WUT DA FLOOP');
-    try {
-      if ($page) {
-        $page->section_id = $request->get('section_id');
-        $page->title = $request->get('title');
-        $page->subtitle = $request->get('subtitle');
-        $page->slug = $request->get('slug');
-        $page->htmlcontent = $request->get('htmlcontent');
-        $page->jsoncontent = $request->get('jsoncontent');
-        $page->state_id = $request->get('state_id');
-        $page->user_id = $uid;
-        $page->touch();
-        $page->save();
-        // return response('Page Updated!!!', Response::HTTP_OK)->header('page_id', $page->id);
-      } else {
-        $newpage = Page::create([
-          'section_id' => $request->get('section_id'),
-          'title' => $request->get('title'),
-          'subtitle' => $request->get('subtitle'),
-          'slug' => $request->get('slug'),
-          'htmlcontent' => $request->get('htmlcontent'),
-          'jsoncontent' => $request->get('jsoncontent'),
-          'state_id' => $request->get('state_id'),
-          'user_id' => $uid,
-          // 'slug' => $request->get('slug'),
-        ]);
-        // return response('New Page Created', Response::HTTP_OK)->header('page_id', $newpage->id);
-      }
-    } catch (\Illuminate\Database\QueryException $e) {
-      return "error" . $e;
-      // return response('houston, we have a duplicate entry problem', Response::HTTP_NOT_ACCEPTABLE);
-    }
-  }
-
   public function savePage2(Request $request)
   {
+    $subtitle = '';
+    if($request->get('subtitle') != 'null') {
+      $subtitle = $request->get('subtitle');
+    }
     $uid = $request->get('uid');
     if (!$uid) {
       $uid = Auth::id();
@@ -145,7 +105,7 @@ class PagesController extends Controller
       if ($page) {
         $page->section_id = $request->get('section_id');
         $page->title = $request->get('title');
-        $page->subtitle = $request->get('subtitle');
+        $page->subtitle = $subtitle;
         $page->slug = $request->get('slug');
         $page->htmlcontent = $request->get('htmlcontent');
         $page->jsoncontent = $request->get('jsoncontent');
@@ -158,7 +118,7 @@ class PagesController extends Controller
         $newpage = Page::create([
           'section_id' => $request->get('section_id'),
           'title' => $request->get('title'),
-          'subtitle' => $request->get('subtitle'),
+          'subtitle' => $subtitle,
           'slug' => $request->get('slug'),
           'htmlcontent' => $request->get('htmlcontent'),
           'jsoncontent' => $request->get('jsoncontent'),

@@ -214,7 +214,7 @@
 			<file-manager
 				:showFileManager="showFileManager"
 				@showFileManager="onShowFileManager"
-				@insertImage="insertImage"
+				@insertImage="insertLandingImage"
 				@hideFileManager="onHideFileManager"
 			></file-manager>
 
@@ -638,7 +638,7 @@ export default {
 		onHideFileManager() {
 			this.showFileManager = false;
 		},
-		insertImage(file) {
+		insertLandingImage(file) {
 			this.area.landingImage = file.url;
 			this.save("POOK");
 		},

@@ -4,7 +4,6 @@
 			<page-header
 				v-if="!loading"
 				:title="page.title"
-				:subtitle="page.subtitle"
 				:section="page.section"
 				:areaname="areaname"
 			/>
@@ -172,6 +171,7 @@
 				<file-manager
 					:showFileManager="showFileManager"
 					@showFileManager="onShowFileManager"
+					@insertVideo="insertVideo"
 					@insertFile="insertFile"
 					@insertImage="insertImage"
 					@hideFileManager="onHideFileManager"
@@ -408,7 +408,28 @@ export default {
 				this.showEdit = true;
 			}
 		},
-
+		insertVideo(file) {
+			this.list2.push({
+				name: file.type,
+				id: this.randID(),
+				content:
+          '<div role="imageHolder">' +
+          '<video width="600" controls><source src="' +
+					file.url +
+					'" type="video/mp4" /></video>' +
+					'</div>' +
+					// '<div class="row"><div class="text-left col-12"><a href="' +
+					// file.url +
+					// '" target="_blank">' +
+					// '<div role="listitem" class="v-list-item v-list-item--link">' +
+					// '<div class="v-avatar v-list-item__avatar rounded-0 v-avatar--tile" style="height: 16px; min-width: 16px; width: 16px;">' +
+					// '<i class="far fa-file-video"></i>' +
+					// '</div>' +
+					// file.name +
+          // '</div></a></div>' +
+          '</div>'
+			});
+		},
 		insertImage(file) {
 			this.list2.push({
 				name: file.type,
