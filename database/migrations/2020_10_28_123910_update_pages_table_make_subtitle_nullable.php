@@ -14,7 +14,7 @@ class UpdatePagesTableMakeSubtitleNullable extends Migration
     public function up()
     {
       Schema::table('pages', function (Blueprint $table) {
-        $table->string('subtitle',150)->nullable()->change();
+        $table->string('subtitle')->nullable()->change();
       });
     }
 
