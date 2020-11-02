@@ -96,7 +96,7 @@
 						</div>
 						<v-card-actions>
 							<v-spacer></v-spacer>
-							<v-btn text @click="$emit('hideFileManager')">Close File Manager</v-btn>
+							<v-btn dark outlined @click="$emit('hideFileManager')">Close File Manager</v-btn>
 						</v-card-actions>
 					</v-card>
 				</v-col>
