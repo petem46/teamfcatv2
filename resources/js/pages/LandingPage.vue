@@ -29,14 +29,16 @@
 							style="white-space: pre-line !important;"
 						>{{ area.welcomeSubText }}</p>
 						<v-row>
-							<v-col cols="12" lg="4" v-for="button in area.buttons" :key="button.id">
-								<a :href="button.link">
-									<v-btn dark :class="button.color + ' v-size--' + getBtnSize" class="btn-block">
-										<v-icon class="mr-2">{{button.icon}}</v-icon>
-										{{button.text}}
-									</v-btn>
-								</a>
-							</v-col>
+							<section cols="12" lg="4" v-for="button in area.buttons" :key="button.id">
+								<v-col v-if="button.show == 'show'">
+									<a :href="button.link">
+										<v-btn dark :class="button.color + ' v-size--' + getBtnSize" class="btn-block">
+											<v-icon class="mr-2">{{button.icon}}</v-icon>
+											{{button.text}}
+										</v-btn>
+									</a>
+								</v-col>
+							</section>
 						</v-row>
 					</v-col>
 					<v-col cols="12" lg="6" class="order-md-2 order-1">
@@ -154,6 +156,50 @@
 										<v-toolbar-title>Edit Button {{button.id}}</v-toolbar-title>
 									</v-toolbar>
 									<v-container fluid pt-3>
+										<v-card-actions>
+											<v-row align="center" justify="center">
+												<v-btn-toggle
+													mandatory
+													v-model="button.show"
+													tile
+													:color="button.color"
+													group
+													@change="save"
+												>
+													<v-btn value="hide">Hide Button</v-btn>
+													<v-btn value="show">Show Button</v-btn>
+												</v-btn-toggle>
+											</v-row>
+										</v-card-actions>
+										<v-divider></v-divider>
+										<v-select
+											class="pb-3"
+											:items="actioncardsColorsList"
+											v-model="button.color"
+											@keyup="save"
+											@change="save"
+											outlined
+											label="Card Color"
+											:color="button.color"
+										>
+											<template slot="item" slot-scope="data">
+												<v-icon class="mr-3" :color="data.item">fa-square</v-icon>
+												<span class="cb-item">{{data.item}}</span>
+											</template>
+											<v-icon slot="prepend" class="mx-2" :color="button.color">fa-square fa-fw</v-icon>
+											<template v-slot:append-outer>
+												<v-tooltip bottom>
+													<template v-slot:activator="{ on }">
+														<v-icon
+															slot="append-outer"
+															v-on="on"
+															class="mx-2"
+															color="grey lighten-2"
+														>fa-info-circle fa-fw</v-icon>
+													</template>This option sets the color for the button
+												</v-tooltip>
+											</template>
+										</v-select>
 										<v-text-field
 											@keyup="save"
 											:hint="hint"
@@ -161,15 +207,37 @@
 											color="teal"
 											v-model="button.text"
 											label="Button Text"
-										></v-text-field>
-										<v-text-field
-											@keyup="save"
-											:hint="hint"
-											outlined
-											color="teal"
+										>
+											<v-icon slot="prepend" class="mx-2" :color="button.color">fa-edit fa-fw</v-icon>
+										</v-text-field>
+										<v-select
+											class="pb-3"
+											:items="actioncardsIconsList"
 											v-model="button.icon"
-											label="Button Icon"
-										></v-text-field>
+											@keyup="save"
+											@change="save"
+											outlined
+											label="Card Icon"
+											:color="button.color"
+										>
+											<template slot="item" slot-scope="data">
+												<v-icon class="mr-3" :color="button.color">{{data.item}} fa-fw</v-icon>
+												<span class="cb-item">{{data.item}}</span>
+											</template>
+											<v-icon slot="prepend" class="mx-2" :color="button.color">{{button.icon}} fa-fw</v-icon>
+											<template v-slot:append-outer>
+												<v-tooltip bottom>
+													<template v-slot:activator="{ on }">
+														<v-icon
+															slot="append-outer"
+															v-on="on"
+															class="mx-2"
+															color="grey lighten-2"
+														>fa-info-circle fa-fw</v-icon>
+													</template>The selected icon will appear in the central of the card with a coloured circle background
+												</v-tooltip>
+											</template>
+										</v-select>
 										<v-text-field
 											@keyup="save"
 											@change="save"
@@ -178,7 +246,9 @@
 											color="teal"
 											v-model="button.link"
 											label="Button Link"
-										></v-text-field>
+										>
+											<v-icon slot="prepend" class="mx-2" :color="button.color">fa-link fa-fw</v-icon>
+										</v-text-field>
 										<v-select
 											outlined
 											color="teal"
@@ -188,7 +258,9 @@
 											item-text="title"
 											item-value="idlink"
 											label="Section Link"
-										></v-select>
+										>
+											<v-icon slot="prepend" class="mx-2" :color="button.color">fas fa-layer-group fa-fw</v-icon>
+										</v-select>
 										<v-select
 											outlined
 											color="teal"
@@ -198,16 +270,19 @@
 											item-text="title"
 											item-value="link"
 											label="Page Link"
-										></v-select>
+										>
+											<v-icon slot="prepend" class="mx-2" :color="button.color">fa-copy fa-fw</v-icon>
+										</v-select>
 									</v-container>
 								</v-card>
 							</v-col>
 						</v-row>
-						<v-card-actions hidden>
-							<v-spacer></v-spacer>
-							<v-btn text @click="editTitle = false">Close</v-btn>
-						</v-card-actions>
 					</v-container>
+					<v-toolbar color="teal" dark>
+						<v-toolbar-title></v-toolbar-title>
+						<v-spacer></v-spacer>
+						<v-btn text @click="editTitle = false">Close</v-btn>
+					</v-toolbar>
 				</v-card>
 			</v-dialog>
 
@@ -221,74 +296,74 @@
 			<section>
 				<v-card flat tile class="grey lighten-2">
 					<!-- <v-parallax src="/images/grey.jpg" min-height="350" max-height="1200"> -->
-						<v-container fluid>
-							<v-row class="py-5">
-								<v-col
-									cols="12"
-									lg="4"
-									:data-aos="cardtrans(card.id)"
-									data-aos-duration="1200"
-									v-for="(card, index) in area.actioncards"
-									:key="card.id"
+					<v-container fluid>
+						<v-row class="py-5">
+							<v-col
+								cols="12"
+								lg="4"
+								:data-aos="cardtrans(card.id)"
+								data-aos-duration="1200"
+								v-for="(card, index) in area.actioncards"
+								:key="card.id"
+							>
+								<v-card
+									class="text-center"
+									@mouseover="showEditCard(card.id)"
+									@mouseleave="showEditCard(0)"
 								>
-									<v-card
-										class="text-center"
-										@mouseover="showEditCard(card.id)"
-										@mouseleave="showEditCard(0)"
+									<v-btn
+										small
+										fab
+										class="mt-2"
+										absolute
+										right
+										v-if="showEditCardOneButton && card.id == 1"
+										@click="onEditCard(index)"
 									>
-										<v-btn
-											small
-											fab
-											class="mt-2"
-											absolute
-											right
-											v-if="showEditCardOneButton && card.id == 1"
-											@click="onEditCard(index)"
-										>
-											<v-icon small :color="card.color">fa-edit</v-icon>
-										</v-btn>
-										<v-btn
-											small
-											fab
-											class="mt-2"
-											absolute
-											right
-											v-if="showEditCardTwoButton && card.id == 2"
-											@click="onEditCard(index)"
-										>
-											<v-icon small :color="card.color">fa-edit</v-icon>
-										</v-btn>
-										<v-btn
-											small
-											fab
-											class="mt-2"
-											absolute
-											right
-											v-if="showEditCardThreeButton && card.id == 3"
-											@click="onEditCard(index)"
-										>
-											<v-icon small :color="card.color">fa-edit</v-icon>
-										</v-btn>
-										<v-card-title class="p-1" :class="card.color"></v-card-title>
-										<v-card-text>
-											<div class="text-h4 pt-2 mb-5" v-text="card.title"></div>
-											<v-avatar size="66" class="mb-5">
-												<v-icon
-													v-if="card.icon != 'fa-flag-usa'"
-													v-text="card.icon"
-													size="32"
-													class="white--text"
-													:class="card.color"
-												/>
-											</v-avatar>
-											<p class="text-gray-700 mb-5" v-text="card.text"></p>
-											<v-chip v-text="card.chip"></v-chip>
-										</v-card-text>
-										<!-- </v-img> -->
-									</v-card>
-								</v-col>
-							</v-row>
-						</v-container>
+										<v-icon small :color="card.color">fa-edit</v-icon>
+									</v-btn>
+									<v-btn
+										small
+										fab
+										class="mt-2"
+										absolute
+										right
+										v-if="showEditCardTwoButton && card.id == 2"
+										@click="onEditCard(index)"
+									>
+										<v-icon small :color="card.color">fa-edit</v-icon>
+									</v-btn>
+									<v-btn
+										small
+										fab
+										class="mt-2"
+										absolute
+										right
+										v-if="showEditCardThreeButton && card.id == 3"
+										@click="onEditCard(index)"
+									>
+										<v-icon small :color="card.color">fa-edit</v-icon>
+									</v-btn>
+									<v-card-title class="p-1" :class="card.color"></v-card-title>
+									<v-card-text>
+										<div class="text-h4 pt-2 mb-5" v-text="card.title"></div>
+										<v-avatar size="66" class="mb-5">
+											<v-icon
+												v-if="card.icon != 'fa-flag-usa'"
+												v-text="card.icon"
+												size="32"
+												class="white--text"
+												:class="card.color"
+											/>
+										</v-avatar>
+										<p class="text-gray-700 mb-5" v-text="card.text"></p>
+										<v-chip v-text="card.chip"></v-chip>
+									</v-card-text>
+									<!-- </v-img> -->
+								</v-card>
+							</v-col>
+						</v-row>
+					</v-container>
 					<!-- </v-parallax> -->
 				</v-card>
 			</section>
@@ -675,6 +750,14 @@ export default {
 			}
 			if (id == 3) {
 				return "fade-right";
+			}
+		},
+		showButton(state) {
+			if (state == "show") {
+				return "show";
+			}
+			if (state == "hidden") {
+				return "hidden";
 			}
 		}
 	},
