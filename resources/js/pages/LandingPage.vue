@@ -347,7 +347,7 @@
 									<v-card-title class="p-1" :class="card.color"></v-card-title>
 									<v-card-text>
 										<div class="text-h4 pt-2 mb-5" v-text="card.title"></div>
-										<v-avatar size="66" class="mb-5">
+										<v-avatar size="66" class="mb-5" v-if="card.icon != 'NO ICON'">
 											<v-icon
 												v-if="card.icon != 'fa-flag-usa'"
 												v-text="card.icon"
@@ -357,7 +357,14 @@
 											/>
 										</v-avatar>
 										<p class="text-gray-700 mb-5" v-text="card.text"></p>
-										<v-chip v-text="card.chip"></v-chip>
+										<!-- EXTERNAL LINK -->
+                    <a :href="card.chipExternalLink" target="_blank" v-if="card.chipIsLink == 'external'" style="cursor: pointer;">
+											<v-chip v-text="card.chip"></v-chip>
+										</a>
+										<!-- EMAIL LINK -->
+                    <a :href="'mailto:' + card.chipEmailLink" target="_blank" v-if="card.chipIsLink == 'email'" style="cursor: pointer;">
+											<v-chip v-text="card.chip"></v-chip>
+										</a>
 									</v-card-text>
 									<!-- </v-img> -->
 								</v-card>
@@ -368,16 +375,16 @@
 				</v-card>
 			</section>
 
-			<v-dialog v-model="showEditCardDialog" width="600px">
-				<v-card>
-					<v-toolbar :color="editedCard.color" dark>
-						<v-toolbar-title>Edit Card Style &amp; Content</v-toolbar-title>
-						<v-spacer></v-spacer>
-						<v-btn text @click="showEditCardDialog = false">Close</v-btn>
-					</v-toolbar>
-					<v-container fluid pt-3>
-						<v-row>
-							<v-col cols="12">
+			<v-dialog v-model="showEditCardDialog" min-width="80%">
+				<v-row justify="center">
+					<v-col cols="12" sm="10" md="8" lg="6">
+						<v-card>
+							<v-toolbar :color="editedCard.color" dark>
+								<v-toolbar-title>Edit Card Style &amp; Content</v-toolbar-title>
+								<v-spacer></v-spacer>
+								<v-btn text @click="showEditCardDialog = false">Close</v-btn>
+							</v-toolbar>
+							<v-container fluid pt-3>
 								<v-select
 									class="pb-3"
 									:items="actioncardsColorsList"
@@ -406,8 +413,6 @@
 										</v-tooltip>
 									</template>
 								</v-select>
-							</v-col>
-							<v-col cols="12">
 								<v-text-field
 									class="pb-3"
 									v-model="editedCard.title"
@@ -430,8 +435,6 @@
 										</v-tooltip>
 									</template>
 								</v-text-field>
-							</v-col>
-							<v-col cols="12">
 								<v-select
 									class="pb-3"
 									:items="actioncardsIconsList"
@@ -460,8 +463,6 @@
 										</v-tooltip>
 									</template>
 								</v-select>
-							</v-col>
-							<v-col cols="12">
 								<v-text-field
 									class="pb-3"
 									v-model="editedCard.text"
@@ -484,15 +485,14 @@
 										</v-tooltip>
 									</template>
 								</v-text-field>
-							</v-col>
-							<v-col cols="12">
 								<v-text-field
 									class="pb-3"
 									v-model="editedCard.chip"
 									@keyup="save"
 									outlined
-									label="Bottom Text"
+									label="Bottom Button Text"
 									:color="editedCard.color"
+									hide-details="auto"
 								>
 									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-comment-medical fa-fw</v-icon>
 									<template v-slot:append-outer>
@@ -508,10 +508,116 @@
 										</v-tooltip>
 									</template>
 								</v-text-field>
-							</v-col>
-						</v-row>
-					</v-container>
-				</v-card>
+								<v-row align="center" justify="center">
+									<v-btn-toggle
+										mandatory
+										v-model="editedCard.chipIsLink"
+										tile
+										:color="editedCard.color"
+										group
+										@change="save"
+									>
+										<v-btn value="false">Remove Link</v-btn>
+										<v-btn value="external">Add External Link</v-btn>
+										<v-btn value="email">Add Email Link</v-btn>
+										<v-btn disabled value="page">Add Page Link</v-btn>
+									</v-btn-toggle>
+								</v-row>
+								<v-text-field
+									v-if="editedCard.chipIsLink == 'false'"
+									class="pb-3"
+									outlined
+									label=""
+                  placeholder="Link Removed"
+									:color="editedCard.color"
+                  disabled
+								>
+									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-unlink fa-fw</v-icon>
+									<template v-slot:append-outer>
+										<v-tooltip bottom>
+											<template v-slot:activator="{ on }">
+												<v-icon
+													slot="append-outer"
+													v-on="on"
+													class="mx-2"
+													color="grey lighten-2"
+												>fa-info-circle fa-fw</v-icon>
+											</template>Link Removed.
+										</v-tooltip>
+									</template>
+								</v-text-field>
+								<v-text-field
+									v-if="editedCard.chipIsLink == 'external'"
+									class="pb-3"
+									v-model="editedCard.chipExternalLink"
+									@keyup="save"
+									outlined
+									label="External Link"
+									:color="editedCard.color"
+								>
+									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-link fa-fw</v-icon>
+									<template v-slot:append-outer>
+										<v-tooltip bottom>
+											<template v-slot:activator="{ on }">
+												<v-icon
+													slot="append-outer"
+													v-on="on"
+													class="mx-2"
+													color="grey lighten-2"
+												>fa-info-circle fa-fw</v-icon>
+											</template>Enter URL.
+										</v-tooltip>
+									</template>
+								</v-text-field>
+								<v-text-field
+									v-if="editedCard.chipIsLink == 'email'"
+									class="pb-3"
+									v-model="editedCard.chipEmailLink"
+									@keyup="save"
+									outlined
+									label="Email Link"
+									:color="editedCard.color"
+								>
+									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-envelope fa-fw</v-icon>
+									<template v-slot:append-outer>
+										<v-tooltip bottom>
+											<template v-slot:activator="{ on }">
+												<v-icon
+													slot="append-outer"
+													v-on="on"
+													class="mx-2"
+													color="grey lighten-2"
+												>fa-info-circle fa-fw</v-icon>
+											</template>Enter email address.
+										</v-tooltip>
+									</template>
+								</v-text-field>
+								<v-text-field v-if="editedCard.chipIsLink == 'page'"
+									class="pb-3"
+									v-model="editedCard.chipEmailLink"
+									@keyup="save"
+									outlined
+									label="Page Link"
+									:color="editedCard.color"
+									>
+									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-copy fa-fw</v-icon>
+									<template v-slot:append-outer>
+										<v-tooltip bottom>
+											<template v-slot:activator="{ on }">
+												<v-icon
+													slot="append-outer"
+													v-on="on"
+													class="mx-2"
+													color="grey lighten-2"
+												>fa-info-circle fa-fw</v-icon>
+											</template>Select Page.
+										</v-tooltip>
+									</template>
+								</v-text-field>
+							</v-container>
+						</v-card>
+					</v-col>
+				</v-row>
 			</v-dialog>
 			<section v-for="section in sections" :key="section.id" class="my-md-10">
 				<pages-section v-if="section.sectiontype_id == 1 || !section.sectiontype_id" :section="section"></pages-section>
@@ -578,6 +684,7 @@ export default {
 				"grey"
 			],
 			actioncardsIconsList: [
+				"NO ICON",
 				"fa-at",
 				"fa-envelope-open-text",
 				"fa-voicemail",
