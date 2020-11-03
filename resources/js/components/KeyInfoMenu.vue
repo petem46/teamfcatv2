@@ -86,6 +86,13 @@ export default {
 			{
 				icon: "mdi-calendar-clock",
 				iconClass: "teal--text text--lighten-2",
+				title: "QIG Information",
+        subtitle: "QIG meetings and members",
+        link: '/qigs'
+			},
+			{
+				icon: "mdi-calendar-clock",
+				iconClass: "teal--text text--lighten-2",
 				title: "Events & Key Dates",
         subtitle: "Subtext for menu item",
         link: '/calendar'

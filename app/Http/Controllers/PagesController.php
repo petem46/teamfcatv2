@@ -75,7 +75,7 @@ class PagesController extends Controller
       $section_id = $pagecontent->section_id;
     }
     if ($slug == 'newpage') {
-      $section_id = Section::select('id')->where('name', $section)->first();
+      $section_id = Area::select('id')->where('name', $section)->first();
       $section_id = $section_id->id;
     }
     return $data = [
