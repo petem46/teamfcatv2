@@ -565,7 +565,9 @@
 									v-model="editedCard.chipExternalLink"
 									@keyup="save"
 									outlined
-									label="Add External Link - must include http:// or https://"
+									label="Bottom Button Link"
+                  persistent-hint
+                  hint="Add External Link - must include http:// or https://"
 									:color="editedCard.color"
 								>
 									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-link fa-fw</v-icon>
@@ -588,8 +590,10 @@
 									v-model="editedCard.chipEmailLink"
 									@keyup="save"
 									outlined
-									label="Email Link"
                   placeholder="Enter an email address"
+									label="Bottom Button Link"
+                  persistent-hint
+                  hint="Enter an email address"
 									:color="editedCard.color"
 								>
 									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-envelope fa-fw</v-icon>
@@ -616,8 +620,10 @@
 									@keyup="save"
 									@change="save"
 									outlined
-									label="Page Link"
+									label="Bottom Button Link"
                   placeholder="Select a Page from the list"
+                  persistent-hint
+                  hint="Select a Page from the list"
 									:color="editedCard.color"
 								>
 									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-copy fa-fw</v-icon>
