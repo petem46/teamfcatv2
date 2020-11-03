@@ -358,13 +358,26 @@
 										</v-avatar>
 										<p class="text-gray-700 mb-5" v-text="card.text"></p>
 										<!-- EXTERNAL LINK -->
-                    <a :href="card.chipExternalLink" target="_blank" v-if="card.chipIsLink == 'external'" style="cursor: pointer;">
+										<a
+											:href="card.chipExternalLink"
+											target="_blank"
+											v-if="card.chipIsLink == 'external'"
+											style="cursor: pointer;"
+										>
 											<v-chip v-text="card.chip"></v-chip>
 										</a>
 										<!-- EMAIL LINK -->
-                    <a :href="'mailto:' + card.chipEmailLink" target="_blank" v-if="card.chipIsLink == 'email'" style="cursor: pointer;">
+										<a
+											:href="'mailto:' + card.chipEmailLink"
+											target="_blank"
+											v-if="card.chipIsLink == 'email'"
+										>
 											<v-chip v-text="card.chip"></v-chip>
 										</a>
+										<!-- PAGE LINK -->
+										<v-chip v-if="card.chipIsLink == 'page'" :to="card.chipPageLink">
+											{{ card.chip }}
+										</v-chip>
 									</v-card-text>
 									<!-- </v-img> -->
 								</v-card>
@@ -518,19 +531,19 @@
 										@change="save"
 									>
 										<v-btn value="false">Remove Link</v-btn>
-										<v-btn value="external">Add External Link</v-btn>
+										<v-btn value="page">Add Page Link</v-btn>
 										<v-btn value="email">Add Email Link</v-btn>
-										<v-btn disabled value="page">Add Page Link</v-btn>
+										<v-btn value="external">Add External Link</v-btn>
 									</v-btn-toggle>
 								</v-row>
 								<v-text-field
 									v-if="editedCard.chipIsLink == 'false'"
 									class="pb-3"
 									outlined
-									label=""
-                  placeholder="Link Removed"
+									label
+									placeholder="Link Removed"
 									:color="editedCard.color"
-                  disabled
+									disabled
 								>
 									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-unlink fa-fw</v-icon>
 									<template v-slot:append-outer>
@@ -592,14 +605,19 @@
 										</v-tooltip>
 									</template>
 								</v-text-field>
-								<v-text-field v-if="editedCard.chipIsLink == 'page'"
+								<v-select
+									v-if="editedCard.chipIsLink == 'page'"
 									class="pb-3"
-									v-model="editedCard.chipEmailLink"
+									:items="pages"
+									item-text="title"
+									item-value="link"
+									v-model="editedCard.chipPageLink"
 									@keyup="save"
+									@change="save"
 									outlined
 									label="Page Link"
 									:color="editedCard.color"
-									>
+								>
 									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-copy fa-fw</v-icon>
 									<template v-slot:append-outer>
 										<v-tooltip bottom>
@@ -613,7 +631,7 @@
 											</template>Select Page.
 										</v-tooltip>
 									</template>
-								</v-text-field>
+								</v-select>
 							</v-container>
 						</v-card>
 					</v-col>
@@ -953,5 +971,8 @@ svg {
 	position: absolute;
 	width: 100%;
 	cursor: pointer;
+}
+a .v-chip:hover {
+	cursor: pointer !important;
 }
 </style>
