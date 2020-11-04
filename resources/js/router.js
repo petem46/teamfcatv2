@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home'
 import Covid from './pages/Covid'
 import LandingPage from './pages/LandingPage'
+import CovidLandingPage from './pages/CovidLandingPage'
 import FinanceLandingPage from './pages/FinanceLandingPage'
 import HRLandingPage from './pages/HRLandingPage'
 import ICTLandingPage from './pages/ICTLandingPage'
@@ -42,11 +43,7 @@ export default new Router({
       name: 'home',
       component: Home
     },
-    {
-      path: '/covid',
-      name: 'covid',
-      component: Covid
-    },
+
     // {
     //   path: '/p/:slug',
     //   name: 'viewpage',
@@ -69,6 +66,12 @@ export default new Router({
       path: '/finance',
       name: 'finance',
       component: FinanceLandingPage,
+      props: true
+    },
+    {
+      path: '/covid',
+      name: 'covid',
+      component: CovidLandingPage,
       props: true
     },
     {
