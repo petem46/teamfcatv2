@@ -386,6 +386,12 @@
 											:text-color="'white' || card.chipTextColor"
 											:to="card.chipPageLink"
 										>{{ card.chip }}</v-chip>
+										<!-- NOMRAL CHIP - NO LINK -->
+										<v-chip
+											v-if="card.chipIsLink == 'nolink'"
+											:color="card.chipColor || card.color"
+											:text-color="'white' || card.chipTextColor"
+										>{{ card.chip }}</v-chip>
 									</v-card-text>
 									<!-- </v-img> -->
 								</v-card>
@@ -474,7 +480,7 @@
 									</v-col>
 									<v-col cols="12" md="5">
 										<v-hover v-slot="{ hover }">
-											<v-img :src="editedCard.image" @change="save" height="250" class="pb-3" >
+											<v-img :src="editedCard.image" @change="save" height="250" class="pb-3">
 												<v-expand-transition>
 													<div
 														@click="onShowFileManager('tileImage')"
@@ -606,14 +612,15 @@
 										group
 										@change="save"
 									>
-										<v-btn value="false">Remove Link</v-btn>
+										<v-btn value="hide">Hide Button</v-btn>
+										<v-btn value="nolink">Show Button</v-btn>
 										<v-btn value="page">Add Page Link</v-btn>
 										<v-btn value="email">Add Email Link</v-btn>
 										<v-btn value="external">Add External Link</v-btn>
 									</v-btn-toggle>
 								</v-row>
 								<v-row>
-									<v-col cols="12" md="7" v-if="editedCard.chipIsLink == 'false'">
+									<v-col cols="12" md="7" v-if="editedCard.chipIsLink == 'nolink'">
 										<v-text-field
 											class="pb-3"
 											outlined
@@ -721,7 +728,7 @@
 											</template>
 										</v-select>
 									</v-col>
-									<v-col cols="12" md="5">
+									<v-col cols="12" md="5" v-if="editedCard.chipIsLink != 'hide'">
 										<v-select
 											class="pb-3"
 											:items="actioncardsColorsList"
