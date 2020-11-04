@@ -383,14 +383,14 @@
 										<v-chip
 											v-if="card.chipIsLink == 'page'"
 											:color="card.chipColor || card.color"
-											:text-color="'white' || card.chipTextColor"
+											:text-color="card.chipTextColor || 'white'"
 											:to="card.chipPageLink"
 										>{{ card.chip }}</v-chip>
 										<!-- NOMRAL CHIP - NO LINK -->
 										<v-chip
 											v-if="card.chipIsLink == 'nolink'"
 											:color="card.chipColor || card.color"
-											:text-color="'white' || card.chipTextColor"
+											:text-color="card.chipTextColor || 'white'"
 										>{{ card.chip }}</v-chip>
 									</v-card-text>
 									<!-- </v-img> -->
