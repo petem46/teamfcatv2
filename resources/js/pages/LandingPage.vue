@@ -134,7 +134,7 @@
 											<v-img contain :src="area.landingImage" @change="save" width="450" class="pb-3">
 												<v-expand-transition>
 													<div
-														@click="onShowFileManager"
+														@click="onShowFileManager('landingImage')"
 														v-if="hover"
 														class="d-flex transition-fast-in-fast-out teal lighten-2 v-card--reveal white--text"
 														style="height: 100%;"
@@ -179,7 +179,7 @@
 											@keyup="save"
 											@change="save"
 											outlined
-											label="Card Color"
+											label="Card Colour"
 											:color="button.color"
 										>
 											<template slot="item" slot-scope="data">
@@ -289,7 +289,7 @@
 			<file-manager
 				:showFileManager="showFileManager"
 				@showFileManager="onShowFileManager"
-				@insertImage="insertLandingImage"
+				@insertImage="insertImage"
 				@hideFileManager="onHideFileManager"
 			></file-manager>
 
@@ -301,6 +301,8 @@
 							<v-col
 								cols="12"
 								lg="4"
+								md="4"
+								sm="6"
 								:data-aos="cardtrans(card.id)"
 								data-aos-duration="1200"
 								v-for="(card, index) in area.actioncards"
@@ -345,16 +347,11 @@
 										<v-icon small :color="card.color">fa-edit</v-icon>
 									</v-btn>
 									<v-card-title class="p-1" :class="card.color"></v-card-title>
+									<v-img v-if="card.image" height="250" :src="card.image"></v-img>
 									<v-card-text>
 										<div class="text-h4 pt-2 mb-5" v-text="card.title"></div>
 										<v-avatar size="66" class="mb-5" v-if="card.icon != 'NO ICON'">
-											<v-icon
-												v-if="card.icon != 'fa-flag-usa'"
-												v-text="card.icon"
-												size="32"
-												class="white--text"
-												:class="card.color"
-											/>
+											<v-icon v-text="card.icon" size="32" class="white--text" :class="card.color" />
 										</v-avatar>
 										<p class="text-gray-700 mb-5" v-text="card.text"></p>
 										<!-- EXTERNAL LINK -->
@@ -364,7 +361,11 @@
 											v-if="card.chipIsLink == 'external'"
 											style="cursor: pointer;"
 										>
-											<v-chip v-text="card.chip"></v-chip>
+											<v-chip
+												v-text="card.chip"
+												:color="card.chipColor || card.color"
+												:text-color="card.chipTextColor || 'white'"
+											></v-chip>
 										</a>
 										<!-- EMAIL LINK -->
 										<a
@@ -372,12 +373,19 @@
 											target="_blank"
 											v-if="card.chipIsLink == 'email'"
 										>
-											<v-chip v-text="card.chip"></v-chip>
+											<v-chip
+												v-text="card.chip"
+												:color="card.chipColor || card.color"
+												:text-color="card.chipTextColor || 'white'"
+											></v-chip>
 										</a>
 										<!-- PAGE LINK -->
-										<v-chip v-if="card.chipIsLink == 'page'" :to="card.chipPageLink">
-											{{ card.chip }}
-										</v-chip>
+										<v-chip
+											v-if="card.chipIsLink == 'page'"
+											:color="card.chipColor || card.color"
+											:text-color="'white' || card.chipTextColor"
+											:to="card.chipPageLink"
+										>{{ card.chip }}</v-chip>
 									</v-card-text>
 									<!-- </v-img> -->
 								</v-card>
@@ -393,7 +401,7 @@
 					<v-col cols="12" sm="10" md="8" lg="6">
 						<v-card>
 							<v-toolbar :color="editedCard.color" dark>
-								<v-toolbar-title>Edit Card Style &amp; Content</v-toolbar-title>
+								<v-toolbar-title>Edit Tile</v-toolbar-title>
 								<v-spacer></v-spacer>
 								<v-btn text @click="showEditCardDialog = false">Close</v-btn>
 							</v-toolbar>
@@ -405,7 +413,7 @@
 									@keyup="save"
 									@change="save"
 									outlined
-									label="Card Color"
+									label="Card Colour"
 									:color="editedCard.color"
 								>
 									<template slot="item" slot-scope="data">
@@ -448,6 +456,37 @@
 										</v-tooltip>
 									</template>
 								</v-text-field>
+								<v-row>
+									<v-col cols="12" md="6">
+										<v-text-field
+											outlined
+											:color="editedCard.color"
+											v-model="editedCard.image"
+											accept="image/png, image/jpeg, image/bmp"
+											placeholder="Tile Image"
+											label="Tile Image"
+											@click="onShowFileManager('tileImage')"
+											readonly
+											clearable
+										>
+											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">far fa-image fa-fw</v-icon>
+										</v-text-field>
+									</v-col>
+									<v-col cols="12" md="5">
+										<v-hover v-slot="{ hover }">
+											<v-img :src="editedCard.image" @change="save" height="250" class="pb-3" >
+												<v-expand-transition>
+													<div
+														@click="onShowFileManager('tileImage')"
+														v-if="hover"
+														class="d-flex transition-fast-in-fast-out teal lighten-2 v-card--reveal white--text"
+														style="height: 100%;"
+													>CLICK TO CHANGE</div>
+												</v-expand-transition>
+											</v-img>
+										</v-hover>
+									</v-col>
+								</v-row>
 								<v-select
 									class="pb-3"
 									:items="actioncardsIconsList"
@@ -476,13 +515,15 @@
 										</v-tooltip>
 									</template>
 								</v-select>
-								<v-text-field
+								<v-textarea
 									class="pb-3"
 									v-model="editedCard.text"
 									@keyup="save"
 									outlined
 									label="Card Text"
 									:color="editedCard.color"
+									counter="200"
+									:rules="[v => v.length <= 200 || 'Max 200 Characters']"
 								>
 									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-pencil-alt fa-fw</v-icon>
 									<template v-slot:append-outer>
@@ -497,30 +538,65 @@
 											</template>This text will appear below the central icon
 										</v-tooltip>
 									</template>
-								</v-text-field>
-								<v-text-field
-									class="pb-3"
-									v-model="editedCard.chip"
-									@keyup="save"
-									outlined
-									label="Bottom Button Text"
-									:color="editedCard.color"
-									hide-details="auto"
-								>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-comment-medical fa-fw</v-icon>
-									<template v-slot:append-outer>
-										<v-tooltip bottom>
-											<template v-slot:activator="{ on }">
-												<v-icon
-													slot="append-outer"
-													v-on="on"
-													class="mx-2"
-													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>Text here will appear in the grey bar at the bottom of the card. Email addresses and phone numbers work best here.
-										</v-tooltip>
-									</template>
-								</v-text-field>
+								</v-textarea>
+								<v-row>
+									<v-col cols="12" md="7">
+										<v-text-field
+											class="pb-3"
+											v-model="editedCard.chip"
+											@keyup="save"
+											outlined
+											label="Bottom Button Text"
+											:color="editedCard.color"
+											hide-details="auto"
+										>
+											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-comment-medical fa-fw</v-icon>
+											<template v-slot:append-outer>
+												<v-tooltip bottom>
+													<template v-slot:activator="{ on }">
+														<v-icon
+															slot="append-outer"
+															v-on="on"
+															class="mx-2"
+															color="grey lighten-2"
+														>fa-info-circle fa-fw</v-icon>
+													</template>Text here will appear in the grey bar at the bottom of the card. Email addresses and phone numbers work best here.
+												</v-tooltip>
+											</template>
+										</v-text-field>
+									</v-col>
+									<v-col cols="12" md="5">
+										<v-select
+											class="pb-3"
+											:items="actioncardsColorsList"
+											v-model="editedCard.chipColor"
+											@keyup="save"
+											@change="save"
+											outlined
+											label="Button Colour"
+											:color="editedCard.chipColor"
+											hide-details="auto"
+										>
+											<template slot="item" slot-scope="data">
+												<v-icon class="mr-3" :color="data.item">fa-square</v-icon>
+												<span class="cb-item">{{data.item}}</span>
+											</template>
+											<v-icon slot="prepend" class="mx-2" :color="editedCard.chipColor">fa-square fa-fw</v-icon>
+											<template v-slot:append-outer>
+												<v-tooltip bottom>
+													<template v-slot:activator="{ on }">
+														<v-icon
+															slot="append-outer"
+															v-on="on"
+															class="mx-2"
+															color="grey lighten-2"
+														>fa-info-circle fa-fw</v-icon>
+													</template>This option sets the color for the button
+												</v-tooltip>
+											</template>
+										</v-select>
+									</v-col>
+								</v-row>
 								<v-row align="center" justify="center">
 									<v-btn-toggle
 										mandatory
@@ -536,110 +612,152 @@
 										<v-btn value="external">Add External Link</v-btn>
 									</v-btn-toggle>
 								</v-row>
-								<v-text-field
-									v-if="editedCard.chipIsLink == 'false'"
-									class="pb-3"
-									outlined
-									label
-									placeholder="Link Removed"
-									:color="editedCard.color"
-									disabled
-								>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-unlink fa-fw</v-icon>
-									<template v-slot:append-outer>
-										<v-tooltip bottom>
-											<template v-slot:activator="{ on }">
-												<v-icon
-													slot="append-outer"
-													v-on="on"
-													class="mx-2"
-													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>Link Removed.
-										</v-tooltip>
-									</template>
-								</v-text-field>
-								<v-text-field
-									v-if="editedCard.chipIsLink == 'external'"
-									class="pb-3"
-									v-model="editedCard.chipExternalLink"
-									@keyup="save"
-									outlined
-									label="Bottom Button Link"
-                  persistent-hint
-                  hint="Add External Link - must include http:// or https://"
-									:color="editedCard.color"
-								>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-link fa-fw</v-icon>
-									<template v-slot:append-outer>
-										<v-tooltip bottom>
-											<template v-slot:activator="{ on }">
-												<v-icon
-													slot="append-outer"
-													v-on="on"
-													class="mx-2"
-													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>Add External Link - must include http:// or https://
-										</v-tooltip>
-									</template>
-								</v-text-field>
-								<v-text-field
-									v-if="editedCard.chipIsLink == 'email'"
-									class="pb-3"
-									v-model="editedCard.chipEmailLink"
-									@keyup="save"
-									outlined
-                  placeholder="Enter an email address"
-									label="Bottom Button Link"
-                  persistent-hint
-                  hint="Enter an email address"
-									:color="editedCard.color"
-								>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-envelope fa-fw</v-icon>
-									<template v-slot:append-outer>
-										<v-tooltip bottom>
-											<template v-slot:activator="{ on }">
-												<v-icon
-													slot="append-outer"
-													v-on="on"
-													class="mx-2"
-													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>Enter email address.
-										</v-tooltip>
-									</template>
-								</v-text-field>
-								<v-select
-									v-if="editedCard.chipIsLink == 'page'"
-									class="pb-3"
-									:items="pages"
-									item-text="title"
-									item-value="link"
-									v-model="editedCard.chipPageLink"
-									@keyup="save"
-									@change="save"
-									outlined
-									label="Bottom Button Link"
-                  placeholder="Select a Page from the list"
-                  persistent-hint
-                  hint="Select a Page from the list"
-									:color="editedCard.color"
-								>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-copy fa-fw</v-icon>
-									<template v-slot:append-outer>
-										<v-tooltip bottom>
-											<template v-slot:activator="{ on }">
-												<v-icon
-													slot="append-outer"
-													v-on="on"
-													class="mx-2"
-													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>Select a Page from the list.
-										</v-tooltip>
-									</template>
-								</v-select>
+								<v-row>
+									<v-col cols="12" md="7" v-if="editedCard.chipIsLink == 'false'">
+										<v-text-field
+											class="pb-3"
+											outlined
+											label
+											placeholder="Link Removed"
+											:color="editedCard.color"
+											disabled
+										>
+											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-unlink fa-fw</v-icon>
+											<template v-slot:append-outer>
+												<v-tooltip bottom>
+													<template v-slot:activator="{ on }">
+														<v-icon
+															slot="append-outer"
+															v-on="on"
+															class="mx-2"
+															color="grey lighten-2"
+														>fa-info-circle fa-fw</v-icon>
+													</template>Link Removed.
+												</v-tooltip>
+											</template>
+										</v-text-field>
+									</v-col>
+									<v-col cols="12" md="7" v-if="editedCard.chipIsLink == 'external'">
+										<v-text-field
+											class="pb-3"
+											v-model="editedCard.chipExternalLink"
+											@keyup="save"
+											outlined
+											label="Bottom Button Link"
+											persistent-hint
+											hint="Add External Link - must include http:// or https://"
+											:color="editedCard.color"
+										>
+											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-link fa-fw</v-icon>
+											<template v-slot:append-outer>
+												<v-tooltip bottom>
+													<template v-slot:activator="{ on }">
+														<v-icon
+															slot="append-outer"
+															v-on="on"
+															class="mx-2"
+															color="grey lighten-2"
+														>fa-info-circle fa-fw</v-icon>
+													</template>Add External Link - must include http:// or https://
+												</v-tooltip>
+											</template>
+										</v-text-field>
+									</v-col>
+									<v-col cols="12" md="7" v-if="editedCard.chipIsLink == 'email'">
+										<v-text-field
+											class="pb-3"
+											v-model="editedCard.chipEmailLink"
+											@keyup="save"
+											outlined
+											placeholder="Enter an email address"
+											label="Bottom Button Link"
+											persistent-hint
+											hint="Enter an email address"
+											:color="editedCard.color"
+										>
+											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-envelope fa-fw</v-icon>
+											<template v-slot:append-outer>
+												<v-tooltip bottom>
+													<template v-slot:activator="{ on }">
+														<v-icon
+															slot="append-outer"
+															v-on="on"
+															class="mx-2"
+															color="grey lighten-2"
+														>fa-info-circle fa-fw</v-icon>
+													</template>Enter email address.
+												</v-tooltip>
+											</template>
+										</v-text-field>
+									</v-col>
+									<v-col cols="12" md="7" v-if="editedCard.chipIsLink == 'page'">
+										<v-select
+											class="pb-3"
+											:items="pages"
+											item-text="title"
+											item-value="link"
+											v-model="editedCard.chipPageLink"
+											@keyup="save"
+											@change="save"
+											outlined
+											label="Bottom Button Link"
+											placeholder="Select a Page from the list"
+											persistent-hint
+											hint="Select a Page from the list"
+											:color="editedCard.color"
+										>
+											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-copy fa-fw</v-icon>
+											<template v-slot:append-outer>
+												<v-tooltip bottom>
+													<template v-slot:activator="{ on }">
+														<v-icon
+															slot="append-outer"
+															v-on="on"
+															class="mx-2"
+															color="grey lighten-2"
+														>fa-info-circle fa-fw</v-icon>
+													</template>Select a Page from the list.
+												</v-tooltip>
+											</template>
+										</v-select>
+									</v-col>
+									<v-col cols="12" md="5">
+										<v-select
+											class="pb-3"
+											:items="actioncardsColorsList"
+											v-model="editedCard.chipTextColor"
+											@keyup="save"
+											@change="save"
+											outlined
+											label="Button Text Colour"
+											:color="editedCard.chipTextColor"
+											hide-details="auto"
+										>
+											<template slot="item" slot-scope="data">
+												<v-icon class="mr-3" :color="data.item">fa-square</v-icon>
+												<span class="cb-item">{{data.item}}</span>
+											</template>
+											<v-icon slot="prepend" class="mx-2" :color="editedCard.chipTextColor">fa-square fa-fw</v-icon>
+											<template v-slot:append-outer>
+												<v-tooltip bottom>
+													<template v-slot:activator="{ on }">
+														<v-icon
+															slot="append-outer"
+															v-on="on"
+															class="mx-2"
+															color="grey lighten-2"
+														>fa-info-circle fa-fw</v-icon>
+													</template>This option sets the color for the button text
+												</v-tooltip>
+											</template>
+										</v-select>
+									</v-col>
+								</v-row>
+								<v-divider inset></v-divider>
+								<v-card-actions>
+									<v-spacer></v-spacer>
+									<v-btn dark @click="showEditCardDialog = false">Close</v-btn>
+								</v-card-actions>
 							</v-container>
 						</v-card>
 					</v-col>
@@ -683,6 +801,7 @@ export default {
 	data() {
 		return {
 			loading: true,
+			insertImageType: "",
 			showFileManager: false,
 			area: {},
 			sections: {},
@@ -694,6 +813,8 @@ export default {
 			showEditCardDialog: false,
 			editedCard: "",
 			actioncardsColorsList: [
+				"black",
+				"white",
 				"deep-purple",
 				"purple",
 				"pink",
@@ -836,19 +957,32 @@ export default {
 				}, 1200);
 			}
 			this.typing = true;
+			this.insertImageType = "";
 		},
 		newPage() {
 			console.log("NEW PAGE CLICK");
 		},
-		onShowFileManager() {
+		onShowFileManager(type) {
+			this.insertImageType = type;
 			this.showFileManager = true;
 		},
 		onHideFileManager() {
+			this.insertImageType = "";
 			this.showFileManager = false;
 		},
-		insertLandingImage(file) {
-			this.area.landingImage = file.url;
+		insertImage(file) {
+			if (this.insertImageType == "landingImage") {
+				this.area.landingImage = file.url;
+			}
+			if (this.insertImageType == "tileImage") {
+				this.editedCard.image = file.url;
+			}
 			this.save("POOK");
+		},
+		insertTileImage(file) {
+			this.editedCard.image = file.url;
+			this.save("CARD POOK");
+			console.log("CARD POOK");
 		},
 		chipStatusShow(page) {
 			var now = moment();
@@ -982,5 +1116,14 @@ svg {
 }
 a .v-chip:hover {
 	cursor: pointer !important;
+}
+#cardImage {
+	border-collapse: collapse;
+	border: 1px solid;
+	color: rgba(0, 0, 0, 0.38);
+	border-radius: 4px;
+	transition-duration: 0.3s;
+	transition-property: color, border-width;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 </style>

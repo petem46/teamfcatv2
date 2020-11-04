@@ -3,25 +3,25 @@
 		<v-card class="z2" elevation="8" style="min-height: 400px;">
 			<v-toolbar dark flat class="teal" src>
 				<v-toolbar-title :id="section.id" class="text-uppercase text-h4 py-2">{{section.title}}</v-toolbar-title>
-				<v-tooltip left>
+				<v-menu bottom left offset-x>
 					<template v-slot:activator="{ on, attrs }">
-						<v-btn
-							v-bind="attrs"
-							v-on="on"
-							small
-							dark
-							fab
-							absolute
-							bottom
-							right
-							color="green"
-							:to="'/p2' + section.area.link + '/newpage'"
-						>
-							<v-icon small>fa fa-plus fa-fw</v-icon>
+						<v-btn v-bind="attrs" v-on="on" fab color="green" bottom right absolute>
+							<v-icon>mdi-plus</v-icon>
 						</v-btn>
 					</template>
-					Add New Page
-				</v-tooltip>
+					<v-list>
+						<v-list-item :to="'/p2' + section.area.link + '/newpage'">
+							<v-list-item-title>
+								<v-icon color="teal" class="mr-3">fa-file-medical fa-fw</v-icon>New Page
+							</v-list-item-title>
+						</v-list-item>
+						<v-list-item @click="fileInputClick(fileDocAccept)">
+							<v-list-item-title>
+								<v-icon color="blue" class="mr-3">fa-link fa-fw</v-icon>Add Link
+							</v-list-item-title>
+						</v-list-item>
+					</v-list>
+				</v-menu>
 			</v-toolbar>
 			<v-list two-line shaped class="grey lighten-5">
 				<v-row>
