@@ -15,7 +15,7 @@
 								<v-icon color="teal" class="mr-3">fa-file-medical fa-fw</v-icon>New Page
 							</v-list-item-title>
 						</v-list-item>
-						<v-list-item @click="fileInputClick(fileDocAccept)">
+						<v-list-item disabled>
 							<v-list-item-title>
 								<v-icon color="blue" class="mr-3">fa-link fa-fw</v-icon>Add Link
 							</v-list-item-title>

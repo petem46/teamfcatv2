@@ -175,7 +175,7 @@ export default {
 			showFileUploadDialog: false,
 			fileAccept: "",
 			fileDocAccept: ".pdf,.doc,.zip,.docx,.xlsx,.xls",
-			fileImageAccept: ".png, .jpeg, .jpg, video/mp4,audio/mp3",
+			fileImageAccept: ".png, .jpeg, .jpg, *.gif, *.gifv, video/mp4,audio/mp3",
 			fileVideoAccept: ".mp4, video/mp4",
 			showNewFolderDialog: false,
 			newFolderName: "",
