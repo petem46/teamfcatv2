@@ -13,6 +13,10 @@
 		<!-- <v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/updates">
 			<v-icon class="mr-2 grey--text lighten-1">mdi-clock-alert-outline</v-icon>Updates
 		</v-btn> -->
+		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/">
+			<v-icon class="mr-2 grey--text lighten-1">mdi-home</v-icon>Home
+		</v-btn>
+
 		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/covid">
 			<v-icon class="mr-2 grey--text lighten-1">mdi-clock-alert-outline</v-icon>COVID-19
 		</v-btn>
