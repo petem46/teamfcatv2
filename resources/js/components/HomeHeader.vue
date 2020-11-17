@@ -122,30 +122,6 @@ export default {};
 </script>
 <style scoped>
 section {
-  background-image: url('/images/green-aurora.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
 }
-/* section {
-	background: rgb(131, 58, 180);
-	background: -moz-linear-gradient(
-		90deg,
-		rgba(131, 58, 180, 1) 0%,
-		rgba(253, 29, 29, 1) 50%,
-		rgba(252, 176, 69, 1) 100%
-	);
-	background: -webkit-linear-gradient(
-		90deg,
-		rgba(131, 58, 180, 1) 0%,
-		rgba(253, 29, 29, 1) 50%,
-		rgba(252, 176, 69, 1) 100%
-	);
-	background: linear-gradient(
-		90deg,
-		rgba(131, 58, 180, 1) 0%,
-		rgba(253, 29, 29, 1) 50%,
-		rgba(252, 176, 69, 1) 100%
-	);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#833ab4",endColorstr="#fcb045",GradientType=1);
-} */
 </style>
