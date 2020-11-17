@@ -115,12 +115,12 @@
 								</v-avatar>Work &amp; Wellbeing Charter
 							</v-card-title>
 							<v-card-text>
-								<v-skeleton-loader boilerplate type="list-item-three-line"></v-skeleton-loader>
+								We are continuing to provide access to free and confidential employee wellbeing support.
 							</v-card-text>
 							<!-- <v-divider></v-divider> -->
 							<v-card-actions>
 								<v-spacer></v-spacer>
-								<v-btn text color="teal">Read More</v-btn>
+								<v-btn text color="teal" :to="'/p2/hr/staffwellbeing'">Read More</v-btn>
 							</v-card-actions>
 						</v-card>
 					</v-col>
