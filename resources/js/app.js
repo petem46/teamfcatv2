@@ -20,6 +20,8 @@ Vue.use(ClickOutside);
 Vue.component("landing-page", require("./pages/LandingPage.vue").default);
 Vue.component("staff-search", require("./pages/StaffSearch.vue").default);
 
+Vue.component("home-header", require("./components/HomeHeader.vue").default);
+
 Vue.component("nav-drawer", require("./components/SideNavDrawer.vue").default);
 Vue.component("top-nav-bar", require("./components/TopNavBar.vue").default);
 Vue.component("pages-section", require("./components/PagesSection.vue").default);
