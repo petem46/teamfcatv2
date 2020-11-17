@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/get/arealanding/{id}', 'PagesController@getAreaLanding');
   Route::put('/put/updateAreaLanding/{id}', 'PagesController@updateAreaLanding');
 
+  Route::get('/get/allStaff', 'AppController@getAllStaff');
 
   Route::get('/get/page/content/{areaname}/{slug}', 'PagesController@getContent');
   Route::post('/post/savepage', 'PagesController@savePage');

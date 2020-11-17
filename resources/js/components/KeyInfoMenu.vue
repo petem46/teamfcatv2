@@ -76,12 +76,19 @@
 export default {
 	data: () => ({
 		items: [
+			// {
+			// 	icon: "mdi-file-cabinet",
+			// 	iconClass: "teal--text text--lighten-2",
+			// 	title: "Policies & Documents",
+      //   subtitle: "Subtext for menu item",
+      //   link: '/policies'
+			// },
 			{
-				icon: "mdi-file-cabinet",
+				icon: "mdi-account-search",
 				iconClass: "teal--text text--lighten-2",
-				title: "Policies & Documents",
-        subtitle: "Subtext for menu item",
-        link: '/policies'
+				title: "Search All Staff",
+        subtitle: "Find contact details for FCAT staff",
+        link: '/staffsearch'
 			},
 			{
 				icon: "mdi-calendar-clock",

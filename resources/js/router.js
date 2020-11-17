@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home'
 import Covid from './pages/Covid'
 import LandingPage from './pages/LandingPage'
+import StaffSearch from './pages/StaffSearch'
 import CovidLandingPage from './pages/CovidLandingPage'
 import FinanceLandingPage from './pages/FinanceLandingPage'
 import HRLandingPage from './pages/HRLandingPage'
@@ -151,6 +152,12 @@ export default new Router({
       name: 'penguin',
       component: Penguin,
       props: true
+    },
+    {
+      path: '/staffsearch',
+      name: 'staffsearch',
+      component: StaffSearch,
+      // props: true
     },
   ],
   // scrollBehavior(to, from, savedPosition) {

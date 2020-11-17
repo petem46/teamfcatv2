@@ -17,9 +17,11 @@ Vue.use(vueFilterPrettyBytes);
 Vue.use(ClickOutside);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component("landing-page", require("./pages/LandingPage.vue").default);
+Vue.component("staff-search", require("./pages/StaffSearch.vue").default);
+
 Vue.component("nav-drawer", require("./components/SideNavDrawer.vue").default);
 Vue.component("top-nav-bar", require("./components/TopNavBar.vue").default);
-Vue.component("landing-page", require("./pages/LandingPage.vue").default);
 Vue.component("pages-section", require("./components/PagesSection.vue").default);
 Vue.component("file-manager", require("./components/FileManager.vue").default);
 Vue.component("file-upload", require("./components/FileUpload.vue").default);

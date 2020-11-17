@@ -28,4 +28,8 @@ class AppController extends Controller
         return response('User Updated!!!', Response::HTTP_OK)->header('section_id', $user->id);
       }
     }
+
+    public function getAllStaff() {
+      return User::all();
+    }
 }

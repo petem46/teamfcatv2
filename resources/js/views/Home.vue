@@ -6,13 +6,6 @@
 				<v-row>
 					<v-col cols="12" lg="8">
 						<v-carousel height="450" :cycle="true" :interval="5000" :show-arrows="false">
-							<!-- <v-carousel-item v-for="(slide, i) in slides" :key="i">
-									<v-sheet :color="colors[i]" height="100%" tile>
-										<v-row class="fill-height" align="center" justify="center">
-											<div class="display-3">{{ slide }} Slide</div>
-										</v-row>
-									</v-sheet>
-							</v-carousel-item>-->
 							<v-carousel-item>
 								<v-card>
 									<v-system-bar dark height="8" color="blue"></v-system-bar>
@@ -49,7 +42,14 @@
 					</v-col>
 					<v-col cols="12" lg="4">
 						<v-card light class="d-flex align-stretch">
-							<v-carousel height="450" :cycle="true" :interval="3500" hide-delimiters :show-arrows="false" vertical>
+							<v-carousel
+								height="450"
+								:cycle="true"
+								:interval="3500"
+								hide-delimiters
+								:show-arrows="false"
+								vertical
+							>
 								<v-carousel-item>
 									<v-card height="450">
 										<v-system-bar dark height="8" color="orange darken-2"></v-system-bar>
@@ -111,23 +111,11 @@
 										<v-btn text color="teal">Read More</v-btn>
 									</v-card-actions>
 								</v-card>
-								<v-carousel-item></v-carousel-item>
-								<v-carousel-item></v-carousel-item>
 							</v-carousel>
 						</v-card>
 					</v-col>
 				</v-row>
 			</v-container>
-		</section>
-		<section class="mt-n15 hidden">
-			<div class="mt-n15">
-				<svg
-					data-name="Layer 1"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 1200 80"
-					preserveAspectRatio="none"
-				/>
-			</div>
 		</section>
 		<section class="header white--text">
 			<div class="ticker box hidden">
@@ -143,18 +131,42 @@
 					</div>
 				</article>
 			</div>
-			<v-container>
-				<v-row py-3>
-					<v-col class="text-center h3 m-0">INTEGRITY</v-col>
-					<v-col class="text-center h3 m-0">RESILIENCE</v-col>
-					<v-col class="text-center h3 m-0">PRIDE</v-col>
-				</v-row>
-			</v-container>
+			<v-carousel
+				height="80"
+				hide-delimiters
+				:show-arrows="false"
+				:cycle="true"
+				:interval="6000"
+				vertical
+			>
+				<v-container>
+					<v-carousel-item
+						transition="slide-x-transition"
+						reverse-transition="slide-x-reverse-transition"
+					>
+						<v-row py-3>
+							<v-col class="text-center h3 m-0">INTEGRITY</v-col>
+							<v-col class="text-center h3 m-0">RESILIENCE</v-col>
+							<v-col class="text-center h3 m-0">PRIDE</v-col>
+						</v-row>
+					</v-carousel-item>
+					<v-carousel-item
+						transition="slide-x-transition"
+						reverse-transition="slide-x-reverse-transition"
+					>
+						<v-row py-3>
+							<v-col class="text-center h3 m-0">EXCELLENCE</v-col>
+							<v-col class="text-center h3 m-0">AMBITION</v-col>
+							<v-col class="text-center h3 m-0">RESPECT</v-col>
+						</v-row>
+					</v-carousel-item>
+				</v-container>
+			</v-carousel>
 		</section>
-		<section class="mt-md-n15x">
+		<section class="mt-md-n15x amber lighten-5">
 			<v-container class="mt-md-n15x">
 				<!-- <h1 class="display-2 orange--text text--darken-4">SECTION TWO</h1> -->
-				<v-row>
+				<v-row class="d-flex align-self-stretch" height="100px">
 					<v-col cols="12" md="6" lg="4">
 						<v-card>
 							<v-system-bar dark height="8" color="orange darken-2"></v-system-bar>
@@ -179,16 +191,6 @@
 									</v-list-item-action>
 								</v-list-item>
 							</v-list>
-							<!-- <v-card-text>
-								<p>Dear Colleague,</p>
-								<p>
-									Good morning or good afternoon, hopefully not good evening!
-									Well I do not know if it is the same where you live, but Bonfire Night seemed to happen over a number of
-									evenings, just as the American election ....
-								</p>
-							</v-card-text>-->
-							<!-- <v-skeleton-loader boilerplate type="list-item-three-line"></v-skeleton-loader> -->
-							<!-- <v-divider></v-divider> -->
 							<v-card-actions>
 								<v-spacer></v-spacer>
 								<v-btn text color="teal">Open Letter</v-btn>
@@ -196,10 +198,10 @@
 						</v-card>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<v-card>
+						<v-card class="align-self-stretch">
 							<v-system-bar dark height="8" color="blue lighten-2"></v-system-bar>
 							<v-sheet color="grey lighten-2">
-								<v-img src="/images/covid-update-image.jpg" height="200"></v-img>
+								<v-img src="/images/covid-update-image.jpg" height="200" max-width="300px"></v-img>
 							</v-sheet>
 							<v-system-bar dark height="1" color="black"></v-system-bar>
 							<v-card-title>
@@ -215,8 +217,8 @@
 							</v-card-actions>
 						</v-card>
 					</v-col>
-					<v-col cols="12" md="6" lg="4">
-						<v-card>
+					<v-col cols="12" md="6" lg="4" class="align-self-stretch">
+						<v-card class="align-self-stretch">
 							<v-system-bar dark height="8" color="teal"></v-system-bar>
 							<v-sheet color="red lighten-2">
 								<v-img src="/images/1_FINAL_JPG_FCAT_Work_-_Wellbeing_Charter.jpg" height="200"></v-img>
@@ -239,13 +241,31 @@
 						</v-card>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<v-skeleton-loader class="border" boilerplate type="card-avatar, article, actions"></v-skeleton-loader>
+						<v-card flat>
+							<v-card-title class="py-1 mt-1">
+								<v-icon color="teal" large>far fa-check-circle fa-fw</v-icon>
+							</v-card-title>
+							<v-card-title class="py-1 mt-1">Title Title</v-card-title>
+							<v-card-text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quam et necessitatibus, cum adipisci itaque hic quisquam modi, quia tempore, culpa atque provident perspiciatis molestias vitae deserunt dignissimos? Cupiditate, doloremque.</v-card-text>
+						</v-card>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<v-skeleton-loader class="border" boilerplate type="card-avatar, article, actions"></v-skeleton-loader>
+						<v-card flat>
+							<v-card-title class="py-1 mt-1">
+								<v-icon color="teal" large>far fa-check-circle fa-fw</v-icon>
+							</v-card-title>
+							<v-card-title class="py-1 mt-1">Title Title</v-card-title>
+							<v-card-text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quam et necessitatibus, cum adipisci itaque hic quisquam modi, quia tempore, culpa atque provident perspiciatis molestias vitae deserunt dignissimos? Cupiditate, doloremque.</v-card-text>
+						</v-card>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<v-skeleton-loader class="border" boilerplate type="card-avatar, article, actions"></v-skeleton-loader>
+						<v-card flat>
+							<v-card-title class="py-1 mt-1">
+								<v-icon color="teal" large>far fa-check-circle fa-fw</v-icon>
+							</v-card-title>
+							<v-card-title class="py-1 mt-1">Title Title</v-card-title>
+							<v-card-text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quam et necessitatibus, cum adipisci itaque hic quisquam modi, quia tempore, culpa atque provident perspiciatis molestias vitae deserunt dignissimos? Cupiditate, doloremque.</v-card-text>
+						</v-card>
 					</v-col>
 				</v-row>
 			</v-container>
@@ -259,25 +279,86 @@
 				</v-row>
 			</v-container>
 		</section>
-
+		<section>
+			<v-container>
+				<v-sheet class="mx-auto" elevation="8">
+					<v-slide-group class="pa-4" center-active show-arrows>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+						<v-slide-item v-slot="{ active, toggle }">
+							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
+						</v-slide-item>
+					</v-slide-group>
+				</v-sheet>
+			</v-container>
+		</section>
 		<section class="grey lighten-2">
 			<v-container>
-				<v-row>
-					<v-col cols="12" lg="8">
-						<v-sheet min-height="70vh" rounded="lg" class="border">
+				<v-card elevation="8">
+					<v-row>
+						<v-col cols="12" md="6" lg="8">
 							<v-img height="400" contain src="/images/teamfcat-hexagon.png"></v-img>
-						</v-sheet>
-					</v-col>
-					<v-col cols="12" md="6" lg="4">
-						<v-skeleton-loader class="border" type="card-avatar, article, actions"></v-skeleton-loader>
-					</v-col>
-					<v-col cols="12" md="6" lg="4">
-						<v-skeleton-loader class="border" type="card-avatar, article, actions"></v-skeleton-loader>
-					</v-col>
-					<v-col cols="12" md="6" lg="4">
-						<v-skeleton-loader class="border" type="card-avatar, article, actions"></v-skeleton-loader>
-					</v-col>
-				</v-row>
+						</v-col>
+						<v-col cols="12" md="6" lg="4">
+							<v-skeleton-loader class="border" type="card-avatar, article, actions"></v-skeleton-loader>
+						</v-col>
+					</v-row>
+				</v-card>
 			</v-container>
 		</section>
 	</div>
