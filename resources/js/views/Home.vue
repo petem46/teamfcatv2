@@ -114,9 +114,7 @@
 									<v-icon dark>fa-heartbeat fa-fw</v-icon>
 								</v-avatar>Work &amp; Wellbeing Charter
 							</v-card-title>
-							<v-card-text>
-								We are continuing to provide access to free and confidential employee wellbeing support.
-							</v-card-text>
+							<v-card-text>We are continuing to provide access to free and confidential employee wellbeing support.</v-card-text>
 							<!-- <v-divider></v-divider> -->
 							<v-card-actions>
 								<v-spacer></v-spacer>
@@ -234,36 +232,34 @@
 		</section>-->
 		<section class="grey lighten-2">
 			<v-container>
-				<v-row class="align-items-center text-center">
-					<v-col cols="12" class="display-3">OUR CORE VALUES</v-col>
-					<v-col cols="12" md="4">
-						<div>
+				<v-row class="align-items-center">
+					<v-col cols="12" class="display-3 text-center">OUR CORE VALUES</v-col>
+					<v-col cols="12" md="6">
+						<div class="text-center">
 							<v-img height="400" contain src="/images/teamfcat-hexagon.png"></v-img>
 						</div>
 					</v-col>
-					<v-col cols="12" md="8">
+					<v-col cols="12" md="6">
 						<div>
 							<v-card-text>
-								<div class="display-1 text--primary">
+								<div class="display-1 pb-2">
 									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>PRIDE
 								</div>
-								<div
-									class="text--primary"
-								>A feeling of deep satisfaction derived from one’s own achievements</div>
-							</v-card-text>
-							<v-card-text>
-								<div class="display-1 text--primary">
+								<div class="display-1 pb-2">
 									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>AMBITION
 								</div>
-								<div class="text--primary">A strong desire to do or achieve something</div>
-							</v-card-text>
-							<v-card-text>
-								<div class="display-1 text--primary">
+								<div class="display-1 pb-2">
 									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESPECT
 								</div>
-								<div
-									class="text--primary"
-								>A feeling of deep admiration for someone or something elicited by their abilities, qualities, or achievements</div>
+								<div class="display-1 pb-2">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESILIENCE
+								</div>
+								<div class="display-1 pb-2">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESILIENCE
+								</div>
+								<div class="display-1 pb-2">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>INTEGRITY
+								</div>
 							</v-card-text>
 						</div>
 					</v-col>
@@ -274,29 +270,32 @@
 			</v-container>
 			<v-container>
 				<v-row class="align-items-center">
-					<v-col cols="12" md="8">
-						<div>
-							<v-card-text>
-								<div class="display-1 text--primary">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESILIENCE
+					<v-col cols="12" class="display-3 text-center">OUR NON-NEGOITABLES</v-col>
+					<v-col cols="12" md="6">
+            								<div class="display-1 pb-2">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>CHILDREN FIRST
 								</div>
-								<div class="text--primary">The capacity to recover quickly from difficulties</div>
-							</v-card-text>
-							<v-card-text>
-								<div class="display-1 text--primary">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>INTEGRITY
+								<div class="display-1 pb-2">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>HIGH EXPECTATIONS
 								</div>
-								<div class="text--primary">The quality of being honest and having strong moral principles</div>
-							</v-card-text>
-							<v-card-text>
-								<div class="display-1 text--primary">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>EXCELLENCE
+								<div class="display-1 pb-2">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>NO EXCUSES
 								</div>
-								<div class="text--primary">The quality of being outstanding or extremely good</div>
-							</v-card-text>
-						</div>
-					</v-col>
-					<v-col cols="12" md="4">
+								<div class="display-1 pb-2">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>PASSION FOR LEARNING
+								</div>
+								<div class="display-1 pb-2">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>WORKING TOGETHER
+								</div>
+								<div class="display-1 pb-2">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>CONSISTENCY &amp; COMPLIANCE
+								</div>
+								<div class="display-1 pb-2">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>OUTWARD FACING
+								</div>
+
+          </v-col>
+					<v-col cols="12" md="6">
 						<div>
 							<v-img height="400" contain src="/images/teamfcat-hexagon.png"></v-img>
 						</div>
@@ -424,8 +423,8 @@ export default {
 	opacity: 0;
 }
 section {
-	padding-top: 3rem;
-	padding-bottom: 3rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 	background-image: linear-gradient(
 		to top,
 		#c7c7c7 0%,

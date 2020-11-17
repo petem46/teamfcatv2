@@ -1,28 +1,30 @@
 <template>
-	<section style="top: 64px;">
-		<v-container>
-					<h1 class="display-3 black--text text--darken-2 text-center">STAFF DIRECTORY</h1>
-			<v-card>
-				<v-card-title class="text-center">
-					<v-text-field
-						v-model="search"
-						append-icon="mdi-magnify"
-						label="Search"
-						single-line
-						hide-details
-						clearable
-					></v-text-field>
-				</v-card-title>
-				<v-data-table
-					:headers="headers"
-					:items="staffs"
-					:search="search"
-					:sort-by="['school', 'name']"
-					class="grey--text text--darken-2"
-				></v-data-table>
-			</v-card>
-		</v-container>
-	</section>
+	<div style="top: 64px;">
+		<section class="elevation-5">
+			<v-container>
+				<h1 class="display-3 white--text text--darken-2 text-center">STAFF DIRECTORY</h1>
+				<v-card>
+					<v-card-title class="text-center">
+						<v-text-field
+							v-model="search"
+							append-icon="mdi-magnify"
+							label="Search"
+							single-line
+							hide-details
+							clearable
+						></v-text-field>
+					</v-card-title>
+					<v-data-table
+						:headers="headers"
+						:items="staffs"
+						:search="search"
+						:sort-by="['school', 'name']"
+						class="grey--text text--darken-2"
+					></v-data-table>
+				</v-card>
+			</v-container>
+		</section>
+	</div>
 </template>
 <script>
 export default {
@@ -92,5 +94,7 @@ export default {
 };
 </script>
 <style scoped>
-
+section {
+	background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
+}
 </style>
