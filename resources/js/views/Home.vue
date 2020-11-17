@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<home-header></home-header>
-		<section class="header white--text">
+		<section class="header white--text py-0">
 			<div class="ticker box hidden">
 				<article class="media">
 					<span class="breaking-news media-left">Breaking News</span>
@@ -85,7 +85,7 @@
 						<v-card class="align-self-stretch">
 							<v-system-bar dark height="8" color="blue lighten-2"></v-system-bar>
 							<v-sheet color="grey lighten-2">
-								<v-img src="/images/covid-update-image.jpg" height="200" max-width="300px"></v-img>
+								<v-img src="/images/covid-update-image.jpg" height="200"></v-img>
 							</v-sheet>
 							<v-system-bar dark height="1" color="black"></v-system-bar>
 							<v-card-title>
@@ -154,7 +154,7 @@
 				</v-row>
 			</v-container>
 		</section>
-		<section class="header white--text">
+		<section class="header white--text py-0">
 			<v-container>
 				<v-row py-3>
 					<v-col class="text-center h3 m-0">EXCELLENCE</v-col>
@@ -163,10 +163,8 @@
 				</v-row>
 			</v-container>
 		</section>
-		<v-divider></v-divider>
 		<staff-search></staff-search>
-		<v-divider></v-divider>
-		<section>
+		<!-- <section>
 			<v-container>
 				<v-sheet class="mx-auto" elevation="8">
 					<v-slide-group class="pa-4" center-active show-arrows>
@@ -233,19 +231,77 @@
 					</v-slide-group>
 				</v-sheet>
 			</v-container>
-		</section>
+		</section>-->
 		<section class="grey lighten-2">
 			<v-container>
-				<v-card elevation="8">
-					<v-row>
-						<v-col cols="12" md="6" lg="8">
+				<v-row class="align-items-center text-center">
+					<v-col cols="12" class="display-3">OUR CORE VALUES</v-col>
+					<v-col cols="12" md="4">
+						<div>
 							<v-img height="400" contain src="/images/teamfcat-hexagon.png"></v-img>
-						</v-col>
-						<v-col cols="12" md="6" lg="4">
-							<v-skeleton-loader class="border" type="card-avatar, article, actions"></v-skeleton-loader>
-						</v-col>
-					</v-row>
-				</v-card>
+						</div>
+					</v-col>
+					<v-col cols="12" md="8">
+						<div>
+							<v-card-text>
+								<div class="display-1 text--primary">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>PRIDE
+								</div>
+								<div
+									class="text--primary"
+								>A feeling of deep satisfaction derived from one’s own achievements</div>
+							</v-card-text>
+							<v-card-text>
+								<div class="display-1 text--primary">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>AMBITION
+								</div>
+								<div class="text--primary">A strong desire to do or achieve something</div>
+							</v-card-text>
+							<v-card-text>
+								<div class="display-1 text--primary">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESPECT
+								</div>
+								<div
+									class="text--primary"
+								>A feeling of deep admiration for someone or something elicited by their abilities, qualities, or achievements</div>
+							</v-card-text>
+						</div>
+					</v-col>
+				</v-row>
+			</v-container>
+			<v-container>
+				<v-divider inset></v-divider>
+			</v-container>
+			<v-container>
+				<v-row class="align-items-center">
+					<v-col cols="12" md="8">
+						<div>
+							<v-card-text>
+								<div class="display-1 text--primary">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESILIENCE
+								</div>
+								<div class="text--primary">The capacity to recover quickly from difficulties</div>
+							</v-card-text>
+							<v-card-text>
+								<div class="display-1 text--primary">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>INTEGRITY
+								</div>
+								<div class="text--primary">The quality of being honest and having strong moral principles</div>
+							</v-card-text>
+							<v-card-text>
+								<div class="display-1 text--primary">
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>EXCELLENCE
+								</div>
+								<div class="text--primary">The quality of being outstanding or extremely good</div>
+							</v-card-text>
+						</div>
+					</v-col>
+					<v-col cols="12" md="4">
+						<div>
+							<v-img height="400" contain src="/images/teamfcat-hexagon.png"></v-img>
+						</div>
+					</v-col>
+				</v-row>
 			</v-container>
 		</section>
 	</div>
@@ -368,6 +424,15 @@ export default {
 	opacity: 0;
 }
 section {
-	background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	background-image: linear-gradient(
+		to top,
+		#c7c7c7 0%,
+		#d5d4d0 1%,
+		#eeeeec 31%,
+		#efeeec 75%,
+		#e9e9e7 100%
+	);
 }
 </style>

@@ -1,10 +1,9 @@
 <template>
 	<section style="top: 64px;">
 		<v-container>
+					<h1 class="display-3 black--text text--darken-2 text-center">STAFF DIRECTORY</h1>
 			<v-card>
-				<v-card-title class="black--text">
-					<h1 class="h2 grey--text text--darken-2">STAFF DIRECTORY</h1>
-					<v-spacer></v-spacer>
+				<v-card-title class="text-center">
 					<v-text-field
 						v-model="search"
 						append-icon="mdi-magnify"
@@ -93,10 +92,5 @@ export default {
 };
 </script>
 <style scoped>
-section {
-	background-image: linear-gradient(135deg, #ffe985 10%, #fa742b 100%);
-}
-table .v-data-table-header {
-  background-image: linear-gradient(135deg, #ffe985 10%, #fa742b 100%) !important;
-}
+
 </style>
