@@ -1,7 +1,6 @@
 <template>
 	<section class="headerx py-0">
 		<v-container>
-			<v-row></v-row>
 			<v-row>
 				<v-col cols="12" lg="8">
 					<v-carousel height="450" :cycle="true" :interval="5000" :show-arrows="false">
@@ -89,27 +88,29 @@
 									<v-card-text>Please remember to check the COVID-19 page for important updates and links to key information from FCAT and the Department for Education</v-card-text>
 								</v-card>
 							</v-carousel-item>
-							<v-card height="450">
-								<v-system-bar dark height="8" color="teal"></v-system-bar>
-								<v-sheet color="red lighten-2">
-									<v-img src="/images/1_FINAL_JPG_FCAT_Work_-_Wellbeing_Charter.jpg" height="200"></v-img>
-								</v-sheet>
-								<v-system-bar dark height="1" color="black"></v-system-bar>
-								<v-card-title>
-									<v-avatar size="64" class="mr-2" color="red">
-										<!-- <v-img src="/images/sean.jpg" position="top center"></v-img> -->
-										<v-icon dark>fa-heartbeat fa-fw</v-icon>
-									</v-avatar>Work &amp; Wellbeing Charter
-								</v-card-title>
-								<v-card-text>
-									<v-skeleton-loader boilerplate type="list-item-three-line"></v-skeleton-loader>
-								</v-card-text>
-								<!-- <v-divider></v-divider> -->
-								<v-card-actions>
-									<v-spacer></v-spacer>
-									<v-btn text color="teal">Read More</v-btn>
-								</v-card-actions>
-							</v-card>
+							<v-carousel-item>
+								<v-card height="450">
+									<v-system-bar dark height="8" color="teal"></v-system-bar>
+									<v-sheet color="red lighten-2">
+										<v-img src="/images/1_FINAL_JPG_FCAT_Work_-_Wellbeing_Charter.jpg" height="200"></v-img>
+									</v-sheet>
+									<v-system-bar dark height="1" color="black"></v-system-bar>
+									<v-card-title>
+										<v-avatar size="64" class="mr-2" color="red">
+											<!-- <v-img src="/images/sean.jpg" position="top center"></v-img> -->
+											<v-icon dark>fa-heartbeat fa-fw</v-icon>
+										</v-avatar>Work &amp; Wellbeing Charter
+									</v-card-title>
+									<v-card-text>
+										<v-skeleton-loader boilerplate type="list-item-three-line"></v-skeleton-loader>
+									</v-card-text>
+									<!-- <v-divider></v-divider> -->
+									<v-card-actions>
+										<v-spacer></v-spacer>
+										<v-btn text color="teal">Read More</v-btn>
+									</v-card-actions>
+								</v-card>
+							</v-carousel-item>
 						</v-carousel>
 					</v-card>
 				</v-col>
@@ -118,10 +119,26 @@
 	</section>
 </template>
 <script>
-export default {};
+export default {
+	mounted() {
+		let embedTwitter = document.createElement("script");
+		embedTwitter.setAttribute("src", "https://platform.twitter.com/widgets.js");
+		document.head.appendChild(embedTwitter);
+	}
+};
 </script>
 <style scoped>
 section {
-	background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+	background-image: linear-gradient(
+		to top,
+		#d5d4d0 0%,
+		#d5d4d0 1%,
+		#eeeeec 31%,
+		#efeeec 75%,
+		#e9e9e7 100%
+	);
+}
+.hidden {
+	display: none;
 }
 </style>

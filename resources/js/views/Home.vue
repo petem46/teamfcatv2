@@ -161,6 +161,7 @@
 				</v-row>
 			</v-container>
 		</section>
+    <home-twitters></home-twitters>
 		<staff-search></staff-search>
 		<!-- <section>
 			<v-container>
