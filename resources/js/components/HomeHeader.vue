@@ -50,6 +50,17 @@
 						>
 							<v-carousel-item>
 								<v-card height="450">
+									<a
+										class="twitter-timeline"
+										href="https://twitter.com/FCATrust?ref_src=twsrc%5Etfw"
+										data-lang="en"
+										data-height="450"
+										data-dnt="true"
+									>Tweets by MontgomeryFCAT</a>
+								</v-card>
+							</v-carousel-item>
+							<v-carousel-item>
+								<v-card height="450">
 									<v-system-bar dark height="8" color="orange darken-2"></v-system-bar>
 									<v-sheet color="grey lighten-2">
 										<v-img src="/images/seans-letter-image.jpg" height="200"></v-img>
