@@ -258,7 +258,7 @@
 				</v-container>
 			</section>
 
-			<section>
+			<section class="edtech">
 				<v-container>
 					<v-row class="align-items-center">
 						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
@@ -931,7 +931,7 @@ section:after {
 	);
   color: whitesmoke;
 }
-.rtl-gradient {
+.edtech {
 	background-image: linear-gradient(
 		89.9deg,
 		rgba(255, 90, 109, 1) 2.6%,
