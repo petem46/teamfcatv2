@@ -65,7 +65,7 @@
 										<v-img src="/images/sean.jpg" position="top center"></v-img>
 									</v-list-item-avatar>
 									<v-list-item-content>
-										<v-list-item-title class="h5">Sean's Weekly Letter</v-list-item-title>
+										<v-list-item-title class="h5">Sean's Weekly Message</v-list-item-title>
 										<v-list-item-subtitle>Monday 9th November 2020</v-list-item-subtitle>
 									</v-list-item-content>
 									<v-list-item-action>

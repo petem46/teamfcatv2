@@ -134,8 +134,8 @@
 				<a href="#support">
 					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Support</v-btn>
 				</a>
-				<a href="#research">
-					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Research</v-btn>
+				<a href="#safeguarding">
+					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Safeguarding</v-btn>
 				</a>
 				<a href="#google">
 					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Google</v-btn>
@@ -146,86 +146,231 @@
 				<a href="#tutorials">
 					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Webinars</v-btn>
 				</a>
-				<a href="#safeguarding">
-					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Safeguarding</v-btn>
+				<a href="#research">
+					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp">Research</v-btn>
 				</a>
 			</v-app-bar>
-			<section id="support" class="teal lighten-2 top-border--teal rtl-vh-100">
-				<div class="container white--text">
-					<div class="row align-items-center">
-						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
-							<div class="p-lg-5">
-								<img class="img-fluid rounded-circle" src="/images/rtl-support-image.jpg" alt />
-							</div>
-						</div>
-						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
-							<div class="p-lg-5">
-								<h1 class="text-h1">Support</h1>
-								<p
-									class="text-body-1"
-								>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-							</div>
-						</div>
-					</div>
-				</div>
+
+			<section class="rtl-gradient">
+				<v-container>
+					<v-col cols="12">
+						<h1 class="display-3">Remote Teaching &amp; Learning</h1>
+						<p class="subtitle-1">
+							Across the Trust there is constantly growing expertise in supporting young people with their learning
+							through the use of technology. This expertise ranges from the Demonstrator School consortium
+							which Hambleton leads on, to individuals within schools who have a wealth of expertise and
+							experience to draw upon. Within this section of the intranet, there are some key contacts,
+							supporting resources and documentation to aid effective remote teaching and learning.
+						</p>
+					</v-col>
+				</v-container>
 			</section>
 
-			<section id="research" app class="top-border--teal grey lighten-4 rtl-vh-100">
-				<div class="container" data-aos="fade-in" data-aos-duration="1500">
-					<div class="row align-items-center">
-						<div class="col-lg-6 order-lg-2" data-aos="zoom-out-left" data-aos-duration="1500">
+			<section id="support" class="coreleads">
+				<v-container>
+					<v-row class="align-items-centerx">
+						<v-col cols="12">
+							<h1 class="text-h2">Core Leads / School Improvement Team</h1>
+							<p class="text-body-1">
+								Our Core Leads are there to support staff across the Trust with remote learning.
+								They are available to share their subject and curriculum expertise with colleagues
+								and assisting with remote learning is one of their priorities. Feel free to email them to
+								access their support.
+							</p>
+						</v-col>
+						<v-col cols="12" md="4">
+							<v-card class>
+								<v-toolbar dark>
+									<v-toolbar-title>
+										<v-icon class="mr-2">fas fa-flask fa-fw</v-icon>Russ Bradshaw
+									</v-toolbar-title>
+								</v-toolbar>
+								<v-card-title>Core Team Leader/Science</v-card-title>
+								<v-card-text>
+									Hi there, I oversee the core subjects English, maths and science. I have over 19
+									years experience of teaching all three sciences and have degrees in biology and
+									physics. I have written the entire KS2 science content for Seneca Learning and I’m
+									an examiner for the AQA exam board. I am also an adviser for Ofqual. Please email
+									me if you have any concerns or questions regarding Google applications and remote
+									Seneca learning.
+								</v-card-text>
+								<v-card-actions>
+									<v-spacer></v-spacer>
+									<a href="mailto:russ.bradshaw@fcat.org.uk" target="_blank">
+										<v-btn light text>CONTACT RUSS</v-btn>
+									</a>
+								</v-card-actions>
+							</v-card>
+						</v-col>
+						<v-col cols="12" md="4">
+							<v-card class>
+								<v-toolbar dark>
+									<v-toolbar-title>
+										<v-icon class="mr-2">fas fa-book-reader fa-fw</v-icon>Estelle Bellamy
+									</v-toolbar-title>
+								</v-toolbar>
+								<v-card-title>English and Literacy</v-card-title>
+								<v-card-text>
+									I have been a teacher in Blackpool for 24 years and have taught a range of A Levels
+									and GCSEs: English Literature and English Language A Level, English GCSE,
+									Media Studies A Level and GCSE, Film Studies A Level, General Studies A Level
+									and Key Skills Communication Level 2 and 3 and have been an examiner and
+									consultant for WJEC and EDEXCEL. I have also supported schools and colleagues
+									as an SLE and worked closely with the Fylde Coast Teaching school to deliver
+									leadership and literacy training. I am passionate about reading and literacy and have
+									supported schools in their development of both. Please email me if you think I can
+									help you with teaching English and Literacy remotely.
+								</v-card-text>
+								<v-card-actions>
+									<v-spacer></v-spacer>
+									<a href="mailto:estelle.bellamy@fcat.org.uk" target="_blank">
+										<v-btn light text>CONTACT ESTELLE</v-btn>
+									</a>
+								</v-card-actions>
+							</v-card>
+						</v-col>
+						<v-col cols="12" md="4">
+							<v-card class>
+								<v-toolbar dark>
+									<v-toolbar-title>
+										<v-icon class="mr-2">fas fa-square-root-alt fa-fw</v-icon>Catherine Farmar
+									</v-toolbar-title>
+								</v-toolbar>
+								<v-card-title>Mathematics</v-card-title>
+								<v-card-text>
+									Hello! I am a mathematics teacher with over 20 years experience teaching KS3,
+									GCSE, A-level Maths and Further Maths, and six years as Deputy Head of an all
+									through (4-19) Free School. I have been a member of the Mathematical Association
+									Council and hold the NCETM accreditation as a Professional Development Lead. I
+									passionately believe that all pupils can do and enjoy mathematics, and I have used
+									many different tools to make this happen. Please email me if you require any
+									assistance or advice with developing your pupils’ remote learning in mathematics.
+								</v-card-text>
+								<v-card-actions>
+									<v-spacer></v-spacer>
+									<a href="mailto:catherine.farmar@fcat.org.uk" target="_blank">
+										<v-btn light text>CONTACT CATHERINE</v-btn>
+									</a>
+								</v-card-actions>
+							</v-card>
+						</v-col>
+					</v-row>
+				</v-container>
+			</section>
+
+			<section>
+				<v-container>
+					<v-row class="align-items-center">
+						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
 							<div class="p-lg-5">
-								<img class="img-fluid rounded-circle" src="/images/rtl-research-1.jpg" alt />
-							</div>
-						</div>
-						<div class="col-lg-6 order-lg-1" data-aos="zoom-in-down" data-aos-duration="1500">
-							<div class="p-lg-5">
-								<h1 class="text-h1 teal--text">Research</h1>
-								<p class="text-h4">EEF Remote Learning: Rapid Evidence Assessment</p>
-								<p
-									class="text-body-1"
-								>This rapid evidence assessment aimed to investigate methods that schools could use to support remote learning during school closures caused by the 2020 coronavirus pandemic (Covid-19). The review sought to find the best evidence behind the wide array of approaches that schools might choose to use during the crisis.</p>
+								<h1 class="text-h2">Demonstrator School</h1>
+								<p class="text-body-1">
+									Hambleton Primary, Ribblesdale High and Highfurlong schools are members of a
+									consortium providing EdTech support across the Northwest. They have
+									additional resources to support other schools and a myriad of useful tools,
+									expertise and resources. Please contact them either direct of through the links
+									below.
+								</p>
 								<a
-									href="https://educationendowmentfoundation.org.uk/public/files/Remote_Learning_Rapid_Evidence_Assessment.pdf"
+									href="https://www.edtech.ribblesdale.org/demonstrator/edtech-demonstrator-events/"
 									target="_blank"
 								>
-									<v-btn dark large>Read more about this research</v-btn>
+									<v-btn class="mb-5">Events</v-btn>
+								</a>
+								<a
+									href="https://www.edtech.ribblesdale.org/demonstrator/edtech-pre-recorded-webinars/"
+									target="_blank"
+								>
+									<v-btn class="mb-5">Webinars</v-btn>
+								</a>
+								<a href="https://www.edtech.ribblesdale.org/demonstrator/" target="_blank">
+									<v-btn class="mb-5">About</v-btn>
+								</a>
+								<a href="https://edtech-demonstrator.lgfl.net/register-your-interest" target="_blank">
+									<v-btn class="mb-5">Register your Interest in Receiving Support</v-btn>
 								</a>
 							</div>
 						</div>
-					</div>
-				</div>
+						<v-col lg="6" data-aos="zoom-out-left" data-aos-duration="1500">
+							<div class="p-lg-5">
+								<img class="img-fluid rounded-circle" src="/images/rtl-support-image.jpg" alt />
+							</div>
+						</v-col>
+					</v-row>
+				</v-container>
+			</section>
 
+			<section id="safeguarding" class="grey lighten-4 vh-rtl-100">
 				<div class="container">
 					<div class="row align-items-center">
-						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
+						<div class="col-lg-6 order-lg-1" data-aos="zoom-out-left" data-aos-duration="1500">
 							<div class="p-lg-5">
-								<img class="img-fluid rounded-circle" src="/images/rtl-research-2.jpg" alt />
+								<img class="img-fluid rounded-circle white" src="/images/rtl-safeguarding-1.jpg" alt />
 							</div>
 						</div>
+						<div class="col-lg-6 order-lg-2" data-aos="zoom-out-left" data-aos-duration="1500">
+							<div class="p-lg-5">
+								<h1 class="text-h1 teal--text">Safeguarding</h1>
+								<p
+									class="text-h6"
+								>Safeguarding and child protection remains as important as ever, especially as the usual child protection systems are under increased pressure. And whether you’re teaching face-to-face or in a virtual classroom, it’s important that you take steps to ensure children are protected.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row">
 						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
 							<div class="p-lg-5">
 								<h1
 									class="text-h4"
-								>NFER: Schools' responses to Covid-19: pupil engagement in remote learning</h1>
+								>DfE Guidance: Safeguarding and remote education during coronavirus (COVID-19)</h1>
 								<p
 									class="text-body-1"
-								>On 20th March 2020, the British Government ordered schools to close to the majority of pupils. This was a pivotal moment as the majority of pupils transitioned to learning remotely from home and schools had to adapt rapidly to this new way of teaching. With the majority of pupils not expected to return to the classroom until the autumn, remote learning remains at the heart of how schools will need to continue to support pupils’ learning in the coming months.</p>
-								<p
-									class="text-body-1"
-								>Given the potential impact of this extended period of remote learning, NFER undertook an independent assessment to see how engaged pupils are, and the factors that might be driving this, as well as how schools are providing remote learning support for pupils. The report is based on findings from a national survey of 1,233 senior leaders and 1,821 teachers in publicly-funded, mainstream primary and secondary schools in England. Responses between 7th and 17th May have been weighted by phase and free school meal (FSM) eligibility to provide a nationally representative picture.</p>
+								>Understand how to follow safeguarding procedures when planning remote education strategies and teaching remotely during the coronavirus (COVID-19) outbreak.</p>
 								<a
-									href="https://www.nfer.ac.uk/schools-responses-to-covid-19-pupil-engagement-in-remote-learning/"
+									href="https://www.gov.uk/guidance/safeguarding-and-remote-education-during-coronavirus-covid-19"
 									target="_blank"
 								>
-									<v-btn dark large>Read more about this research</v-btn>
+									<v-btn large dark class="btn-block">Read the guidance here</v-btn>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
+							<div class="p-lg-5">
+								<h1 class="text-h4">SWGfL Safe Remote Learning</h1>
+								<p
+									class="text-body-1"
+								>Whether your school is closed or not, schools may be considering moving learning online. Here's the lowdown on organising classes online so that safeguards are adequately considered and are trouble-free.</p>
+								<a href="https://swgfl.org.uk/resources/safe-remote-learning/" target="_blank">
+									<v-btn large dark class="btn-block">Access the SWGfL resources here</v-btn>
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
+							<div class="p-lg-5">
+								<h1 class="text-h4">NSPCC Learning: Undertaking remote teaching safely</h1>
+								<p
+									class="text-body-1"
+								>Understand how to follow safeguarding procedures when planning remote education strategies and teaching remotely during the coronavirus (COVID-19) outbreak.</p>
+								<a
+									href="https://learning.nspcc.org.uk/news/2020/march/undertaking-remote-teaching-safely"
+									target="_blank"
+								>
+									<v-btn large dark class="btn-block">Read the guidance here</v-btn>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
+							<div class="p-lg-5"></div>
+						</div>
+					</div>
+				</div>
 			</section>
-
 			<section id="google" dark class="green darken-2 white--text">
 				<div class="container" data-aos="zoom-out-left" data-aos-duration="1500">
 					<div class="row align-items-center">
@@ -234,20 +379,20 @@
 								<img
 									class="img-fluid rounded-circle"
 									src="images/google-training-img.jpg"
-									alt="Google Teacher Center Image"
+									alt="Google Teacher Centre Image"
 								/>
 							</div>
 						</div>
 						<div class="col-lg-6 order-lg-1" data-aos="zoom-out-left" data-aos-duration="1500">
 							<div class="p-lg-5">
 								<h1 class="text-h1">Google Education</h1>
-								<h1 class="text-h4 black--text">Google Teacher Center</h1>
+								<h1 class="text-h4 black--text">Google Teacher Centre</h1>
 								<p class="text-body-1">
 									Explore free technology training and resources for educators.
 									<br />Learn basic and advanced skills across Google tools with free online training courses designed for educators of all levels.
 								</p>
 								<a href="https://edu.google.com/teacher-center" target="_blank">
-									<v-btn large class="mt-5">Visit Google Teacher Center</v-btn>
+									<v-btn large class="mt-5">Visit Google Teacher Centre</v-btn>
 								</a>
 							</div>
 						</div>
@@ -425,73 +570,57 @@
 				</div>
 			</section>
 
-			<section id="safeguarding" class="grey lighten-4 vh-rtl-100">
-				<div class="container">
+			<section id="research" app class="top-border--teal grey lighten-4 rtl-vh-100">
+				<div class="container" data-aos="fade-in" data-aos-duration="1500">
 					<div class="row align-items-center">
-						<div class="col-lg-6 order-lg-1" data-aos="zoom-out-left" data-aos-duration="1500">
-							<div class="p-lg-5">
-								<img class="img-fluid rounded-circle white" src="/images/rtl-safeguarding-1.jpg" alt />
-							</div>
-						</div>
 						<div class="col-lg-6 order-lg-2" data-aos="zoom-out-left" data-aos-duration="1500">
 							<div class="p-lg-5">
-								<h1 class="text-h1 teal--text">Safeguarding</h1>
+								<img class="img-fluid rounded-circle" src="/images/rtl-research-1.jpg" alt />
+							</div>
+						</div>
+						<div class="col-lg-6 order-lg-1" data-aos="zoom-in-down" data-aos-duration="1500">
+							<div class="p-lg-5">
+								<h1 class="text-h1 teal--text">Research</h1>
+								<p class="text-h4">EEF Remote Learning: Rapid Evidence Assessment</p>
 								<p
-									class="text-h6"
-								>Safeguarding and child protection remains as important as ever, especially as the usual child protection systems are under increased pressure. And whether you’re teaching face-to-face or in a virtual classroom, it’s important that you take steps to ensure children are protected.</p>
+									class="text-body-1"
+								>This rapid evidence assessment aimed to investigate methods that schools could use to support remote learning during school closures caused by the 2020 coronavirus pandemic (Covid-19). The review sought to find the best evidence behind the wide array of approaches that schools might choose to use during the crisis.</p>
+								<a
+									href="https://educationendowmentfoundation.org.uk/public/files/Remote_Learning_Rapid_Evidence_Assessment.pdf"
+									target="_blank"
+								>
+									<v-btn dark large>Read more about this research</v-btn>
+								</a>
 							</div>
 						</div>
 					</div>
 				</div>
+
 				<div class="container">
-					<div class="row">
+					<div class="row align-items-center">
+						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
+							<div class="p-lg-5">
+								<img class="img-fluid rounded-circle" src="/images/rtl-research-2.jpg" alt />
+							</div>
+						</div>
 						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
 							<div class="p-lg-5">
 								<h1
 									class="text-h4"
-								>DfE Guidance: Safeguarding and remote education during coronavirus (COVID-19)</h1>
+								>NFER: Schools' responses to Covid-19: pupil engagement in remote learning</h1>
 								<p
 									class="text-body-1"
-								>Understand how to follow safeguarding procedures when planning remote education strategies and teaching remotely during the coronavirus (COVID-19) outbreak.</p>
+								>On 20th March 2020, the British Government ordered schools to close to the majority of pupils. This was a pivotal moment as the majority of pupils transitioned to learning remotely from home and schools had to adapt rapidly to this new way of teaching. With the majority of pupils not expected to return to the classroom until the autumn, remote learning remains at the heart of how schools will need to continue to support pupils’ learning in the coming months.</p>
+								<p
+									class="text-body-1"
+								>Given the potential impact of this extended period of remote learning, NFER undertook an independent assessment to see how engaged pupils are, and the factors that might be driving this, as well as how schools are providing remote learning support for pupils. The report is based on findings from a national survey of 1,233 senior leaders and 1,821 teachers in publicly-funded, mainstream primary and secondary schools in England. Responses between 7th and 17th May have been weighted by phase and free school meal (FSM) eligibility to provide a nationally representative picture.</p>
 								<a
-									href="https://www.gov.uk/guidance/safeguarding-and-remote-education-during-coronavirus-covid-19"
+									href="https://www.nfer.ac.uk/schools-responses-to-covid-19-pupil-engagement-in-remote-learning/"
 									target="_blank"
 								>
-									<v-btn large dark class="btn-block">Read the guidance here</v-btn>
+									<v-btn dark large>Read more about this research</v-btn>
 								</a>
 							</div>
-						</div>
-						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
-							<div class="p-lg-5">
-								<h1 class="text-h4">SWGfL Safe Remote Learning</h1>
-								<p
-									class="text-body-1"
-								>Whether your school is closed or not, schools may be considering moving learning online. Here's the lowdown on organising classes online so that safeguards are adequately considered and are trouble-free.</p>
-								<a href="https://swgfl.org.uk/resources/safe-remote-learning/" target="_blank">
-									<v-btn large dark class="btn-block">Access the SWGfL resources here</v-btn>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
-							<div class="p-lg-5">
-								<h1 class="text-h4">NSPCC Learning: Undertaking remote teaching safely</h1>
-								<p
-									class="text-body-1"
-								>Understand how to follow safeguarding procedures when planning remote education strategies and teaching remotely during the coronavirus (COVID-19) outbreak.</p>
-								<a
-									href="https://learning.nspcc.org.uk/news/2020/march/undertaking-remote-teaching-safely"
-									target="_blank"
-								>
-									<v-btn large dark class="btn-block">Read the guidance here</v-btn>
-								</a>
-							</div>
-						</div>
-						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
-							<div class="p-lg-5"></div>
 						</div>
 					</div>
 				</div>
@@ -793,5 +922,21 @@ section:after {
 	content: "";
 	display: block;
 	height: 100px;
+}
+.coreleads {
+	background-image: linear-gradient(
+		109.6deg,
+		rgba(5, 85, 84, 1) 11.2%,
+		rgba(64, 224, 208, 1) 91.1%
+	);
+  color: whitesmoke;
+}
+.rtl-gradient {
+	background-image: linear-gradient(
+		89.9deg,
+		rgba(255, 90, 109, 1) 2.6%,
+		rgba(119, 76, 231, 1) 97.9%
+	);
+  color: black;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<v-navigation-drawer stateless v-model="navdrawer" app fixed clipped floating light>
+	<v-navigation-drawer mini-variant v-model="navdrawer" app fixed clipped floating light>
 		<v-list dense nav shaped>
 			<v-list-item link to="/">
 				<v-list-item-action>
