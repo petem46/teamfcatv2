@@ -1,5 +1,5 @@
 <template>
-	<v-navigation-drawer mini-variant v-model="navdrawer" app fixed clipped floating light>
+	<v-navigation-drawer permanent expand-on-hover app fixed clipped floating light>
 		<v-list dense nav shaped>
 			<v-list-item link to="/">
 				<v-list-item-action>
@@ -25,7 +25,8 @@
 					<v-list-item-title class="grey--text">Updates</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
-			<v-list-item link to="https://cpd.teamfcat.co.uk">
+			<a href="https://cpd.teamfcat.co.uk" target="_blank">
+      <v-list-item link>
 				<v-list-item-action>
 					<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
 				</v-list-item-action>
@@ -33,7 +34,9 @@
 					<v-list-item-title class="grey--text">CPD Portal</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
-			<v-list-item link to="https://www.spongyelephant.com/login/?register=true&access_code=FCAT-AFE2">
+			</a>
+			<a href="https://www.spongyelephant.com/login/?register=true&access_code=FCAT-AFE2" target="_blank">
+			<v-list-item link>
 				<v-list-item-action>
 					<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
 				</v-list-item-action>
@@ -41,12 +44,13 @@
 					<v-list-item-title class="grey--text">GDPR Training</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
+			</a>
 			<v-list-item link>
 				<v-list-item-action>
 					<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
 				</v-list-item-action>
 				<v-list-item-content>
-					<v-list-item-title class="grey--text">Menu</v-list-item-title>
+					<v-list-item-title class="grey--text">Add Link</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
 			<v-list-item link>
@@ -54,7 +58,7 @@
 					<v-icon class="grey--icon grey--text">mdi-view-dashboard</v-icon>
 				</v-list-item-action>
 				<v-list-item-content>
-					<v-list-item-title class="grey--text">Menu</v-list-item-title>
+					<v-list-item-title class="grey--text">Add Link</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
 		</v-list>
@@ -62,6 +66,6 @@
 </template>
 <script>
 export default {
-  props: ['navdrawer']
-}
+	props: ["navdrawer"]
+};
 </script>

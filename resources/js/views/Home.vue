@@ -65,14 +65,14 @@
 										<v-img src="/images/headshots/sean.jpg" position="top center"></v-img>
 									</v-list-item-avatar>
 									<v-list-item-content>
-										<v-list-item-title class="h5">Sean's Weekly Message</v-list-item-title>
-										<v-list-item-subtitle>Monday 9th November 2020</v-list-item-subtitle>
+										<v-list-item-title class="h5">Sean's Weekly Message 10</v-list-item-title>
+										<v-list-item-subtitle>Monday 16th November 2020</v-list-item-subtitle>
 									</v-list-item-content>
 								</v-list-item>
 							</v-list>
 							<v-card-actions>
 								<v-spacer></v-spacer>
-								<v-btn text color="teal" to='/p2/dataprotection/seansweeklymessage10'>Read Message</v-btn>
+								<v-btn text color="teal" to='/p2/updates/seansweeklymessage10'>Read Message</v-btn>
 							</v-card-actions>
 						</v-card>
 					</v-col>
