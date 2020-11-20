@@ -185,12 +185,12 @@
 										<v-icon class="mr-2">fas fa-flask fa-fw</v-icon>Russ Bradshaw
 									</v-toolbar-title>
 								</v-toolbar>
-								<v-card-title class="justify-center">Core Team Leader/Science</v-card-title>
 								<v-card-title class="justify-center">
-									<v-avatar size="200">
-										<v-img src="https://randomuser.me/api/portraits/men/46.jpg"></v-img>
+									<v-avatar size="150">
+										<v-img src="/images/headshots/russ.png"></v-img>
 									</v-avatar>
 								</v-card-title>
+								<v-card-title class="justify-center">Core Team Leader/Science</v-card-title>
 								<v-card-text>
 									<v-expansion-panels>
 										<v-expansion-panel>
@@ -221,12 +221,12 @@
 										<v-icon class="mr-2">fas fa-book-reader fa-fw</v-icon>Estelle Bellamy
 									</v-toolbar-title>
 								</v-toolbar>
-								<v-card-title class="justify-center">English and Literacy</v-card-title>
 								<v-card-title class="justify-center">
-									<v-avatar size="200">
-										<v-img src="https://randomuser.me/api/portraits/women/69.jpg"></v-img>
+									<v-avatar size="150">
+										<v-img src="/images/headshots/estelle.png"></v-img>
 									</v-avatar>
 								</v-card-title>
+								<v-card-title class="justify-center">English and Literacy</v-card-title>
 								<v-card-text>
 									<v-expansion-panels>
 										<v-expansion-panel>
@@ -260,12 +260,12 @@
 										<v-icon class="mr-2">fas fa-square-root-alt fa-fw</v-icon>Catherine Farmar
 									</v-toolbar-title>
 								</v-toolbar>
-								<v-card-title class="justify-center">Mathematics</v-card-title>
 								<v-card-title class="justify-center">
-									<v-avatar size="200">
-										<v-img src="https://randomuser.me/api/portraits/women/23.jpg"></v-img>
+									<v-avatar size="150">
+										<v-img src="/images/headshots/catherine.png"></v-img>
 									</v-avatar>
 								</v-card-title>
+								<v-card-title class="justify-center">Mathematics</v-card-title>
 								<v-card-text>
 									<v-expansion-panels>
 										<v-expansion-panel>

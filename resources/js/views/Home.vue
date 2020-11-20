@@ -62,7 +62,7 @@
 							<v-list>
 								<v-list-item>
 									<v-list-item-avatar>
-										<v-img src="/images/sean.jpg" position="top center"></v-img>
+										<v-img src="/images/headshots/sean.jpg" position="top center"></v-img>
 									</v-list-item-avatar>
 									<v-list-item-content>
 										<v-list-item-title class="h5">Sean's Weekly Message</v-list-item-title>
@@ -85,7 +85,7 @@
 							<v-system-bar dark height="1" color="black"></v-system-bar>
 							<v-card-title>
 								<v-avatar size="64" class="mr-2">
-									<v-img src="/images/jane.jpg" position="top center"></v-img>
+									<v-img src="/images/headshots/jane.jpg" position="top center"></v-img>
 								</v-avatar>COVID-19 UPDATES
 							</v-card-title>
 							<v-card-text>Please remember to check the COVID-19 page for important updates and links to key information from FCAT and the DfE (Department for Education)</v-card-text>
