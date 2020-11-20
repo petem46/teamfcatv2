@@ -68,16 +68,11 @@
 										<v-list-item-title class="h5">Sean's Weekly Message</v-list-item-title>
 										<v-list-item-subtitle>Monday 9th November 2020</v-list-item-subtitle>
 									</v-list-item-content>
-									<v-list-item-action>
-										<v-btn icon>
-											<v-icon color="grey lighten-1">mdi-information</v-icon>
-										</v-btn>
-									</v-list-item-action>
 								</v-list-item>
 							</v-list>
 							<v-card-actions>
 								<v-spacer></v-spacer>
-								<v-btn text color="teal">Open Letter</v-btn>
+								<v-btn text color="teal">Read Message</v-btn>
 							</v-card-actions>
 						</v-card>
 					</v-col>
