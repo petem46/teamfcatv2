@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="top: 64px;">
 		<home-header></home-header>
 		<section class="header white--text py-0">
 			<div class="ticker box hidden">
@@ -72,7 +72,7 @@
 							</v-list>
 							<v-card-actions>
 								<v-spacer></v-spacer>
-								<v-btn text color="teal">Read Message</v-btn>
+								<v-btn text color="teal" to='/p2/dataprotection/seansweeklymessage10'>Read Message</v-btn>
 							</v-card-actions>
 						</v-card>
 					</v-col>

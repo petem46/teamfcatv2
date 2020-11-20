@@ -1,5 +1,5 @@
 <template>
-	<section class="headerx py-0">
+	<section class="headerx py-0" style="top: 64px;">
 		<v-container>
 			<v-row>
 				<v-col cols="12" lg="8">

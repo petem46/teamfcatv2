@@ -361,10 +361,11 @@
 							<div class="p-lg-5">
 								<h1
 									class="text-h4"
-								>FCAT Guidance</h1>
-								<p
-									class="text-body-1"
-								> Live-streaming and video-conferencing: safeguarding principles and practice.</p>
+								>FCAT Guidance: Live-streaming and video-conferencing: safeguarding principles and practice.</h1>
+								<p class="text-body-1">
+									Whether students are at home or in the classroom, safeguarding and welfare of students is
+									paramount and takes precedence over all other considerations.
+								</p>
 								<a
 									href="https://www.teamfcat.co.uk/storage/uploads/generaldocs/remotetl/Live%20lessons%20and%20video%20conferencing%20guidelines.pdf"
 									target="_blank"
@@ -400,10 +401,6 @@
 								</a>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
 						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
 							<div class="p-lg-5">
 								<h1 class="text-h4">NSPCC Learning: Undertaking remote teaching safely</h1>
@@ -417,9 +414,6 @@
 									<v-btn large dark class="btn-block">Read the guidance here</v-btn>
 								</a>
 							</div>
-						</div>
-						<div class="col-lg-6" data-aos="zoom-out-left" data-aos-duration="1500">
-							<div class="p-lg-5"></div>
 						</div>
 					</div>
 				</div>
