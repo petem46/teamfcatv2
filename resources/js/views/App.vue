@@ -5,7 +5,7 @@
 		<top-nav-bar :navdrawer="navdrawer" @navdrawerClick="navdrawerClick" @showCheckDetailsDialog="showCheckDetailsDialog=true"></top-nav-bar>
 
 		<!-- MAIN ROUTER-VIEW ------------------------------------->
-		<v-main class="pb-0">
+		<v-main class="pb-0 pt-15">
 			<!-- <transition name="fade" mode="out-in"> -->
 			<v-fade-transition>
 				<router-view :key="$route.path" />
@@ -159,6 +159,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
 .fade-enter {
 	opacity: 0;
 }

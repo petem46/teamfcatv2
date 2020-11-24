@@ -1,9 +1,17 @@
 <template>
-	<section class="headerx py-0" style="top: 64px;">
-		<v-container>
+	<section class="headerx pb-0">
+		<v-container class="pt-15">
 			<v-row>
 				<v-col cols="12" lg="8">
 					<v-carousel height="450" :cycle="true" :interval="5000" :show-arrows="false">
+						<v-carousel-item>
+							<v-card>
+								<v-system-bar dark height="8" color="blue"></v-system-bar>
+								<v-sheet color="grey lighten-2">
+									<v-img height="550" src="/images/armfield-banner.jpg"></v-img>
+								</v-sheet>
+							</v-card>
+						</v-carousel-item>
 						<v-carousel-item>
 							<v-card>
 								<v-system-bar dark height="8" color="blue"></v-system-bar>

@@ -1,7 +1,7 @@
 <template>
-	<div style="top: 64px;">
+	<div>
 		<section class="elevation-5">
-			<v-container>
+			<v-container class="pt-15">
 				<h1 class="display-3 white--text text--darken-2 text-center">STAFF DIRECTORY</h1>
 				<v-card>
 					<v-card-title class="text-center">

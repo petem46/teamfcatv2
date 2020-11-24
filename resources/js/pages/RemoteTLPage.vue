@@ -1,5 +1,5 @@
 <template>
-	<div style="top: 64px;">
+	<div>
 		<div v-if="loading" class="container pt-md-6rem">
 			<v-progress-circular indeterminate teal></v-progress-circular>
 		</div>

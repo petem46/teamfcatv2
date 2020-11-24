@@ -56,9 +56,18 @@
 							<v-system-bar dark height="8" color="orange darken-2"></v-system-bar>
 							<v-sheet color="grey lighten-2">
 								<v-img src="/images/seans-letter-image.jpg" height="200"></v-img>
+								<div class="custom-shape-divider-bottom-1606219370">
+									<svg
+										data-name="Layer 1"
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 1200 120"
+										preserveAspectRatio="none"
+									>
+										<path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill" />
+									</svg>
+								</div>
 							</v-sheet>
 							<v-system-bar dark height="1" color="black"></v-system-bar>
-
 							<v-list>
 								<v-list-item>
 									<v-list-item-avatar>
@@ -72,23 +81,29 @@
 							</v-list>
 							<v-card-actions>
 								<v-spacer></v-spacer>
-								<v-btn text color="teal" to='/p2/updates/seansletter11'>Read Letter</v-btn>
+								<v-btn text color="teal" to="/p2/updates/seansletter11">Read Letter</v-btn>
 							</v-card-actions>
 						</v-card>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
 						<v-card class="align-self-stretch">
 							<v-system-bar dark height="8" color="blue lighten-2"></v-system-bar>
+
 							<v-sheet color="grey lighten-2">
 								<v-img src="/images/covid-update-image.jpg" height="200"></v-img>
 							</v-sheet>
 							<v-system-bar dark height="1" color="black"></v-system-bar>
-							<v-card-title>
-								<v-avatar size="64" class="mr-2">
-									<v-img src="/images/headshots/jane.jpg" position="top center"></v-img>
-								</v-avatar>COVID-19 UPDATES
-							</v-card-title>
-							<v-card-text>Please remember to check the COVID-19 page for important updates and links to key information from FCAT and the DfE (Department for Education)</v-card-text>
+							<v-list>
+								<v-list-item>
+									<v-list-item-avatar>
+										<v-img src="/images/headshots/jane.jpg" position="top center"></v-img>
+									</v-list-item-avatar>
+									<v-list-item-content>
+										<v-list-item-title class="h5">COVID-19</v-list-item-title>
+										<v-list-item-subtitle>Important links &amp; updates</v-list-item-subtitle>
+									</v-list-item-content>
+								</v-list-item>
+							</v-list>
 							<!-- <v-divider></v-divider> -->
 							<v-card-actions>
 								<v-spacer></v-spacer>
@@ -103,13 +118,17 @@
 								<v-img src="/images/1_FINAL_JPG_FCAT_Work_-_Wellbeing_Charter.jpg" height="200"></v-img>
 							</v-sheet>
 							<v-system-bar dark height="1" color="black"></v-system-bar>
-							<v-card-title>
-								<v-avatar size="64" class="mr-2" color="red">
-									<!-- <v-img src="/images/sean.jpg" position="top center"></v-img> -->
-									<v-icon dark>fa-heartbeat fa-fw</v-icon>
-								</v-avatar>Work &amp; Wellbeing Charter
-							</v-card-title>
-							<v-card-text>We are continuing to provide access to free and confidential employee wellbeing support.</v-card-text>
+							<v-list>
+								<v-list-item>
+									<v-list-item-avatar color="red">
+										<v-icon dark>fa-heartbeat fa-fw</v-icon>
+									</v-list-item-avatar>
+									<v-list-item-content>
+										<v-list-item-title class="h5">Work &amp; Wellbeing Charter</v-list-item-title>
+										<v-list-item-subtitle>Free &amp; confidential employee wellbeing support</v-list-item-subtitle>
+									</v-list-item-content>
+								</v-list-item>
+							</v-list>
 							<!-- <v-divider></v-divider> -->
 							<v-card-actions>
 								<v-spacer></v-spacer>
@@ -122,8 +141,9 @@
 							<v-card-title class="py-1 mt-1">
 								<v-icon color="teal" large>far fa-check-circle fa-fw</v-icon>
 							</v-card-title>
-							<v-card-title class="py-1 mt-1">Title Title</v-card-title>
-							<v-card-text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quam et necessitatibus, cum adipisci itaque hic quisquam modi, quia tempore, culpa atque provident perspiciatis molestias vitae deserunt dignissimos? Cupiditate, doloremque.</v-card-text>
+							<v-card-title class="py-1 mt-1">CPD Portal</v-card-title>
+							<v-img src="/images/cpd.png"></v-img>
+							<v-card-text>Visit our CPD portal and search the large selection of online CPD availble.</v-card-text>
 						</v-card>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
@@ -156,7 +176,7 @@
 				</v-row>
 			</v-container>
 		</section>
-    <home-twitters></home-twitters>
+		<home-twitters></home-twitters>
 		<staff-search></staff-search>
 		<!-- <section>
 			<v-container>
@@ -268,29 +288,28 @@
 				<v-row class="align-items-center">
 					<v-col cols="12" class="display-3 text-center">OUR NON-NEGOITABLES</v-col>
 					<v-col cols="12" md="6">
-            								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>CHILDREN FIRST
-								</div>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>HIGH EXPECTATIONS
-								</div>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>NO EXCUSES
-								</div>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>PASSION FOR LEARNING
-								</div>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>WORKING TOGETHER
-								</div>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>CONSISTENCY &amp; COMPLIANCE
-								</div>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>OUTWARD FACING
-								</div>
-
-          </v-col>
+						<div class="display-1 pb-2">
+							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>CHILDREN FIRST
+						</div>
+						<div class="display-1 pb-2">
+							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>HIGH EXPECTATIONS
+						</div>
+						<div class="display-1 pb-2">
+							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>NO EXCUSES
+						</div>
+						<div class="display-1 pb-2">
+							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>PASSION FOR LEARNING
+						</div>
+						<div class="display-1 pb-2">
+							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>WORKING TOGETHER
+						</div>
+						<div class="display-1 pb-2">
+							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>CONSISTENCY &amp; COMPLIANCE
+						</div>
+						<div class="display-1 pb-2">
+							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>OUTWARD FACING
+						</div>
+					</v-col>
 					<v-col cols="12" md="6">
 						<div>
 							<v-img height="400" contain src="/images/teamfcat-hexagon.png"></v-img>
@@ -429,5 +448,26 @@ section {
 		#efeeec 75%,
 		#e9e9e7 100%
 	);
+}
+.custom-shape-divider-bottom-1606219370 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    // transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1606219370 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 50px;
+    // transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1606219370 .shape-fill {
+    fill: #FFFFFF;
 }
 </style>

@@ -5,7 +5,7 @@
 				<v-icon class="mr-2 white--text" style="font-size: 5rem;">fab fa-twitter</v-icon>Twitter Feeds
 			</header>
 			<v-row>
-				<v-col cols="2" md="3">
+				<v-col cols="12" md="3">
 					<v-card>
 						<v-list subtitle>
 							<v-subheader>Select Feed</v-subheader>
@@ -25,13 +25,13 @@
 						</v-list>
 					</v-card>
 				</v-col>
-				<v-col cols="10" md="6" offset-md="2">
+				<v-col cols="12" md="6" offset-md="2">
 					<v-card v-for="(school, i) in schools" :key="i" :value="school" :class="filterTwitter(school)">
 						<a
 							class="twitter-timeline"
 							:href="'https://twitter.com/'+school+'?ref_src=twsrc%5Etfw'"
 							data-lang="en"
-							data-height="585"
+							data-height="655"
 						>Tweets by {{ school }}</a>
 					</v-card>
 				</v-col>
@@ -49,6 +49,7 @@ export default {
 				"blackpoolaspire",
 				"GarstangAcademy",
 				"GatewayFCAT",
+				"HambletonFCAT",
 				"MeresidePrimary",
 				"MontgomeryFCAT",
 				"UnityBlackpool",
