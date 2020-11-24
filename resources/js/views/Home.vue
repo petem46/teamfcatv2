@@ -137,32 +137,72 @@
 						</v-card>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<v-card flat>
-							<v-card-title class="py-1 mt-1">
-								<v-icon color="teal" large>far fa-check-circle fa-fw</v-icon>
-							</v-card-title>
-							<v-card-title class="py-1 mt-1">CPD Portal</v-card-title>
-							<v-img src="/images/cpd.png"></v-img>
-							<v-card-text>Visit our CPD portal and search the large selection of online CPD availble.</v-card-text>
-						</v-card>
+						<v-hover v-slot="{ hover }" close-delay="200">
+							<v-card class="align-self-stretch">
+								<v-system-bar dark height="8" color="green"></v-system-bar>
+								<v-sheet color="green lighten-2">
+									<v-img src="/images/cpd-thumbnail.jpg" height="200">
+										<v-expand-transition>
+											<div
+												v-if="hover"
+												class="d-flex transition-fast-in-fast-out green darken-2 v-card--reveal display-3 white--text"
+												style="height: 100%;"
+											>
+												<a href="https://cpd.teamfcat.co.uk" target="_blank">
+													<v-btn dark>GO TO CPD PORTAL<v-icon class="ml-2">fas fa-external-link-alt fa-fw</v-icon></v-btn>
+												</a>
+											</div>
+										</v-expand-transition>
+									</v-img>
+								</v-sheet>
+								<v-system-bar dark height="1" color="black"></v-system-bar>
+								<v-list>
+									<v-list-item>
+										<v-list-item-avatar color="green">
+											<v-icon dark>fa-user-graduate fa-fw</v-icon>
+										</v-list-item-avatar>
+										<v-list-item-content>
+											<v-list-item-title class="h5">FCAT CPD Portal</v-list-item-title>
+											<v-list-item-subtitle>Search large selection of CPD</v-list-item-subtitle>
+										</v-list-item-content>
+									</v-list-item>
+								</v-list>
+							</v-card>
+						</v-hover>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<v-card flat>
-							<v-card-title class="py-1 mt-1">
-								<v-icon color="teal" large>far fa-check-circle fa-fw</v-icon>
-							</v-card-title>
-							<v-card-title class="py-1 mt-1">Title Title</v-card-title>
-							<v-card-text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quam et necessitatibus, cum adipisci itaque hic quisquam modi, quia tempore, culpa atque provident perspiciatis molestias vitae deserunt dignissimos? Cupiditate, doloremque.</v-card-text>
-						</v-card>
-					</v-col>
-					<v-col cols="12" md="6" lg="4">
-						<v-card flat>
-							<v-card-title class="py-1 mt-1">
-								<v-icon color="teal" large>far fa-check-circle fa-fw</v-icon>
-							</v-card-title>
-							<v-card-title class="py-1 mt-1">Title Title</v-card-title>
-							<v-card-text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis quam et necessitatibus, cum adipisci itaque hic quisquam modi, quia tempore, culpa atque provident perspiciatis molestias vitae deserunt dignissimos? Cupiditate, doloremque.</v-card-text>
-						</v-card>
+						<v-hover v-slot="{ hover }" close-delay="200">
+							<v-card class="align-self-stretch">
+								<v-system-bar dark height="8" color="amber"></v-system-bar>
+								<v-sheet color="amber lighten-2">
+									<v-img src="/images/feedback-thumbnail.jpg" height="200">
+										<v-expand-transition>
+											<div
+												v-if="hover"
+												class="d-flex transition-fast-in-fast-out amber darken-2 v-card--reveal display-3 white--text"
+												style="height: 100%;"
+											>
+												<a href="https://cpd.teamfcat.co.uk" target="_blank">
+													<v-btn dark>FEEDBACK FORM<v-icon class="ml-2">far fa-arrow-alt-circle-right</v-icon></v-btn>
+												</a>
+											</div>
+										</v-expand-transition>
+									</v-img>
+								</v-sheet>
+								<v-system-bar dark height="1" color="black"></v-system-bar>
+								<v-list>
+									<v-list-item>
+										<v-list-item-avatar color="amber">
+											<v-icon dark>far fa-lightbulb fa-fw</v-icon>
+										</v-list-item-avatar>
+										<v-list-item-content>
+											<v-list-item-title class="h5">Suggestions & Feedback</v-list-item-title>
+											<v-list-item-subtitle>Share thoughts &amp; ideas for this site</v-list-item-subtitle>
+										</v-list-item-content>
+									</v-list-item>
+								</v-list>
+							</v-card>
+						</v-hover>
 					</v-col>
 				</v-row>
 			</v-container>
@@ -450,24 +490,32 @@ section {
 	);
 }
 .custom-shape-divider-bottom-1606219370 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    // transform: rotate(180deg);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	line-height: 0;
+	// transform: rotate(180deg);
 }
 
 .custom-shape-divider-bottom-1606219370 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 50px;
-    // transform: rotateY(180deg);
+	position: relative;
+	display: block;
+	width: calc(100% + 1.3px);
+	height: 50px;
+	// transform: rotateY(180deg);
 }
 
 .custom-shape-divider-bottom-1606219370 .shape-fill {
-    fill: #FFFFFF;
+	fill: #ffffff;
+}
+.v-card--reveal {
+	align-items: center;
+	bottom: 0;
+	justify-content: center;
+	opacity: 0.8;
+	position: absolute;
+	width: 100%;
 }
 </style>
