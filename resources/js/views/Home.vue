@@ -286,7 +286,7 @@
 			</v-container>
 			<v-container>
 				<v-row class="align-items-center">
-					<v-col cols="12" class="display-3 text-center">OUR NON-NEGOITABLES</v-col>
+					<v-col cols="12" class="display-3 text-center">OUR NON-NEGOTIABLES</v-col>
 					<v-col cols="12" md="6">
 						<div class="display-1 pb-2">
 							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>CHILDREN FIRST
