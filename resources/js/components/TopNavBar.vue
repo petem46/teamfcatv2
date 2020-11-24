@@ -2,7 +2,7 @@
 	<v-app-bar app clipped-left elevate-on-scroll white class="top-border--teal">
 		<!-- <v-app-bar app clipped-left flat hide-on-scroll scroll-threshold="500" class="top-border--teal"> -->
 		<!-- <v-app-bar-nav-icon @click.stop='navdrawerClick'></v-app-bar-nav-icon> -->
-		<v-toolbar-title class="pl-10">
+		<v-toolbar-title class="pb-md-2">
 			<v-avatar :size="avatarsize" tile class="mr-3 teal--text">
 				<img src="/images/hexagon-icon.png" />
 			</v-avatar>
