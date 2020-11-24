@@ -53,7 +53,7 @@
 				<v-row class="d-flex align-self-stretch" height="100px">
 					<v-col cols="12" md="6" lg="4">
 						<v-card>
-							<v-system-bar dark height="8" color="orange darken-2"></v-system-bar>
+							<v-system-bar dark height="8" color="teal darken-2"></v-system-bar>
 							<v-sheet color="grey lighten-2">
 								<v-img src="/images/seans-letter-image.jpg" height="200"></v-img>
 								<div class="custom-shape-divider-bottom-1606219370">
@@ -113,7 +113,7 @@
 					</v-col>
 					<v-col cols="12" md="6" lg="4" class="align-self-stretch">
 						<v-card class="align-self-stretch">
-							<v-system-bar dark height="8" color="teal"></v-system-bar>
+							<v-system-bar dark height="8" color="red"></v-system-bar>
 							<v-sheet color="red lighten-2">
 								<v-img src="/images/1_FINAL_JPG_FCAT_Work_-_Wellbeing_Charter.jpg" height="200"></v-img>
 							</v-sheet>
@@ -132,7 +132,7 @@
 							<!-- <v-divider></v-divider> -->
 							<v-card-actions>
 								<v-spacer></v-spacer>
-								<v-btn text color="teal" :to="'/p2/hr/staffwellbeing'">Read More</v-btn>
+								<v-btn text color="red" :to="'/p2/hr/staffwellbeing'">Read More</v-btn>
 							</v-card-actions>
 						</v-card>
 					</v-col>
@@ -149,7 +149,10 @@
 												style="height: 100%;"
 											>
 												<a href="https://cpd.teamfcat.co.uk" target="_blank">
-													<v-btn dark>GO TO CPD PORTAL<v-icon class="ml-2">fas fa-external-link-alt fa-fw</v-icon></v-btn>
+													<v-btn dark>
+														GO TO CPD PORTAL
+														<v-icon class="ml-2">fas fa-external-link-alt fa-fw</v-icon>
+													</v-btn>
 												</a>
 											</div>
 										</v-expand-transition>
@@ -183,7 +186,10 @@
 												style="height: 100%;"
 											>
 												<a href="https://cpd.teamfcat.co.uk" target="_blank">
-													<v-btn dark>FEEDBACK FORM<v-icon class="ml-2">far fa-arrow-alt-circle-right</v-icon></v-btn>
+													<v-btn dark>
+														FEEDBACK FORM
+														<v-icon class="ml-2">far fa-arrow-alt-circle-right</v-icon>
+													</v-btn>
 												</a>
 											</div>
 										</v-expand-transition>
@@ -198,6 +204,38 @@
 										<v-list-item-content>
 											<v-list-item-title class="h5">Suggestions & Feedback</v-list-item-title>
 											<v-list-item-subtitle>Share thoughts &amp; ideas for this site</v-list-item-subtitle>
+										</v-list-item-content>
+									</v-list-item>
+								</v-list>
+							</v-card>
+						</v-hover>
+					</v-col>
+					<v-col cols="12" md="6" lg="4">
+						<v-hover v-slot="{ hover }" close-delay="200">
+							<v-card class="align-self-stretch">
+								<v-system-bar dark height="8" color="pink"></v-system-bar>
+								<v-sheet color="pink lighten-2">
+									<v-img src="/images/christmas.gif" height="200">
+										<v-expand-transition>
+											<div
+												v-if="hover"
+												class="d-flex transition-fast-in-fast-out pink darken-2 v-card--reveal display-1 white--text"
+												style="height: 100%;"
+											>
+													22 GET UPS
+											</div>
+										</v-expand-transition>
+									</v-img>
+								</v-sheet>
+								<v-system-bar dark height="1" color="black"></v-system-bar>
+								<v-list>
+									<v-list-item>
+										<v-list-item-avatar color="pink">
+											<v-icon dark>fas fa-tree fa-fw</v-icon>
+										</v-list-item-avatar>
+										<v-list-item-content>
+											<v-list-item-title class="h5">Christmas Season</v-list-item-title>
+											<v-list-item-subtitle>It's nearly time for a well earned rest</v-list-item-subtitle>
 										</v-list-item-content>
 									</v-list-item>
 								</v-list>
