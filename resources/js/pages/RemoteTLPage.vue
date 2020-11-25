@@ -98,7 +98,7 @@
 						</v-col>
 						<v-col cols="12" md="4" data-aos="flip-left" data-aos-duration="2000">
 							<v-card class>
-								<v-toolbar dark color="grey darken-3">
+								<v-toolbar dark color="teal darken-1">
 									<v-toolbar-title>
 										<v-icon class="mr-2">fas fa-book-reader fa-fw</v-icon>Estelle Bellamy
 									</v-toolbar-title>
@@ -130,14 +130,14 @@
 								<v-card-actions>
 									<v-spacer></v-spacer>
 									<a href="mailto:estelle.bellamy@fcat.org.uk" target="_blank">
-										<v-btn dark outlined color="grey darken-3">CONTACT ESTELLE</v-btn>
+										<v-btn dark outlined color="teal darken-1">CONTACT ESTELLE</v-btn>
 									</a>
 								</v-card-actions>
 							</v-card>
 						</v-col>
 						<v-col cols="12" md="4" data-aos="flip-left" data-aos-duration="2500">
 							<v-card class>
-								<v-toolbar dark color="grey darken-3">
+								<v-toolbar dark color="teal darken-1">
 									<v-toolbar-title>
 										<v-icon class="mr-2">fas fa-square-root-alt fa-fw</v-icon>Catherine Farmar
 									</v-toolbar-title>
@@ -168,7 +168,7 @@
 								<v-card-actions>
 									<v-spacer></v-spacer>
 									<a href="mailto:catherine.farmar@fcat.org.uk" target="_blank">
-										<v-btn dark outlined color="grey darken-3">CONTACT CATHERINE</v-btn>
+										<v-btn dark outlined color="teal darken-1">CONTACT CATHERINE</v-btn>
 									</a>
 								</v-card-actions>
 							</v-card>
@@ -870,6 +870,45 @@ section:after {
 		rgba(64, 224, 208, 1) 91.1%
 	);
 	color: whitesmoke;
+	background-size: 400%, 400%;
+
+	-webkit-animation: AnimationName 16s ease infinite;
+	-moz-animation: AnimationName 16s ease infinite;
+	animation: AnimationName 16s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+	0% {
+		background-position: 10% 0%;
+	}
+	50% {
+		background-position: 91% 100%;
+	}
+	100% {
+		background-position: 10% 0%;
+	}
+}
+@-moz-keyframes AnimationName {
+	0% {
+		background-position: 10% 0%;
+	}
+	50% {
+		background-position: 91% 100%;
+	}
+	100% {
+		background-position: 10% 0%;
+	}
+}
+@keyframes AnimationName {
+	0% {
+		background-position: 10% 0%;
+	}
+	50% {
+		background-position: 91% 100%;
+	}
+	100% {
+		background-position: 10% 0%;
+	}
 }
 .edtech {
 	background-image: linear-gradient(

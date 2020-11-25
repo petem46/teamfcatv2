@@ -26,6 +26,7 @@ Vue.component("home-twitters", require("./components/HomeTwitters.vue").default)
 Vue.component("side-nav-drawer", require("./components/SideNavDrawer.vue").default);
 Vue.component("top-nav-bar", require("./components/TopNavBar.vue").default);
 Vue.component("pages-section", require("./components/PagesSection.vue").default);
+Vue.component("new-link", require("./components/NewLink.vue").default);
 Vue.component("file-manager", require("./components/FileManager.vue").default);
 Vue.component("file-upload", require("./components/FileUpload.vue").default);
 Vue.component("g-apps-menu", require("./components/GAppsMenu.vue").default);

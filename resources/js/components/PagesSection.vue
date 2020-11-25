@@ -15,7 +15,7 @@
 								<v-icon color="teal" class="mr-3">fa-file-medical fa-fw</v-icon>New Page
 							</v-list-item-title>
 						</v-list-item>
-						<v-list-item disabled>
+						<v-list-item @click="showNewLinkDialog = true">
 							<v-list-item-title>
 								<v-icon color="blue" class="mr-3">fa-link fa-fw</v-icon>Add Link
 							</v-list-item-title>
@@ -42,6 +42,7 @@
 				</v-row>
 			</v-list>
 		</v-card>
+    <new-link :showMe="showNewLinkDialog"></new-link>
 	</v-container>
 </template>
 <script>
@@ -49,6 +50,11 @@ import Axios from "axios";
 import moment from "moment";
 export default {
 	props: ["section"],
+	data() {
+		return {
+			showNewLinkDialog: false,
+		};
+	},
 	methods: {
 		chipStatusShow(page) {
 			var now = moment();

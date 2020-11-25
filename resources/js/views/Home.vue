@@ -490,26 +490,46 @@ export default {
 	}
 }
 .header {
-	background: rgb(0, 150, 136);
-	background: -moz-linear-gradient(
-		126deg,
-		rgba(0, 150, 136, 1) 0%,
-		rgba(0, 77, 64, 1) 50%,
-		rgba(128, 203, 196, 1) 100%
-	);
-	background: -webkit-linear-gradient(
-		126deg,
-		rgba(0, 150, 136, 1) 0%,
-		rgba(0, 77, 64, 1) 50%,
-		rgba(128, 203, 196, 1) 100%
-	);
-	background: linear-gradient(
-		126deg,
-		rgba(0, 150, 136, 1) 0%,
-		rgba(0, 77, 64, 1) 50%,
-		rgba(128, 203, 196, 1) 100%
-	);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#009688",endColorstr="#80cbc4",GradientType=1);
+	background: linear-gradient(90deg, #008283, #03b0a2);
+	background-size: 200%, 200%;
+
+	-webkit-animation: AnimationName 31s ease infinite;
+	-moz-animation: AnimationName 31s ease infinite;
+	animation: AnimationName 31s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 51%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@-moz-keyframes AnimationName {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 51%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@keyframes AnimationName {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 51%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .breaking-news {
@@ -542,14 +562,46 @@ export default {
 section {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	background-image: linear-gradient(
-		to top,
-		#c7c7c7 0%,
-		#d5d4d0 1%,
-		#eeeeec 31%,
-		#efeeec 75%,
-		#e9e9e7 100%
-	);
+	background: linear-gradient(147deg, #fafafa, #bebebe, #a5a5a5);
+	background-size: 600% 600%;
+
+	-webkit-animation: AnimationName 16s ease infinite;
+	-moz-animation: AnimationName 16s ease infinite;
+	animation: AnimationName 16s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+	0% {
+		background-position: 10% 0%;
+	}
+	50% {
+		background-position: 91% 100%;
+	}
+	100% {
+		background-position: 10% 0%;
+	}
+}
+@-moz-keyframes AnimationName {
+	0% {
+		background-position: 10% 0%;
+	}
+	50% {
+		background-position: 91% 100%;
+	}
+	100% {
+		background-position: 10% 0%;
+	}
+}
+@keyframes AnimationName {
+	0% {
+		background-position: 10% 0%;
+	}
+	50% {
+		background-position: 91% 100%;
+	}
+	100% {
+		background-position: 10% 0%;
+	}
 }
 .custom-shape-divider-bottom-1606219370 {
 	position: absolute;

@@ -81,7 +81,46 @@ export default {
 </script>
 <style scoped>
 section {
-	background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+	background: linear-gradient(91deg, #00d2ff, #3a47d5);
+	background-size: 400% 400%;
+
+	-webkit-animation: AnimationName 14s ease infinite;
+	-moz-animation: AnimationName 14s ease infinite;
+	animation: AnimationName 14s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@-moz-keyframes AnimationName {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@keyframes AnimationName {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 .hidden {
 	display: none;

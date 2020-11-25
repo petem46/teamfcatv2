@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<section class="elevation-5">
+		<section class="elevation-5" :class="($vuetify.breakpoint.smAndDown) ? 'sm' : ''">
 			<v-container class="pt-15">
 				<h1 class="display-3 white--text text--darken-2 text-center">STAFF DIRECTORY</h1>
 				<v-card>
@@ -93,8 +93,14 @@ export default {
 	}
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 section {
 	background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
+  min-height: calc(100vh - 64px);
+  &.sm {
+    min-height: calc(100vh - 58px);
+    background: linear-gradient(90deg, #fcf946 0%, #3fb6fb 100%);
+  }
 }
+
 </style>

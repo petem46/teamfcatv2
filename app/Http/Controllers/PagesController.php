@@ -89,8 +89,12 @@ class PagesController extends Controller
   public function savePage2(Request $request)
   {
     $subtitle = '';
+    $pagetype = '';
     if($request->get('subtitle') != 'null') {
       $subtitle = $request->get('subtitle');
+    }
+    if($request->get('pagetype_id') != 'null') {
+      $pagetype = $request->get('pagetype_id');
     }
     $uid = $request->get('uid');
     if (!$uid) {

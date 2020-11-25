@@ -9,7 +9,7 @@ class Page extends Model
 {
   use SoftDeletes;
 
-  protected $fillable = ['section_id', 'title', 'subtitle', 'slug', 'htmlcontent', 'jsoncontent', 'state_id', 'user_id'];
+  protected $fillable = ['section_id', 'title', 'subtitle', 'pagetype_id', 'slug', 'htmlcontent', 'jsoncontent', 'state_id', 'user_id'];
 
   public function section()
   {
