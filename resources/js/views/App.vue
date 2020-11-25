@@ -1,6 +1,6 @@
 <template>
 	<v-app id="teamfcat">
-		<nav-drawer :navdrawer="navdrawer"></nav-drawer>
+		<side-nav-drawer :navdrawer="navdrawer"></side-nav-drawer>
 
 		<top-nav-bar :navdrawer="navdrawer" @navdrawerClick="navdrawerClick" @showCheckDetailsDialog="showCheckDetailsDialog=true"></top-nav-bar>
 
@@ -127,7 +127,9 @@ export default {
 		},
 		checkDetails() {
 			this.user = this.$store.getters.getUser;
-			if(!this.user.keyrole) {this.showCheckDetailsDialog = true};
+			if (!this.user.keyrole) {
+				this.showCheckDetailsDialog = true;
+			}
 		},
 		saveDetails() {
 			console.log("Saving Details");
@@ -159,7 +161,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
 .fade-enter {
 	opacity: 0;
 }

@@ -1,5 +1,5 @@
 <template>
-	<div style="top: 64px;">
+	<div>
 		<home-header></home-header>
 		<section class="header white--text py-0">
 			<div class="ticker box hidden">
@@ -221,9 +221,7 @@
 												v-if="hover"
 												class="d-flex transition-fast-in-fast-out pink darken-2 v-card--reveal display-1 white--text"
 												style="height: 100%;"
-											>
-													22 GET UPS
-											</div>
+											>22 GET UPS</div>
 										</v-expand-transition>
 									</v-img>
 								</v-sheet>
@@ -247,11 +245,37 @@
 		</section>
 		<section class="header white--text py-0">
 			<v-container>
-				<v-row py-3>
-					<v-col class="text-center h3 m-0">EXCELLENCE</v-col>
-					<v-col class="text-center h3 m-0">AMBITION</v-col>
-					<v-col class="text-center h3 m-0">RESPECT</v-col>
-				</v-row>
+				<v-carousel
+					height="80"
+					hide-delimiters
+					:show-arrows="false"
+					:cycle="true"
+					:interval="6000"
+					vertical
+				>
+					<v-container>
+						<v-carousel-item
+							transition="slide-x-transition"
+							reverse-transition="slide-x-reverse-transition"
+						>
+							<v-row py-3>
+								<v-col class="text-center h3 m-0">EXCELLENCE</v-col>
+								<v-col class="text-center h3 m-0">AMBITION</v-col>
+								<v-col class="text-center h3 m-0">RESPECT</v-col>
+							</v-row>
+						</v-carousel-item>
+						<v-carousel-item
+							transition="slide-x-transition"
+							reverse-transition="slide-x-reverse-transition"
+						>
+							<v-row py-3>
+								<v-col class="text-center h3 m-0">INTEGRITY</v-col>
+								<v-col class="text-center h3 m-0">RESILIENCE</v-col>
+								<v-col class="text-center h3 m-0">PRIDE</v-col>
+							</v-row>
+						</v-carousel-item>
+					</v-container>
+				</v-carousel>
 			</v-container>
 		</section>
 		<home-twitters></home-twitters>
