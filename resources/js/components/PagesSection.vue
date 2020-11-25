@@ -59,8 +59,8 @@ export default {
 		chipStatusShow(page) {
 			var now = moment();
 			var updatedAt = moment(page.updated_at);
-			var createdAt = moment(page.created_at);
-			if (moment(updatedAt).isAfter(moment(createdAt.add(5, "d")))) {
+      var createdAt = moment(page.created_at);
+      if (moment(updatedAt).isAfter(moment(createdAt.add(5, "d")))) {
 				return true;
 			}
 			if (moment(createdAt).isAfter(moment(now).subtract(7, "d"))) {
@@ -73,10 +73,11 @@ export default {
 			var updatedAt = moment(page.updated_at);
 			var createdAt = moment(page.created_at);
 			if (moment(updatedAt).isAfter(moment(createdAt.add(5, "d")))) {
-				return "Updated";
+        return moment(updatedAt).fromNow();
+				// return "Updated";
 			}
 			if (moment(createdAt).isAfter(moment(now).subtract(7, "d"))) {
-				return "New";
+				return moment(updatedAt).fromNow();
 			}
 			return "";
 		}
