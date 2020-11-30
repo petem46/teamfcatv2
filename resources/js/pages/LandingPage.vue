@@ -347,7 +347,7 @@
 										<v-icon small :color="card.color">fa-edit</v-icon>
 									</v-btn>
 									<v-card-title class="p-1" :class="card.color"></v-card-title>
-									<v-img v-if="card.image" height="250" :src="card.image"></v-img>
+									<v-img v-if="card.image" contain height="250" :src="card.image"></v-img>
 									<v-card-text>
 										<div class="text-h4 pt-2 mb-5" v-text="card.title"></div>
 										<v-avatar size="66" class="mb-5" v-if="card.icon != 'NO ICON'">
