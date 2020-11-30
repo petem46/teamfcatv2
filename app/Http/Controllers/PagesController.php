@@ -58,7 +58,7 @@ class PagesController extends Controller
                       ->where('areas.id', '=', $area_id);
                   })
                   ->select('pages.*', DB::raw("CONCAT('/p2',areas.link,'/',pages.slug) as link"), 'sections.link as section_link', 'areas.id as area_id', 'areas.tealTitle as area_title')
-                  ->get(),
+                  ->orderBy('pages.updated_at', 'desc')->get(),
     ];
     return $data;
   }

@@ -23,6 +23,6 @@ class Section extends Model
   }
   public function page()
   {
-    return $this->hasMany('App\Page');
+    return $this->hasMany('App\Page')->orderBy('updated_at', 'desc');
   }
 }
