@@ -71,7 +71,7 @@
 							</v-list-item-content>
 						</v-list-item>
 						</v-toolbar>
-						<v-list three-line>
+						<v-list two-line>
 							<v-list-item link v-for="(page, i) in latest" :key="i" :to="page.link">
 								<v-list-item-avatar>
 									<v-icon class="teal--text">far fa-file-alt fa-fw</v-icon>
