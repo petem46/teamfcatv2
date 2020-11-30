@@ -562,12 +562,12 @@ export default {
 section {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	background: linear-gradient(147deg, #fafafa, #bebebe, #a5a5a5);
+	background: linear-gradient(90deg, #fafafa, #bebebe, #ebebeb);
 	background-size: 600% 600%;
 
-	-webkit-animation: AnimationName 16s ease infinite;
-	-moz-animation: AnimationName 16s ease infinite;
-	animation: AnimationName 16s ease infinite;
+	-webkit-animation: AnimationName 15s ease infinite;
+	-moz-animation: AnimationName 15s ease infinite;
+	animation: AnimationName 15s ease infinite;
 }
 
 @-webkit-keyframes AnimationName {

@@ -141,7 +141,7 @@ export default {
 <style>
 .v-navigation-drawer a,
 .v-list-group__items {
-	min-width: 3rem;
+	min-width: 2.5rem;
 }
 
 .v-navigation-drawer__content {
