@@ -22,6 +22,8 @@ Vue.component("staff-search", require("./pages/StaffSearch.vue").default);
 
 Vue.component("home-header", require("./components/HomeHeader.vue").default);
 Vue.component("home-twitters", require("./components/HomeTwitters.vue").default);
+Vue.component("core-values", require("./components/CoreValues.vue").default);
+Vue.component("core-carousel", require("./components/CoreCarousel.vue").default);
 
 Vue.component("side-nav-drawer", require("./components/SideNavDrawer.vue").default);
 Vue.component("top-nav-bar", require("./components/TopNavBar.vue").default);

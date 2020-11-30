@@ -5,6 +5,7 @@ use App\Http\Controllers\UploadsController;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes([
+  'register' => false,
   'reset' => false,
   'verify' => false
 ]);
@@ -22,6 +23,8 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/get/listsections/{area_id}', 'PagesController@getListSections');
   Route::get('/get/listpages/{area_id}', 'PagesController@getListPages');
   Route::get('/get/areadetails/{areaname}', 'PagesController@getAreaDetails');
+
+  Route::get('/get/latestpages', 'PagesController@getLatest');
 
   Route::get('/get/userDetails','AppController@getUserDetails');
   Route::post('/post/userDetails/{id}','AppController@updateUserDetails');

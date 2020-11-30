@@ -15,38 +15,8 @@
 					</div>
 				</article>
 			</div>
-			<v-carousel
-				height="80"
-				hide-delimiters
-				:show-arrows="false"
-				:cycle="true"
-				:interval="6000"
-				vertical
-			>
-				<v-container>
-					<v-carousel-item
-						transition="slide-x-transition"
-						reverse-transition="slide-x-reverse-transition"
-					>
-						<v-row py-3>
-							<v-col class="text-center h3 m-0">INTEGRITY</v-col>
-							<v-col class="text-center h3 m-0">RESILIENCE</v-col>
-							<v-col class="text-center h3 m-0">PRIDE</v-col>
-						</v-row>
-					</v-carousel-item>
-					<v-carousel-item
-						transition="slide-x-transition"
-						reverse-transition="slide-x-reverse-transition"
-					>
-						<v-row py-3>
-							<v-col class="text-center h3 m-0">EXCELLENCE</v-col>
-							<v-col class="text-center h3 m-0">AMBITION</v-col>
-							<v-col class="text-center h3 m-0">RESPECT</v-col>
-						</v-row>
-					</v-carousel-item>
-				</v-container>
-			</v-carousel>
 		</section>
+		<core-carousel></core-carousel>
 		<section class="mt-md-n15x amber lighten-5">
 			<v-container class="mt-md-n15x">
 				<!-- <h1 class="display-2 orange--text text--darken-4">SECTION TWO</h1> -->
@@ -240,186 +210,39 @@
 							</v-card>
 						</v-hover>
 					</v-col>
+					<v-col cols="12" md="6" lg="4" v-for="(page, i) in latest" :key="i">
+						<v-card class="align-self-stretch">
+							<v-system-bar dark height="8" color="blue lighten-2"></v-system-bar>
+
+							<v-sheet color="grey lighten-2">
+								<v-img src="/images/covid-update-image.jpg" height="200"></v-img>
+							</v-sheet>
+							<v-system-bar dark height="1" color="black"></v-system-bar>
+							<v-list>
+								<v-list-item>
+									<v-list-item-avatar>
+										<v-img src="/images/headshots/jane.jpg" position="top center"></v-img>
+									</v-list-item-avatar>
+									<v-list-item-content>
+										<v-list-item-title v-text="page.title" class="h5"></v-list-item-title>
+										<v-list-item-subtitle v-text="page.subtitle"></v-list-item-subtitle>
+									</v-list-item-content>
+								</v-list-item>
+							</v-list>
+							<!-- <v-divider></v-divider> -->
+							<v-card-actions>
+								<v-spacer></v-spacer>
+								<v-btn text color="blue">VISIT PAGE</v-btn>
+							</v-card-actions>
+						</v-card>
+					</v-col>
 				</v-row>
 			</v-container>
 		</section>
-		<section class="header white--text py-0">
-			<v-container>
-				<v-carousel
-					height="80"
-					hide-delimiters
-					:show-arrows="false"
-					:cycle="true"
-					:interval="6000"
-					vertical
-				>
-					<v-container>
-						<v-carousel-item
-							transition="slide-x-transition"
-							reverse-transition="slide-x-reverse-transition"
-						>
-							<v-row py-3>
-								<v-col class="text-center h3 m-0">EXCELLENCE</v-col>
-								<v-col class="text-center h3 m-0">AMBITION</v-col>
-								<v-col class="text-center h3 m-0">RESPECT</v-col>
-							</v-row>
-						</v-carousel-item>
-						<v-carousel-item
-							transition="slide-x-transition"
-							reverse-transition="slide-x-reverse-transition"
-						>
-							<v-row py-3>
-								<v-col class="text-center h3 m-0">INTEGRITY</v-col>
-								<v-col class="text-center h3 m-0">RESILIENCE</v-col>
-								<v-col class="text-center h3 m-0">PRIDE</v-col>
-							</v-row>
-						</v-carousel-item>
-					</v-container>
-				</v-carousel>
-			</v-container>
-		</section>
+		<!-- <core-carousel></core-carousel> -->
 		<home-twitters></home-twitters>
 		<staff-search></staff-search>
-		<!-- <section>
-			<v-container>
-				<v-sheet class="mx-auto" elevation="8">
-					<v-slide-group class="pa-4" center-active show-arrows>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-						<v-slide-item v-slot="{ active, toggle }">
-							<v-card @click="toggle" class="ma-4" height="200" width="250"></v-card>
-						</v-slide-item>
-					</v-slide-group>
-				</v-sheet>
-			</v-container>
-		</section>-->
-		<section class="grey lighten-2">
-			<v-container>
-				<v-row class="align-items-center">
-					<v-col cols="12" class="display-3 text-center">OUR CORE VALUES</v-col>
-					<v-col cols="12" md="6">
-						<div class="text-center">
-							<v-img height="400" contain src="/images/teamfcat-hexagon.png"></v-img>
-						</div>
-					</v-col>
-					<v-col cols="12" md="6">
-						<div>
-							<v-card-text>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>PRIDE
-								</div>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>AMBITION
-								</div>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESPECT
-								</div>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESILIENCE
-								</div>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESILIENCE
-								</div>
-								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>INTEGRITY
-								</div>
-							</v-card-text>
-						</div>
-					</v-col>
-				</v-row>
-			</v-container>
-			<v-container>
-				<v-divider inset></v-divider>
-			</v-container>
-			<v-container>
-				<v-row class="align-items-center">
-					<v-col cols="12" class="display-3 text-center">OUR NON-NEGOTIABLES</v-col>
-					<v-col cols="12" md="6">
-						<div class="display-1 pb-2">
-							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>CHILDREN FIRST
-						</div>
-						<div class="display-1 pb-2">
-							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>HIGH EXPECTATIONS
-						</div>
-						<div class="display-1 pb-2">
-							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>NO EXCUSES
-						</div>
-						<div class="display-1 pb-2">
-							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>PASSION FOR LEARNING
-						</div>
-						<div class="display-1 pb-2">
-							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>WORKING TOGETHER
-						</div>
-						<div class="display-1 pb-2">
-							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>CONSISTENCY &amp; COMPLIANCE
-						</div>
-						<div class="display-1 pb-2">
-							<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>OUTWARD FACING
-						</div>
-					</v-col>
-					<v-col cols="12" md="6">
-						<div>
-							<v-img height="400" contain src="/images/teamfcat-hexagon.png"></v-img>
-						</div>
-					</v-col>
-				</v-row>
-			</v-container>
-		</section>
+		<core-values></core-values>
 	</div>
 </template>
 <script>
@@ -429,6 +252,7 @@ export default {
 		return {
 			loading: true,
 			index: 0,
+			latest: [],
 			news: [
 				{
 					time: "10:15",
@@ -456,8 +280,20 @@ export default {
 	created() {
 		setInterval(this.updateTicker, 5000);
 	},
-	mounted() {},
+	mounted() {
+		this.getLatestPages();
+	},
 	methods: {
+		getLatestPages() {
+			axios
+				.get("/get/latestpages/")
+				.then(({ data }) => {
+					this.latest = data.latest;
+				})
+				.then(() => {
+					// this.getPages();
+				});
+		},
 		updateTicker: function() {
 			var removed = this.news.pop();
 			this.news.unshift(removed);

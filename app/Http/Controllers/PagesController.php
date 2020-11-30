@@ -63,6 +63,16 @@ class PagesController extends Controller
     return $data;
   }
 
+  public function getLatest() {
+    $data = [
+      'latest' => DB::table('pages')
+      ->join('sections','sections.id','=','pages.section_id')
+      ->join('areas', 'areas.id','=','sections.area_id')
+      ->select('pages.*', DB::raw("CONCAT('/p2',areas.link,'/',pages.slug) as link"), 'sections.link as section_link', 'areas.id as area_id', 'areas.tealTitle as area_title')
+      ->orderBy('pages.created_at', 'desc')->limit(5)->get(),
+    ];
+    return $data;
+  }
   public function test($slug)
   {
     return Page::with('section')->where('slug', $slug)->first();
