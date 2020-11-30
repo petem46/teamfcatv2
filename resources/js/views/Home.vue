@@ -191,7 +191,7 @@
 												v-if="hover"
 												class="d-flex transition-fast-in-fast-out pink darken-2 v-card--reveal display-1 white--text"
 												style="height: 100%;"
-											>22 GET UPS</div>
+											>14 GET UPS</div>
 										</v-expand-transition>
 									</v-img>
 								</v-sheet>

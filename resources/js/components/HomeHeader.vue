@@ -1,6 +1,6 @@
 <template>
 	<section class="headerx pb-0">
-		<v-container class="pt-15">
+		<v-container class>
 			<v-row>
 				<v-col cols="12" lg="8">
 					<v-carousel height="450" :cycle="true" :interval="5000" :show-arrows="false">
@@ -59,28 +59,28 @@
 				</v-col>
 				<v-col cols="12" md="6" lg="4">
 					<v-card class="align-self-stretch">
-						<v-system-bar dark height="8" color="blue lighten-2"></v-system-bar>
-						<v-list>
-							<v-list-item>
+						<v-system-bar dark height="8" color="teal lighten-2"></v-system-bar>
+						<v-toolbar dark class="teal">
+            <v-list-item>
+							<v-list-item-avatar>
+								<v-icon>fas fa-rss fa-fw</v-icon>
+							</v-list-item-avatar>
+							<v-list-item-content>
+								<v-list-item-title class="h5">LATEST UPDATES</v-list-item-title>
+								<v-list-item-subtitle></v-list-item-subtitle>
+							</v-list-item-content>
+						</v-list-item>
+						</v-toolbar>
+						<v-list two-line>
+							<v-list-item link v-for="(page, i) in latest" :key="i" :to="page.link">
 								<v-list-item-avatar>
-									<v-icon class="teal--text">fas fa-rss fa-fw</v-icon>
+									<v-icon class="teal--text">far fa-file-alt fa-fw</v-icon>
 								</v-list-item-avatar>
 								<v-list-item-content>
-									<v-list-item-title class="h5">LATEST UPDATES</v-list-item-title>
-									<v-list-item-subtitle></v-list-item-subtitle>
+									<v-list-item-title v-text="page.title"></v-list-item-title>
+									<v-list-item-subtitle v-text="page.subtitle"></v-list-item-subtitle>
 								</v-list-item-content>
 							</v-list-item>
-							<v-list two-line>
-								<v-list-item link v-for="(page, i) in latest" :key="i" :to="page.link">
-									<v-list-item-avatar>
-										<v-icon class="teal--text">far fa-file-alt fa-fw</v-icon>
-									</v-list-item-avatar>
-									<v-list-item-content>
-										<v-list-item-title v-text="page.title"></v-list-item-title>
-										<v-list-item-subtitle v-text="page.subtitle"></v-list-item-subtitle>
-									</v-list-item-content>
-								</v-list-item>
-							</v-list>
 						</v-list>
 					</v-card>
 				</v-col>
