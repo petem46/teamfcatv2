@@ -5,6 +5,7 @@ import Covid from './pages/Covid'
 import LandingPage from './pages/LandingPage'
 import StaffSearch from './pages/StaffSearch'
 import CovidLandingPage from './pages/CovidLandingPage'
+import QIGLandingPage from './pages/QIGLandingPage'
 import FinanceLandingPage from './pages/FinanceLandingPage'
 import HRLandingPage from './pages/HRLandingPage'
 import ICTLandingPage from './pages/ICTLandingPage'
@@ -73,6 +74,12 @@ export default new Router({
       path: '/covid',
       name: 'covid',
       component: CovidLandingPage,
+      props: true
+    },
+    {
+      path: '/qigs',
+      name: 'qigs',
+      component: QIGLandingPage,
       props: true
     },
     {

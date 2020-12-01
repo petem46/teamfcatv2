@@ -69,7 +69,7 @@
 						</v-col>
 					</v-row>
 					<v-row>
-						<v-col cols="12" md="6">
+						<v-col cols="12" lg="6">
 							<v-text-field
 								v-model="user.ext"
 								outlined
@@ -81,7 +81,7 @@
 								<v-icon slot="prepend" class="mx-2" color="teal">fa-phone fa-fw</v-icon>
 							</v-text-field>
 						</v-col>
-						<v-col cols="12" md="6">
+						<v-col cols="12" lg="6">
 							<v-text-field
 								v-model="user.mobile"
 								outlined
