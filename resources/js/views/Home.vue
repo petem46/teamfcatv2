@@ -22,38 +22,36 @@
 				<!-- <h1 class="display-2 orange--text text--darken-4">SECTION TWO</h1> -->
 				<v-row class="d-flex align-self-stretch" height="100px">
 					<v-col cols="12" md="6" lg="4">
-						<v-card>
-							<v-system-bar dark height="8" color="teal darken-2"></v-system-bar>
-							<v-sheet color="grey lighten-2">
-								<v-img src="/images/seans-letter-image.jpg" height="200"></v-img>
-								<div class="custom-shape-divider-bottom-1606219370">
-									<svg
-										data-name="Layer 1"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 1200 120"
-										preserveAspectRatio="none"
-									>
-										<path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill" />
-									</svg>
-								</div>
-							</v-sheet>
-							<v-system-bar dark height="1" color="black"></v-system-bar>
-							<v-list>
-								<v-list-item>
-									<v-list-item-avatar>
-										<v-img src="/images/headshots/sean.jpg" position="top center"></v-img>
-									</v-list-item-avatar>
-									<v-list-item-content>
-										<v-list-item-title class="h5">Sean's Letter</v-list-item-title>
-										<v-list-item-subtitle>Monday 23rd November 2020</v-list-item-subtitle>
-									</v-list-item-content>
-								</v-list-item>
-							</v-list>
-							<v-card-actions>
-								<v-spacer></v-spacer>
-								<v-btn text color="teal" to="/p2/updates/seansletter11">Read Letter</v-btn>
-							</v-card-actions>
-						</v-card>
+						<v-hover v-slot="{ hover }" close-delay="200">
+							<v-card>
+								<v-system-bar dark height="8" color="teal darken-2"></v-system-bar>
+								<v-sheet color="grey lighten-2">
+									<v-img src="/images/seans-letter-image.jpg" height="200">
+										<v-expand-transition>
+											<div
+												v-if="hover"
+												class="d-flex transition-fast-in-fast-out teal darken-2 v-card--reveal display-3 white--text"
+												style="height: 100%;"
+											>
+												<v-btn text x-large class="display-1" dark :to="'/p2/updates/seansletter12'">READ LETTER</v-btn>
+											</div>
+										</v-expand-transition>
+									</v-img>
+								</v-sheet>
+								<v-system-bar dark height="1" color="black"></v-system-bar>
+								<v-list>
+									<v-list-item>
+										<v-list-item-avatar>
+											<v-img src="/images/headshots/sean.jpg" position="top center"></v-img>
+										</v-list-item-avatar>
+										<v-list-item-content>
+											<v-list-item-title class="h5">Sean's Letter</v-list-item-title>
+											<v-list-item-subtitle>Monday 23rd November 2020</v-list-item-subtitle>
+										</v-list-item-content>
+									</v-list-item>
+								</v-list>
+							</v-card>
+						</v-hover>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
 						<v-card class="align-self-stretch">
@@ -74,11 +72,6 @@
 									</v-list-item-content>
 								</v-list-item>
 							</v-list>
-							<!-- <v-divider></v-divider> -->
-							<v-card-actions>
-								<v-spacer></v-spacer>
-								<v-btn text color="blue">COVID PAGE</v-btn>
-							</v-card-actions>
 						</v-card>
 					</v-col>
 					<v-col cols="12" md="6" lg="4" class="align-self-stretch">
@@ -99,11 +92,6 @@
 									</v-list-item-content>
 								</v-list-item>
 							</v-list>
-							<!-- <v-divider></v-divider> -->
-							<v-card-actions>
-								<v-spacer></v-spacer>
-								<v-btn text color="red" :to="'/p2/hr/staffwellbeing'">Read More</v-btn>
-							</v-card-actions>
 						</v-card>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
@@ -210,14 +198,44 @@
 							</v-card>
 						</v-hover>
 					</v-col>
+					<v-col cols="12" md="6" lg="4">
+						<v-hover v-slot="{ hover }" close-delay="200">
+							<v-card class="align-self-stretch">
+								<v-system-bar dark height="8" color="deep-purple lighten-2"></v-system-bar>
+								<v-sheet color="deep-purple lighten-4">
+									<v-img src="/images/undraw_Faq_re_31cw.png" height="200">
+										<v-expand-transition>
+											<div
+												v-if="hover"
+												class="d-flex transition-fast-in-fast-out deep-purple darken-2 v-card--reveal display-1 white--text"
+												style="height: 100%;"
+											>FAQs</div>
+										</v-expand-transition>
+									</v-img>
+								</v-sheet>
+								<v-system-bar dark height="1" color="black"></v-system-bar>
+								<v-list>
+									<v-list-item>
+										<v-list-item-avatar color="deep-purple lighten-2">
+											<v-icon dark>far fa-question-circle fa-fw</v-icon>
+										</v-list-item-avatar>
+										<v-list-item-content>
+											<v-list-item-title class="h5">STAFF FAQs</v-list-item-title>
+											<v-list-item-subtitle>Asnswers to Frequently Asked Questions</v-list-item-subtitle>
+										</v-list-item-content>
+									</v-list-item>
+								</v-list>
+							</v-card>
+						</v-hover>
+					</v-col>
 					<v-col cols="12" md="6" lg="4" v-for="(page, i) in latest" :key="i">
 						<v-card class="align-self-stretch">
 							<v-system-bar dark height="8" color="blue lighten-2"></v-system-bar>
 
-							<v-sheet color="grey lighten-2">
-								<v-img src="/images/covid-update-image.jpg" height="200"></v-img>
-							</v-sheet>
-							<v-system-bar dark height="1" color="black"></v-system-bar>
+							<!-- <v-sheet color="grey lighten-2"> -->
+							<!-- <v-img src="/images/covid-update-image.jpg" height="200"></v-img> -->
+							<!-- </v-sheet> -->
+							<!-- <v-system-bar dark height="1" color="black"></v-system-bar> -->
 							<v-list>
 								<v-list-item>
 									<v-list-item-avatar>
@@ -229,11 +247,6 @@
 									</v-list-item-content>
 								</v-list-item>
 							</v-list>
-							<!-- <v-divider></v-divider> -->
-							<v-card-actions>
-								<v-spacer></v-spacer>
-								<v-btn text color="blue">VISIT PAGE</v-btn>
-							</v-card-actions>
 						</v-card>
 					</v-col>
 				</v-row>
