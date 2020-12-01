@@ -11,6 +11,7 @@ public/js/app.js
 /public/storage
 
 /public/.htaccess
+public/.htaccess
 
 /storage/*.key
 /vendor
