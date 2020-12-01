@@ -12,6 +12,8 @@ public/js/app.js
 
 /public/.htaccess
 public/.htaccess
+/public/mix-manifest.json
+public/mix-manifest.json
 
 /storage/*.key
 /vendor
