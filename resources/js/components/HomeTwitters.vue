@@ -5,34 +5,49 @@
 				<v-icon class="mr-2 white--text" style="font-size: 5rem;">fab fa-twitter</v-icon>Twitter Feeds
 			</header>
 			<v-row>
-				<v-col cols="12" md="3">
+				<v-col cols="12" md="3" offset-md="1">
 					<v-card>
 						<v-list subtitle>
 							<v-subheader>Select Feed</v-subheader>
 							<v-list-item-group v-model="showTwitterCard" color="teal">
-								<template v-for="(school, i) in schools">
-									<v-list-item :key="i+school" :value="school">
+								<template v-for="school in schools">
+									<v-list-item :key="school.id" :value="school.name">
 										<v-list-item-icon>
 											<v-icon>fa-at</v-icon>
 										</v-list-item-icon>
 										<v-list-item-content>
-											<v-list-item-title v-text="school"></v-list-item-title>
+											<v-list-item-title v-text="school.name"></v-list-item-title>
 										</v-list-item-content>
 									</v-list-item>
-									<v-divider class="py-0 my-0" v-if="i < schools.length - 1" :key="i"></v-divider>
+									<v-divider class="py-0 my-0" v-if="school.id < schools.length - 1" :key="school.id + 100"></v-divider>
 								</template>
 							</v-list-item-group>
 						</v-list>
 					</v-card>
 				</v-col>
-				<v-col cols="12" md="6" offset-md="2">
-					<v-card v-for="(school, i) in schools" :key="i" :value="school" :class="filterTwitter(school)">
+				<v-col cols="12" md="4">
+						<v-card
+						v-for="school in schools"
+						:key="school.id"
+						:value="school.name"
+						:class="filterTwitter(school.name)"
+					>
 						<a
 							class="twitter-timeline"
-							:href="'https://twitter.com/'+school+'?ref_src=twsrc%5Etfw'"
+							:href="'https://twitter.com/'+school.handle+'?ref_src=twsrc%5Etfw'"
 							data-lang="en"
 							data-height="655"
-						>Tweets by {{ school }}</a>
+						></a>
+						</v-card>
+				</v-col>
+				<v-col cols="12" md="4">
+					<v-card>
+						<a
+							class="twitter-timeline"
+							href="https://twitter.com/tex4spete/lists/fcat-13317?ref_src=twsrc%5Etfw"
+							data-lang="en"
+							data-height="655"
+						>A Twitter List by tex4spete</a>
 					</v-card>
 				</v-col>
 			</v-row>
@@ -43,19 +58,63 @@
 export default {
 	data() {
 		return {
-			showTwitterCard: ["FCATrust"],
+			showTwitterCard: "Armfield",
 			schools: [
-				"ArmfieldFCAT",
-				"blackpoolaspire",
-				"GarstangAcademy",
-				"GatewayFCAT",
-				"HambletonFCAT",
-				"MeresidePrimary",
-				"MontgomeryFCAT",
-				"UnityBlackpool",
-				"WestcliffFCAT",
-				"WestminsterFCAT",
-				"FCATrust"
+				{
+					id: 0,
+					name: "FCAT",
+					handle: "FCATrust"
+				},
+				{
+					id: 1,
+					name: "Armfield",
+					handle: "ArmfieldFCAT"
+				},
+				{
+					id: 2,
+					name: "Aspire",
+					handle: "blackpoolaspire"
+				},
+				{
+					id: 3,
+					name: "Garstang",
+					handle: "GarstangAcademy"
+				},
+				{
+					id: 4,
+					name: "Gateway",
+					handle: "GatewayFCAT"
+				},
+				{
+					id: 5,
+					name: "Hambleton",
+					handle: "HambletonFCAT"
+				},
+				{
+					id: 6,
+					name: "Mereside",
+					handle: "MeresidePrimary"
+				},
+				{
+					id: 7,
+					name: "Montgomery",
+					handle: "MontgomeryFCAT"
+				},
+				{
+					id: 8,
+					name: "Unity",
+					handle: "UnityBlackpool"
+				},
+				{
+					id: 9,
+					name: "Westcliff",
+					handle: "WestcliffFCAT"
+				},
+				{
+					id: 10,
+					name: "Westminster",
+					handle: "WestminsterFCAT"
+				}
 			]
 		};
 	},
@@ -64,19 +123,21 @@ export default {
 		embedTwitter.setAttribute("src", "https://platform.twitter.com/widgets.js");
 		document.head.appendChild(embedTwitter);
 	},
-	created() {},
+	created() {
+		this.showTwitterCard = this.getSchool;
+	},
 	methods: {
-		getSchool() {
-			this.showTwitterCard = this.$store.getters.getUser;
-			this.showTwitterCard = this.showTwitterCard.school;
-		},
 		filterTwitter(school) {
 			if (this.showTwitterCard != school) {
 				return "hidden";
 			}
 		}
 	},
-	computed: {}
+	computed: {
+		getSchool() {
+			return this.$store.getters.getSchool;
+		}
+	}
 };
 </script>
 <style scoped>
@@ -157,5 +218,8 @@ blockquote.twitter-tweet a {
 blockquote.twitter-tweet a:hover,
 blockquote.twitter-tweet a:focus {
 	text-decoration: underline;
+}
+.timeline-Header-subtitle {
+  display: none !important;
 }
 </style>

@@ -57,6 +57,20 @@
 					<v-row>
 						<v-col cols="12">
 							<v-text-field
+								v-model="user.twitterHandle"
+								outlined
+								label="School / Professional Twitter Handle"
+								color="teal"
+								hint="If you have a school or work Twitter account you can add it here so that colleagues can follow you"
+								persistent-hint
+							>
+								<v-icon slot="prepend" class="mx-2" color="teal">fab fa-twitter fa-fw</v-icon>
+							</v-text-field>
+						</v-col>
+					</v-row>
+					<v-row>
+						<v-col cols="12" md="6">
+							<v-text-field
 								v-model="user.ext"
 								outlined
 								label="Phone or extension number(s)"
@@ -67,9 +81,7 @@
 								<v-icon slot="prepend" class="mx-2" color="teal">fa-phone fa-fw</v-icon>
 							</v-text-field>
 						</v-col>
-					</v-row>
-					<v-row>
-						<v-col cols="12">
+						<v-col cols="12" md="6">
 							<v-text-field
 								v-model="user.mobile"
 								outlined
@@ -116,10 +128,11 @@ export default {
 				.then(({ data }) => {
 					this.$store.commit("setUser", data);
 					this.$store.commit("setName", data.name);
-					this.$store.commit("setUserId", data.userid);
-					this.$store.commit("setRoleId", data.roleid);
+					this.$store.commit("setUserId", data.id);
+					this.$store.commit("setRoleId", data.role_id);
 					this.$store.commit("setAvatar", data.avatar);
 					this.$store.commit("setGtoken", data.token);
+					this.$store.commit("setSchool", data.school);
 				})
 				.then(() => {
 					this.checkDetails();

@@ -54,25 +54,36 @@
 						</v-hover>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<v-card class="align-self-stretch">
-							<v-system-bar dark height="8" color="blue lighten-2"></v-system-bar>
-
-							<v-sheet color="grey lighten-2">
-								<v-img src="/images/covid-update-image.jpg" height="200"></v-img>
-							</v-sheet>
-							<v-system-bar dark height="1" color="black"></v-system-bar>
-							<v-list>
-								<v-list-item>
-									<v-list-item-avatar>
-										<v-img src="/images/headshots/jane.jpg" position="top center"></v-img>
-									</v-list-item-avatar>
-									<v-list-item-content>
-										<v-list-item-title class="h5">COVID-19</v-list-item-title>
-										<v-list-item-subtitle>Important links &amp; updates</v-list-item-subtitle>
-									</v-list-item-content>
-								</v-list-item>
-							</v-list>
-						</v-card>
+						<v-hover v-slot="{ hover }" close-delay="200">
+							<v-card class="align-self-stretch">
+								<v-system-bar dark height="8" color="blue lighten-2"></v-system-bar>
+								<v-sheet color="grey lighten-2">
+									<v-img src="/images/covid-update-image.jpg" height="200">
+										<v-expand-transition>
+											<div
+												v-if="hover"
+												class="d-flex transition-fast-in-fast-out blue darken-2 v-card--reveal display-3 white--text"
+												style="height: 100%;"
+											>
+												<v-btn outlined x-large class="display-1" dark :to="'/covid'">COVID UPDATES</v-btn>
+											</div>
+										</v-expand-transition>
+									</v-img>
+								</v-sheet>
+								<v-system-bar dark height="1" color="black"></v-system-bar>
+								<v-list>
+									<v-list-item>
+										<v-list-item-avatar>
+											<v-img src="/images/headshots/jane.jpg" position="top center"></v-img>
+										</v-list-item-avatar>
+										<v-list-item-content>
+											<v-list-item-title class="h5">COVID-19</v-list-item-title>
+											<v-list-item-subtitle>Important links &amp; updates</v-list-item-subtitle>
+										</v-list-item-content>
+									</v-list-item>
+								</v-list>
+							</v-card>
+						</v-hover>
 					</v-col>
 					<v-col cols="12" md="6" lg="4" class="align-self-stretch">
 						<v-card class="align-self-stretch">

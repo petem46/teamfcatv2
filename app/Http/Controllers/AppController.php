@@ -21,6 +21,7 @@ class AppController extends Controller
         $user = User::find($id);
       if($user) {
         $user->keyrole = $request->get('keyrole');
+        $user->twitterHandle = $request->get('twitterHandle');
         $user->ext = $request->get('ext');
         $user->mobile = $request->get('mobile');
         $user->touch();

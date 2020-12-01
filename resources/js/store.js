@@ -10,6 +10,7 @@ export default new Vuex.Store({
     roleid: null,
     avatar: null,
     name: null,
+    school: null,
     gtoken: null,
   },
   mutations: {
@@ -21,6 +22,9 @@ export default new Vuex.Store({
     },
     setName(state, id) {
       state.name = id;
+    },
+    setSchool(state, id) {
+      state.school = id;
     },
     setRoleId(state, id) {
       state.roleid = id;
@@ -39,6 +43,9 @@ export default new Vuex.Store({
     },
     getName(state) {
       return state.name;
+    },
+    getSchool(state) {
+      return state.school;
     },
     getUserId(state) {
       return state.userid;
