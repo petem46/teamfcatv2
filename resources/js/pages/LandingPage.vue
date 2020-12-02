@@ -51,7 +51,7 @@
 							:src="area.landingImage"
 						></v-img>
 						<div class="text-right">
-							<div v-html="area.landingImageCaption"></div>
+							<!-- <div v-html="area.landingImageCaption"></div> -->
 						</div>
 					</v-col>
 				</v-row>
