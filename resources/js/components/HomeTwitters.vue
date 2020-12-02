@@ -5,15 +5,15 @@
 				<v-icon class="mr-2 white--text" style="font-size: 5rem;">fab fa-twitter</v-icon>Twitter Feeds
 			</header>
 			<v-row>
-				<v-col cols="12" md="3" offset-md="1">
+				<v-col cols="12" md="3">
 					<v-card>
-						<v-list subtitle>
-							<v-subheader>Select Feed</v-subheader>
+						<v-list>
+							<v-subheader>Filter Feed</v-subheader>
 							<v-list-item-group v-model="showTwitterCard" color="teal">
 								<template v-for="school in schools">
 									<v-list-item :key="school.id" :value="school.name">
-										<v-list-item-icon>
-											<v-icon>fa-at</v-icon>
+										<v-list-item-icon class="mr-2">
+											<v-icon small>fa-at</v-icon>
 										</v-list-item-icon>
 										<v-list-item-content>
 											<v-list-item-title v-text="school.name"></v-list-item-title>
@@ -25,8 +25,8 @@
 						</v-list>
 					</v-card>
 				</v-col>
-				<v-col cols="12" md="4">
-						<v-card
+				<v-col :class="mook()">
+					<v-card
 						v-for="school in schools"
 						:key="school.id"
 						:value="school.name"
@@ -38,9 +38,14 @@
 							data-lang="en"
 							data-height="655"
 						></a>
-						</v-card>
+					</v-card>
 				</v-col>
-				<v-col cols="12" md="4">
+				<v-col
+					cols="12"
+					md="4"
+					style="min-width: 100px; max-width: 100%;"
+					class="flex-grow-1 flex-shrink-0"
+				>
 					<v-card>
 						<a
 							class="twitter-timeline"
@@ -131,6 +136,13 @@ export default {
 			if (this.showTwitterCard != school) {
 				return "hidden";
 			}
+		},
+		mook() {
+			if (this.showTwitterCard != undefined) {
+				return "col-12 col-md-4 offset-md-1";
+			} else {
+				return "col-1";
+			}
 		}
 	},
 	computed: {
@@ -220,6 +232,6 @@ blockquote.twitter-tweet a:focus {
 	text-decoration: underline;
 }
 .timeline-Header-subtitle {
-  display: none !important;
+	display: none !important;
 }
 </style>

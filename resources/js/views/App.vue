@@ -111,7 +111,7 @@ export default {
 		$route: function() {}
 	},
 	data: () => ({
-		navdrawer: false,
+		navdrawer: true,
 		showCheckDetailsDialog: false,
 		user: ""
 	}),

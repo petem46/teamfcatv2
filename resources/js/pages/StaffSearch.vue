@@ -54,6 +54,13 @@ export default {
 				class: "white--text overline grey darken-2"
 			},
 			{
+				text: "Twitter",
+				align: "start",
+				sortable: true,
+				value: "twitterHandle",
+				class: "white--text overline grey darken-2"
+			},
+			{
 				text: "Role(s)",
 				align: "start",
 				sortable: true,

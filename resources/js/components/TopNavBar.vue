@@ -1,7 +1,7 @@
 <template>
 	<v-app-bar app clipped-left elevate-on-scroll white class="top-border--teal">
 		<!-- <v-app-bar app clipped-left flat hide-on-scroll scroll-threshold="500" class="top-border--teal"> -->
-		<!-- <v-app-bar-nav-icon @click.stop='navdrawerClick'></v-app-bar-nav-icon> -->
+		<v-app-bar-nav-icon @click.stop="navdrawerClick"></v-app-bar-nav-icon>
 		<v-toolbar-title class="pb-md-2">
 			<v-avatar :size="avatarsize" tile class="mr-3 teal--text">
 				<img src="/images/hexagon-icon.png" />
@@ -9,10 +9,22 @@
 			<span class>Team FCAT</span>
 		</v-toolbar-title>
 		<v-spacer></v-spacer>
-
-		<!-- <v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/updates">
-			<v-icon class="mr-2 grey--text lighten-1">mdi-clock-alert-outline</v-icon>Updates
-		</v-btn> -->
+		<!-- <v-responsive max-width="300" class="mr-4">
+			<v-text-field
+				@click="gotoPage('/covid')"
+				color="grey"
+				dense
+				readonly
+				hide-details
+				outlined
+				placeholder="Search Site ..."
+				prepend-inner-icon="mdi-magnify"
+			></v-text-field> -->
+		<!-- </v-responsive> -->
+		<v-btn outlined max-width="450" width="300" class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/#">
+			<v-icon class="mr-2 grey--text lighten-1">mdi-magnify</v-icon>
+      Search Site ...
+		</v-btn>
 		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/">
 			<v-icon class="mr-2 grey--text lighten-1">mdi-home</v-icon>Home
 		</v-btn>
@@ -22,11 +34,9 @@
 		</v-btn>
 
 		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/remotetl">
-			<v-icon class="mr-2 grey--text lighten-1">mdi-clock-alert-outline</v-icon>REMOTE T&amp;L
+			<v-icon class="mr-2 grey--text lighten-1">mdi-cast-education</v-icon>REMOTE T&amp;L
 		</v-btn>
 
-		<!-- <latest-menu></latest-menu> -->
-		<!-- <remote-learning-menu></remote-learning-menu> -->
 		<key-info-menu></key-info-menu>
 		<central-services-menu></central-services-menu>
 
@@ -85,9 +95,12 @@
 export default {
 	props: ["navdrawer"],
 	methods: {
-    navdrawerClick() {
-      this.$emit("navdrawerClick");
-    },
+		navdrawerClick() {
+			this.$emit("navdrawerClick");
+		},
+		gotoPage(slug) {
+			this.$router.push(slug);
+		},
 		logout() {
 			console.log("logout");
 			axios

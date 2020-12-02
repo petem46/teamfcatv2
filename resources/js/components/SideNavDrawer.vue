@@ -1,5 +1,5 @@
 <template>
-	<v-navigation-drawer expand-on-hover app clipped floating light>
+	<v-navigation-drawer v-model="navdrawer" expand-on-hover app clipped floating light>
 		<v-list dense nav>
 			<v-list-item link to="/">
 				<v-list-item-action>
