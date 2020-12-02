@@ -294,7 +294,7 @@
 					@hideFileManager="onHideFileManager"
 				></file-manager>
 			</section>
-			<section class="christmas-bg-1">
+			<section class="grey lighten-2">
 				<!-- <v-card flat tile class="grey lighten-2"> -->
 					<!-- <v-parallax src="/images/grey.jpg" min-height="350" max-height="1200"> -->
 					<v-container fluid>
