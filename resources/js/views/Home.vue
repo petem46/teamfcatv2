@@ -45,7 +45,7 @@
 											</v-list-item-avatar>
 											<v-list-item-content>
 												<v-list-item-title class="h5">Sean's Letter</v-list-item-title>
-												<v-list-item-subtitle>Monday 23rd November 2020</v-list-item-subtitle>
+												<v-list-item-subtitle>Monday 30th November 2020</v-list-item-subtitle>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
