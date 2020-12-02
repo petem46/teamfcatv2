@@ -219,7 +219,7 @@
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="blue darken-4"></v-system-bar>
 									<v-sheet color="blue">
-										<v-img src="/images/feedback-thumbnail.jpg" height="200">
+										<v-img src="/images/slt-updates.jpg" height="200">
 											<v-expand-transition>
 												<div
 													v-if="hover"
