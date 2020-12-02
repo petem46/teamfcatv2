@@ -1,5 +1,5 @@
 <template>
-	<section class="headerx pb-0">
+	<section class="christmas-bg-2 pb-0">
 		<v-container class>
 			<v-row>
 				<v-col cols="12" lg="8">
@@ -61,15 +61,15 @@
 					<v-card class="align-self-stretch">
 						<v-system-bar dark height="8" color="teal lighten-2"></v-system-bar>
 						<v-toolbar dark class="teal">
-            <v-list-item>
-							<v-list-item-avatar>
-								<v-icon>fas fa-rss fa-fw</v-icon>
-							</v-list-item-avatar>
-							<v-list-item-content>
-								<v-list-item-title class="h5">LATEST UPDATES</v-list-item-title>
-								<v-list-item-subtitle></v-list-item-subtitle>
-							</v-list-item-content>
-						</v-list-item>
+							<v-list-item>
+								<v-list-item-avatar>
+									<v-icon>fas fa-rss fa-fw</v-icon>
+								</v-list-item-avatar>
+								<v-list-item-content>
+									<v-list-item-title class="h5">LATEST UPDATES</v-list-item-title>
+									<v-list-item-subtitle></v-list-item-subtitle>
+								</v-list-item-content>
+							</v-list-item>
 						</v-toolbar>
 						<v-list two-line>
 							<v-list-item link v-for="(page, i) in latest" :key="i" :to="page.link">
@@ -160,5 +160,13 @@ section {
 }
 .hidden {
 	display: none;
+}
+.christmas-bg-2 {
+	background-image: url("/images/christmas-bg-2.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	-webkit-animation: none;
+	-moz-animation: none;
+	animation: none;
 }
 </style>

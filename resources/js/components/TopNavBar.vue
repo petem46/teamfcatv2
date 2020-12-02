@@ -19,18 +19,24 @@
 				outlined
 				placeholder="Search Site ..."
 				prepend-inner-icon="mdi-magnify"
-			></v-text-field> -->
+		></v-text-field>-->
 		<!-- </v-responsive> -->
-		<v-btn outlined max-width="450" width="300" class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/#">
-			<v-icon class="mr-2 grey--text lighten-1">mdi-magnify</v-icon>
-      Search Site ...
+		<v-btn
+			outlined
+			max-width="450"
+			width="300"
+			class="mr-2"
+			v-if="this.$vuetify.breakpoint.mdAndUp"
+			to="/#"
+		>
+			<v-icon class="mr-2 grey--text lighten-1">mdi-magnify</v-icon>Search Site ...
 		</v-btn>
 		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/">
 			<v-icon class="mr-2 grey--text lighten-1">mdi-home</v-icon>Home
 		</v-btn>
 
 		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/covid">
-			<v-icon class="mr-2 grey--text lighten-1">mdi-clock-alert-outline</v-icon>COVID-19
+			<v-icon class="mr-2 grey--text lighten-1">mdi-cellphone-information</v-icon>COVID-19
 		</v-btn>
 
 		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/remotetl">
