@@ -4,297 +4,298 @@
 			<v-progress-circular indeterminate teal></v-progress-circular>
 		</div>
 		<div v-if="!loading">
-			<div
-				class="container pt-md-6rem"
-				@mouseover="showEditHeaderButton = true"
-				@mouseleave="showEditHeaderButton = false"
-			>
-				<v-row>
-					<v-col
-						data-aos="zoom-out-left"
-						data-aos-duration="1200"
-						cols="12"
-						lg="6"
-						class="d=flex align-center order-md-1 order-2"
-						@dblclick="editTitle = true"
-					>
-						<h1 class="text-h3 py-0 align-center-md">
-							{{area.title}}
-							<span class="teal--text">{{area.tealTitle }}</span>
-						</h1>
-						<h2 class="text-h4 text-subtitle py-0 align-center-md">{{area.subTitle}}</h2>
-						<p
-							v-if="!editWelcomeSubText"
-							class="lead grey--text text-subtitle text-center text-md-left"
-							style="white-space: pre-line !important;"
-						>{{ area.welcomeSubText }}</p>
-						<v-row>
-							<section cols="12" lg="4" v-for="button in area.buttons" :key="button.id">
-								<v-col v-if="button.show == 'show'">
-									<a :href="button.link">
-										<v-btn dark :class="button.color + ' v-size--' + getBtnSize" class="btn-block">
-											<v-icon class="mr-2">{{button.icon}}</v-icon>
-											{{button.text}}
-										</v-btn>
-									</a>
-								</v-col>
-							</section>
-						</v-row>
-					</v-col>
-					<v-col cols="12" lg="6" class="order-md-2 order-1">
-						<v-btn dark fab absolute top right v-if="showEditHeaderButton" @click="editTitle = true">EDIT</v-btn>
-						<v-img
-							data-aos="zoom-in"
-							data-aos-duration="1200"
-							height="350"
-							contain
-							:src="area.landingImage"
-						></v-img>
-						<div class="text-right">
-							<!-- <div v-html="area.landingImageCaption"></div> -->
-						</div>
-					</v-col>
-				</v-row>
-			</div>
-
-			<v-dialog v-model="editTitle">
-				<v-card>
-					<v-toolbar color="teal" dark>
-						<v-toolbar-title>Edit Content</v-toolbar-title>
-						<v-spacer></v-spacer>
-						<v-btn text @click="editTitle = false">Close</v-btn>
-					</v-toolbar>
-					<v-container fluid pt-3>
-						<v-row>
-							<v-col cols="12" sm="6">
-								<v-text-field
-									class="pb-3"
-									v-model="area.title"
-									@keyup="save"
-									outlined
-									label="Title Text"
-									color="teal"
-									:hint="hint"
-									placeholder="Text Entered Here Will be Black"
-								></v-text-field>
-							</v-col>
-							<v-col cols="12" sm="6">
-								<v-text-field
-									class="pb-3"
-									style="color: teal !important"
-									v-model="area.tealTitle"
-									@keyup="save"
-									outlined
-									label="Teal Text Title"
-									color="teal"
-									:hint="hint"
-									placeholder="Text Entered Here Will be Teal"
-								></v-text-field>
-							</v-col>
-						</v-row>
-						<v-row>
-							<v-col cols="12" sm="12">
-								<v-text-field
-									class="pb-3"
-									v-model="area.subTitle"
-									@keyup="save"
-									outlined
-									label="Sub Title Text"
-									:hint="hint"
-									placeholder="Enter Sub Title If Needed"
-									color="teal"
-								></v-text-field>
-							</v-col>
-						</v-row>
-						<v-textarea
-							class="pb-3"
-							color="teal"
-							v-model="area.welcomeSubText"
-							@keyup="save"
-							label="Welcome Text"
-							outlined
-							:hint="hint"
-						></v-textarea>
-
-						<v-row>
-							<v-col cols="12">
-								<v-text-field
-									class="pb-3 mb-3"
-									color="teal"
-									@keyup="save"
-									@click="save"
-									label="Banner Image"
-									value=" "
-									outlined
-									:hint="hint"
-									hidden
-								>
-									<template v-slot:prepend-inner>
-										<v-hover v-slot="{ hover }">
-											<v-img contain :src="area.landingImage" @change="save" width="450" class="pb-3">
-												<v-expand-transition>
-													<div
-														@click="onShowFileManager('landingImage')"
-														v-if="hover"
-														class="d-flex transition-fast-in-fast-out teal lighten-2 v-card--reveal white--text"
-														style="height: 100%;"
-													>CLICK TO CHANGE</div>
-												</v-expand-transition>
-											</v-img>
-										</v-hover>
-									</template>
-									<template v-slot:default>
-										<v-col cols="1"></v-col>
-									</template>
-								</v-text-field>
-							</v-col>
-						</v-row>
-						<v-row>
-							<v-col cols="12" lg="4" v-for="button in area.buttons" :key="button.id" :to="button.link">
-								<v-card>
-									<v-toolbar dense :color="button.color" dark>
-										<v-toolbar-title>Edit Button {{button.id}}</v-toolbar-title>
-									</v-toolbar>
-									<v-container fluid pt-3>
-										<v-card-actions>
-											<v-row align="center" justify="center">
-												<v-btn-toggle
-													mandatory
-													v-model="button.show"
-													tile
-													:color="button.color"
-													group
-													@change="save"
-												>
-													<v-btn value="hide">Hide Button</v-btn>
-													<v-btn value="show">Show Button</v-btn>
-												</v-btn-toggle>
-											</v-row>
-										</v-card-actions>
-										<v-divider></v-divider>
-										<v-select
-											class="pb-3"
-											:items="actioncardsColorsList"
-											v-model="button.color"
-											@keyup="save"
-											@change="save"
-											outlined
-											label="Card Colour"
-											:color="button.color"
-										>
-											<template slot="item" slot-scope="data">
-												<v-icon class="mr-3" :color="data.item">fa-square</v-icon>
-												<span class="cb-item">{{data.item}}</span>
-											</template>
-											<v-icon slot="prepend" class="mx-2" :color="button.color">fa-square fa-fw</v-icon>
-											<template v-slot:append-outer>
-												<v-tooltip bottom>
-													<template v-slot:activator="{ on }">
-														<v-icon
-															slot="append-outer"
-															v-on="on"
-															class="mx-2"
-															color="grey lighten-2"
-														>fa-info-circle fa-fw</v-icon>
-													</template>This option sets the color for the button
-												</v-tooltip>
-											</template>
-										</v-select>
-										<v-text-field
-											@keyup="save"
-											:hint="hint"
-											outlined
-											color="teal"
-											v-model="button.text"
-											label="Button Text"
-										>
-											<v-icon slot="prepend" class="mx-2" :color="button.color">fa-edit fa-fw</v-icon>
-										</v-text-field>
-										<v-select
-											class="pb-3"
-											:items="actioncardsIconsList"
-											v-model="button.icon"
-											@keyup="save"
-											@change="save"
-											outlined
-											label="Card Icon"
-											:color="button.color"
-										>
-											<template slot="item" slot-scope="data">
-												<v-icon class="mr-3" :color="button.color">{{data.item}} fa-fw</v-icon>
-												<span class="cb-item">{{data.item}}</span>
-											</template>
-											<v-icon slot="prepend" class="mx-2" :color="button.color">{{button.icon}} fa-fw</v-icon>
-											<template v-slot:append-outer>
-												<v-tooltip bottom>
-													<template v-slot:activator="{ on }">
-														<v-icon
-															slot="append-outer"
-															v-on="on"
-															class="mx-2"
-															color="grey lighten-2"
-														>fa-info-circle fa-fw</v-icon>
-													</template>The selected icon will appear in the central of the card with a coloured circle background
-												</v-tooltip>
-											</template>
-										</v-select>
-										<v-text-field
-											@keyup="save"
-											@change="save"
-											:hint="hint"
-											outlined
-											color="teal"
-											v-model="button.link"
-											label="Button Link"
-										>
-											<v-icon slot="prepend" class="mx-2" :color="button.color">fa-link fa-fw</v-icon>
-										</v-text-field>
-										<v-select
-											outlined
-											color="teal"
-											@change="save"
-											v-model="button.link"
-											:items="sections"
-											item-text="title"
-											item-value="idlink"
-											label="Section Link"
-										>
-											<v-icon slot="prepend" class="mx-2" :color="button.color">fas fa-layer-group fa-fw</v-icon>
-										</v-select>
-										<v-select
-											outlined
-											color="teal"
-											@change="save"
-											v-model="button.link"
-											:items="pages"
-											item-text="title"
-											item-value="link"
-											label="Page Link"
-										>
-											<v-icon slot="prepend" class="mx-2" :color="button.color">fa-copy fa-fw</v-icon>
-										</v-select>
-									</v-container>
-								</v-card>
-							</v-col>
-						</v-row>
-					</v-container>
-					<v-toolbar color="teal" dark>
-						<v-toolbar-title></v-toolbar-title>
-						<v-spacer></v-spacer>
-						<v-btn text @click="editTitle = false">Close</v-btn>
-					</v-toolbar>
-				</v-card>
-			</v-dialog>
-
-			<file-manager
-				:showFileManager="showFileManager"
-				@showFileManager="onShowFileManager"
-				@insertImage="insertImage"
-				@hideFileManager="onHideFileManager"
-			></file-manager>
-
 			<section>
-				<v-card flat tile class="grey lighten-2">
+				<div
+					class="container pt-md-6rem"
+					@mouseover="showEditHeaderButton = true"
+					@mouseleave="showEditHeaderButton = false"
+				>
+					<v-row>
+						<v-col
+							data-aos="zoom-out-left"
+							data-aos-duration="1200"
+							cols="12"
+							lg="6"
+							class="d=flex align-center order-md-1 order-2"
+							@dblclick="editTitle = true"
+						>
+							<h1 class="text-h3 py-0 align-center-md">
+								{{area.title}}
+								<span class="teal--text">{{area.tealTitle }}</span>
+							</h1>
+							<h2 class="text-h4 text-subtitle py-0 align-center-md">{{area.subTitle}}</h2>
+							<p
+								v-if="!editWelcomeSubText"
+								class="lead grey--text text-subtitle text-center text-md-left"
+								style="white-space: pre-line !important;"
+							>{{ area.welcomeSubText }}</p>
+							<v-row>
+								<section cols="12" lg="4" v-for="button in area.buttons" :key="button.id">
+									<v-col v-if="button.show == 'show'">
+										<a :href="button.link">
+											<v-btn dark :class="button.color + ' v-size--' + getBtnSize" class="btn-block">
+												<v-icon class="mr-2">{{button.icon}}</v-icon>
+												{{button.text}}
+											</v-btn>
+										</a>
+									</v-col>
+								</section>
+							</v-row>
+						</v-col>
+						<v-col cols="12" lg="6" class="order-md-2 order-1">
+							<v-btn dark fab absolute top right v-if="showEditHeaderButton" @click="editTitle = true">EDIT</v-btn>
+							<v-img
+								data-aos="zoom-in"
+								data-aos-duration="1200"
+								height="350"
+								contain
+								:src="area.landingImage"
+							></v-img>
+							<div class="text-right">
+								<!-- <div v-html="area.landingImageCaption"></div> -->
+							</div>
+						</v-col>
+					</v-row>
+				</div>
+
+				<v-dialog v-model="editTitle">
+					<v-card>
+						<v-toolbar color="teal" dark>
+							<v-toolbar-title>Edit Content</v-toolbar-title>
+							<v-spacer></v-spacer>
+							<v-btn text @click="editTitle = false">Close</v-btn>
+						</v-toolbar>
+						<v-container fluid pt-3>
+							<v-row>
+								<v-col cols="12" sm="6">
+									<v-text-field
+										class="pb-3"
+										v-model="area.title"
+										@keyup="save"
+										outlined
+										label="Title Text"
+										color="teal"
+										:hint="hint"
+										placeholder="Text Entered Here Will be Black"
+									></v-text-field>
+								</v-col>
+								<v-col cols="12" sm="6">
+									<v-text-field
+										class="pb-3"
+										style="color: teal !important"
+										v-model="area.tealTitle"
+										@keyup="save"
+										outlined
+										label="Teal Text Title"
+										color="teal"
+										:hint="hint"
+										placeholder="Text Entered Here Will be Teal"
+									></v-text-field>
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col cols="12" sm="12">
+									<v-text-field
+										class="pb-3"
+										v-model="area.subTitle"
+										@keyup="save"
+										outlined
+										label="Sub Title Text"
+										:hint="hint"
+										placeholder="Enter Sub Title If Needed"
+										color="teal"
+									></v-text-field>
+								</v-col>
+							</v-row>
+							<v-textarea
+								class="pb-3"
+								color="teal"
+								v-model="area.welcomeSubText"
+								@keyup="save"
+								label="Welcome Text"
+								outlined
+								:hint="hint"
+							></v-textarea>
+
+							<v-row>
+								<v-col cols="12">
+									<v-text-field
+										class="pb-3 mb-3"
+										color="teal"
+										@keyup="save"
+										@click="save"
+										label="Banner Image"
+										value=" "
+										outlined
+										:hint="hint"
+										hidden
+									>
+										<template v-slot:prepend-inner>
+											<v-hover v-slot="{ hover }">
+												<v-img contain :src="area.landingImage" @change="save" width="450" class="pb-3">
+													<v-expand-transition>
+														<div
+															@click="onShowFileManager('landingImage')"
+															v-if="hover"
+															class="d-flex transition-fast-in-fast-out teal lighten-2 v-card--reveal white--text"
+															style="height: 100%;"
+														>CLICK TO CHANGE</div>
+													</v-expand-transition>
+												</v-img>
+											</v-hover>
+										</template>
+										<template v-slot:default>
+											<v-col cols="1"></v-col>
+										</template>
+									</v-text-field>
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col cols="12" lg="4" v-for="button in area.buttons" :key="button.id" :to="button.link">
+									<v-card>
+										<v-toolbar dense :color="button.color" dark>
+											<v-toolbar-title>Edit Button {{button.id}}</v-toolbar-title>
+										</v-toolbar>
+										<v-container fluid pt-3>
+											<v-card-actions>
+												<v-row align="center" justify="center">
+													<v-btn-toggle
+														mandatory
+														v-model="button.show"
+														tile
+														:color="button.color"
+														group
+														@change="save"
+													>
+														<v-btn value="hide">Hide Button</v-btn>
+														<v-btn value="show">Show Button</v-btn>
+													</v-btn-toggle>
+												</v-row>
+											</v-card-actions>
+											<v-divider></v-divider>
+											<v-select
+												class="pb-3"
+												:items="actioncardsColorsList"
+												v-model="button.color"
+												@keyup="save"
+												@change="save"
+												outlined
+												label="Card Colour"
+												:color="button.color"
+											>
+												<template slot="item" slot-scope="data">
+													<v-icon class="mr-3" :color="data.item">fa-square</v-icon>
+													<span class="cb-item">{{data.item}}</span>
+												</template>
+												<v-icon slot="prepend" class="mx-2" :color="button.color">fa-square fa-fw</v-icon>
+												<template v-slot:append-outer>
+													<v-tooltip bottom>
+														<template v-slot:activator="{ on }">
+															<v-icon
+																slot="append-outer"
+																v-on="on"
+																class="mx-2"
+																color="grey lighten-2"
+															>fa-info-circle fa-fw</v-icon>
+														</template>This option sets the color for the button
+													</v-tooltip>
+												</template>
+											</v-select>
+											<v-text-field
+												@keyup="save"
+												:hint="hint"
+												outlined
+												color="teal"
+												v-model="button.text"
+												label="Button Text"
+											>
+												<v-icon slot="prepend" class="mx-2" :color="button.color">fa-edit fa-fw</v-icon>
+											</v-text-field>
+											<v-select
+												class="pb-3"
+												:items="actioncardsIconsList"
+												v-model="button.icon"
+												@keyup="save"
+												@change="save"
+												outlined
+												label="Card Icon"
+												:color="button.color"
+											>
+												<template slot="item" slot-scope="data">
+													<v-icon class="mr-3" :color="button.color">{{data.item}} fa-fw</v-icon>
+													<span class="cb-item">{{data.item}}</span>
+												</template>
+												<v-icon slot="prepend" class="mx-2" :color="button.color">{{button.icon}} fa-fw</v-icon>
+												<template v-slot:append-outer>
+													<v-tooltip bottom>
+														<template v-slot:activator="{ on }">
+															<v-icon
+																slot="append-outer"
+																v-on="on"
+																class="mx-2"
+																color="grey lighten-2"
+															>fa-info-circle fa-fw</v-icon>
+														</template>The selected icon will appear in the central of the card with a coloured circle background
+													</v-tooltip>
+												</template>
+											</v-select>
+											<v-text-field
+												@keyup="save"
+												@change="save"
+												:hint="hint"
+												outlined
+												color="teal"
+												v-model="button.link"
+												label="Button Link"
+											>
+												<v-icon slot="prepend" class="mx-2" :color="button.color">fa-link fa-fw</v-icon>
+											</v-text-field>
+											<v-select
+												outlined
+												color="teal"
+												@change="save"
+												v-model="button.link"
+												:items="sections"
+												item-text="title"
+												item-value="idlink"
+												label="Section Link"
+											>
+												<v-icon slot="prepend" class="mx-2" :color="button.color">fas fa-layer-group fa-fw</v-icon>
+											</v-select>
+											<v-select
+												outlined
+												color="teal"
+												@change="save"
+												v-model="button.link"
+												:items="pages"
+												item-text="title"
+												item-value="link"
+												label="Page Link"
+											>
+												<v-icon slot="prepend" class="mx-2" :color="button.color">fa-copy fa-fw</v-icon>
+											</v-select>
+										</v-container>
+									</v-card>
+								</v-col>
+							</v-row>
+						</v-container>
+						<v-toolbar color="teal" dark>
+							<v-toolbar-title></v-toolbar-title>
+							<v-spacer></v-spacer>
+							<v-btn text @click="editTitle = false">Close</v-btn>
+						</v-toolbar>
+					</v-card>
+				</v-dialog>
+
+				<file-manager
+					:showFileManager="showFileManager"
+					@showFileManager="onShowFileManager"
+					@insertImage="insertImage"
+					@hideFileManager="onHideFileManager"
+				></file-manager>
+			</section>
+			<section class="christmas-bg-1">
+				<!-- <v-card flat tile class="grey lighten-2"> -->
 					<!-- <v-parallax src="/images/grey.jpg" min-height="350" max-height="1200"> -->
 					<v-container fluid>
 						<v-row class="py-5">
@@ -399,7 +400,7 @@
 						</v-row>
 					</v-container>
 					<!-- </v-parallax> -->
-				</v-card>
+				<!-- </v-card> -->
 			</section>
 
 			<v-dialog v-model="showEditCardDialog" min-width="80%">
