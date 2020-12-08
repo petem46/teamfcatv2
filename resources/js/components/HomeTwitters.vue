@@ -49,7 +49,7 @@
 					<v-card>
 						<a
 							class="twitter-timeline"
-							href="https://twitter.com/tex4spete/lists/fcat-13317?ref_src=twsrc%5Etfw"
+							href="https://twitter.com/tex4spete/lists/fcat-academies-twitter-88763?ref_src=twsrc%5Etfw"
 							data-lang="en"
 							data-height="655"
 						>A Twitter List by tex4spete</a>
