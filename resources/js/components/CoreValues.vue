@@ -21,7 +21,7 @@
 									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESPECT
 								</div>
 								<div class="display-1 pb-2">
-									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESILIENCE
+									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>EXCELLENCE
 								</div>
 								<div class="display-1 pb-2">
 									<v-icon class="teal--text">far fa-check-square fa-fw</v-icon>RESILIENCE

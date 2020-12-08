@@ -2,6 +2,16 @@
 	<section class="christmas-bg-2 pb-0">
 		<v-container class>
 			<v-row>
+				<v-col cols="12" md="6" style="min-width: 100px; max-width: 100%;" hidden>
+					<v-card>
+						<a
+							class="twitter-timeline"
+							href="https://twitter.com/tex4spete/lists/fcat-13317?ref_src=twsrc%5Etfw"
+							data-lang="en"
+							data-height="500"
+						></a>
+					</v-card>
+				</v-col>
 				<v-col cols="12" lg="8">
 					<v-carousel height="450" :cycle="true" :interval="5000" :show-arrows="false">
 						<v-carousel-item>

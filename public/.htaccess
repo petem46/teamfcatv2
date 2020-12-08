@@ -7,8 +7,8 @@
 
     # Force WWW in URL
     # RewriteBase /
-    # RewriteCond %{HTTP_HOST} ^teamfcat\.co.uk$
-    # RewriteRule ^(.*)$ https://www.teamfcat.co.uk/$1 [R=301,L]
+    RewriteCond %{HTTP_HOST} ^teamfcat\.co.uk$
+    RewriteRule ^(.*)$ https://www.teamfcat.co.uk/$1 [R=301,L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .

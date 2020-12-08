@@ -9,27 +9,27 @@
 			<v-card class="left-border--teal">
 				<v-row>
 					<v-col cols="6">
-						<v-list shaped two-line subheader class="">
+						<v-list shaped subheader class="" min-width="250px">
 							<v-list-item v-for="item in itemscol1" :key="item.title" :to="item.link">
 								<v-list-item-avatar class="mr-1">
 									<v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon>
 								</v-list-item-avatar>
 								<v-list-item-content>
 									<v-list-item-title v-text="item.title"></v-list-item-title>
-									<v-list-item-subtitle class="overline grey--text" v-text="item.subtitle"></v-list-item-subtitle>
+									<!-- <v-list-item-subtitle class="overline grey--text" v-text="item.subtitle"></v-list-item-subtitle> -->
 								</v-list-item-content>
 							</v-list-item>
 						</v-list>
 					</v-col>
 					<v-col cols="6">
-						<v-list shaped two-line subheader  class="left-border--grey">
+						<v-list shaped subheader  class="left-border--grey" min-width="250px">
 							<v-list-item v-for="item in itemscol2" :key="item.title" :to="item.link">
 								<v-list-item-avatar class="mr-1">
 									<v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon>
 								</v-list-item-avatar>
 								<v-list-item-content>
 									<v-list-item-title v-text="item.title"></v-list-item-title>
-									<v-list-item-subtitle class="overline grey--text" v-text="item.subtitle"></v-list-item-subtitle>
+									<!-- <v-list-item-subtitle class="overline grey--text" v-text="item.subtitle"></v-list-item-subtitle> -->
 								</v-list-item-content>
 							</v-list-item>
 						</v-list>
@@ -61,7 +61,7 @@ export default {
 				icon: "mdi-shield-key-outline",
 				iconClass: "teal--text text--lighten-2",
 				title: "Data Protection",
-        subtitle: "Subtext for menu item",
+        subtitle: "Keeping personal data safe",
         link: "/dataprotection"
 			},
 			{
@@ -77,27 +77,27 @@ export default {
 				icon: "mdi-hammer-screwdriver",
 				iconClass: "teal--text text--lighten-2",
 				title: "ICT Services",
-        subtitle: "Subtext for menu item",
+        subtitle: "Help and support",
         link: "/ict"
 			},
 			{
 				icon: "mdi-bullhorn",
 				iconClass: "teal--text text--lighten-2",
 				title: "Media & PR",
-        subtitle: "Subtext for menu item",
+        subtitle: "Latest News from FCAT",
         link: "/mediaandpr"
 			},
-			{
-				icon: "mdi-domain",
-				iconClass: "teal--text text--lighten-2",
-				title: "Premises",
-        subtitle: "Subtext for menu item",
-        link: "/premises"
-			},
+			// {
+			// 	icon: "mdi-domain",
+			// 	iconClass: "teal--text text--lighten-2",
+			// 	title: "Premises",
+      //   subtitle: "Subtext for menu item",
+      //   link: "/premises"
+			// },
 			{
 				icon: "mdi-monitor-dashboard",
 				iconClass: "teal--text text--lighten-2",
-				title: "Data & Information Systems",
+				title: "Data & Exams",
         subtitle: "Subtext for menu item",
         link: "/datamis"
 			}

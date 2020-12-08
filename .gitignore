@@ -26,3 +26,5 @@ npm-debug.log
 yarn-error.log
 
 !/vendor/laravel/framework/src/Illuminate/Http/Resources/Json/Resource.php
+public/.htaccess
+public/mix-manifest.json
