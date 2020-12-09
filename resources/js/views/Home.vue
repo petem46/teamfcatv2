@@ -246,7 +246,7 @@
 						</a>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<a href="#">
+						<a href="https://forms.gle/ySav4sUtmV1Yx3Qc6" target="_blank">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="amber"></v-system-bar>

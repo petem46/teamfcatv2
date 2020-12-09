@@ -6,7 +6,7 @@
 					<v-card>
 						<a
 							class="twitter-timeline"
-							href="https://twitter.com/tex4spete/lists/fcat-13317?ref_src=twsrc%5Etfw"
+							href="https://twitter.com/FCATrust/lists/fcat-academies-15468?ref_src=twsrc%5Etfw"
 							data-lang="en"
 							data-height="500"
 						></a>

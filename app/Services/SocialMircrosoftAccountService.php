@@ -1,0 +1,80 @@
+<?php
+
+namespace App\Services;
+
+use App\SocialMicrosoftAccount;
+use App\User;
+use Carbon\Carbon;
+use Laravel\Socialite\Contracts\User as ProviderUser;
+
+class SocialMicrosoftAccountService
+{
+
+  public function createOrGetUser(ProviderUser $providerUser)
+  {
+    $account = SocialMicrosoftAccount::whereProvider('microsoft')
+    ->whereProviderUserId($providerUser->getId())
+    ->first();
+
+    // dd(User::getGoogleSchool($providerUser->getEmail()));
+    // dd($providerUser->getName());
+    if ($account) {
+      $user = User::whereEmail($providerUser->getEmail())->first();
+      if ($user) {
+        $user->name = $providerUser->getName();
+        $user->school = User::getGoogleSchool($providerUser->getEmail());
+        $user->avatar = $providerUser->getAvatar();
+        $user->password = md5(rand(1, 10000));
+        $user->last_login_at = Carbon::now()->toDateTimeString();
+        $user->token = $providerUser->token;
+        $user->refreshToken = $providerUser->refreshToken;
+        $user->expiresIn = $providerUser->expiresIn;
+        $user->touch();
+        $user->save();
+        $account->user()->associate($user);
+        $account->save();
+        return $user;
+      } else {
+        $user->name = $providerUser->getName();
+        $user->school = User::getGoogleSchool($providerUser->getEmail());
+        $user->avatar = $providerUser->getAvatar();
+        $user->password = md5(rand(1, 10000));
+        $user->last_login_at = Carbon::now()->toDateTimeString();
+        $user->token = $providerUser->token;
+        $user->refreshToken = $providerUser->refreshToken;
+        $user->expiresIn = $providerUser->expiresIn;
+        $user->touch();
+        $user->save();
+        $account->user()->associate($user);
+        $account->save();
+        return $account->user;
+      }
+    } else {
+      $account = new SocialMicrosoftAccount([
+        'provider_user_id' => $providerUser->getId(),
+        'provider' => 'microsoft'
+      ]);
+
+      $user = User::whereEmail($providerUser->getEmail())->first();
+      if (!$user) {
+        $user = User::create([
+          'email' => $providerUser->getEmail(),
+          'name' => $providerUser->getName(),
+          'avatar' => $providerUser->getAvatar(),
+          'school' => User::getGoogleSchool($providerUser->getEmail()),
+          'password' => md5(rand(1, 10000)),
+          'usergroup_id' => '5',
+          'role_id' => '3',
+          'last_login_at' => Carbon::now()->toDateTimeString(),
+          'token' => $providerUser->token,
+          'refreshToken' => $providerUser->refreshToken,
+          'expiresIn' => $providerUser->expiresIn,
+          // 'last_login_ip' => $request->getClientIp()
+        ]);
+      }
+      $account->user()->associate($user);
+      $account->save();
+      return $user;
+    }
+  }
+}

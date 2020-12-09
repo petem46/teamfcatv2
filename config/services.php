@@ -37,4 +37,10 @@ return [
       'picker_api_key' => env('GOOGLE_PICKER_API_KEY')
     ],
 
+    'microsoft' => [
+      'client_id' => env('MICROSOFT_CLIENT_ID'),
+      'client_secret' => env('MICROSOFT_CLIENT_SECRET'),
+      'redirect' => env('MICROSOFT_REDIRECT_URI')
+    ],
+
 ];
