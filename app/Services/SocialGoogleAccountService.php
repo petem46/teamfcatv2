@@ -17,7 +17,7 @@ class SocialGoogleAccountService
     ->first();
 
     // dd(User::getGoogleSchool($providerUser->getEmail()));
-    dd($providerUser->getName());
+    // dd($providerUser->getName());
     if ($account) {
       $user = User::whereEmail($providerUser->getEmail())->first();
       if ($user) {
