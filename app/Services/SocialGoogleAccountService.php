@@ -17,13 +17,13 @@ class SocialGoogleAccountService
     ->first();
 
     // dd(User::getGoogleSchool($providerUser->getEmail()));
-    dd($providerUser);
+    // dd($providerUser);
     if ($account) {
       $user = User::whereEmail($providerUser->getEmail())->first();
       if ($user) {
         $user->name = $providerUser->getName();
         $user->school = User::getGoogleSchool($providerUser->getEmail());
-        // $user->avatar = $providerUser->getAvatar();
+        $user->avatar = $providerUser->getAvatar();
         $user->password = md5(rand(1, 10000));
         $user->last_login_at = Carbon::now()->toDateTimeString();
         $user->token = $providerUser->token;
@@ -37,7 +37,7 @@ class SocialGoogleAccountService
       } else {
         $user->name = $providerUser->getName();
         $user->school = User::getGoogleSchool($providerUser->getEmail());
-        // $user->avatar = $providerUser->getAvatar();
+        $user->avatar = $providerUser->getAvatar();
         $user->password = md5(rand(1, 10000));
         $user->last_login_at = Carbon::now()->toDateTimeString();
         $user->token = $providerUser->token;
@@ -60,7 +60,7 @@ class SocialGoogleAccountService
         $user = User::create([
           'email' => $providerUser->getEmail(),
           'name' => $providerUser->getName(),
-          // 'avatar' => $providerUser->getAvatar(),
+          'avatar' => $providerUser->getAvatar(),
           'school' => User::getGoogleSchool($providerUser->getEmail()),
           'password' => md5(rand(1, 10000)),
           'usergroup_id' => '5',

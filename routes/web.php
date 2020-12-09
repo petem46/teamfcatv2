@@ -10,10 +10,10 @@ Auth::routes([
   'verify' => false
 ]);
 
-// Route::get('/redirect', 'SocialAuthGoogleController@redirect');
-// Route::get('/callback', 'SocialAuthGoogleController@callback');
-Route::get('/redirect', 'SocialAuthMSGraphController@redirect');
-Route::get('/callback', 'SocialAuthMSGraphController@callback');
+Route::get('/redirect', 'SocialAuthGoogleController@redirect');
+Route::get('/callback', 'SocialAuthGoogleController@callback');
+// Route::get('/redirect', 'SocialAuthMSGraphController@redirect');
+// Route::get('/callback', 'SocialAuthMSGraphController@callback');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
