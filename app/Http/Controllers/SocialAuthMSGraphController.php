@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Socialite;
-use App\Services\SocialMicrosoftAccountService;
+use App\Services\MicrosoftAccountService;
 class SocialAuthMSGraphController extends Controller
 {
   /**
@@ -19,7 +19,7 @@ class SocialAuthMSGraphController extends Controller
      *
      * @return callback URL from google
      */
-    public function callback(SocialMicrosoftAccountService $service)
+    public function callback(MicrosoftAccountService $service)
     {
         $user = $service->createOrGetUser(Socialite::driver('microsoft')->user());
         // return  $user;
