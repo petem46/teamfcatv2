@@ -23,7 +23,8 @@ class MicrosoftAccountService
       if ($user) {
         $user->name = $providerUser->getName();
         $user->school = User::getGoogleSchool($providerUser->getEmail());
-        $user->avatar = $providerUser->getAvatar();
+        // $user->avatar = $providerUser->getAvatar();
+        $user->avatar = 'avatar';
         $user->password = md5(rand(1, 10000));
         $user->last_login_at = Carbon::now()->toDateTimeString();
         $user->token = $providerUser->token;
@@ -37,7 +38,8 @@ class MicrosoftAccountService
       } else {
         $user->name = $providerUser->getName();
         $user->school = User::getGoogleSchool($providerUser->getEmail());
-        $user->avatar = $providerUser->getAvatar();
+        // $user->avatar = $providerUser->getAvatar();
+        $user->avatar = 'avatar';
         $user->password = md5(rand(1, 10000));
         $user->last_login_at = Carbon::now()->toDateTimeString();
         $user->token = $providerUser->token;
@@ -60,7 +62,8 @@ class MicrosoftAccountService
         $user = User::create([
           'email' => $providerUser->getEmail(),
           'name' => $providerUser->getName(),
-          'avatar' => $providerUser->getAvatar(),
+          // 'avatar' => $providerUser->getAvatar(),
+          'avatar' => 'avatar',
           'school' => User::getGoogleSchool($providerUser->getEmail()),
           'password' => md5(rand(1, 10000)),
           'usergroup_id' => '5',
