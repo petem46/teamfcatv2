@@ -2,65 +2,53 @@
 
 @section('content')
 
-<template>
-	<v-app id="inspire">
-		<v-main>
-			<v-container {{-- class="fill-height" --}} fluid>
-				<v-row class="justify-center">
-					<v-col cols="6" sm="4" md="2">
-						<v-img src="/images/teamfcat-hexagon.png"></v-img>
-					</v-col>
-				</v-row>
-        <v-row align="center" justify="center">
-					<v-col cols="12" sm="8" md="4">
-						<form method="POST" action="{{ route('login') }}">
-							@csrf
-							<v-card class="elevation-12">
-								<v-toolbar color="teal darken-2" dark flat>
-									<v-toolbar-title>FCAT CPD</v-toolbar-title>
-								</v-toolbar>
-								<v-card-text>
-									<v-text-field
-										id="email"
-										label="Email"
-										name="email"
-										prepend-icon="mdi-account"
-										type="email"
-									></v-text-field>
+  <template>
+    <v-app id="inspire">
+      <v-main>
+        <v-container {{-- class="fill-height" --}} fluid>
+          <v-row class="justify-center">
+            <v-col cols="6" sm="4" md="2">
+              <v-img src="/images/teamfcat-hexagon.png"></v-img>
+            </v-col>
+          </v-row>
+          <v-row align="center" justify="center">
+            <v-col cols="12" sm="8" md="4">
+              <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <v-card class="elevation-12">
+                  <v-toolbar color="teal darken-2" dark flat>
+                    <v-toolbar-title>FCAT CPD</v-toolbar-title>
+                  </v-toolbar>
+                  <v-card-text>
+                    <v-text-field id="email" label="Email" name="email" prepend-icon="mdi-account" type="email">
+                    </v-text-field>
 
-									<v-text-field
-										id="password"
-										label="Password"
-										name="password"
-										prepend-icon="mdi-lock"
-										type="password"
-									></v-text-field>
-								</v-card-text>
-								<v-card-actions>
-									<v-row>
-										<v-col>
-											<v-btn type="submit" class="mr-5" outlined>Login with Username and Password</v-btn>
-										</v-col>
-										<v-col>
-											<v-btn href="{{url('/gredirect')}}" dark color="teal darken-2">
-												<v-icon class="mr-3">mdi-google</v-icon>FCAT Sign In With Google
-											</v-btn>
-										</v-col>
-										<v-col>
-											<v-btn href="{{url('/redirect')}}" dark color="blue darken-2">
-												<v-icon class="mr-3">mdi-microsoft</v-icon>FCAT Sign In With Microsoft
-											</v-btn>
-										</v-col>
-									</v-row>
-								</v-card-actions>
-							</v-card>
-						</form>
-					</v-col>
-				</v-row>
+                    <v-text-field id="password" label="Password" name="password" prepend-icon="mdi-lock" type="password">
+                    </v-text-field>
+                  </v-card-text>
+                  <v-row class="px-4">
+                    <v-col>
+                      <v-btn width="100%" type="submit" class="mr-5" tile outlined>Sign In With Username</v-btn>
+                    </v-col>
+                    <v-col>
+                      <v-btn width="100%" href="{{ url('/gredirect') }}" tile dark color="teal darken-2">
+                        <v-icon class="mr-3">mdi-google</v-icon>Sign In With FCAT Google
+                      </v-btn>
+                    </v-col>
+                    <v-col>
+                      <v-btn width="100%" href="{{ url('/redirect') }}" tile dark color="blue darken-2">
+                        <v-icon class="mr-3">mdi-microsoft</v-icon>Sign In With Microsoft
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                </v-card>
+              </form>
+            </v-col>
+          </v-row>
 
-			</v-container>
-		</v-main>
-	</v-app>
-</template>
+        </v-container>
+      </v-main>
+    </v-app>
+  </template>
 
 @endsection
