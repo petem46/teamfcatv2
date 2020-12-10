@@ -2,17 +2,17 @@
 
 namespace App\Services;
 
-use App\SocialMicrosoftAccount;
+use App\MicrosoftAccount;
 use App\User;
 use Carbon\Carbon;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 
-class SocialMicrosoftAccountService
+class MicrosoftAccountService
 {
 
   public function createOrGetUser(ProviderUser $providerUser)
   {
-    $account = SocialMicrosoftAccount::whereProvider('microsoft')
+    $account = MicrosoftAccount::whereProvider('microsoft')
     ->whereProviderUserId($providerUser->getId())
     ->first();
 
@@ -50,7 +50,7 @@ class SocialMicrosoftAccountService
         return $account->user;
       }
     } else {
-      $account = new SocialMicrosoftAccount([
+      $account = new MicrosoftAccount([
         'provider_user_id' => $providerUser->getId(),
         'provider' => 'microsoft'
       ]);
