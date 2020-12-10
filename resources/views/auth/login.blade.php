@@ -39,11 +39,16 @@
 								<v-card-actions>
 									<v-row>
 										<v-col>
-											<v-btn type="submit" class="mr-5" outlined>Login</v-btn>
+											<v-btn type="submit" class="mr-5" outlined>Login with Username and Password</v-btn>
 										</v-col>
 										<v-col>
-											<v-btn href="{{url('/redirect')}}" dark color="teal darken-2">
+											<v-btn href="{{url('/gredirect')}}" dark color="teal darken-2">
 												<v-icon class="mr-3">mdi-google</v-icon>FCAT Sign In With Google
+											</v-btn>
+										</v-col>
+										<v-col>
+											<v-btn href="{{url('/redirect')}}" dark color="blue darken-2">
+												<v-icon class="mr-3">mdi-microsoft</v-icon>FCAT Sign In With Microsoft
 											</v-btn>
 										</v-col>
 									</v-row>
