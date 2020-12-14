@@ -204,7 +204,7 @@ export default {
 	},
 	computed: {
 		canEdit() {
-			if (this.$store.getters.getRoleId === 1) {
+			if(this.$store.getters.getRoleId === 1 || this.$store.getters.getRoleId === "1") {
 				return 1;
 			} else return 0;
 		}
