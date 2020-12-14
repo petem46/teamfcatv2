@@ -37,6 +37,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public static function checkAccess($email) {
+      $domain = explode("@", $email);
+      // dd($domain);
+      if($domain[0] === 'testing') {
+        dd('fail');
+      }
+    }
+
     public static function getGoogleSchool($gmail) {
       $domain = explode("@", $gmail);
       $school = explode(".", $domain[1]);

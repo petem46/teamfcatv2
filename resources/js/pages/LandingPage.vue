@@ -43,7 +43,7 @@
 							</v-row>
 						</v-col>
 						<v-col cols="12" lg="6" class="order-md-2 order-1">
-							<v-btn dark fab absolute top right v-if="showEditHeaderButton" @click="editTitle = true">EDIT</v-btn>
+							<v-btn dark fab absolute top right v-if="showEditHeaderButton & canEdit" @click="editTitle = true">EDIT</v-btn>
 							<v-img
 								data-aos="zoom-in"
 								data-aos-duration="1200"
@@ -320,7 +320,7 @@
 										class="mt-2"
 										absolute
 										right
-										v-if="showEditCardOneButton && card.id == 1"
+										v-if="showEditCardOneButton && card.id == 1 && canEdit"
 										@click="onEditCard(index)"
 									>
 										<v-icon small :color="card.color">fa-edit</v-icon>
@@ -331,7 +331,7 @@
 										class="mt-2"
 										absolute
 										right
-										v-if="showEditCardTwoButton && card.id == 2"
+										v-if="showEditCardTwoButton && card.id == 2 && canEdit"
 										@click="onEditCard(index)"
 									>
 										<v-icon small :color="card.color">fa-edit</v-icon>
@@ -342,7 +342,7 @@
 										class="mt-2"
 										absolute
 										right
-										v-if="showEditCardThreeButton && card.id == 3"
+										v-if="showEditCardThreeButton && card.id == 3 && canEdit"
 										@click="onEditCard(index)"
 									>
 										<v-icon small :color="card.color">fa-edit</v-icon>
@@ -1055,7 +1055,13 @@ export default {
 			if (this.typing == false) {
 				return "Saved";
 			}
-		}
+    },
+    canEdit() {
+			if(this.$store.getters.getRoleId === 1) {
+        return 1
+      }
+      else return 0;
+    }
 	}
 };
 </script>

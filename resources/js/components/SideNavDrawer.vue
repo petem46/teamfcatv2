@@ -56,14 +56,16 @@
 					<v-list-item-title class="grey--text">Add Link</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
-			<v-list-item link>
-				<v-list-item-action>
-					<v-icon class="grey--icon grey--text">mdi-lightbulb-on-outline</v-icon>
-				</v-list-item-action>
-				<v-list-item-content>
-					<v-list-item-title class="grey--text">Feedback</v-list-item-title>
-				</v-list-item-content>
-			</v-list-item>
+			<a href="https://forms.gle/ySav4sUtmV1Yx3Qc6" target="_blank">
+				<v-list-item link>
+					<v-list-item-action>
+						<v-icon class="grey--icon grey--text">mdi-lightbulb-on-outline</v-icon>
+					</v-list-item-action>
+					<v-list-item-content>
+						<v-list-item-title class="grey--text">Feedback</v-list-item-title>
+					</v-list-item-content>
+				</v-list-item>
+			</a>
 			<v-list-group prepend-icon="mdi-web">
 				<template v-slot:activator>
 					<v-list-item-title>FCAT Websites</v-list-item-title>

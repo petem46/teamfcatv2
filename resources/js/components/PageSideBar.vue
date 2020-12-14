@@ -27,7 +27,7 @@
 				</v-list>
 			</v-list-group>
 		</v-card>
-		<v-card flat outlined>
+		<v-card v-if="canEdit" flat outlined>
 			<!-- <v-toolbar flat color="teal" dark dense>
 				<v-toolbar-title>Side Menu</v-toolbar-title>
 			</v-toolbar>-->
@@ -200,6 +200,13 @@ export default {
 			let cloneMe = JSON.parse(JSON.stringify(item));
 			this.$delete(cloneMe, "id");
 			return cloneMe;
+		}
+	},
+	computed: {
+		canEdit() {
+			if (this.$store.getters.getRoleId === 1) {
+				return 1;
+			} else return 0;
 		}
 	}
 };

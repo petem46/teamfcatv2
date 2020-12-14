@@ -178,7 +178,6 @@
 				></file-manager>
 			</v-row>
 		</div>
-
 		<!-- START OF CONFIRM DELETE PAGE DIALOG BOX -->
 		<v-dialog v-model="showConfirmDelete" persistent min-width="300" max-width="30%">
 			<v-card>
@@ -193,7 +192,6 @@
 			</v-card>
 		</v-dialog>
 		<!-- END OF CONFIRM DELETE PAGE DIALOG BOX -->
-
 		<v-snackbar
 			v-model="snackbar.show"
 			:color="snackbar.color"
@@ -209,7 +207,6 @@
 <script>
 import draggable from "vuedraggable";
 import Axios from "axios";
-
 export default {
 	components: {
 		draggable

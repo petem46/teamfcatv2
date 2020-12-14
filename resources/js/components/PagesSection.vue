@@ -3,7 +3,7 @@
 		<v-card class="z2" elevation="8" style="min-height: 400px;">
 			<v-toolbar dark flat class="teal" src>
 				<v-toolbar-title :id="section.id" class="text-uppercase text-h4 py-2">{{section.title}}</v-toolbar-title>
-				<v-menu bottom left offset-x>
+				<v-menu v-if="canEdit" bottom left offset-x>
 					<template v-slot:activator="{ on, attrs }">
 						<v-btn v-bind="attrs" v-on="on" fab color="green" bottom right absolute>
 							<v-icon>mdi-plus</v-icon>
@@ -42,7 +42,7 @@
 				</v-row>
 			</v-list>
 		</v-card>
-    <new-link :showMe="showNewLinkDialog"></new-link>
+		<new-link :showMe="showNewLinkDialog"></new-link>
 	</v-container>
 </template>
 <script>
@@ -52,15 +52,15 @@ export default {
 	props: ["section"],
 	data() {
 		return {
-			showNewLinkDialog: false,
+			showNewLinkDialog: false
 		};
 	},
 	methods: {
 		chipStatusShow(page) {
 			var now = moment();
 			var updatedAt = moment(page.updated_at);
-      var createdAt = moment(page.created_at);
-      if (moment(updatedAt).isAfter(moment(createdAt.add(5, "d")))) {
+			var createdAt = moment(page.created_at);
+			if (moment(updatedAt).isAfter(moment(createdAt.add(5, "d")))) {
 				return true;
 			}
 			if (moment(createdAt).isAfter(moment(now).subtract(7, "d"))) {
@@ -73,13 +73,20 @@ export default {
 			var updatedAt = moment(page.updated_at);
 			var createdAt = moment(page.created_at);
 			if (moment(updatedAt).isAfter(moment(createdAt.add(5, "d")))) {
-        return moment(updatedAt).fromNow();
+				return moment(updatedAt).fromNow();
 				// return "Updated";
 			}
 			if (moment(createdAt).isAfter(moment(now).subtract(7, "d"))) {
 				return moment(updatedAt).fromNow();
 			}
 			return "";
+		}
+	},
+	computed: {
+		canEdit() {
+			if (this.$store.getters.getRoleId === 1) {
+				return 1;
+			} else return 0;
 		}
 	}
 };

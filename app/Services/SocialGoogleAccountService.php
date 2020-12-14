@@ -16,13 +16,14 @@ class SocialGoogleAccountService
     ->whereProviderUserId($providerUser->getId())
     ->first();
 
-    // dd(User::getGoogleSchool($providerUser->getEmail()));
+    $school = User::getGoogleSchool($providerUser->getEmail());
+    User::checkAccess($providerUser->getEmail());
     // dd($providerUser);
     if ($account) {
       $user = User::whereEmail($providerUser->getEmail())->first();
       if ($user) {
         $user->name = $providerUser->getName();
-        $user->school = User::getGoogleSchool($providerUser->getEmail());
+        $user->school = $school;
         $user->avatar = $providerUser->getAvatar();
         $user->password = md5(rand(1, 10000));
         $user->last_login_at = Carbon::now()->toDateTimeString();

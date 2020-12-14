@@ -29,11 +29,11 @@ export default {
 	},
 	methods: {
 		getAreaDetails(areaname) {
-			// this.loading = true;
+			this.loading = true;
 			axios.get("/get/areadetails/" + this.areaname).then(res => {
 				this.area = res.data;
+        this.loading = false;
 			});
-			console.log(this.area);
 		}
 	}
 };
