@@ -11,6 +11,9 @@ import colors from "vuetify/lib/util/colors";
 import vueFilterPrettyBytes from 'vue-filter-pretty-bytes'
 import ClickOutside from 'vue-click-outside'
 
+import RolesCheck from "./plugins/roles-check";
+Vue.use(RolesCheck);
+
 Vue.use(VueFilterDateFormat);
 Vue.use(VueFilterDateParse);
 Vue.use(vueFilterPrettyBytes);

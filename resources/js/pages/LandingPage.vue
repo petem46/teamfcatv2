@@ -43,7 +43,15 @@
 							</v-row>
 						</v-col>
 						<v-col cols="12" lg="6" class="order-md-2 order-1">
-							<v-btn dark fab absolute top right v-if="showEditHeaderButton & canEdit" @click="editTitle = true">EDIT</v-btn>
+							<v-btn
+								dark
+								fab
+								absolute
+								top
+								right
+								v-if="showEditHeaderButton && $canEdit()"
+								@click="editTitle = true"
+							>EDIT</v-btn>
 							<v-img
 								data-aos="zoom-in"
 								data-aos-duration="1200"
@@ -296,110 +304,106 @@
 			</section>
 			<section class="grey lighten-2">
 				<!-- <v-card flat tile class="grey lighten-2"> -->
-					<!-- <v-parallax src="/images/grey.jpg" min-height="350" max-height="1200"> -->
-					<v-container fluid>
-						<v-row class="py-5">
-							<v-col
-								cols="12"
-								lg="4"
-								md="4"
-								sm="6"
-								:data-aos="cardtrans(card.id)"
-								data-aos-duration="1200"
-								v-for="(card, index) in area.actioncards"
-								:key="card.id"
-							>
-								<v-card
-									class="text-center"
-									@mouseover="showEditCard(card.id)"
-									@mouseleave="showEditCard(0)"
+				<!-- <v-parallax src="/images/grey.jpg" min-height="350" max-height="1200"> -->
+				<v-container fluid>
+					<v-row class="py-5">
+						<v-col
+							cols="12"
+							lg="4"
+							md="4"
+							sm="6"
+							:data-aos="cardtrans(card.id)"
+							data-aos-duration="1200"
+							v-for="(card, index) in area.actioncards"
+							:key="card.id"
+						>
+							<v-card class="text-center" @mouseover="showEditCard(card.id)" @mouseleave="showEditCard(0)">
+								<v-btn
+									small
+									fab
+									class="mt-2"
+									absolute
+									right
+									v-if="showEditCardOneButton && card.id == 1 && $canEdit()"
+									@click="onEditCard(index)"
 								>
-									<v-btn
-										small
-										fab
-										class="mt-2"
-										absolute
-										right
-										v-if="showEditCardOneButton && card.id == 1 && canEdit"
-										@click="onEditCard(index)"
+									<v-icon small :color="card.color">fa-edit</v-icon>
+								</v-btn>
+								<v-btn
+									small
+									fab
+									class="mt-2"
+									absolute
+									right
+									v-if="showEditCardTwoButton && card.id == 2 && $canEdit()"
+									@click="onEditCard(index)"
+								>
+									<v-icon small :color="card.color">fa-edit</v-icon>
+								</v-btn>
+								<v-btn
+									small
+									fab
+									class="mt-2"
+									absolute
+									right
+									v-if="showEditCardThreeButton && card.id == 3 && $canEdit()"
+									@click="onEditCard(index)"
+								>
+									<v-icon small :color="card.color">fa-edit</v-icon>
+								</v-btn>
+								<v-card-title class="p-1" :class="card.color"></v-card-title>
+								<v-img v-if="card.image" contain height="250" :src="card.image"></v-img>
+								<v-card-text>
+									<div class="text-h4 pt-2 mb-5" v-text="card.title"></div>
+									<v-avatar size="66" class="mb-5" v-if="card.icon != 'NO ICON'">
+										<v-icon v-text="card.icon" size="32" class="white--text" :class="card.color" />
+									</v-avatar>
+									<p class="text-gray-700 mb-5" v-text="card.text"></p>
+									<!-- EXTERNAL LINK -->
+									<a
+										:href="card.chipExternalLink"
+										target="_blank"
+										v-if="card.chipIsLink == 'external'"
+										style="cursor: pointer;"
 									>
-										<v-icon small :color="card.color">fa-edit</v-icon>
-									</v-btn>
-									<v-btn
-										small
-										fab
-										class="mt-2"
-										absolute
-										right
-										v-if="showEditCardTwoButton && card.id == 2 && canEdit"
-										@click="onEditCard(index)"
-									>
-										<v-icon small :color="card.color">fa-edit</v-icon>
-									</v-btn>
-									<v-btn
-										small
-										fab
-										class="mt-2"
-										absolute
-										right
-										v-if="showEditCardThreeButton && card.id == 3 && canEdit"
-										@click="onEditCard(index)"
-									>
-										<v-icon small :color="card.color">fa-edit</v-icon>
-									</v-btn>
-									<v-card-title class="p-1" :class="card.color"></v-card-title>
-									<v-img v-if="card.image" contain height="250" :src="card.image"></v-img>
-									<v-card-text>
-										<div class="text-h4 pt-2 mb-5" v-text="card.title"></div>
-										<v-avatar size="66" class="mb-5" v-if="card.icon != 'NO ICON'">
-											<v-icon v-text="card.icon" size="32" class="white--text" :class="card.color" />
-										</v-avatar>
-										<p class="text-gray-700 mb-5" v-text="card.text"></p>
-										<!-- EXTERNAL LINK -->
-										<a
-											:href="card.chipExternalLink"
-											target="_blank"
-											v-if="card.chipIsLink == 'external'"
-											style="cursor: pointer;"
-										>
-											<v-chip
-												v-text="card.chip"
-												:color="card.chipColor || card.color"
-												:text-color="card.chipTextColor || 'white'"
-											></v-chip>
-										</a>
-										<!-- EMAIL LINK -->
-										<a
-											:href="'mailto:' + card.chipEmailLink"
-											target="_blank"
-											v-if="card.chipIsLink == 'email'"
-										>
-											<v-chip
-												v-text="card.chip"
-												:color="card.chipColor || card.color"
-												:text-color="card.chipTextColor || 'white'"
-											></v-chip>
-										</a>
-										<!-- PAGE LINK -->
 										<v-chip
-											v-if="card.chipIsLink == 'page'"
+											v-text="card.chip"
 											:color="card.chipColor || card.color"
 											:text-color="card.chipTextColor || 'white'"
-											:to="card.chipPageLink"
-										>{{ card.chip }}</v-chip>
-										<!-- NOMRAL CHIP - NO LINK -->
+										></v-chip>
+									</a>
+									<!-- EMAIL LINK -->
+									<a
+										:href="'mailto:' + card.chipEmailLink"
+										target="_blank"
+										v-if="card.chipIsLink == 'email'"
+									>
 										<v-chip
-											v-if="card.chipIsLink == 'nolink'"
+											v-text="card.chip"
 											:color="card.chipColor || card.color"
 											:text-color="card.chipTextColor || 'white'"
-										>{{ card.chip }}</v-chip>
-									</v-card-text>
-									<!-- </v-img> -->
-								</v-card>
-							</v-col>
-						</v-row>
-					</v-container>
-					<!-- </v-parallax> -->
+										></v-chip>
+									</a>
+									<!-- PAGE LINK -->
+									<v-chip
+										v-if="card.chipIsLink == 'page'"
+										:color="card.chipColor || card.color"
+										:text-color="card.chipTextColor || 'white'"
+										:to="card.chipPageLink"
+									>{{ card.chip }}</v-chip>
+									<!-- NOMRAL CHIP - NO LINK -->
+									<v-chip
+										v-if="card.chipIsLink == 'nolink'"
+										:color="card.chipColor || card.color"
+										:text-color="card.chipTextColor || 'white'"
+									>{{ card.chip }}</v-chip>
+								</v-card-text>
+								<!-- </v-img> -->
+							</v-card>
+						</v-col>
+					</v-row>
+				</v-container>
+				<!-- </v-parallax> -->
 				<!-- </v-card> -->
 			</section>
 
@@ -888,8 +892,13 @@ export default {
 	mounted() {
 		this.scrollToTop();
 		this.getContent();
+		console.log(this.$canEdit());
 	},
 	methods: {
+		canEdit() {
+      this.$canEdit();
+      console.log(this.$canEdit());
+		},
 		getContent() {
 			this.loading = true;
 			this.scrollToTop();
@@ -1055,13 +1064,7 @@ export default {
 			if (this.typing == false) {
 				return "Saved";
 			}
-    },
-    canEdit() {
-			if(this.$store.getters.getRoleId === 1 || this.$store.getters.getRoleId === "1") {
-        return 1
-      }
-      else return 0;
-    }
+		}
 	}
 };
 </script>

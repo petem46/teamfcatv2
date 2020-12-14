@@ -151,68 +151,6 @@
 							</v-hover>
 						</a>
 					</v-col>
-					<v-col cols="12" md="6" lg="4" class="align-self-stretch">
-						<a href="#">
-							<v-hover v-slot="{ hover }" close-delay="200">
-								<v-card class="align-self-stretch">
-									<v-system-bar dark height="8" color="green darken-3"></v-system-bar>
-									<v-sheet color="green">
-										<v-img src="/images/12-songs.jpg" height="200">
-											<v-expand-transition>
-												<div
-													v-if="hover"
-													class="d-flex transition-fast-in-fast-out green v-card--reveal display-1 white--text"
-													style="height: 100%;"
-												>COMING SOON</div>
-											</v-expand-transition>
-										</v-img>
-									</v-sheet>
-									<v-system-bar dark height="1" color="black"></v-system-bar>
-									<v-list>
-										<v-list-item>
-											<v-list-item-avatar color="green darken-3">
-												<v-icon dark>fa-music fa-fw</v-icon>
-											</v-list-item-avatar>
-											<v-list-item-content>
-												<v-list-item-title class="h5">12 Songs of Christmas</v-list-item-title>
-												<v-list-item-subtitle>Musical Merriment &amp; FCAT Festivity</v-list-item-subtitle>
-											</v-list-item-content>
-										</v-list-item>
-									</v-list>
-								</v-card>
-							</v-hover>
-						</a>
-					</v-col>
-					<v-col cols="12" md="6" lg="4">
-						<v-hover v-slot="{ hover }" close-delay="200">
-							<v-card class="align-self-stretch">
-								<v-system-bar dark height="8" color="pink"></v-system-bar>
-								<v-sheet color="pink lighten-2">
-									<v-img src="/images/christmas.gif" height="200">
-										<v-expand-transition>
-											<div
-												v-if="hover"
-												class="d-flex transition-fast-in-fast-out pink darken-2 v-card--reveal display-1 white--text"
-												style="height: 100%;"
-											>12 GET UPS</div>
-										</v-expand-transition>
-									</v-img>
-								</v-sheet>
-								<v-system-bar dark height="1" color="black"></v-system-bar>
-								<v-list>
-									<v-list-item>
-										<v-list-item-avatar color="pink">
-											<v-icon dark>fas fa-tree fa-fw</v-icon>
-										</v-list-item-avatar>
-										<v-list-item-content>
-											<v-list-item-title class="h5">Christmas Season</v-list-item-title>
-											<v-list-item-subtitle>It's nearly time for a well earned rest</v-list-item-subtitle>
-										</v-list-item-content>
-									</v-list-item>
-								</v-list>
-							</v-card>
-						</v-hover>
-					</v-col>
 					<v-col cols="12" md="6" lg="4">
 						<a href="#">
 							<v-hover v-slot="{ hover }" close-delay="200">
@@ -277,7 +215,7 @@
 							</v-hover>
 						</a>
 					</v-col>
-					<v-col cols="12" md="6" lg="4">
+					<v-col cols="12" md="6" lg="4" hidden>
 						<a href="#">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
