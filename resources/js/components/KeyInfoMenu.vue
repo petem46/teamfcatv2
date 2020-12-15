@@ -34,9 +34,9 @@
 									<v-list-item-title>Policies</v-list-item-title>
 									<span class="overline grey--text">menu subtitle text</span>
 								</v-list-item-content>
-							</v-list-item>
+							</v-list-item> -->
 
-							<v-list-item @click class="">
+							<!-- <v-list-item @click class="">
 								<v-list-item-avatar class="mr-1">
 									<v-icon size="30" class="teal--text text--lighten-2">mdi-calendar-clock</v-icon>
 								</v-list-item-avatar>
@@ -84,14 +84,21 @@ export default {
       //   link: '/policies'
 			// },
 			{
+				icon: "mdi-alert-decagram",
+				iconClass: "teal--text text--lighten-2",
+				title: "Updates Page",
+        subtitle: "Weekly Updates from across FCAT",
+        link: '/updates'
+			},
+			{
 				icon: "mdi-account-search",
 				iconClass: "teal--text text--lighten-2",
-				title: "Search All Staff",
-        subtitle: "Find contact details for FCAT staff",
+				title: "Staff Directory",
+        subtitle: "Search contact details for FCAT staff",
         link: '/staffsearch'
 			},
 			{
-				icon: "mdi-calendar-clock",
+				icon: "mdi-account-group",
 				iconClass: "teal--text text--lighten-2",
 				title: "QIG Information",
         subtitle: "QIG meetings and members",
