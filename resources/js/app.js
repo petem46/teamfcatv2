@@ -28,6 +28,8 @@ Vue.component("home-twitters", require("./components/HomeTwitters.vue").default)
 Vue.component("core-values", require("./components/CoreValues.vue").default);
 Vue.component("core-carousel", require("./components/CoreCarousel.vue").default);
 
+Vue.component("covid-ticker", require("./components/CovidTicker.vue").default);
+
 Vue.component("side-nav-drawer", require("./components/SideNavDrawer.vue").default);
 Vue.component("top-nav-bar", require("./components/TopNavBar.vue").default);
 Vue.component("pages-section", require("./components/PagesSection.vue").default);
