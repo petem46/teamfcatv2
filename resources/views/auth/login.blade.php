@@ -17,30 +17,44 @@
                 @csrf
                 <v-card class="elevation-12">
                   <v-toolbar color="teal darken-2" dark flat>
-                    <v-toolbar-title>FCAT CPD</v-toolbar-title>
+                    <v-toolbar-title class="text-uppercase"><v-icon class="mr-2">mdi-lock-outline</v-icon>
+                      TeamFCAT Sign In</v-toolbar-title>
                   </v-toolbar>
                   <v-card-text>
-                    <v-text-field id="email" label="Email" name="email" prepend-icon="mdi-account" type="email">
-                    </v-text-field>
-
-                    <v-text-field id="password" label="Password" name="password" prepend-icon="mdi-lock" type="password">
-                    </v-text-field>
+                    <v-row>
+                      <v-col>
+                        <v-btn width="100%" href="{{ url('/gredirect') }}" tile dark color="green">
+                          <v-icon class="mr-3">mdi-google</v-icon>Sign In With FCAT Google
+                        </v-btn>
+                      </v-col>
+                      <v-col>
+                        <v-btn width="100%" href="{{ url('/redirect') }}" tile dark color="blue darken-2">
+                          <v-icon class="mr-3">mdi-microsoft</v-icon>Sign In With Microsoft
+                        </v-btn>
+                      </v-col>
+                    </v-row>
+                    <v-divider></v-divider>
                   </v-card-text>
-                  <v-row class="px-4">
-                    <v-col>
-                      <v-btn width="100%" type="submit" class="mr-5" tile outlined>Sign In With Username</v-btn>
-                    </v-col>
-                    <v-col>
-                      <v-btn width="100%" href="{{ url('/gredirect') }}" tile dark color="teal darken-2">
-                        <v-icon class="mr-3">mdi-google</v-icon>Sign In With FCAT Google
-                      </v-btn>
-                    </v-col>
-                    <v-col>
-                      <v-btn width="100%" href="{{ url('/redirect') }}" tile dark color="blue darken-2">
-                        <v-icon class="mr-3">mdi-microsoft</v-icon>Sign In With Microsoft
-                      </v-btn>
-                    </v-col>
-                  </v-row>
+                    <v-expansion-panels>
+                      <v-expansion-panel>
+                        <v-expansion-panel-header class="overline" expand-icon="mdi-menu-down">
+                          <template v-slot:default="{ open }">
+                                Sign In with Username
+                          </template>
+                        </v-expansion-panel-header>
+                        <v-expansion-panel-content>
+                          <v-text-field id="email" label="Email" name="email" prepend-icon="mdi-account" type="email">
+                          </v-text-field>
+                          <v-text-field id="password" label="Password" name="password" prepend-icon="mdi-lock"
+                            type="password">
+                          </v-text-field>
+                          <v-row>
+                            <v-col>
+                              <v-btn width="100%" type="submit" class="mr-5" tile outlined>Sign In With Username</v-btn>
+                            </v-col>
+                          </v-row>
+                        </v-expansion-panel-content>
+                      </v-expansion-panel>
                 </v-card>
               </form>
             </v-col>
