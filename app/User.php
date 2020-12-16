@@ -10,29 +10,14 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
       'name', 'email', 'password', 'school', 'avatar', 'keyrole', 'twitterHandle', 'ext', 'mobile', 'usergroup_id', 'role_id', 'last_login_at', 'last_login_ip',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
@@ -41,9 +26,27 @@ class User extends Authenticatable
       $domain = explode("@", $email);
       // dd($domain);
       if($domain[0] === 'testing') {
+        return('fail');
+      }
+      // if($domain[1] != 'garstangcommunityacdemy.com') {
+      //   dd('fail');
+      // }
+    }
+
+    public static function checkGarstang($email) {
+      $domain = explode("@", $email);
+      if($domain[1] != 'garstangcommunityacdemy.com') {
         dd('fail');
       }
     }
+
+    public static function getGarstangSchool($gmail) {
+      $domain = explode("@", $gmail);
+      $school = explode(".", $domain[1]);
+      $school = $school[0];
+      $school = ucfirst($school);
+      return $school;
+  }
 
     public static function getGoogleSchool($gmail) {
       $domain = explode("@", $gmail);
@@ -54,7 +57,6 @@ class User extends Authenticatable
       } else {
           $school = ucfirst($school);
       }
-
       return $school;
   }
 

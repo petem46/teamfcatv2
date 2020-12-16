@@ -23,6 +23,10 @@ class SocialAuthGoogleController extends Controller
     {
         $user = $service->createOrGetUser(Socialite::driver('google')->user());
         // return  $user;
+        if($user === 'fail') {
+          return redirect()->to('/home')->with('fail','Some message here.');
+          sleep(3);
+        }
         auth()->login($user);
         return redirect()->to('/home');
     }

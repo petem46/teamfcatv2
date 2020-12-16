@@ -33,7 +33,7 @@
                         </v-btn>
                       </v-col>
                     </v-row>
-                    <v-divider></v-divider>
+                    {{-- <v-divider></v-divider> --}}
                   </v-card-text>
                     <v-expansion-panels>
                       <v-expansion-panel>
