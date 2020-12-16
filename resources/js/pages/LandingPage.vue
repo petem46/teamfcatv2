@@ -65,6 +65,7 @@
 						</v-col>
 					</v-row>
 				</div>
+        <covid-ticker v-if="area.name === 'covid'"></covid-ticker>
 
 				<v-dialog v-model="editTitle">
 					<v-card>

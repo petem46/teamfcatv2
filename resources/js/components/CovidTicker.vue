@@ -43,7 +43,7 @@ $duration: 30s;
 }
 
 .ticker-wrap {
-	position: fixed;
+	// position: fixed;
 	bottom: 0;
 	width: 100%;
 	overflow: hidden;
