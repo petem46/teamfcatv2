@@ -34,7 +34,8 @@ return [
       'client_id' => env('GOOGLE_CLIENT_ID'),
       'client_secret' => env('GOOGLE_CLIENT_SECRET'),
       'redirect' => env('GOOGLE_REDIRECT'),
-      'picker_api_key' => env('GOOGLE_PICKER_API_KEY')
+      'picker_api_key' => env('GOOGLE_PICKER_API_KEY'),
+      'calendar_api_key' => env('GOOGLE_CALENDAR_API_KEY')
     ],
 
     'microsoft' => [

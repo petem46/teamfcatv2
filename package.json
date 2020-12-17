@@ -26,6 +26,12 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@fullcalendar/core": "^5.4.0",
+        "@fullcalendar/daygrid": "^5.4.0",
+        "@fullcalendar/google-calendar": "^5.4.0",
+        "@fullcalendar/interaction": "^5.4.0",
+        "@fullcalendar/list": "^5.4.0",
+        "@fullcalendar/vue": "^5.4.0",
         "@mdi/js": "^5.8.55",
         "aos": "^2.3.4",
         "chart.js": "^2.9.4",
