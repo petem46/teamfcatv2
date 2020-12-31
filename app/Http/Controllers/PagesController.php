@@ -69,6 +69,7 @@ class PagesController extends Controller
             ->join('areas', 'areas.id','=','sections.area_id')
             ->select('pages.title', 'sections.title as section_title', 'areas.tealTitle as area_title', 'pages.jsoncontent','pages.slug')
             ->whereNull('pages.deleted_at')
+            ->where('pages.section_id','!=', '8')
             ->get();
     foreach ($pages as $key => $page) {
       $page->content = json_decode($page->jsoncontent, true);
