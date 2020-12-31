@@ -67,7 +67,7 @@ class PagesController extends Controller
     $pages = DB::table('pages')
             ->join('sections','sections.id','=','pages.section_id')
             ->join('areas', 'areas.id','=','sections.area_id')
-            ->select('pages.title', 'sections.title as section_title', 'areas.tealTitle as area_title', 'pages.jsoncontent','pages.slug')
+            ->select('pages.title', 'sections.title as section_title','areas.link as area_link', 'areas.tealTitle as area_title', 'pages.jsoncontent','pages.slug')
             ->whereNull('pages.deleted_at')
             //hide premises pages
             ->where('pages.section_id','!=', '8')
