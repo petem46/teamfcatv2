@@ -67,7 +67,8 @@ class PagesController extends Controller
     $pages = DB::table('pages')
             ->join('sections','sections.id','=','pages.section_id')
             ->join('areas', 'areas.id','=','sections.area_id')
-            ->select('pages.title', 'sections.title as section_title', 'areas.tealTitle as area_title', 'pages.jsoncontent')
+            ->select('pages.title', 'sections.title as section_title', 'areas.tealTitle as area_title', 'pages.jsoncontent','pages.slug')
+            ->whereNull('pages.deleted_at')
             ->get();
     foreach ($pages as $key => $page) {
       $page->content = json_decode($page->jsoncontent, true);
