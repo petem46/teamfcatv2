@@ -63,6 +63,21 @@ class PagesController extends Controller
     return $data;
   }
 
+  public function getAll() {
+    $pages = DB::table('pages')
+            ->join('sections','sections.id','=','pages.section_id')
+            ->join('areas', 'areas.id','=','sections.area_id')
+            ->select('pages.title', 'sections.title as section_title', 'areas.tealTitle as area_title', 'pages.jsoncontent')
+            ->get();
+    foreach ($pages as $key => $page) {
+      $page->content = json_decode($page->jsoncontent, true);
+    }
+    $data = [
+      'pages1' => $pages,
+    ];
+    return $pages;
+  }
+
   public function getLatest() {
     $data = [
       'latest' => DB::table('pages')
@@ -73,6 +88,7 @@ class PagesController extends Controller
     ];
     return $data;
   }
+
   public function test($slug)
   {
     return Page::with('section')->where('slug', $slug)->first();

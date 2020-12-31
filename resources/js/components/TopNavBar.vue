@@ -25,7 +25,7 @@
 			outlined
 			class="mr-2"
 			v-if="this.$vuetify.breakpoint.mdAndUp"
-			to="/staffsearch"
+			to="/pagesearch"
 		>
 			<v-icon class="mr-2 grey--text lighten-1">mdi-magnify</v-icon>Search Site ...
 		</v-btn>

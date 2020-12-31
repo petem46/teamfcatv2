@@ -4,6 +4,7 @@ import Home from './views/Home'
 import Covid from './pages/Covid'
 import LandingPage from './pages/LandingPage'
 import StaffSearch from './pages/StaffSearch'
+import PageSearch from './pages/PageSearch'
 import CovidLandingPage from './pages/CovidLandingPage'
 import QIGLandingPage from './pages/QIGLandingPage'
 import FinanceLandingPage from './pages/FinanceLandingPage'
@@ -164,6 +165,12 @@ export default new Router({
       path: '/staffsearch',
       name: 'staffsearch',
       component: StaffSearch,
+      // props: true
+    },
+    {
+      path: '/pagesearch',
+      name: 'pagesearch',
+      component: PageSearch,
       // props: true
     },
   ],

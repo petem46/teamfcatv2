@@ -22,6 +22,7 @@ Vue.use(ClickOutside);
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component("landing-page", require("./pages/LandingPage.vue").default);
 Vue.component("staff-search", require("./pages/StaffSearch.vue").default);
+Vue.component("page-search", require("./pages/PageSearch.vue").default);
 
 Vue.component("home-header", require("./components/HomeHeader.vue").default);
 Vue.component("home-twitters", require("./components/HomeTwitters.vue").default);
