@@ -25,12 +25,14 @@ class User extends Authenticatable
     public static function checkAccess($email) {
       $domain = explode("@", $email);
       // dd($domain);
-      if($domain[0] === 'testing') {
+      // dd(ctype_digit($domain[0]));
+
+      // check if email address begins with a number
+      // this would indicate student account and
+      // should be blocked by return 'fail'
+      if(ctype_digit($domain[0])) {
         return('fail');
       }
-      // if($domain[1] != 'garstangcommunityacdemy.com') {
-      //   dd('fail');
-      // }
     }
 
     public static function checkGarstang($email) {
