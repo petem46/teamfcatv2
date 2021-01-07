@@ -2,7 +2,7 @@
 	<v-app-bar app clipped-left elevate-on-scroll white class="top-border--teal">
 		<!-- <v-app-bar app clipped-left flat hide-on-scroll scroll-threshold="500" class="top-border--teal"> -->
 		<v-app-bar-nav-icon @click.stop="navdrawerClick"></v-app-bar-nav-icon>
-		<v-toolbar-title class="pb-md-2">
+    <v-toolbar-title class="pb-md-2 linkCursor" @click="gotoPage('home')">
 			<v-avatar :size="avatarsize" tile class="mr-3 teal--text">
 				<img src="/images/hexagon-icon.png" />
 			</v-avatar>
@@ -41,8 +41,8 @@
 			<v-icon class="mr-2 grey--text lighten-1">mdi-cast-education</v-icon>REMOTE T&amp;L
 		</v-btn>
 
-		<key-info-menu></key-info-menu>
-		<central-services-menu></central-services-menu>
+		<key-info-menu v-if="this.$vuetify.breakpoint.lgAndUp" ></key-info-menu>
+		<central-services-menu v-if="this.$vuetify.breakpoint.lgAndUp" ></central-services-menu>
 
 		<g-apps-menu :avatar="this.$store.getters.getAvatar" @logout="logout" v-on="$listeners"></g-apps-menu>
 
@@ -97,7 +97,7 @@
 </template>
 <script>
 export default {
-	props: ["navdrawer"],
+	// props: ["navdrawer"],
 	methods: {
 		navdrawerClick() {
 			this.$emit("navdrawerClick");

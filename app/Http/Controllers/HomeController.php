@@ -23,8 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // return view('home');
-        return redirect()->away('https://www.google.com');
+        return view('home');
+        // return redirect()->away('https://www.google.com');
     }
     public function gdpr()
     {

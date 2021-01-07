@@ -107,8 +107,8 @@ export default {
 			{
 				icon: "mdi-calendar-clock",
 				iconClass: "teal--text text--lighten-2",
-				title: "Events & Key Dates",
-        subtitle: "Subtext for menu item",
+				title: "FCAT Calendar",
+        subtitle: "Key Events and Dates",
         link: '/calendar'
 			},
 			// {

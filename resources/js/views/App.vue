@@ -1,6 +1,6 @@
 <template>
 	<v-app id="teamfcat">
-		<side-nav-drawer :navdrawer="navdrawer"></side-nav-drawer>
+		<side-nav-drawer :navdrawer="navdrawer" @navdrawerClick="navdrawerClick" ></side-nav-drawer>
 
 		<top-nav-bar :navdrawer="navdrawer" @navdrawerClick="navdrawerClick" @showCheckDetailsDialog="showCheckDetailsDialog=true"></top-nav-bar>
 
@@ -111,7 +111,7 @@ export default {
 		$route: function() {}
 	},
 	data: () => ({
-		navdrawer: true,
+		navdrawer: false,
 		showCheckDetailsDialog: false,
 		user: ""
 	}),
