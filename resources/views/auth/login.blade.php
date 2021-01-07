@@ -4,25 +4,41 @@
 
   <template>
     <v-app id="inspire">
+      <v-app-bar app clipped-left elevate-on-scroll white class="top-border--teal">
+        <v-toolbar-title class="pb-md-2">
+          <v-avatar tile class="mr-3 teal--text">
+            <img src="/images/hexagon-icon.png" />
+          </v-avatar>
+          <span class>Team FCAT</span>
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+        <a href="http://mail.google.com">
+          <v-btn text class="mr-2 blue--text lighten-1" v-if="this.$vuetify.breakpoint.mdAndUp">
+            <v-icon class="mr-2 red--text lighten-1">far fa-envelope</v-icon>GMAIL
+          </v-btn>
+        </a>
+      </v-app-bar>
       <v-main>
-        <v-container {{-- class="fill-height" --}} fluid>
-          <v-row class="justify-center">
+        <v-container fluid>
+          {{-- <v-row class="justify-center">
             <v-col cols="6" sm="4" md="2">
               <v-img src="/images/teamfcat-hexagon.png"></v-img>
             </v-col>
-          </v-row>
+          </v-row> --}}
           <v-row align="center" justify="center">
-            <v-col cols="12" sm="8" md="4">
+            <v-col cols="12" sm="8" md="6">
               <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <v-card class="elevation-12">
                   <v-toolbar color="teal darken-2" dark flat>
-                    <v-toolbar-title class="text-uppercase"><v-icon class="mr-2">mdi-lock-outline</v-icon>
-                      TeamFCAT Sign In</v-toolbar-title>
+                    <v-toolbar-title class="text-uppercase">
+                      <v-icon class="mr-2">mdi-lock-outline</v-icon>
+                      TeamFCAT Sign In
+                    </v-toolbar-title>
                   </v-toolbar>
                   <v-card-text>
                     <v-row>
-                      <v-col>
+                      <v-col cols="12">
                         <v-btn width="100%" href="{{ url('/gredirect') }}" tile dark color="green">
                           <v-icon class="mr-3">mdi-google</v-icon>Sign In With FCAT Google
                         </v-btn>
@@ -35,26 +51,26 @@
                     </v-row>
                     {{-- <v-divider></v-divider> --}}
                   </v-card-text>
-                    <v-expansion-panels>
-                      <v-expansion-panel>
-                        <v-expansion-panel-header class="overline" expand-icon="mdi-menu-down">
-                          <template v-slot:default="{ open }">
-                                Sign In with Username
-                          </template>
-                        </v-expansion-panel-header>
-                        <v-expansion-panel-content>
-                          <v-text-field id="email" label="Email" name="email" prepend-icon="mdi-account" type="email">
-                          </v-text-field>
-                          <v-text-field id="password" label="Password" name="password" prepend-icon="mdi-lock"
-                            type="password">
-                          </v-text-field>
-                          <v-row>
-                            <v-col>
-                              <v-btn width="100%" type="submit" class="mr-5" tile outlined>Sign In With Username</v-btn>
-                            </v-col>
-                          </v-row>
-                        </v-expansion-panel-content>
-                      </v-expansion-panel>
+                  <v-expansion-panels>
+                    <v-expansion-panel>
+                      <v-expansion-panel-header class="overline" expand-icon="mdi-menu-down">
+                        <template v-slot:default="{ open }">
+                          Sign In with Username
+                        </template>
+                      </v-expansion-panel-header>
+                      <v-expansion-panel-content>
+                        <v-text-field id="email" label="Email" name="email" prepend-icon="mdi-account" type="email">
+                        </v-text-field>
+                        <v-text-field id="password" label="Password" name="password" prepend-icon="mdi-lock"
+                          type="password">
+                        </v-text-field>
+                        <v-row>
+                          <v-col>
+                            <v-btn width="100%" type="submit" class="mr-5" tile outlined>Sign In With Username</v-btn>
+                          </v-col>
+                        </v-row>
+                      </v-expansion-panel-content>
+                    </v-expansion-panel>
                 </v-card>
               </form>
             </v-col>

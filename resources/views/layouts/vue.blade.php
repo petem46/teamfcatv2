@@ -8,13 +8,8 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app.name', 'TeamFCAT') }}</title>
 
-  <!-- Scripts -->
-  {{-- <script src="{{ mix('js/manifest.js') }}"></script>
-  --}}
-  {{-- <script src="{{ mix('js/vendor.js') }}"></script> --}}
-  {{-- <script src="/js/app.js"></script> --}}
   <script src="{{ mix('js/manifest.js') }}" Cache-Control: no-cache, must-revalidate defer></script>
   <script src="{{ mix('js/vendor.js') }}" Cache-Control: no-cache, must-revalidate defer></script>
   <script src="{{ mix('js/app.js') }}" Cache-Control: no-cache, must-revalidate defer></script>
@@ -28,20 +23,6 @@
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JENXZFEMQ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-2JENXZFEMQ');
-
-  </script>
 
 </head>
 

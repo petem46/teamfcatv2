@@ -18,9 +18,9 @@ Route::get('/callback', 'SocialAuthMSGraphController@callback');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/get/pages/all', 'PagesController@getAll');
 
 Route::group(['middleware' => ['auth']], function () {
+  Route::get('/get/pages/all', 'PagesController@getAll');
   Route::get('/gdpr', 'HomeController@gdpr')->name('gdpr');
 
   Route::get('/get/listsections/{area_id}', 'PagesController@getListSections');
