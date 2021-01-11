@@ -4,6 +4,8 @@ html {
 
 body {
   // font-size: $font-size-base;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 img {

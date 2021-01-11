@@ -2,7 +2,7 @@
 	<v-app-bar app clipped-left elevate-on-scroll white class="top-border--teal">
 		<!-- <v-app-bar app clipped-left flat hide-on-scroll scroll-threshold="500" class="top-border--teal"> -->
 		<v-app-bar-nav-icon @click.stop="navdrawerClick"></v-app-bar-nav-icon>
-    <v-toolbar-title class="pb-md-2 linkCursor" @click="gotoPage('home')">
+		<v-toolbar-title class="pb-md-2 linkCursor" @click="gotoPage('home')">
 			<v-avatar :size="avatarsize" tile class="mr-3 teal--text">
 				<img src="/images/hexagon-icon.png" />
 			</v-avatar>
@@ -21,30 +21,68 @@
 				prepend-inner-icon="mdi-magnify"
 		></v-text-field>-->
 		<!-- </v-responsive> -->
+		<v-spacer></v-spacer>
+		<v-responsive max-width="260" v-if="this.$vuetify.breakpoint.mdAndUp">
+			<a href="http://www.google.co.uk" target="_blank">
+				<v-text-field
+					dense
+          readonly
+					outlined
+					hide-details
+					rounded
+					placeholder="Search Google"
+					prepend-inner-icon="mdi-magnify"
+					clearable
+          class="mr-3"
+				></v-text-field>
+			</a>
+		</v-responsive>
 		<v-btn
 			outlined
+      rounded
+      hide-details
 			class="mr-2"
 			v-if="this.$vuetify.breakpoint.mdAndUp"
 			to="/pagesearch"
 		>
-			<v-icon class="mr-2 grey--text lighten-1">mdi-magnify</v-icon>Search Site ...
+			<v-icon class="mr-2 grey--text lighten-1">mdi-magnify</v-icon>Search Site
+			...
 		</v-btn>
-		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/">
+		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.lgAndUp" to="/">
 			<v-icon class="mr-2 grey--text lighten-1">mdi-home</v-icon>Home
 		</v-btn>
 
-		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/covid">
-			<v-icon class="mr-2 grey--text lighten-1">mdi-cellphone-information</v-icon>COVID-19
+		<v-btn
+			text
+			class="mr-2"
+			v-if="this.$vuetify.breakpoint.mdAndUp"
+			to="/covid"
+		>
+			<v-icon class="mr-2 grey--text lighten-1"
+				>mdi-cellphone-information</v-icon
+			>COVID-19
 		</v-btn>
 
-		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp" to="/remotetl">
-			<v-icon class="mr-2 grey--text lighten-1">mdi-cast-education</v-icon>REMOTE T&amp;L
+		<v-btn
+			text
+			class="mr-2"
+			v-if="this.$vuetify.breakpoint.lgAndUp"
+			to="/remotetl"
+		>
+			<v-icon class="mr-2 grey--text lighten-1">mdi-cast-education</v-icon
+			>REMOTE T&amp;L
 		</v-btn>
 
-		<key-info-menu v-if="this.$vuetify.breakpoint.lgAndUp" ></key-info-menu>
-		<central-services-menu v-if="this.$vuetify.breakpoint.lgAndUp" ></central-services-menu>
+		<key-info-menu v-if="this.$vuetify.breakpoint.lgAndUp"></key-info-menu>
+		<central-services-menu
+			v-if="this.$vuetify.breakpoint.lgAndUp"
+		></central-services-menu>
 
-		<g-apps-menu :avatar="this.$store.getters.getAvatar" @logout="logout" v-on="$listeners"></g-apps-menu>
+		<g-apps-menu
+			:avatar="this.$store.getters.getAvatar"
+			@logout="logout"
+			v-on="$listeners"
+		></g-apps-menu>
 
 		<!-- <v-menu :nudge-width="200" offset-y>
 				<template v-slot:activator="{ on }">
@@ -112,10 +150,10 @@ export default {
 				.then(() => {
 					window.location.href = "/login";
 				})
-				.catch(error => {
+				.catch((error) => {
 					window.location.href = "/login";
 				});
-		}
+		},
 	},
 	computed: {
 		avatarsize() {
@@ -124,7 +162,7 @@ export default {
 			} else {
 				return 48;
 			}
-		}
-	}
+		},
+	},
 };
 </script>
