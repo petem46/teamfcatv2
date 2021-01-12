@@ -7,10 +7,15 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+a {
+  // font-size: $font-size-base;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-img {
-  max-width: 100% !important;
-  border-radius: 4px !important;
+.v-application p {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 .linkCursor:hover {

@@ -9,19 +9,6 @@
 			<span class>Team FCAT</span>
 		</v-toolbar-title>
 		<v-spacer></v-spacer>
-		<!-- <v-responsive max-width="300" class="mr-4">
-			<v-text-field
-				@click="gotoPage('/covid')"
-				color="grey"
-				dense
-				readonly
-				hide-details
-				outlined
-				placeholder="Search Site ..."
-				prepend-inner-icon="mdi-magnify"
-		></v-text-field>-->
-		<!-- </v-responsive> -->
-		<v-spacer></v-spacer>
 		<v-responsive max-width="260" v-if="this.$vuetify.breakpoint.mdAndUp">
 			<a href="http://www.google.co.uk" target="_blank">
 				<v-text-field
