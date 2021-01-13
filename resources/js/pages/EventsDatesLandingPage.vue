@@ -78,7 +78,7 @@ export default {
       Axios
         .get("/googlekeys/calendar")
 				.then(({ keys }) => {
-          this.googleCalendarApiKey = keys.developerKey;
+          this.googleCalendarApiKey = keys.googleCalendarApiKey;
         })
     },
 		hello: function(arg) {
