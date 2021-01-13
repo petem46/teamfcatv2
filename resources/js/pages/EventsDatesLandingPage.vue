@@ -31,7 +31,7 @@ export default {
 					interactionPlugin
 				],
 				initialView: "listMonth",
-      googleCalendarApiKey: process.env.MIX_GOOGLE_CALENDAR_API_KEY,
+      googleCalendarApiKey: '',
 				eventSources: [
 					{
 						googleCalendarId:
@@ -68,8 +68,18 @@ export default {
 				}
 			}
 		};
-	},
+  },
+  created() {
+    this.getGoogleApiKey();
+  },
 	methods: {
+    getGoogleApiKey() {
+      Axios
+        .get("/googlekeys/calendar")
+				.then(({ keys }) => {
+          this.googleCalendarApiKey = keys.developerKey;
+        })
+    },
 		hello: function(arg) {
 			console.log(arg);
 		}

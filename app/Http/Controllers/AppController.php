@@ -33,4 +33,19 @@ class AppController extends Controller
     public function getAllStaff() {
       return User::all();
     }
+
+    public function getGPickerKeys() {
+      $keys = [
+        'developerKey' => config('services.google.picker_api_key'),
+        'clientId' => config('services.google.client_id'),
+      ];
+      return $keys;
+    }
+
+    public function getGCalendarKey() {
+      $keys = [
+        'googleCalendarApiKey' => config('services.google.calendar_api_key'),
+      ];
+      return $keys;
+    }
 }

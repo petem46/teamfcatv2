@@ -3,7 +3,8 @@
 		<v-list-item @click="driveIconClicked">
 			<v-list-item-content>
 				<v-list-item-title>
-					<v-icon small class="mr-3">fab fa-google-drive fa-fw</v-icon>Add Google Drive File
+					<v-icon small class="mr-3">fab fa-google-drive fa-fw</v-icon>Add
+					Google Drive File
 				</v-list-item-title>
 			</v-list-item-content>
 		</v-list-item>
@@ -13,15 +14,16 @@
 	</div>
 </template>
 <script>
+import Axios from 'axios';
 export default {
 	data() {
 		return {
 			pickerApiLoaded: false,
-			developerKey: process.env.MIX_GOOGLE_PICKER_API_KEY,
-			clientId: process.env.MIX_GOOGLE_CLIENT_ID,
+			developerKey: "",
+			clientId: "",
 			scope: "https://www.googleapis.com/auth/drive.readonly",
-      oauthToken: null,
-      pickedFiles: [],
+			oauthToken: null,
+			pickedFiles: [],
 		};
 	},
 	mounted() {
@@ -30,7 +32,18 @@ export default {
 		gDrive.setAttribute("src", "https://apis.google.com/js/api.js");
 		document.head.appendChild(gDrive);
 	},
+	created() {
+    this.getGoogleKeys();
+	},
 	methods: {
+    getGoogleKeys() {
+      Axios
+        .get("/googlekeys/picker")
+				.then(({ keys }) => {
+          this.developerKey = keys.developerKey;
+          this.clientId = keys.clientId;
+        })
+    },
 		// The function which handles Google Auth and Loads the Picker
 		async driveIconClicked() {
 			console.log("Clicked");
@@ -43,7 +56,7 @@ export default {
 						{
 							client_id: this.clientId,
 							scope: this.scope,
-							immediate: false
+							immediate: false,
 						},
 						this.handleAuthResult
 					);
@@ -71,12 +84,12 @@ export default {
 				const docsView = new google.picker.DocsView(googleViewId)
 					.setIncludeFolders(true)
 					.setSelectFolderEnabled(true)
-          .setOwnedByMe(true);
+					.setOwnedByMe(true);
 
-      const folderView = new google.picker.DocsView(googleViewId)
-        .setIncludeFolders(true)
-        .setEnableDrives(true)
-        .setSelectFolderEnabled(true);
+				const folderView = new google.picker.DocsView(googleViewId)
+					.setIncludeFolders(true)
+					.setEnableDrives(true)
+					.setSelectFolderEnabled(true);
 
 				var picker = new google.picker.PickerBuilder()
 					.enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
@@ -99,8 +112,8 @@ export default {
 			if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
 				// Array of Picked Files
 				// console.log(data.docs);
-        length = data.docs.length;
-        this.pickedFiles = data.docs;
+				length = data.docs.length;
+				this.pickedFiles = data.docs;
 				for (var i = 0; i < length; i++) {
 					// alert(data.docs[i].name);
 				}
@@ -108,7 +121,7 @@ export default {
 				this.$emit("addGoolgeDriveFile", this.pickedFiles);
 			}
 			// this.oauthToken = '';
-		}
-	}
+		},
+	},
 };
 </script>
