@@ -39,9 +39,9 @@ export default {
     getGoogleKeys() {
       Axios
         .get("/googlekeys/picker")
-				.then(({ keys }) => {
-          this.developerKey = keys.developerKey;
-          this.clientId = keys.clientId;
+				.then(({ data }) => {
+          this.developerKey = data.developerKey;
+          this.clientId = data.clientId;
         })
     },
 		// The function which handles Google Auth and Loads the Picker

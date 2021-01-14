@@ -38,6 +38,7 @@ class AppController extends Controller
       $keys = [
         'developerKey' => config('services.google.picker_api_key'),
         'clientId' => config('services.google.client_id'),
+        'googleCalendarApiKey' => config('services.google.calendar_api_key'),
       ];
       return $keys;
     }
