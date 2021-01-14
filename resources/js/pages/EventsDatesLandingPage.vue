@@ -2,7 +2,6 @@
 	<div>
 		<v-container v-if="loading">
 			<h1>LOADING...</h1>
-			<h1>KEY: {{ this.calendarOptions.googleCalendarApiKey }}</h1>
 		</v-container>
 		<v-container v-if="!loading">
 			<h1 class="display-3 py-5">FCAT Calendar</h1>
@@ -85,6 +84,7 @@ export default {
 		getGoogleKeys() {
 			Axios.get("/googlekeys/calendar").then(({ data }) => {
         this.calendarOptions.googleCalendarApiKey = data.googleCalendarApiKey;
+        this.loading = false;
 			});
 		},
 		hello: function (arg) {

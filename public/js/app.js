@@ -3515,7 +3515,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -3588,6 +3587,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios__WEBPACK_IMPORTED_MODULE_5___default.a.get("/googlekeys/calendar").then(function (_ref) {
         var data = _ref.data;
         _this.calendarOptions.googleCalendarApiKey = data.googleCalendarApiKey;
+        _this.loading = false;
       });
     },
     hello: function hello(arg) {
@@ -16536,15 +16536,7 @@ var render = function() {
     "div",
     [
       _vm.loading
-        ? _c("v-container", [
-            _c("h1", [_vm._v("LOADING...")]),
-            _vm._v(" "),
-            _c("h1", [
-              _vm._v(
-                "KEY: " + _vm._s(this.calendarOptions.googleCalendarApiKey)
-              )
-            ])
-          ])
+        ? _c("v-container", [_c("h1", [_vm._v("LOADING...")])])
         : _vm._e(),
       _vm._v(" "),
       !_vm.loading
