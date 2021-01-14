@@ -327,9 +327,6 @@ export default {
 				command({ src });
 			}
 		},
-		boom() {
-			console.log("BOOM!");
-		}
 	},
 	setLinkUrl(command, url) {
 		command({ href: url });

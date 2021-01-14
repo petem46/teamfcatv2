@@ -215,7 +215,7 @@ export default {
 			this.getFolders();
 		},
 		onFileClick(file) {
-      console.log(file);
+      // console.log(file);
       if (file.type.indexOf("video/") >= 0) {
         this.$emit("insertVideo", file);
       }

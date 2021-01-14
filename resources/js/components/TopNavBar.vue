@@ -131,7 +131,7 @@ export default {
 			this.$router.push(slug);
 		},
 		logout() {
-			console.log("logout");
+			// console.log("logout");
 			axios
 				.post("/logout")
 				.then(() => {

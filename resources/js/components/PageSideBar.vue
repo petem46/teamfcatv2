@@ -167,7 +167,7 @@ export default {
 			axios.get("/get/areadetails/" + this.areaname).then(res => {
 				this.area = res.data;
 			});
-			console.log(this.area);
+			// console.log(this.area);
 		},
 		addSection(item) {
 			if (item.name == "Heading") {

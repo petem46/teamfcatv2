@@ -85,16 +85,13 @@ export default {
 		staffs: []
 	}),
 	mounted() {
-		console.log("MOUNTED");
 		this.getAllStaff();
 	},
 	methods: {
 		getAllStaff() {
-			console.log("GET ALL STAFF");
 			this.loading = true;
 			axios.get("/get/allStaff").then(({ data }) => {
 				this.staffs = data;
-				console.log(data);
 			});
 		}
 	}

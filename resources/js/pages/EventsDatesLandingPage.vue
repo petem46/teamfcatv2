@@ -69,11 +69,11 @@ export default {
 					info.jsEvent.preventDefault(); // don't let the browser navigate
 					alert("Event: " + info.event.title);
 					var title = info.event.title;
-					console.log(title);
+					// console.log(title);
 				},
 				eventClick: function (pete) {
 					pete.jsEvent.preventDefault(); // don't let the browser navigate
-					console.log(pete);
+					// console.log(pete);
 				},
 			},
 		};

@@ -893,12 +893,12 @@ export default {
 	mounted() {
 		this.scrollToTop();
 		this.getContent();
-		console.log(this.$canEdit());
+		// console.log(this.$canEdit());
 	},
 	methods: {
 		canEdit() {
       this.$canEdit();
-      console.log(this.$canEdit());
+      // console.log(this.$canEdit());
 		},
 		getContent() {
 			this.loading = true;
@@ -932,7 +932,6 @@ export default {
 			this.editTitle = false;
 		},
 		showEditCard(id) {
-			console.log("BOOM! - " + id);
 			if (id == 1) {
 				this.showEditCardOneButton = true;
 				this.showEditCardTwoButton = false;
@@ -955,7 +954,6 @@ export default {
 			}
 		},
 		onEditCard(index) {
-			console.log(this.area.actioncards[index]);
 			this.showEditCardDialog = true;
 			this.editedCard = this.area.actioncards[index];
 			this.editedCard.index = index;
@@ -963,7 +961,6 @@ export default {
 		save(event) {
 			if (!this.typing) {
 				setTimeout(() => {
-					console.log(event.key);
 					this.typing = false;
 					axios
 						.put("/put/updateAreaLanding/" + this.area.id, this.area)
@@ -976,9 +973,6 @@ export default {
 			}
 			this.typing = true;
 			this.insertImageType = "";
-		},
-		newPage() {
-			console.log("NEW PAGE CLICK");
 		},
 		onShowFileManager(type) {
 			this.insertImageType = type;
@@ -1000,7 +994,6 @@ export default {
 		insertTileImage(file) {
 			this.editedCard.image = file.url;
 			this.save("CARD POOK");
-			console.log("CARD POOK");
 		},
 		chipStatusShow(page) {
 			var now = moment();

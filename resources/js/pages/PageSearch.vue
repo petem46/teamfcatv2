@@ -68,16 +68,13 @@ export default {
 		pages: []
 	}),
 	mounted() {
-		console.log("MOUNTED");
 		this.getAllPages();
 	},
 	methods: {
 		getAllPages() {
-			console.log("GET ALL PAGES");
 			this.loading = true;
 			axios.get("/get/pages/all").then(({ data }) => {
 				this.pages = data;
-				console.log(data);
 			});
 		}
 	}

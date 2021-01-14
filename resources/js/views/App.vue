@@ -145,7 +145,7 @@ export default {
 			}
 		},
 		saveDetails() {
-			console.log("Saving Details");
+			// console.log("Saving Details");
 			axios.post("/post/userDetails/" + this.user.id, this.user).then(() => {});
 			this.showCheckDetailsDialog = false;
 		},
@@ -160,7 +160,7 @@ export default {
 			}
 		},
 		logout() {
-			console.log("logout");
+			// console.log("logout");
 			axios
 				.post("/logout")
 				.then(() => {

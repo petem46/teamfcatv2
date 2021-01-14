@@ -376,12 +376,6 @@ export default {
 				command({ src });
 			}
 		},
-		boom() {
-			console.log("BOOM!");
-		},
-		gotoPage(id) {
-			this.$router.push("/viewpage/" + this.page_id);
-		},
 		scrollToTop() {
 			window.scrollTo(0, 0);
 		}
