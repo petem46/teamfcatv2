@@ -6215,8 +6215,6 @@ __webpack_require__.r(__webpack_exports__);
       this.editTitle = false;
     },
     showEditCard: function showEditCard(id) {
-      console.log("BOOM! - " + id);
-
       if (id == 1) {
         this.showEditCardOneButton = true;
         this.showEditCardTwoButton = false;
@@ -6242,7 +6240,6 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     onEditCard: function onEditCard(index) {
-      console.log(this.section.actioncards[index]);
       this.showEditCardDialog = true;
       this.editedCard = this.section.actioncards[index];
       this.editedCard.index = index;
@@ -6252,7 +6249,6 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!this.typing) {
         setTimeout(function () {
-          console.log(event.key);
           _this3.typing = false;
           axios.put("/put/updateSectionLanding/" + _this3.section.id, _this3.section).then(function (res) {
             if (res.status == 200) {
@@ -6263,9 +6259,6 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.typing = true;
-    },
-    newPage: function newPage() {
-      console.log("NEW PAGE CLICK");
     },
     chipStatusShow: function chipStatusShow(page) {
       var now = moment__WEBPACK_IMPORTED_MODULE_1___default()();
@@ -7236,8 +7229,6 @@ __webpack_require__.r(__webpack_exports__);
         _this.scrollToTop();
 
         _this.loading = false; // this.endUpload();
-
-        console.log(_this.sidemenuitems.includes("New Page"));
       });
     },
     savePage: function savePage() {
@@ -7419,8 +7410,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     addGoolgeDriveFile: function addGoolgeDriveFile(gFiles) {
-      console.log("emit level 3");
-      console.log(gFiles);
       length = gFiles.length;
 
       for (var i = 0; i < length; i++) {
@@ -7520,9 +7509,6 @@ __webpack_require__.r(__webpack_exports__);
       return slug;
     },
     sanitizeSlug: function sanitizeSlug(e) {
-      console.log(e.keyCode);
-      console.log(e.code);
-
       if (e.key != "-" && e.code != "Space" && /^\W$/.test(e.key)) {
         e.preventDefault();
       }

@@ -301,7 +301,6 @@ export default {
 					this.scrollToTop();
 					this.loading = false;
 					// this.endUpload();
-					console.log(this.sidemenuitems.includes("New Page"));
 				});
 		},
 		savePage() {
@@ -506,8 +505,6 @@ export default {
 			});
 		},
 		addGoolgeDriveFile(gFiles) {
-			console.log("emit level 3");
-			console.log(gFiles);
 			length = gFiles.length;
 			for (var i = 0; i < length; i++) {
 				if (gFiles[i].type == "file" || gFiles[i].type == "folder") {
@@ -639,8 +636,6 @@ export default {
 			return slug;
 		},
 		sanitizeSlug(e) {
-			console.log(e.keyCode);
-			console.log(e.code);
 			if (e.key != "-" && e.code != "Space" && /^\W$/.test(e.key)) {
 				e.preventDefault();
 			}

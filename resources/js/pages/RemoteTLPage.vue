@@ -679,7 +679,6 @@ export default {
 			this.editTitle = false;
 		},
 		showEditCard(id) {
-			console.log("BOOM! - " + id);
 			if (id == 1) {
 				this.showEditCardOneButton = true;
 				this.showEditCardTwoButton = false;
@@ -702,7 +701,6 @@ export default {
 			}
 		},
 		onEditCard(index) {
-			console.log(this.section.actioncards[index]);
 			this.showEditCardDialog = true;
 			this.editedCard = this.section.actioncards[index];
 			this.editedCard.index = index;
@@ -710,7 +708,6 @@ export default {
 		save(event) {
 			if (!this.typing) {
 				setTimeout(() => {
-					console.log(event.key);
 					this.typing = false;
 					axios
 						.put("/put/updateSectionLanding/" + this.section.id, this.section)
@@ -722,9 +719,6 @@ export default {
 				}, 1750);
 			}
 			this.typing = true;
-		},
-		newPage() {
-			console.log("NEW PAGE CLICK");
 		},
 		chipStatusShow(page) {
 			var now = moment();
