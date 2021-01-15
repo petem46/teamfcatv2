@@ -79,7 +79,8 @@
 						</v-col>
 					</v-row>
 				</div>
-				<covid-ticker v-if="area.name === 'covid'"></covid-ticker>
+
+        <covid-ticker v-if="area.name === 'covid'"></covid-ticker>
 
 				<v-dialog v-model="editTitle">
 					<v-card>
@@ -370,7 +371,7 @@
 					@hideFileManager="onHideFileManager"
 				></file-manager>
 			</section>
-			<section class="grey lighten-2">
+			<section class="grey lighten-2" v-if="hideCards != true">
 				<!-- <v-card flat tile class="grey lighten-2"> -->
 				<!-- <v-parallax src="/images/grey.jpg" min-height="350" max-height="1200"> -->
 				<v-container fluid>
@@ -990,7 +991,7 @@ import moment from "moment";
 import AOS from "aos";
 
 export default {
-	props: ["id", "areaname", "seanslatestletter", "slTitle"],
+	props: ["id", "areaname", "seanslatestletter", "hideCards"],
 	watch: {
 		// $route: function() {
 		// 	this.getContent();

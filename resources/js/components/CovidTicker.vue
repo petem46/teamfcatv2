@@ -1,12 +1,13 @@
 <template>
 	<div class="ticker-wrap">
 		<div class="ticker">
-			<div class="ticker__item">10/12/20: Self Isolation Period has been reduced from 14 days to 10 days.</div>
-			<div
-				class="ticker__item"
-			>02/12/20: Lancashire & Blackpool enter Very High Alert Tier 3 restrictions</div>
-			<div class="ticker__item">01/01/01: National Lockdown restrictions in place until 2nd December.</div>
-			<div class="ticker__item">02/02/02: Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+			<div class="ticker__item"><v-icon large class="yellow--text">fas fa-exclamation-triangle</v-icon></div>
+			<div class="ticker__item">Covid information and updates will be posted here.</div>
+			<div class="ticker__item"><v-icon large class="light-blue--text">fas fa-exclamation-circle</v-icon></div>
+			<div class="ticker__item">Approximately 1 in 3 people who have coronavirus have no symptoms and could be spreading it without realising it.</div>
+			<div class="ticker__item"><v-icon large class="light-blue--text">fas fa-exclamation-circle</v-icon></div>
+			<div class="ticker__item">Remember - ‘Hands. Face. Space.’</div>
+			<div class="ticker__item"><v-icon large class="yellow--text">fas fa-exclamation-triangle</v-icon></div>
 		</div>
 	</div>
 </template>
@@ -14,7 +15,7 @@
 * {
 	box-sizing: border-box;
 }
-$duration: 30s;
+$duration: 25s;
 
 @-webkit-keyframes ticker {
 	0% {

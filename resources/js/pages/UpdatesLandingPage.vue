@@ -1,5 +1,5 @@
 <template>
-	<landing-page :seanslatestletter="seanslatestletter"></landing-page>
+	<landing-page :seanslatestletter="seanslatestletter" :hideCards="true"></landing-page>
 </template>
 <script>
 export default {
