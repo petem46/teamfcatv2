@@ -172,7 +172,7 @@ section {
 	display: none;
 }
 .christmas-bg-2 {
-	background-image: url("/images/christmas-bg-2.png");
+	background-image: url("/images/winter-bg-1.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	-webkit-animation: none;
