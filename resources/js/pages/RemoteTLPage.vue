@@ -48,7 +48,7 @@
 				</v-container>
 			</section>
 
-			<section id="support" class="coreleads vh-rtl-100 pt-lg-5">
+			<section id="support" class="coreleads vh-rtl-100 pt-lg-5 d-none">
 				<v-container>
 					<v-row class="align-items-centerx">
 						<v-col cols="12">

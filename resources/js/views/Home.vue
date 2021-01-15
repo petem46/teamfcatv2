@@ -271,7 +271,7 @@ export default {
 	methods: {
 		getLatestPages() {
 			axios
-				.get("/get/latestpages/")
+				.get("/get/latestpages")
 				.then(({ data }) => {
 					this.latest = data.latest;
 				})
@@ -281,7 +281,7 @@ export default {
 		},
 		getSeansLatestLetter() {
 			axios
-				.get("/get/seanslatestletter/")
+				.get("/get/seanslatestletter")
 				.then(({ data }) => {
 					this.seanslatestletter = data.seanslatestletter;
 				})

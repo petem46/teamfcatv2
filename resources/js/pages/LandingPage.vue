@@ -20,22 +20,35 @@
 							@dblclick="editTitle = true"
 						>
 							<h1 class="text-h3 py-0 align-center-md">
-								{{area.title}}
-								<span class="teal--text">{{area.tealTitle }}</span>
+								{{ area.title }}
+								<span class="teal--text">{{ area.tealTitle }}</span>
 							</h1>
-							<h2 class="text-h4 text-subtitle py-0 align-center-md">{{area.subTitle}}</h2>
+							<h2 class="text-h4 text-subtitle py-0 align-center-md">
+								{{ area.subTitle }}
+							</h2>
 							<p
 								v-if="!editWelcomeSubText"
 								class="lead grey--text text-subtitle text-center text-md-left"
-								style="white-space: pre-line !important;"
-							>{{ area.welcomeSubText }}</p>
+								style="white-space: pre-line !important"
+							>
+								{{ area.welcomeSubText }}
+							</p>
 							<v-row>
-								<section cols="12" lg="4" v-for="button in area.buttons" :key="button.id">
+								<section
+									cols="12"
+									lg="4"
+									v-for="button in area.buttons"
+									:key="button.id"
+								>
 									<v-col v-if="button.show == 'show'">
 										<a :href="button.link">
-											<v-btn dark :class="button.color + ' v-size--' + getBtnSize" class="btn-block">
-												<v-icon class="mr-2">{{button.icon}}</v-icon>
-												{{button.text}}
+											<v-btn
+												dark
+												:class="button.color + ' v-size--' + getBtnSize"
+												class="btn-block"
+											>
+												<v-icon class="mr-2">{{ button.icon }}</v-icon>
+												{{ button.text }}
 											</v-btn>
 										</a>
 									</v-col>
@@ -51,7 +64,8 @@
 								right
 								v-if="showEditHeaderButton && $canEdit()"
 								@click="editTitle = true"
-							>EDIT</v-btn>
+								>EDIT</v-btn
+							>
 							<v-img
 								data-aos="zoom-in"
 								data-aos-duration="1200"
@@ -65,7 +79,7 @@
 						</v-col>
 					</v-row>
 				</div>
-        <covid-ticker v-if="area.name === 'covid'"></covid-ticker>
+				<covid-ticker v-if="area.name === 'covid'"></covid-ticker>
 
 				<v-dialog v-model="editTitle">
 					<v-card>
@@ -141,14 +155,22 @@
 									>
 										<template v-slot:prepend-inner>
 											<v-hover v-slot="{ hover }">
-												<v-img contain :src="area.landingImage" @change="save" width="450" class="pb-3">
+												<v-img
+													contain
+													:src="area.landingImage"
+													@change="save"
+													width="450"
+													class="pb-3"
+												>
 													<v-expand-transition>
 														<div
 															@click="onShowFileManager('landingImage')"
 															v-if="hover"
 															class="d-flex transition-fast-in-fast-out teal lighten-2 v-card--reveal white--text"
-															style="height: 100%;"
-														>CLICK TO CHANGE</div>
+															style="height: 100%"
+														>
+															CLICK TO CHANGE
+														</div>
 													</v-expand-transition>
 												</v-img>
 											</v-hover>
@@ -160,10 +182,18 @@
 								</v-col>
 							</v-row>
 							<v-row>
-								<v-col cols="12" lg="4" v-for="button in area.buttons" :key="button.id" :to="button.link">
+								<v-col
+									cols="12"
+									lg="4"
+									v-for="button in area.buttons"
+									:key="button.id"
+									:to="button.link"
+								>
 									<v-card>
 										<v-toolbar dense :color="button.color" dark>
-											<v-toolbar-title>Edit Button {{button.id}}</v-toolbar-title>
+											<v-toolbar-title
+												>Edit Button {{ button.id }}</v-toolbar-title
+											>
 										</v-toolbar>
 										<v-container fluid pt-3>
 											<v-card-actions>
@@ -193,10 +223,17 @@
 												:color="button.color"
 											>
 												<template slot="item" slot-scope="data">
-													<v-icon class="mr-3" :color="data.item">fa-square</v-icon>
-													<span class="cb-item">{{data.item}}</span>
+													<v-icon class="mr-3" :color="data.item"
+														>fa-square</v-icon
+													>
+													<span class="cb-item">{{ data.item }}</span>
 												</template>
-												<v-icon slot="prepend" class="mx-2" :color="button.color">fa-square fa-fw</v-icon>
+												<v-icon
+													slot="prepend"
+													class="mx-2"
+													:color="button.color"
+													>fa-square fa-fw</v-icon
+												>
 												<template v-slot:append-outer>
 													<v-tooltip bottom>
 														<template v-slot:activator="{ on }">
@@ -205,8 +242,9 @@
 																v-on="on"
 																class="mx-2"
 																color="grey lighten-2"
-															>fa-info-circle fa-fw</v-icon>
-														</template>This option sets the color for the button
+																>fa-info-circle fa-fw</v-icon
+															> </template
+														>This option sets the color for the button
 													</v-tooltip>
 												</template>
 											</v-select>
@@ -218,7 +256,12 @@
 												v-model="button.text"
 												label="Button Text"
 											>
-												<v-icon slot="prepend" class="mx-2" :color="button.color">fa-edit fa-fw</v-icon>
+												<v-icon
+													slot="prepend"
+													class="mx-2"
+													:color="button.color"
+													>fa-edit fa-fw</v-icon
+												>
 											</v-text-field>
 											<v-select
 												class="pb-3"
@@ -231,10 +274,17 @@
 												:color="button.color"
 											>
 												<template slot="item" slot-scope="data">
-													<v-icon class="mr-3" :color="button.color">{{data.item}} fa-fw</v-icon>
-													<span class="cb-item">{{data.item}}</span>
+													<v-icon class="mr-3" :color="button.color"
+														>{{ data.item }} fa-fw</v-icon
+													>
+													<span class="cb-item">{{ data.item }}</span>
 												</template>
-												<v-icon slot="prepend" class="mx-2" :color="button.color">{{button.icon}} fa-fw</v-icon>
+												<v-icon
+													slot="prepend"
+													class="mx-2"
+													:color="button.color"
+													>{{ button.icon }} fa-fw</v-icon
+												>
 												<template v-slot:append-outer>
 													<v-tooltip bottom>
 														<template v-slot:activator="{ on }">
@@ -243,8 +293,10 @@
 																v-on="on"
 																class="mx-2"
 																color="grey lighten-2"
-															>fa-info-circle fa-fw</v-icon>
-														</template>The selected icon will appear in the central of the card with a coloured circle background
+																>fa-info-circle fa-fw</v-icon
+															> </template
+														>The selected icon will appear in the central of the
+														card with a coloured circle background
 													</v-tooltip>
 												</template>
 											</v-select>
@@ -257,7 +309,12 @@
 												v-model="button.link"
 												label="Button Link"
 											>
-												<v-icon slot="prepend" class="mx-2" :color="button.color">fa-link fa-fw</v-icon>
+												<v-icon
+													slot="prepend"
+													class="mx-2"
+													:color="button.color"
+													>fa-link fa-fw</v-icon
+												>
 											</v-text-field>
 											<v-select
 												outlined
@@ -269,7 +326,12 @@
 												item-value="idlink"
 												label="Section Link"
 											>
-												<v-icon slot="prepend" class="mx-2" :color="button.color">fas fa-layer-group fa-fw</v-icon>
+												<v-icon
+													slot="prepend"
+													class="mx-2"
+													:color="button.color"
+													>fas fa-layer-group fa-fw</v-icon
+												>
 											</v-select>
 											<v-select
 												outlined
@@ -281,7 +343,12 @@
 												item-value="link"
 												label="Page Link"
 											>
-												<v-icon slot="prepend" class="mx-2" :color="button.color">fa-copy fa-fw</v-icon>
+												<v-icon
+													slot="prepend"
+													class="mx-2"
+													:color="button.color"
+													>fa-copy fa-fw</v-icon
+												>
 											</v-select>
 										</v-container>
 									</v-card>
@@ -318,7 +385,11 @@
 							v-for="(card, index) in area.actioncards"
 							:key="card.id"
 						>
-							<v-card class="text-center" @mouseover="showEditCard(card.id)" @mouseleave="showEditCard(0)">
+							<v-card
+								class="text-center"
+								@mouseover="showEditCard(card.id)"
+								@mouseleave="showEditCard(0)"
+							>
 								<v-btn
 									small
 									fab
@@ -353,11 +424,25 @@
 									<v-icon small :color="card.color">fa-edit</v-icon>
 								</v-btn>
 								<v-card-title class="p-1" :class="card.color"></v-card-title>
-								<v-img v-if="card.image" contain height="250" :src="card.image"></v-img>
+								<v-img
+									v-if="card.image"
+									contain
+									height="250"
+									:src="card.image"
+								></v-img>
 								<v-card-text>
 									<div class="text-h4 pt-2 mb-5" v-text="card.title"></div>
-									<v-avatar size="66" class="mb-5" v-if="card.icon != 'NO ICON'">
-										<v-icon v-text="card.icon" size="32" class="white--text" :class="card.color" />
+									<v-avatar
+										size="66"
+										class="mb-5"
+										v-if="card.icon != 'NO ICON'"
+									>
+										<v-icon
+											v-text="card.icon"
+											size="32"
+											class="white--text"
+											:class="card.color"
+										/>
 									</v-avatar>
 									<p class="text-gray-700 mb-5" v-text="card.text"></p>
 									<!-- EXTERNAL LINK -->
@@ -365,7 +450,7 @@
 										:href="card.chipExternalLink"
 										target="_blank"
 										v-if="card.chipIsLink == 'external'"
-										style="cursor: pointer;"
+										style="cursor: pointer"
 									>
 										<v-chip
 											v-text="card.chip"
@@ -391,13 +476,15 @@
 										:color="card.chipColor || card.color"
 										:text-color="card.chipTextColor || 'white'"
 										:to="card.chipPageLink"
-									>{{ card.chip }}</v-chip>
+										>{{ card.chip }}</v-chip
+									>
 									<!-- NOMRAL CHIP - NO LINK -->
 									<v-chip
 										v-if="card.chipIsLink == 'nolink'"
 										:color="card.chipColor || card.color"
 										:text-color="card.chipTextColor || 'white'"
-									>{{ card.chip }}</v-chip>
+										>{{ card.chip }}</v-chip
+									>
 								</v-card-text>
 								<!-- </v-img> -->
 							</v-card>
@@ -430,9 +517,11 @@
 								>
 									<template slot="item" slot-scope="data">
 										<v-icon class="mr-3" :color="data.item">fa-square</v-icon>
-										<span class="cb-item">{{data.item}}</span>
+										<span class="cb-item">{{ data.item }}</span>
 									</template>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-square fa-fw</v-icon>
+									<v-icon slot="prepend" class="mx-2" :color="editedCard.color"
+										>fa-square fa-fw</v-icon
+									>
 									<template v-slot:append-outer>
 										<v-tooltip bottom>
 											<template v-slot:activator="{ on }">
@@ -441,8 +530,9 @@
 													v-on="on"
 													class="mx-2"
 													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>This option sets the color for the card and central icon
+													>fa-info-circle fa-fw</v-icon
+												> </template
+											>This option sets the color for the card and central icon
 										</v-tooltip>
 									</template>
 								</v-select>
@@ -454,7 +544,9 @@
 									label="Title Text"
 									:color="editedCard.color"
 								>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-pencil-alt fa-fw</v-icon>
+									<v-icon slot="prepend" class="mx-2" :color="editedCard.color"
+										>fa-pencil-alt fa-fw</v-icon
+									>
 									<template v-slot:append-outer>
 										<v-tooltip bottom>
 											<template v-slot:activator="{ on }">
@@ -463,8 +555,9 @@
 													v-on="on"
 													class="mx-2"
 													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>This text will appear above the central icon
+													>fa-info-circle fa-fw</v-icon
+												> </template
+											>This text will appear above the central icon
 										</v-tooltip>
 									</template>
 								</v-text-field>
@@ -481,19 +574,31 @@
 											readonly
 											clearable
 										>
-											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">far fa-image fa-fw</v-icon>
+											<v-icon
+												slot="prepend"
+												class="mx-2"
+												:color="editedCard.color"
+												>far fa-image fa-fw</v-icon
+											>
 										</v-text-field>
 									</v-col>
 									<v-col cols="12" md="5">
 										<v-hover v-slot="{ hover }">
-											<v-img :src="editedCard.image" @change="save" height="250" class="pb-3">
+											<v-img
+												:src="editedCard.image"
+												@change="save"
+												height="250"
+												class="pb-3"
+											>
 												<v-expand-transition>
 													<div
 														@click="onShowFileManager('tileImage')"
 														v-if="hover"
 														class="d-flex transition-fast-in-fast-out teal lighten-2 v-card--reveal white--text"
-														style="height: 100%;"
-													>CLICK TO CHANGE</div>
+														style="height: 100%"
+													>
+														CLICK TO CHANGE
+													</div>
 												</v-expand-transition>
 											</v-img>
 										</v-hover>
@@ -510,10 +615,14 @@
 									:color="editedCard.color"
 								>
 									<template slot="item" slot-scope="data">
-										<v-icon class="mr-3" :color="editedCard.color">{{data.item}} fa-fw</v-icon>
-										<span class="cb-item">{{data.item}}</span>
+										<v-icon class="mr-3" :color="editedCard.color"
+											>{{ data.item }} fa-fw</v-icon
+										>
+										<span class="cb-item">{{ data.item }}</span>
 									</template>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">{{editedCard.icon}} fa-fw</v-icon>
+									<v-icon slot="prepend" class="mx-2" :color="editedCard.color"
+										>{{ editedCard.icon }} fa-fw</v-icon
+									>
 									<template v-slot:append-outer>
 										<v-tooltip bottom>
 											<template v-slot:activator="{ on }">
@@ -522,8 +631,10 @@
 													v-on="on"
 													class="mx-2"
 													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>The selected icon will appear in the central of the card with a coloured circle background
+													>fa-info-circle fa-fw</v-icon
+												> </template
+											>The selected icon will appear in the central of the card
+											with a coloured circle background
 										</v-tooltip>
 									</template>
 								</v-select>
@@ -535,9 +646,11 @@
 									label="Card Text"
 									:color="editedCard.color"
 									counter="200"
-									:rules="[v => v.length <= 200 || 'Max 200 Characters']"
+									:rules="[(v) => v.length <= 200 || 'Max 200 Characters']"
 								>
-									<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-pencil-alt fa-fw</v-icon>
+									<v-icon slot="prepend" class="mx-2" :color="editedCard.color"
+										>fa-pencil-alt fa-fw</v-icon
+									>
 									<template v-slot:append-outer>
 										<v-tooltip bottom>
 											<template v-slot:activator="{ on }">
@@ -546,8 +659,9 @@
 													v-on="on"
 													class="mx-2"
 													color="grey lighten-2"
-												>fa-info-circle fa-fw</v-icon>
-											</template>This text will appear below the central icon
+													>fa-info-circle fa-fw</v-icon
+												> </template
+											>This text will appear below the central icon
 										</v-tooltip>
 									</template>
 								</v-textarea>
@@ -562,7 +676,12 @@
 											:color="editedCard.color"
 											hide-details="auto"
 										>
-											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-comment-medical fa-fw</v-icon>
+											<v-icon
+												slot="prepend"
+												class="mx-2"
+												:color="editedCard.color"
+												>fa-comment-medical fa-fw</v-icon
+											>
 											<template v-slot:append-outer>
 												<v-tooltip bottom>
 													<template v-slot:activator="{ on }">
@@ -571,8 +690,11 @@
 															v-on="on"
 															class="mx-2"
 															color="grey lighten-2"
-														>fa-info-circle fa-fw</v-icon>
-													</template>Text here will appear in the grey bar at the bottom of the card. Email addresses and phone numbers work best here.
+															>fa-info-circle fa-fw</v-icon
+														> </template
+													>Text here will appear in the grey bar at the bottom
+													of the card. Email addresses and phone numbers work
+													best here.
 												</v-tooltip>
 											</template>
 										</v-text-field>
@@ -590,10 +712,17 @@
 											hide-details="auto"
 										>
 											<template slot="item" slot-scope="data">
-												<v-icon class="mr-3" :color="data.item">fa-square</v-icon>
-												<span class="cb-item">{{data.item}}</span>
+												<v-icon class="mr-3" :color="data.item"
+													>fa-square</v-icon
+												>
+												<span class="cb-item">{{ data.item }}</span>
 											</template>
-											<v-icon slot="prepend" class="mx-2" :color="editedCard.chipColor">fa-square fa-fw</v-icon>
+											<v-icon
+												slot="prepend"
+												class="mx-2"
+												:color="editedCard.chipColor"
+												>fa-square fa-fw</v-icon
+											>
 											<template v-slot:append-outer>
 												<v-tooltip bottom>
 													<template v-slot:activator="{ on }">
@@ -602,8 +731,9 @@
 															v-on="on"
 															class="mx-2"
 															color="grey lighten-2"
-														>fa-info-circle fa-fw</v-icon>
-													</template>This option sets the color for the button
+															>fa-info-circle fa-fw</v-icon
+														> </template
+													>This option sets the color for the button
 												</v-tooltip>
 											</template>
 										</v-select>
@@ -626,7 +756,11 @@
 									</v-btn-toggle>
 								</v-row>
 								<v-row>
-									<v-col cols="12" md="7" v-if="editedCard.chipIsLink == 'nolink'">
+									<v-col
+										cols="12"
+										md="7"
+										v-if="editedCard.chipIsLink == 'nolink'"
+									>
 										<v-text-field
 											class="pb-3"
 											outlined
@@ -635,7 +769,12 @@
 											:color="editedCard.color"
 											disabled
 										>
-											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-unlink fa-fw</v-icon>
+											<v-icon
+												slot="prepend"
+												class="mx-2"
+												:color="editedCard.color"
+												>fa-unlink fa-fw</v-icon
+											>
 											<template v-slot:append-outer>
 												<v-tooltip bottom>
 													<template v-slot:activator="{ on }">
@@ -644,13 +783,18 @@
 															v-on="on"
 															class="mx-2"
 															color="grey lighten-2"
-														>fa-info-circle fa-fw</v-icon>
-													</template>Link Removed.
+															>fa-info-circle fa-fw</v-icon
+														> </template
+													>Link Removed.
 												</v-tooltip>
 											</template>
 										</v-text-field>
 									</v-col>
-									<v-col cols="12" md="7" v-if="editedCard.chipIsLink == 'external'">
+									<v-col
+										cols="12"
+										md="7"
+										v-if="editedCard.chipIsLink == 'external'"
+									>
 										<v-text-field
 											class="pb-3"
 											v-model="editedCard.chipExternalLink"
@@ -661,7 +805,12 @@
 											hint="Add External Link - must include http:// or https://"
 											:color="editedCard.color"
 										>
-											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-link fa-fw</v-icon>
+											<v-icon
+												slot="prepend"
+												class="mx-2"
+												:color="editedCard.color"
+												>fa-link fa-fw</v-icon
+											>
 											<template v-slot:append-outer>
 												<v-tooltip bottom>
 													<template v-slot:activator="{ on }">
@@ -670,13 +819,18 @@
 															v-on="on"
 															class="mx-2"
 															color="grey lighten-2"
-														>fa-info-circle fa-fw</v-icon>
-													</template>Add External Link - must include http:// or https://
+															>fa-info-circle fa-fw</v-icon
+														> </template
+													>Add External Link - must include http:// or https://
 												</v-tooltip>
 											</template>
 										</v-text-field>
 									</v-col>
-									<v-col cols="12" md="7" v-if="editedCard.chipIsLink == 'email'">
+									<v-col
+										cols="12"
+										md="7"
+										v-if="editedCard.chipIsLink == 'email'"
+									>
 										<v-text-field
 											class="pb-3"
 											v-model="editedCard.chipEmailLink"
@@ -688,7 +842,12 @@
 											hint="Enter an email address"
 											:color="editedCard.color"
 										>
-											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-envelope fa-fw</v-icon>
+											<v-icon
+												slot="prepend"
+												class="mx-2"
+												:color="editedCard.color"
+												>fa-envelope fa-fw</v-icon
+											>
 											<template v-slot:append-outer>
 												<v-tooltip bottom>
 													<template v-slot:activator="{ on }">
@@ -697,13 +856,18 @@
 															v-on="on"
 															class="mx-2"
 															color="grey lighten-2"
-														>fa-info-circle fa-fw</v-icon>
-													</template>Enter email address.
+															>fa-info-circle fa-fw</v-icon
+														> </template
+													>Enter email address.
 												</v-tooltip>
 											</template>
 										</v-text-field>
 									</v-col>
-									<v-col cols="12" md="7" v-if="editedCard.chipIsLink == 'page'">
+									<v-col
+										cols="12"
+										md="7"
+										v-if="editedCard.chipIsLink == 'page'"
+									>
 										<v-select
 											class="pb-3"
 											:items="pages"
@@ -719,7 +883,12 @@
 											hint="Select a Page from the list"
 											:color="editedCard.color"
 										>
-											<v-icon slot="prepend" class="mx-2" :color="editedCard.color">fa-copy fa-fw</v-icon>
+											<v-icon
+												slot="prepend"
+												class="mx-2"
+												:color="editedCard.color"
+												>fa-copy fa-fw</v-icon
+											>
 											<template v-slot:append-outer>
 												<v-tooltip bottom>
 													<template v-slot:activator="{ on }">
@@ -728,13 +897,18 @@
 															v-on="on"
 															class="mx-2"
 															color="grey lighten-2"
-														>fa-info-circle fa-fw</v-icon>
-													</template>Select a Page from the list.
+															>fa-info-circle fa-fw</v-icon
+														> </template
+													>Select a Page from the list.
 												</v-tooltip>
 											</template>
 										</v-select>
 									</v-col>
-									<v-col cols="12" md="5" v-if="editedCard.chipIsLink != 'hide'">
+									<v-col
+										cols="12"
+										md="5"
+										v-if="editedCard.chipIsLink != 'hide'"
+									>
 										<v-select
 											class="pb-3"
 											:items="actioncardsColorsList"
@@ -747,10 +921,17 @@
 											hide-details="auto"
 										>
 											<template slot="item" slot-scope="data">
-												<v-icon class="mr-3" :color="data.item">fa-square</v-icon>
-												<span class="cb-item">{{data.item}}</span>
+												<v-icon class="mr-3" :color="data.item"
+													>fa-square</v-icon
+												>
+												<span class="cb-item">{{ data.item }}</span>
 											</template>
-											<v-icon slot="prepend" class="mx-2" :color="editedCard.chipTextColor">fa-square fa-fw</v-icon>
+											<v-icon
+												slot="prepend"
+												class="mx-2"
+												:color="editedCard.chipTextColor"
+												>fa-square fa-fw</v-icon
+											>
 											<template v-slot:append-outer>
 												<v-tooltip bottom>
 													<template v-slot:activator="{ on }">
@@ -759,8 +940,9 @@
 															v-on="on"
 															class="mx-2"
 															color="grey lighten-2"
-														>fa-info-circle fa-fw</v-icon>
-													</template>This option sets the color for the button text
+															>fa-info-circle fa-fw</v-icon
+														> </template
+													>This option sets the color for the button text
 												</v-tooltip>
 											</template>
 										</v-select>
@@ -777,7 +959,10 @@
 				</v-row>
 			</v-dialog>
 			<section v-for="section in sections" :key="section.id" class="my-md-10">
-				<pages-section v-if="section.sectiontype_id == 1 || !section.sectiontype_id" :section="section"></pages-section>
+				<pages-section
+					v-if="section.sectiontype_id == 1 || !section.sectiontype_id"
+					:section="section"
+				></pages-section>
 				<!-- <pages-section v-if="section.sectiontype_id == 2" :section="section"></pages-section> -->
 				<!-- <pages-section v-if="section.sectiontype_id == 3" :section="section"></pages-section> -->
 			</section>
@@ -805,7 +990,7 @@ import moment from "moment";
 import AOS from "aos";
 
 export default {
-	props: ["id", "areaname"],
+	props: ["id", "areaname", "seanslatestletter", "slTitle"],
 	watch: {
 		// $route: function() {
 		// 	this.getContent();
@@ -841,7 +1026,7 @@ export default {
 				"yellow darken-2",
 				"orange darken-2",
 				"red",
-				"grey"
+				"grey",
 			],
 			actioncardsIconsList: [
 				"NO ICON",
@@ -877,28 +1062,26 @@ export default {
 				"fa-cat",
 				"fa-cat",
 				"fa-cat",
-				"fa-cat"
+				"fa-cat",
 			],
 			editWelcomeSubText: false,
 			editTitle: false,
-			typing: false
+			typing: false,
 		};
 	},
 	created() {
 		this.loading = true;
 		AOS.init({
-			debounceDelay: 50 // the delay on debounce used while resizing window (advanced)
+			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
 		});
 	},
 	mounted() {
 		this.scrollToTop();
 		this.getContent();
-		// console.log(this.$canEdit());
 	},
 	methods: {
 		canEdit() {
-      this.$canEdit();
-      // console.log(this.$canEdit());
+			this.$canEdit();
 		},
 		getContent() {
 			this.loading = true;
@@ -910,6 +1093,13 @@ export default {
 				})
 				.then(() => {
 					this.getPages();
+				})
+				.then(() => {
+					this.area.actioncards[2].title = this.seanslatestletter.title;
+					this.area.actioncards[2].chipIsLink = "page";
+					this.area.actioncards[2].chipPageLink = this.seanslatestletter.link;
+					this.area.actioncards[2].text = this.seanslatestletter.subtitle;
+					this.area.actioncards[2].chip = "Read Sean's Latest Letter";
 				});
 		},
 		getPages() {
@@ -964,7 +1154,7 @@ export default {
 					this.typing = false;
 					axios
 						.put("/put/updateAreaLanding/" + this.area.id, this.area)
-						.then(res => {
+						.then((res) => {
 							if (res.status == 200) {
 								console.log(res.status);
 							}
@@ -1037,7 +1227,7 @@ export default {
 			if (state == "hidden") {
 				return "hidden";
 			}
-		}
+		},
 	},
 	computed: {
 		getBtnSize() {
@@ -1058,8 +1248,8 @@ export default {
 			if (this.typing == false) {
 				return "Saved";
 			}
-		}
-	}
+		},
+	},
 };
 </script>
 <style lang="scss" scoped>
