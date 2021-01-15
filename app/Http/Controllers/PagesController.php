@@ -92,6 +92,18 @@ class PagesController extends Controller
     return $data;
   }
 
+  public function getSeansLatestLetter() {
+    $data = [
+      'seanslatestletter' => DB::table('pages')
+      ->join('sections','sections.id','=','pages.section_id')
+      ->join('areas', 'areas.id','=','sections.area_id')
+      ->select('pages.title', 'pages.subtitle', 'pages.slug', DB::raw("CONCAT('/p2',areas.link,'/',pages.slug) as link"))
+      ->where('pages.title', 'LIKE', "Sean's Letter %")
+      ->orderBy('pages.created_at', 'desc')->first(),
+    ];
+    return $data;
+  }
+
   public function test($slug)
   {
     return Page::with('section')->where('slug', $slug)->first();

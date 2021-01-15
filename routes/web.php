@@ -51,9 +51,11 @@ Route::group(['middleware' => ['auth']], function () {
   //Delete a page based on id
   Route::delete('/delete/page/{id}', 'PagesController@delete');
 
+  Route::get('/googlekeys/picker', 'AppController@getGPickerKeys');
+  Route::get('/googlekeys/calendar', 'AppController@getGCalendarKey');
 });
 //GET GOOGLE KEYS
-Route::get('/googlekeys/picker', 'AppController@getGPickerKeys');
-Route::get('/googlekeys/calendar', 'AppController@getGCalendarKey');
+Route::get('/get/seanslatestletter', 'PagesController@getSeansLatestLetter');
 
 Route::get('/{any}', 'AppController@index')->where('any', '.*');
+

@@ -2,14 +2,14 @@
 	<v-app-bar app clipped-left elevate-on-scroll white class="top-border--teal">
 		<!-- <v-app-bar app clipped-left flat hide-on-scroll scroll-threshold="500" class="top-border--teal"> -->
 		<v-app-bar-nav-icon @click.stop="navdrawerClick"></v-app-bar-nav-icon>
-		<v-toolbar-title class="pb-md-2 linkCursor" @click="gotoPage('home')">
+		<v-toolbar-title class="pb-md-2 linkCursor" @click="gotoPage('/')">
 			<v-avatar :size="avatarsize" tile class="mr-3 teal--text">
 				<img src="/images/hexagon-icon.png" />
 			</v-avatar>
 			<span class>Team FCAT</span>
 		</v-toolbar-title>
 		<v-spacer></v-spacer>
-		<v-responsive max-width="260" v-if="this.$vuetify.breakpoint.mdAndUp">
+		<v-responsive max-width="225" v-if="this.$vuetify.breakpoint.lgAndUp">
 			<a href="http://www.google.co.uk" target="_blank">
 				<v-text-field
 					dense
@@ -20,23 +20,22 @@
 					placeholder="Search Google"
 					prepend-inner-icon="mdi-magnify"
 					clearable
-          class="mr-3"
+          class="mr-2"
 				></v-text-field>
 			</a>
 		</v-responsive>
+
+		<!-- <v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.lgAndUp" to="/">
+			<v-icon class=" grey--text lighten-1">mdi-home</v-icon>
+		</v-btn> -->
+
 		<v-btn
-			outlined
-      rounded
-      hide-details
+    text
 			class="mr-2"
 			v-if="this.$vuetify.breakpoint.mdAndUp"
 			to="/pagesearch"
 		>
 			<v-icon class="mr-2 grey--text lighten-1">mdi-magnify</v-icon>Search Site
-			...
-		</v-btn>
-		<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.lgAndUp" to="/">
-			<v-icon class="mr-2 grey--text lighten-1">mdi-home</v-icon>Home
 		</v-btn>
 
 		<v-btn
@@ -121,6 +120,7 @@
 	</v-app-bar>
 </template>
 <script>
+import { mdiArrowRightThinCircleOutline } from '@mdi/js';
 export default {
 	// props: ["navdrawer"],
 	methods: {

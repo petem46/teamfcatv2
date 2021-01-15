@@ -1,28 +1,12 @@
 <template>
 	<div>
 		<home-header></home-header>
-		<section class="header white--text py-0">
-			<div class="ticker box hidden">
-				<article class="media">
-					<span class="breaking-news media-left">Breaking News</span>
-					<div class="media-content">
-						<transition name="fade" mode="out-in">
-							<span class="time">
-								{{news[0].time}}:
-								<a class="news" href="#">{{news[0].summary}}</a>
-							</span>
-						</transition>
-					</div>
-				</article>
-			</div>
-		</section>
 		<core-carousel></core-carousel>
 		<section class="mt-md-n15x christmas-bg-1">
 			<v-container class="mt-md-n15x">
-				<!-- <h1 class="display-2 orange--text text--darken-4">SECTION TWO</h1> -->
 				<v-row class="d-flex align-self-stretch" height="100px">
 					<v-col cols="12" md="6" lg="4">
-						<a @click="gotoPage('/p2/updates/seansletter12')">
+						<a @click="gotoPage(seanslatestletter.link)">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card>
 									<v-system-bar dark height="8" color="teal darken-2"></v-system-bar>
@@ -45,7 +29,7 @@
 											</v-list-item-avatar>
 											<v-list-item-content>
 												<v-list-item-title class="h5">Sean's Letter</v-list-item-title>
-												<v-list-item-subtitle>Monday 30th November 2020</v-list-item-subtitle>
+												<v-list-item-subtitle v-text="seanslatestletter.subtitle"></v-list-item-subtitle>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
@@ -247,33 +231,12 @@
 							</v-hover>
 						</a>
 					</v-col>
-					<!-- <v-col cols="12" md="6" lg="4" v-for="(page, i) in latest" :key="i">
-						<v-card class="align-self-stretch">
-							<v-system-bar dark height="8" color="blue lighten-2"></v-system-bar>
-
-							<v-sheet color="grey lighten-2">
-							<v-img src="/images/covid-update-image.jpg" height="200"></v-img>
-							</v-sheet>
-							<v-system-bar dark height="1" color="black"></v-system-bar>
-							<v-list>
-								<v-list-item>
-									<v-list-item-avatar>
-										<v-img src="/images/headshots/jane.jpg" position="top center"></v-img>
-									</v-list-item-avatar>
-									<v-list-item-content>
-										<v-list-item-title v-text="page.title" class="h5"></v-list-item-title>
-										<v-list-item-subtitle v-text="page.subtitle"></v-list-item-subtitle>
-									</v-list-item-content>
-								</v-list-item>
-							</v-list>
-						</v-card>
-					</v-col>-->
 				</v-row>
 			</v-container>
 		</section>
 		<!-- <core-carousel></core-carousel> -->
 		<home-twitters></home-twitters>
-		<staff-search></staff-search>
+		<!-- <staff-search></staff-search> -->
 		<core-values></core-values>
 	</div>
 </template>
@@ -284,21 +247,13 @@ export default {
 		return {
 			loading: true,
 			index: 0,
-			latest: [],
-			news: [
-				{
-					time: "10:15",
-					summary: "There has been a massive explosion at the cheese factory"
-				},
-				{
-					time: "11:36",
-					summary: "Bob is on fire"
-				},
-				{
-					time: "12:47",
-					summary: "Look its Superman!"
-				}
-			],
+      latest: [],
+      seanslatestletter: {
+        title: "",
+        subtitle: "",
+        slug: "",
+        link: ""
+      },
 			snackbar: {
 				color: "",
 				mode: "",
@@ -309,11 +264,9 @@ export default {
 			}
 		};
 	},
-	created() {
-		setInterval(this.updateTicker, 5000);
-	},
 	mounted() {
 		this.getLatestPages();
+		this.getSeansLatestLetter();
 	},
 	methods: {
 		getLatestPages() {
@@ -326,9 +279,15 @@ export default {
 					// this.getPages();
 				});
 		},
-		updateTicker: function() {
-			var removed = this.news.pop();
-			this.news.unshift(removed);
+		getSeansLatestLetter() {
+			axios
+				.get("/get/seanslatestletter/")
+				.then(({ data }) => {
+					this.seanslatestletter = data.seanslatestletter;
+				})
+				.then(() => {
+					// this.getPages();
+				});
 		},
 		gotoPage(slug) {
 			this.$router.push(slug);

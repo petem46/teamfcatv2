@@ -194,6 +194,68 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CoreCarousel.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CoreCarousel.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      value1: "EXCELLENCE",
+      value2: "AMBITION",
+      value3: "RESPECT",
+      value4: "INTEGRITY",
+      value5: "RESILIENCE",
+      value6: "PRIDE"
+    };
+  },
+  computed: {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EditorBar.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EditorBar.vue?vue&type=script&lang=js& ***!
@@ -3189,6 +3251,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mdi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mdi/js */ "./node_modules/@mdi/js/mdi.js");
 //
 //
 //
@@ -3310,7 +3373,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   // props: ["navdrawer"],
   methods: {
@@ -8035,43 +8098,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -8079,16 +8105,12 @@ __webpack_require__.r(__webpack_exports__);
       loading: true,
       index: 0,
       latest: [],
-      news: [{
-        time: "10:15",
-        summary: "There has been a massive explosion at the cheese factory"
-      }, {
-        time: "11:36",
-        summary: "Bob is on fire"
-      }, {
-        time: "12:47",
-        summary: "Look its Superman!"
-      }],
+      seanslatestletter: {
+        title: "",
+        subtitle: "",
+        slug: "",
+        link: ""
+      },
       snackbar: {
         color: "",
         mode: "",
@@ -8099,11 +8121,9 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  created: function created() {
-    setInterval(this.updateTicker, 5000);
-  },
   mounted: function mounted() {
     this.getLatestPages();
+    this.getSeansLatestLetter();
   },
   methods: {
     getLatestPages: function getLatestPages() {
@@ -8115,9 +8135,14 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {// this.getPages();
       });
     },
-    updateTicker: function updateTicker() {
-      var removed = this.news.pop();
-      this.news.unshift(removed);
+    getSeansLatestLetter: function getSeansLatestLetter() {
+      var _this2 = this;
+
+      axios.get("/get/seanslatestletter/").then(function (_ref2) {
+        var data = _ref2.data;
+        _this2.seanslatestletter = data.seanslatestletter;
+      }).then(function () {// this.getPages();
+      });
     },
     gotoPage: function gotoPage(slug) {
       this.$router.push(slug);
@@ -9695,12 +9720,13 @@ var render = function() {
     [
       _c(
         "v-container",
+        { staticClass: "py-0" },
         [
           _c(
             "v-carousel",
             {
               attrs: {
-                height: "80",
+                height: "57",
                 "hide-delimiters": "",
                 "show-arrows": false,
                 cycle: true,
@@ -9710,66 +9736,60 @@ var render = function() {
             },
             [
               _c(
-                "v-container",
+                "v-carousel-item",
+                {
+                  attrs: {
+                    transition: "slide-x-transition",
+                    "reverse-transition": "slide-x-reverse-transition"
+                  }
+                },
                 [
                   _c(
-                    "v-carousel-item",
-                    {
-                      attrs: {
-                        transition: "slide-x-transition",
-                        "reverse-transition": "slide-x-reverse-transition"
-                      }
-                    },
+                    "v-row",
+                    { attrs: { "py-3": "" } },
                     [
-                      _c(
-                        "v-row",
-                        { attrs: { "py-3": "" } },
-                        [
-                          _c("v-col", { staticClass: "text-center h3 m-0" }, [
-                            _vm._v("EXCELLENCE")
-                          ]),
-                          _vm._v(" "),
-                          _c("v-col", { staticClass: "text-center h3 m-0" }, [
-                            _vm._v("AMBITION")
-                          ]),
-                          _vm._v(" "),
-                          _c("v-col", { staticClass: "text-center h3 m-0" }, [
-                            _vm._v("RESPECT")
-                          ])
-                        ],
-                        1
-                      )
+                      _c("v-col", { staticClass: "text-center h3 m-0" }, [
+                        _vm._v(_vm._s(this.value1))
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col", { staticClass: "text-center h3 m-0" }, [
+                        _vm._v(_vm._s(this.value2))
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col", { staticClass: "text-center h3 m-0" }, [
+                        _vm._v(_vm._s(this.value3))
+                      ])
                     ],
                     1
-                  ),
-                  _vm._v(" "),
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-carousel-item",
+                {
+                  attrs: {
+                    transition: "slide-x-transition",
+                    "reverse-transition": "slide-x-reverse-transition"
+                  }
+                },
+                [
                   _c(
-                    "v-carousel-item",
-                    {
-                      attrs: {
-                        transition: "slide-x-transition",
-                        "reverse-transition": "slide-x-reverse-transition"
-                      }
-                    },
+                    "v-row",
+                    { attrs: { "py-3": "" } },
                     [
-                      _c(
-                        "v-row",
-                        { attrs: { "py-3": "" } },
-                        [
-                          _c("v-col", { staticClass: "text-center h3 m-0" }, [
-                            _vm._v("INTEGRITY")
-                          ]),
-                          _vm._v(" "),
-                          _c("v-col", { staticClass: "text-center h3 m-0" }, [
-                            _vm._v("RESILIENCE")
-                          ]),
-                          _vm._v(" "),
-                          _c("v-col", { staticClass: "text-center h3 m-0" }, [
-                            _vm._v("PRIDE")
-                          ])
-                        ],
-                        1
-                      )
+                      _c("v-col", { staticClass: "text-center h3 m-0" }, [
+                        _vm._v(_vm._s(this.value4))
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col", { staticClass: "text-center h3 m-0" }, [
+                        _vm._v(_vm._s(this.value5))
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col", { staticClass: "text-center h3 m-0" }, [
+                        _vm._v(_vm._s(this.value6))
+                      ])
                     ],
                     1
                   )
@@ -16119,7 +16139,7 @@ var render = function() {
           staticClass: "pb-md-2 linkCursor",
           on: {
             click: function($event) {
-              return _vm.gotoPage("home")
+              return _vm.gotoPage("/")
             }
           }
         },
@@ -16140,14 +16160,14 @@ var render = function() {
       _vm._v(" "),
       _c("v-spacer"),
       _vm._v(" "),
-      this.$vuetify.breakpoint.mdAndUp
-        ? _c("v-responsive", { attrs: { "max-width": "260" } }, [
+      this.$vuetify.breakpoint.lgAndUp
+        ? _c("v-responsive", { attrs: { "max-width": "225" } }, [
             _c(
               "a",
               { attrs: { href: "http://www.google.co.uk", target: "_blank" } },
               [
                 _c("v-text-field", {
-                  staticClass: "mr-3",
+                  staticClass: "mr-2",
                   attrs: {
                     dense: "",
                     readonly: "",
@@ -16168,34 +16188,12 @@ var render = function() {
       this.$vuetify.breakpoint.mdAndUp
         ? _c(
             "v-btn",
-            {
-              staticClass: "mr-2",
-              attrs: {
-                outlined: "",
-                rounded: "",
-                "hide-details": "",
-                to: "/pagesearch"
-              }
-            },
+            { staticClass: "mr-2", attrs: { text: "", to: "/pagesearch" } },
             [
               _c("v-icon", { staticClass: "mr-2 grey--text lighten-1" }, [
                 _vm._v("mdi-magnify")
               ]),
-              _vm._v("Search Site\n\t\t\t...\n\t\t")
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      this.$vuetify.breakpoint.lgAndUp
-        ? _c(
-            "v-btn",
-            { staticClass: "mr-2", attrs: { text: "", to: "/" } },
-            [
-              _c("v-icon", { staticClass: "mr-2 grey--text lighten-1" }, [
-                _vm._v("mdi-home")
-              ]),
-              _vm._v("Home\n\t\t")
+              _vm._v("Search Site\n\t\t")
             ],
             1
           )
@@ -25027,36 +25025,6 @@ var render = function() {
     [
       _c("home-header"),
       _vm._v(" "),
-      _c("section", { staticClass: "header white--text py-0" }, [
-        _c("div", { staticClass: "ticker box hidden" }, [
-          _c("article", { staticClass: "media" }, [
-            _c("span", { staticClass: "breaking-news media-left" }, [
-              _vm._v("Breaking News")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "media-content" },
-              [
-                _c("transition", { attrs: { name: "fade", mode: "out-in" } }, [
-                  _c("span", { staticClass: "time" }, [
-                    _vm._v(
-                      "\n\t\t\t\t\t\t\t" +
-                        _vm._s(_vm.news[0].time) +
-                        ":\n\t\t\t\t\t\t\t"
-                    ),
-                    _c("a", { staticClass: "news", attrs: { href: "#" } }, [
-                      _vm._v(_vm._s(_vm.news[0].summary))
-                    ])
-                  ])
-                ])
-              ],
-              1
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
       _c("core-carousel"),
       _vm._v(" "),
       _c(
@@ -25080,7 +25048,7 @@ var render = function() {
                       {
                         on: {
                           click: function($event) {
-                            return _vm.gotoPage("/p2/updates/seansletter12")
+                            return _vm.gotoPage(_vm.seanslatestletter.link)
                           }
                         }
                       },
@@ -25177,11 +25145,14 @@ var render = function() {
                                                     [_vm._v("Sean's Letter")]
                                                   ),
                                                   _vm._v(" "),
-                                                  _c("v-list-item-subtitle", [
-                                                    _vm._v(
-                                                      "Monday 30th November 2020"
-                                                    )
-                                                  ])
+                                                  _c("v-list-item-subtitle", {
+                                                    domProps: {
+                                                      textContent: _vm._s(
+                                                        _vm.seanslatestletter
+                                                          .subtitle
+                                                      )
+                                                    }
+                                                  })
                                                 ],
                                                 1
                                               )
@@ -26061,8 +26032,6 @@ var render = function() {
       _vm._v(" "),
       _c("home-twitters"),
       _vm._v(" "),
-      _c("staff-search"),
-      _vm._v(" "),
       _c("core-values")
     ],
     1
@@ -26630,15 +26599,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CoreCarousel_vue_vue_type_template_id_89c69aec___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CoreCarousel.vue?vue&type=template&id=89c69aec& */ "./resources/js/components/CoreCarousel.vue?vue&type=template&id=89c69aec&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _CoreCarousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CoreCarousel.vue?vue&type=script&lang=js& */ "./resources/js/components/CoreCarousel.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CoreCarousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _CoreCarousel_vue_vue_type_template_id_89c69aec___WEBPACK_IMPORTED_MODULE_0__["render"],
   _CoreCarousel_vue_vue_type_template_id_89c69aec___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -26652,6 +26623,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/CoreCarousel.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CoreCarousel.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/CoreCarousel.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoreCarousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CoreCarousel.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CoreCarousel.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoreCarousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
