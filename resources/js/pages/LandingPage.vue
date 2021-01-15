@@ -1098,7 +1098,7 @@ export default {
 					this.area.actioncards[2].title = this.seanslatestletter.title;
 					this.area.actioncards[2].chipIsLink = "page";
 					this.area.actioncards[2].chipPageLink = this.seanslatestletter.link;
-					this.area.actioncards[2].text = this.seanslatestletter.subtitle;
+					// this.area.actioncards[2].text = this.seanslatestletter.subtitle;
 					this.area.actioncards[2].chip = "Read Sean's Latest Letter";
 				});
 		},
