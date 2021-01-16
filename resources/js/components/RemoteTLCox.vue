@@ -329,7 +329,7 @@ export default {
 		return {
       loading: true,
       currentcontent: this.updates,
-			editing: true,
+			editing: false,
 			showEditHeaderButton: false,
 			editor: new Editor({
 				extensions: [
