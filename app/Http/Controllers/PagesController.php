@@ -93,6 +93,25 @@ class PagesController extends Controller
     return $data;
   }
 
+  public function getRemoteTLUpdates() {
+    $data = [
+      'updates' => DB::table('pages')
+      ->select('pages.title', 'pages.htmlcontent', 'pages.jsoncontent', 'pages.id')
+      ->where('pages.id', '103')
+      ->first(),
+    ];
+    return $data;
+  }
+
+  public function postRemoteTLUpdates(Request $request) {
+    $updates = Page::find(103);
+    $updates->htmlcontent = $request->get('htmlcontent');
+    $updates->jsoncontent = $request->get('jsoncontent');
+    $updates->touch();
+    $updates->save();
+    return response('Content Updated!!!', Response::HTTP_OK);
+  }
+
   public function getSeansLatestLetter() {
     $data = [
       'seanslatestletter' => DB::table('pages')

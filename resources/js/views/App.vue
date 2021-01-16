@@ -105,7 +105,6 @@
 	</v-app>
 </template>
 <script>
-import ClickOutside from "vue-click-outside";
 export default {
 	watch: {
 		$route: function() {}

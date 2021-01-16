@@ -8,7 +8,7 @@ export default class TextH extends Mark {
 
   get defaultOptions() {
     return {
-      class: ["text-h5", "text-h6"]
+      class: ["text-h2", "text-h5", "text-h6"]
     };
   }
 

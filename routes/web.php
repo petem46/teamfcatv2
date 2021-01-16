@@ -29,6 +29,8 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/get/latestpages', 'PagesController@getLatest');
 
+  Route::get('/get/seanslatestletter', 'PagesController@getSeansLatestLetter');
+
   Route::get('/get/userDetails','AppController@getUserDetails');
   Route::post('/post/userDetails/{id}','AppController@updateUserDetails');
 
@@ -55,7 +57,8 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/googlekeys/calendar', 'AppController@getGCalendarKey');
 });
 //GET GOOGLE KEYS
-Route::get('/get/seanslatestletter', 'PagesController@getSeansLatestLetter');
 
+Route::get('/get/remotetlupdates', 'PagesController@getRemoteTLUpdates');
+Route::post('/post/saveRTLUpdates', 'PagesController@postRemoteTLUpdates');
 Route::get('/{any}', 'AppController@index')->where('any', '.*');
 

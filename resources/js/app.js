@@ -9,7 +9,6 @@ import VueFilterDateFormat from "vue-filter-date-format";
 import VueFilterDateParse from "vue-filter-date-parse";
 import colors from "vuetify/lib/util/colors";
 import vueFilterPrettyBytes from 'vue-filter-pretty-bytes'
-import ClickOutside from 'vue-click-outside'
 
 import RolesCheck from "./plugins/roles-check";
 Vue.use(RolesCheck);
@@ -17,7 +16,6 @@ Vue.use(RolesCheck);
 Vue.use(VueFilterDateFormat);
 Vue.use(VueFilterDateParse);
 Vue.use(vueFilterPrettyBytes);
-Vue.use(ClickOutside);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component("landing-page", require("./pages/LandingPage.vue").default);
@@ -49,7 +47,10 @@ Vue.component("tip-tap-editor-bar-textblock", require("./components/EditorBarTex
 Vue.component("tip-tap-editor-bar-image", require("./components/EditorBarImage.vue").default);
 Vue.component("latest-menu", require("./components/LatestMenu.vue").default);
 Vue.component("key-info-menu", require("./components/KeyInfoMenu.vue").default);
+
 Vue.component("remote-learning-menu", require("./components/RemoteLearningMenu.vue").default);
+Vue.component("remotetl-cox", require("./components/RemoteTLCox.vue").default);
+
 Vue.component(
   "academies-menu",
   require("./components/AcademiesMenu.vue").default
