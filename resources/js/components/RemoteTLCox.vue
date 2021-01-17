@@ -17,12 +17,7 @@
 						data-aos="zoom-out-left"
 						data-aos-duration="1500"
 					>
-						<div
-							class="p-lg-5"
-							v-if="!editing"
-							@mouseover="showEditHeaderButton = true"
-							@mouseleave="showEditHeaderButton = false"
-						>
+						<div class="p-lg-5" v-if="!editing">
 							<span v-html="this.currentcontent.htmlcontent"></span>
 							<v-btn
 								dark
@@ -30,12 +25,233 @@
 								absolute
 								top
 								right
-								v-if="showEditHeaderButton && !editing && $canEdit()"
+								v-if="$canEdit()"
 								@click="editing = true"
 								>EDIT</v-btn
 							>
 						</div>
-						<div class="p-lg-5" v-if="editing" v-click-outside="onClickOutside">
+						<div class="p-lg-5" v-if="editing">
+							<v-btn
+								dark
+								fab
+								color="orange darken-2"
+								absolute
+								top
+								right
+								v-if="$canEdit()"
+								@click="onClickOutside"
+								>SAVE</v-btn
+							>
+							<section v-if="editing" class="stickymenubar v-btn--fixed">
+								<v-container>
+									<editor-menu-bar
+										:editor="editor"
+										v-slot="{ commands, isActive, getMarkAttrs }"
+									>
+										<v-toolbar flat dense color="grey lighten-3" height="34">
+											<v-btn
+												icon
+												text
+												small
+												:class="{ 'is-active green--text': isActive.bold() }"
+												@click="commands.bold"
+											>
+												<v-icon>mdi-format-bold</v-icon>
+											</v-btn>
+											<v-btn
+												icon
+												text
+												small
+												:class="{ 'is-active green--text': isActive.italic() }"
+												@click="commands.italic"
+											>
+												<v-icon>mdi-format-italic</v-icon>
+											</v-btn>
+											<v-btn
+												icon
+												text
+												small
+												class="menububble__button"
+												:class="{
+													'is-active green--text': isActive.underline(),
+												}"
+												@click="commands.underline"
+											>
+												<v-icon>mdi-format-underline</v-icon>
+											</v-btn>
+											<v-divider class="mx-2" inset vertical></v-divider>
+											<br />
+											<form
+												class="menububble__form"
+												v-if="linkMenuIsActive"
+												@submit.prevent="setLinkUrl(commands.link, linkUrl)"
+											>
+												<input
+													class="menububble__input"
+													type="text"
+													v-model="linkUrl"
+													placeholder="https://"
+													ref="linkInput"
+													@keydown.esc="hideLinkMenu"
+												/>
+												<v-btn
+													text
+													small
+													class="menububble__button"
+													@click="setLinkUrl(commands.link, null)"
+												>
+													<v-icon>mdi-link-off</v-icon>
+												</v-btn>
+											</form>
+
+											<template v-else>
+												<v-btn
+													text
+													small
+													class="menububble__button"
+													:class="{ 'is-active': isActive.link() }"
+													@click="showLinkMenu(getMarkAttrs('link'))"
+												>
+													<span>{{
+														isActive.link() ? "Update Link" : "Add Link"
+													}}</span>
+													<v-icon>mdi-link-plus</v-icon>
+												</v-btn>
+											</template>
+										</v-toolbar>
+									</editor-menu-bar>
+									<editor-menu-bar
+										:editor="editor"
+										v-slot="{ commands, isActive, getMarkAttrs }"
+									>
+										<v-toolbar flat dense color="grey lighten-3" height="34">
+											<v-btn
+												icon
+												text
+												small
+												class="teal--text px-0"
+												:class="{
+													'is-active':
+														getMarkAttrs('colortext').class == 'teal--text',
+												}"
+												@click="
+													setTealText(
+														commands.colortext,
+														getMarkAttrs('colortext').class
+													)
+												"
+											>
+												<v-icon>mdi-format-color-text</v-icon>
+											</v-btn>
+											<v-btn
+												icon
+												text
+												small
+												class="red--text px-0"
+												:class="{
+													'is-active':
+														getMarkAttrs('colortext').class == 'red--text',
+												}"
+												@click="
+													setRedText(
+														commands.colortext,
+														getMarkAttrs('colortext').class
+													)
+												"
+											>
+												<v-icon>mdi-format-color-text</v-icon>
+											</v-btn>
+											<v-btn
+												icon
+												text
+												small
+												class="orange--text text-darken-2 px-0"
+												:class="{
+													'is-active':
+														getMarkAttrs('colortext').class ==
+														'orange--text text--darken2',
+												}"
+												@click="
+													setOrangeText(
+														commands.colortext,
+														getMarkAttrs('colortext').class
+													)
+												"
+											>
+												<v-icon class>mdi-format-color-text</v-icon>
+											</v-btn>
+											<v-btn
+												icon
+												text
+												small
+												class="grey--text text-darken-2 px-0"
+												:class="{
+													'is-active':
+														getMarkAttrs('colortext').class ==
+														'grey--text text--darken2',
+												}"
+												@click="
+													setGreyText(
+														commands.colortext,
+														getMarkAttrs('colortext').class
+													)
+												"
+											>
+												<v-icon class>mdi-format-color-text</v-icon>
+											</v-btn>
+											<v-divider class="mx-2" inset vertical></v-divider>
+											<v-btn
+												text
+												small
+												:class="{
+													'is-active green--text':
+														getMarkAttrs('textH').class == 'text-h2',
+												}"
+												@click="
+													commands.textH({ class: 'text-h2' });
+													commands.heading({ level: 1 });
+												"
+												>Heading 1
+											</v-btn>
+
+											<v-btn
+												text
+												small
+												:class="{
+													'is-active green--text':
+														getMarkAttrs('textH').class == 'text-h6',
+												}"
+												@click="commands.textH({ class: 'text-h6' })"
+												>Subtitle
+											</v-btn>
+											<v-divider class="mx-2" inset vertical></v-divider>
+											<v-btn
+												icon
+												text
+												small
+												:class="{
+													'green--text is-active': isActive.bullet_list(),
+												}"
+												@click="commands.bullet_list"
+											>
+												<v-icon>mdi-format-list-bulleted</v-icon>
+											</v-btn>
+											<v-btn
+												icon
+												text
+												small
+												:class="{
+													'green--text is-active': isActive.ordered_list(),
+												}"
+												@click="commands.ordered_list"
+											>
+												<v-icon>mdi-format-list-numbered</v-icon>
+											</v-btn>
+										</v-toolbar>
+									</editor-menu-bar>
+								</v-container>
+							</section>
+
 							<editor-menu-bubble
 								class="menububble"
 								:editor="editor"
@@ -85,6 +301,7 @@
 										inset
 										vertical
 									></v-divider>
+									<br />
 									<form
 										class="menububble__form"
 										v-if="linkMenuIsActive"
@@ -232,7 +449,7 @@
 												getMarkAttrs('textH').class == 'text-h6',
 										}"
 										@click="commands.textH({ class: 'text-h6' })"
-										>Subtext
+										>Subtitle
 									</v-btn>
 									<v-divider
 										class="mx-2 white--text"
@@ -315,6 +532,7 @@ import AOS from "aos";
 export default {
 	components: {
 		EditorContent,
+		EditorMenuBar,
 		EditorMenuBubble,
 		Icon,
 	},
@@ -327,8 +545,8 @@ export default {
 	props: ["updates"],
 	data() {
 		return {
-      loading: true,
-      currentcontent: this.updates,
+			loading: true,
+			currentcontent: this.updates,
 			editing: false,
 			showEditHeaderButton: false,
 			editor: new Editor({
@@ -380,8 +598,8 @@ export default {
 		savePage() {
 			console.log("SAVING...");
 			console.log(this.currentcontent);
-      axios.post("/post/saveRTLUpdates", this.currentcontent).then(() => {})
-      // .then(function (res) {
+			axios.post("/post/saveRTLUpdates", this.currentcontent).then(() => {});
+			// .then(function (res) {
 			// 	if (res.status == 200) {
 			// 		console.log(res.status);
 			// 	}
@@ -533,5 +751,11 @@ svg {
 	font-size: 3.75rem !important;
 	letter-spacing: -0.0083333333em !important;
 	line-height: 4.6rem;
+}
+.stickymenubar {
+	position: -webkit-sticky;
+	position: absolute;
+	position: sticky;
+	top: 80px;
 }
 </style>

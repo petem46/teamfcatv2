@@ -26,13 +26,13 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "@fullcalendar/core": "^5.5.0",
+        "@fullcalendar/core": "^5.5.1",
         "@fullcalendar/daygrid": "^5.5.0",
         "@fullcalendar/google-calendar": "^5.5.0",
         "@fullcalendar/interaction": "^5.5.0",
         "@fullcalendar/list": "^5.5.0",
         "@fullcalendar/vue": "^5.5.0",
-        "@mdi/js": "^5.8.55",
+        "@mdi/js": "^5.9.55",
         "aos": "^2.3.4",
         "chart.js": "^2.9.4",
         "chartjs-plugin-annotation": "^0.5.7",
