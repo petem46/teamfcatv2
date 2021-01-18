@@ -16,7 +16,7 @@ class MicrosoftAccountService
     ->whereProviderUserId($providerUser->getId())
     ->first();
     if(User::checkGarstang($providerUser->getEmail()) === 'fail') {
-      return 'fail';
+      dd('fail');
     };
     // dd(User::getGoogleSchool($providerUser->getEmail()));
     // dd($providerUser->getName());
