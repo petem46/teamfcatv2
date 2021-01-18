@@ -23,7 +23,7 @@ class SocialAuthMSGraphController extends Controller
     {
         $user = $service->createOrGetUser(Socialite::driver('microsoft')->user());
         if($user === 'fail') {
-          return redirect()->to('/home')->with('fail','Some message here.');
+          return redirect()->to('/login')->with('fail','Some message here.');
           sleep(3);
         }
         auth()->login($user);
