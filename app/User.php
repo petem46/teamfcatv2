@@ -37,7 +37,7 @@ class User extends Authenticatable
 
     public static function checkGarstang($email) {
       $domain = explode("@", $email);
-      if($domain[1] != 'Garstangcommunityacdemy.com') {
+      if($domain[1] != 'Garstangcommunityacdemy') {
         return('fail');
       }
     }

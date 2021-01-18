@@ -15,10 +15,10 @@ class MicrosoftAccountService
     $account = MicrosoftAccount::whereProvider('microsoft')
     ->whereProviderUserId($providerUser->getId())
     ->first();
-    // if(User::checkGarstang($providerUser->getEmail()) === 'fail') {
-    //   return 'fail';
-    // };
-    dd(User::getGoogleSchool($providerUser->getEmail()));
+    if(User::checkGarstang($providerUser->getEmail()) === 'fail') {
+      return 'fail';
+    };
+    // dd(User::getGoogleSchool($providerUser->getEmail()));
     // dd($providerUser->getName());
     if ($account) {
       $user = User::whereEmail($providerUser->getEmail())->first();
