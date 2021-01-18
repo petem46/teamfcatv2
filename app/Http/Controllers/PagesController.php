@@ -88,7 +88,6 @@ class PagesController extends Controller
       ->join('areas', 'areas.id','=','sections.area_id')
       // ->select('pages.*', DB::raw("CONCAT('/p2',areas.link,'/',pages.slug) as link"), 'sections.link as section_link', 'areas.id as area_id', 'areas.tealTitle as area_title')
       ->select('pages.title', 'pages.subtitle', 'pages.slug', DB::raw("CONCAT('/p2',areas.link,'/',pages.slug) as link"))
-      ->where('deleted_at', null)
       ->orderBy('pages.created_at', 'desc')->limit(5)->get(),
     ];
     return $data;
