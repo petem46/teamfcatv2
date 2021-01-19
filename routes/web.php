@@ -53,12 +53,16 @@ Route::group(['middleware' => ['auth']], function () {
   //Delete a page based on id
   Route::delete('/delete/page/{id}', 'PagesController@delete');
 
+  //GET GOOGLE KEYS
   Route::get('/googlekeys/picker', 'AppController@getGPickerKeys');
   Route::get('/googlekeys/calendar', 'AppController@getGCalendarKey');
-});
-//GET GOOGLE KEYS
 
-Route::get('/get/remotetlupdates', 'PagesController@getRemoteTLUpdates');
-Route::post('/post/saveRTLUpdates', 'PagesController@postRemoteTLUpdates');
-Route::get('/{any}', 'AppController@index')->where('any', '.*');
+  //RTL UPDATES
+  Route::get('/get/remotetlupdates', 'PagesController@getRemoteTLUpdates');
+  Route::post('/post/saveRTLUpdates', 'PagesController@postRemoteTLUpdates');
+
+  Route::get('/{any}', 'AppController@index')->where('any', '.*');
+
+});
+
 
