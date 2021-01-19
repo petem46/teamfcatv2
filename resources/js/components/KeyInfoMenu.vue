@@ -91,6 +91,13 @@ export default {
         link: '/updates'
 			},
 			{
+				icon: "mdi-alert-decagram",
+				iconClass: "teal--text text--lighten-2",
+				title: "Safeguarding Page",
+        subtitle: "Links, consultations and training",
+        link: '/safeguarding'
+			},
+			{
 				icon: "mdi-account-search",
 				iconClass: "teal--text text--lighten-2",
 				title: "Staff Directory",

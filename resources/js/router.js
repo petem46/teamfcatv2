@@ -16,6 +16,7 @@ import MediaPRLandingPage from './pages/MediaPRLandingPage'
 import PremisesLandingPage from './pages/PremisesLandingPage'
 import DataInformationLandingPage from './pages/DataInformationLandingPage'
 import UpdatesLandingPage from './pages/UpdatesLandingPage'
+import SafeguardingLandingPage from './pages/SafeguardingLandingPage'
 import PolicyDocsLandingPage from './pages/PolicyDocsLandingPage'
 import EventsDatesLandingPage from './pages/EventsDatesLandingPage'
 import RemoteTLPage from './pages/RemoteTLPage'
@@ -75,6 +76,12 @@ export default new Router({
       path: '/covid',
       name: 'covid',
       component: CovidLandingPage,
+      props: true
+    },
+    {
+      path: '/safeguarding',
+      name: 'safeguarding',
+      component: SafeguardingLandingPage,
       props: true
     },
     {
