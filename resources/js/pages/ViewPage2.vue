@@ -268,7 +268,7 @@ export default {
 	mounted() {
 		this.getContent();
 		this.currentFolder = "uploads";
-		this.getFolders();
+    this.getFolders();
 	},
 	methods: {
 		getContent() {
@@ -298,7 +298,9 @@ export default {
 					this.sections = res.data.sections;
 					this.sidemenuitems = res.data.sidemenuitems;
 					this.updateHTMLContent();
-					this.scrollToTop();
+          this.scrollToTop();
+          document.title = this.title;
+
 					this.loading = false;
 					// this.endUpload();
 				});

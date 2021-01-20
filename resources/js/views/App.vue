@@ -1,8 +1,15 @@
 <template>
 	<v-app id="teamfcat">
-		<side-nav-drawer :navdrawer="navdrawer" @navdrawerClick="navdrawerClick" ></side-nav-drawer>
+		<side-nav-drawer
+			:navdrawer="navdrawer"
+			@navdrawerClick="navdrawerClick"
+		></side-nav-drawer>
 
-		<top-nav-bar :navdrawer="navdrawer" @navdrawerClick="navdrawerClick" @showCheckDetailsDialog="showCheckDetailsDialog=true"></top-nav-bar>
+		<top-nav-bar
+			:navdrawer="navdrawer"
+			@navdrawerClick="navdrawerClick"
+			@showCheckDetailsDialog="showCheckDetailsDialog = true"
+		></top-nav-bar>
 
 		<!-- MAIN ROUTER-VIEW ------------------------------------->
 		<v-main class="pb-0 pt-15">
@@ -16,15 +23,26 @@
 		<v-dialog v-model="showCheckDetailsDialog" persistent class="container">
 			<v-card class>
 				<v-toolbar color="teal" dark>
-					<v-toolbar-title class="container">Please check and update your details</v-toolbar-title>
+					<v-toolbar-title class="container"
+						>Please check and update your details</v-toolbar-title
+					>
 					<v-spacer></v-spacer>
 					<v-btn text @click="saveDetails">Save</v-btn>
 				</v-toolbar>
 				<v-container fluid pt-3>
 					<v-row>
 						<v-col cols="12" lg="6">
-							<v-text-field v-model="user.name" label="Name" color="teal" disabled hide-details dense>
-								<v-icon slot="prepend" class="mx-2" color="teal">fa-user fa-fw</v-icon>
+							<v-text-field
+								v-model="user.name"
+								label="Name"
+								color="teal"
+								disabled
+								hide-details
+								dense
+							>
+								<v-icon slot="prepend" class="mx-2" color="teal"
+									>fa-user fa-fw</v-icon
+								>
 							</v-text-field>
 						</v-col>
 						<v-col cols="12" lg="6">
@@ -36,7 +54,9 @@
 								hide-details
 								dense
 							>
-								<v-icon slot="prepend" class="mx-2" color="teal">far fa-id-badge fa-fw</v-icon>
+								<v-icon slot="prepend" class="mx-2" color="teal"
+									>far fa-id-badge fa-fw</v-icon
+								>
 							</v-text-field>
 						</v-col>
 					</v-row>
@@ -50,7 +70,9 @@
 								hint="Please enter your role(s) in school. (DSL, French Teacher, Attendance Officer, etc)"
 								persistent-hint
 							>
-								<v-icon slot="prepend" class="mx-2" color="teal">fa-user-tag fa-fw</v-icon>
+								<v-icon slot="prepend" class="mx-2" color="teal"
+									>fa-user-tag fa-fw</v-icon
+								>
 							</v-text-field>
 						</v-col>
 					</v-row>
@@ -64,7 +86,9 @@
 								hint="If you have a school or work Twitter account you can add it here so that colleagues can follow you"
 								persistent-hint
 							>
-								<v-icon slot="prepend" class="mx-2" color="teal">fab fa-twitter fa-fw</v-icon>
+								<v-icon slot="prepend" class="mx-2" color="teal"
+									>fab fa-twitter fa-fw</v-icon
+								>
 							</v-text-field>
 						</v-col>
 					</v-row>
@@ -78,7 +102,9 @@
 								hint="If you have a phone or extension number please enter it here"
 								persistent-hint
 							>
-								<v-icon slot="prepend" class="mx-2" color="teal">fa-phone fa-fw</v-icon>
+								<v-icon slot="prepend" class="mx-2" color="teal"
+									>fa-phone fa-fw</v-icon
+								>
 							</v-text-field>
 						</v-col>
 						<v-col cols="12" lg="6">
@@ -90,7 +116,9 @@
 								hint="If you have a mobile phone for work use please enter it here"
 								persistent-hint
 							>
-								<v-icon slot="prepend" class="mx-2" color="teal">fa-mobile-alt fa-fw</v-icon>
+								<v-icon slot="prepend" class="mx-2" color="teal"
+									>fa-mobile-alt fa-fw</v-icon
+								>
 							</v-text-field>
 						</v-col>
 					</v-row>
@@ -99,20 +127,25 @@
 		</v-dialog>
 
 		<!-- FOOTER SECTION ------------------------------------->
-		<v-footer hidden app clipped class="px-10">
-			<span>TeamFCAT &copy; 2020</span>
+		<v-footer app clipped class="px-10">
+			<span>TeamFCAT 2021</span>
 		</v-footer>
 	</v-app>
 </template>
 <script>
 export default {
 	watch: {
-		$route: function() {}
+		$route: {
+			handler: (to, from) => {
+				document.title = to.meta.title || "TeamFCAT";
+			},
+			immediate: true,
+		},
 	},
 	data: () => ({
 		navdrawer: false,
 		showCheckDetailsDialog: false,
-		user: ""
+		user: "",
 	}),
 	created() {
 		// this.$vuetify.theme.dark = false;
@@ -165,11 +198,11 @@ export default {
 				.then(() => {
 					window.location.href = "/login";
 				})
-				.catch(error => {
+				.catch((error) => {
 					window.location.href = "/login";
 				});
-		}
-	}
+		},
+	},
 };
 </script>
 <style lang="scss" scoped>

@@ -40,12 +40,20 @@ export default new Router({
     {
       path: '/',
       name: 'base',
-      component: Home
+      component: Home,
+      meta: {
+        auth: true,
+        title: 'Home Page'
+      }
     },
     {
       path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
+      meta: {
+        auth: true,
+        title: 'Home Page'
+      }
     },
 
     // {
@@ -58,103 +66,171 @@ export default new Router({
       path: '/p2/:areaname/:slug',
       name: 'viewpage2',
       component: ViewPage2,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: ':areaname Page'
+      }
     },
     {
       path: '/newpage/:areaname/:slug',
       name: 'newpage',
       component: ViewPage2,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: ':areaname New Page'
+      }
     },
     {
       path: '/finance',
       name: 'finance',
       component: FinanceLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Finance Landing Page'
+      }
     },
     {
       path: '/covid',
       name: 'covid',
       component: CovidLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Covid Landing Page'
+      }
     },
     {
       path: '/safeguarding',
       name: 'safeguarding',
       component: SafeguardingLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Safegaurding Landing Page'
+      }
     },
     {
       path: '/qigs',
       name: 'qigs',
       component: QIGLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'QIG Landing Page'
+      }
     },
     {
       path: '/ict',
       name: 'ict',
       component: ICTLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'ICT Landing Page'
+      }
     },
     {
       path: '/healthandsafety',
       name: 'healthandsafety',
       component: HealthandSafetyLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Health & Safety Landing Page'
+      }
     },
     {
       path: '/dataprotection',
       name: 'dataprotection',
       component: DataProtectionLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Data Protection Landing Page'
+      }
     },
     {
       path: '/mediaandpr',
       name: 'mediaandpr',
       component: MediaPRLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Media & PR Landing Page'
+      }
     },
     {
       path: '/hr',
       name: 'hr',
       component: HRLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'HR Landing Page'
+      }
     },
     {
       path: '/premises',
       name: 'premises',
       component: PremisesLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Premises Landing Page'
+      }
     },
     {
       path: '/datamis',
       name: 'datamis',
       component: DataInformationLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Data Landing Page'
+      }
     },
     {
       path: '/updates',
       name: 'updates',
       component: UpdatesLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Updates Landing Page'
+      }
     },
     {
       path: '/policies',
       name: 'policies',
       component: PolicyDocsLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Policies Landing Page'
+      }
     },
     {
       path: '/calendar',
       name: 'calendar',
       component: EventsDatesLandingPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Calendar Landing Page'
+      }
     },
     {
       path: '/remotetl',
       name: 'remotetl',
       component: RemoteTLPage,
-      props: true
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Remote T&L Landing Page'
+      }
     },
     {
       path: '/panda',
@@ -172,13 +248,21 @@ export default new Router({
       path: '/staffsearch',
       name: 'staffsearch',
       component: StaffSearch,
-      // props: true
+      // props: true,
+      meta: {
+        auth: true,
+        title: 'Staff Search Page'
+      }
     },
     {
       path: '/pagesearch',
       name: 'pagesearch',
       component: PageSearch,
-      // props: true
+      // props: true,
+      meta: {
+        auth: true,
+        title: 'Page Search Page'
+      }
     },
   ],
   // scrollBehavior(to, from, savedPosition) {
