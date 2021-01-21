@@ -42,12 +42,14 @@ export default {
 				googleCalendarApiKey: "",
 				eventSources: [
 					{
-						googleCalendarId:
+            // FCAT General Intranet Calendar
+            googleCalendarId:
 							"c_2p3r9nfi70vb1iadb9ptbu13bc@group.calendar.google.com",
 						color: "green", // an option!
 						textColor: "white", // an option!
 					},
 					{
+            // FCAT Meeting Intranet Calendar
 						googleCalendarId:
 							"c_r3o3ucgkb81vhns43uco3mool0@group.calendar.google.com",
 					},

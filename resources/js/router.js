@@ -109,7 +109,7 @@ export default new Router({
       props: true,
       meta: {
         auth: true,
-        title: 'Safegaurding Landing Page'
+        title: 'Safeguarding Landing Page'
       }
     },
     {
