@@ -22,7 +22,7 @@
 						class="grey--text text--darken-2"
 					>
 						<template v-slot:item.jsoncontent="{ item }">
-							<v-btn icon :to="'/p2' + item.area_link + '/' + item.slug" >Visit Page</v-btn>
+							<v-btn :to="'/p2' + item.area_link + '/' + item.slug" >Visit Page</v-btn>
 						</template>
 					</v-data-table>
 				</v-card>
