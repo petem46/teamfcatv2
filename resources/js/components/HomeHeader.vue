@@ -18,7 +18,7 @@
 							<v-card>
 								<v-system-bar dark height="8" color="blue"></v-system-bar>
 								<v-sheet color="grey lighten-2">
-									<v-img height="550" src="/images/armfield-banner.jpg"></v-img>
+									<v-img height="550" src="/images/1.jpg"></v-img>
 								</v-sheet>
 							</v-card>
 						</v-carousel-item>
@@ -26,7 +26,7 @@
 							<v-card>
 								<v-system-bar dark height="8" color="blue"></v-system-bar>
 								<v-sheet color="grey lighten-2">
-									<v-img height="550" src="/images/gateway-banner.jpg"></v-img>
+									<v-img height="550" src="/images/2.jpg"></v-img>
 								</v-sheet>
 							</v-card>
 						</v-carousel-item>
@@ -34,7 +34,7 @@
 							<v-card>
 								<v-system-bar dark height="8" color="purple darken-1"></v-system-bar>
 								<v-sheet color="purple lighten-2">
-									<v-img height="550" src="/images/aspire-banner-1.jpg"></v-img>
+									<v-img height="550" src="/images/3.jpg"></v-img>
 								</v-sheet>
 							</v-card>
 						</v-carousel-item>
@@ -42,7 +42,7 @@
 							<v-card>
 								<v-system-bar dark height="8" color="blue darken-2"></v-system-bar>
 								<v-sheet color="blue lighten-2">
-									<v-img height="550" src="/images/westcliff-banner.jpg"></v-img>
+									<v-img height="550" src="/images/4.jpg"></v-img>
 								</v-sheet>
 							</v-card>
 						</v-carousel-item>
@@ -50,7 +50,7 @@
 							<v-card>
 								<v-system-bar dark height="8" color="orange darken-2"></v-system-bar>
 								<v-sheet color="grey lighten-2">
-									<v-img height="550" src="/images/garstang-banner.jpg"></v-img>
+									<v-img height="550" src="/images/5.jpg"></v-img>
 								</v-sheet>
 							</v-card>
 						</v-carousel-item>
