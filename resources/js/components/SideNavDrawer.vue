@@ -1,7 +1,7 @@
 <template>
 	<v-navigation-drawer v-model="navdrawer" app clipped floating light stateless>
 		<v-list dense nav>
-			<v-list-item link  @click="navdrawerClick" to="/">
+			<v-list-item link @click="navdrawerClick" to="/">
 				<v-list-item-action>
 					<v-icon class="grey--icon grey--text">mdi-home</v-icon>
 				</v-list-item-action>
@@ -9,7 +9,7 @@
 					<v-list-item-title class="grey--text">Home</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
-			<v-list-item link  @click="navdrawerClick" to="/covid">
+			<v-list-item link @click="navdrawerClick" to="/covid">
 				<v-list-item-action>
 					<v-icon class="grey--icon grey--text"
 						>mdi-cellphone-information</v-icon
@@ -19,7 +19,7 @@
 					<v-list-item-title class="grey--text">COVID-19</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
-			<v-list-item link  @click="navdrawerClick" to="/updates">
+			<v-list-item link @click="navdrawerClick" to="/updates">
 				<v-list-item-action>
 					<v-icon class="grey--icon grey--text"
 						>mdi-newspaper-variant-outline</v-icon
@@ -29,7 +29,7 @@
 					<v-list-item-title class="grey--text">Updates</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
-			<v-list-item link  @click="navdrawerClick" to="/remotetl">
+			<v-list-item link @click="navdrawerClick" to="/remotetl">
 				<v-list-item-action>
 					<v-icon class="grey--icon grey--text">mdi-cast-education</v-icon>
 				</v-list-item-action>
@@ -83,19 +83,17 @@
 					</v-list-item-content>
 				</v-list-item>
 			</v-list-group>
-			<v-divider></v-divider>
-			<a href="https://cpd.teamfcat.co.uk" target="_blank">
-				<v-list-item link>
-					<v-list-item-action>
-						<v-icon class="grey--icon grey--text"
-							>mdi-food-apple-outline</v-icon
-						>
-					</v-list-item-action>
-					<v-list-item-content>
-						<v-list-item-title class="grey--text">CPD Portal</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
-			</a>
+			<v-divider v-if="$isSiteAdmin()"></v-divider>
+			<v-list-item v-if="$isSiteAdmin()" link @click="navdrawerClick" to="/usermanagement">
+				<v-list-item-action>
+					<v-icon class="grey--icon grey--text">mdi-account-group</v-icon>
+				</v-list-item-action>
+				<v-list-item-content>
+					<v-list-item-title class="grey--text"
+						>User Manager</v-list-item-title
+					>
+				</v-list-item-content>
+			</v-list-item>
 			<v-divider></v-divider>
 			<v-list-group prepend-icon="mdi-web">
 				<template v-slot:activator>
@@ -255,6 +253,9 @@ export default {
 	methods: {
 		navdrawerClick() {
 			this.$emit("navdrawerClick");
+		},
+		isSiteAdmin() {
+			this.$isSiteAdmin();
 		},
 	},
 };
