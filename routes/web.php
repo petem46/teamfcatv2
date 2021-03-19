@@ -32,12 +32,14 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/get/seanslatestletter', 'PagesController@getSeansLatestLetter');
 
   Route::get('/get/userDetails','AppController@getUserDetails');
-  Route::post('/post/userDetails/{id}','AppController@updateUserDetails');
+  Route::post('/post/userDetails/{id}','UsersController@updateUserDetails');
 
   Route::get('/get/arealanding/{id}', 'PagesController@getAreaLanding');
   Route::put('/put/updateAreaLanding/{id}', 'PagesController@updateAreaLanding');
 
-  Route::get('/get/allStaff', 'AppController@getAllStaff');
+  Route::get('/get/allStaff', 'UsersController@getAllStaff');
+  Route::get('/get/getSchools', 'UsersController@getSchools');
+  Route::get('/get/getRoles', 'UsersController@getRoles');
 
   Route::get('/get/page/content/{areaname}/{slug}', 'PagesController@getContent');
   Route::post('/post/savepage', 'PagesController@savePage');

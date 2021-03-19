@@ -161,7 +161,7 @@ export default {
 					this.$store.commit("setUser", data);
 					this.$store.commit("setName", data.name);
 					this.$store.commit("setUserId", data.id);
-					this.$store.commit("setRoleId", data.role_id);
+					this.$store.commit("setRoles", data.role);
 					this.$store.commit("setAvatar", data.avatar);
 					this.$store.commit("setGtoken", data.token);
 					this.$store.commit("setSchool", data.school);

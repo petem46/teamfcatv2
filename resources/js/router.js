@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home'
 import Covid from './pages/Covid'
 import LandingPage from './pages/LandingPage'
+import UserManagement from './pages/UserManagement'
 import StaffSearch from './pages/StaffSearch'
 import PageSearch from './pages/PageSearch'
 import CovidLandingPage from './pages/CovidLandingPage'
@@ -243,6 +244,16 @@ export default new Router({
       name: 'penguin',
       component: Penguin,
       props: true
+    },
+    {
+      path: '/usermanagement',
+      name: 'usermanagement',
+      component: UserManagement,
+      // props: true,
+      meta: {
+        auth: true,
+        title: 'User Management Page'
+      }
     },
     {
       path: '/staffsearch',

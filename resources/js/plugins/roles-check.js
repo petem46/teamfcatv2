@@ -3,9 +3,12 @@ export default {
     Vue.mixin({});
 
     Vue.prototype.$canEdit = function() {
-      if (parseInt(this.$store.getters.getRoleId) < 3) {
-        return 1;
-      } else return 0;
+      let arr = this.$store.getters.getRoles;
+
+      var r = arr.some(i => i.name.includes('Editor'));
+
+      return r;
+
     };
   }
 };

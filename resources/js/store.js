@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     user: null,
     userid: null,
-    roleid: null,
+    roles: null,
     avatar: null,
     name: null,
     school: null,
@@ -26,8 +26,8 @@ export default new Vuex.Store({
     setSchool(state, id) {
       state.school = id;
     },
-    setRoleId(state, id) {
-      state.roleid = id;
+    setRoles(state, roles) {
+      state.roles = roles;
     },
     setAvatar(state, id) {
       state.avatar = id;
@@ -50,8 +50,8 @@ export default new Vuex.Store({
     getUserId(state) {
       return state.userid;
     },
-    getRoleId(state) {
-      return state.roleid;
+    getRoles(state) {
+      return state.roles;
     },
     getAvatar(state) {
       return state.avatar;
