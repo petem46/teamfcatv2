@@ -30,22 +30,36 @@
 					/>
 				</div>
 				<!-- Content Column -->
-				<div v-if="!loading" class="col-lg-9 pl-4 mb-4 order-md-1 order-1 white">
-					<page-content v-if="!showEdit" :page="page" fluid app class="container"></page-content>
-
+				<div
+					v-if="!loading"
+					class="col-lg-9 pl-4 mb-4 order-md-1 order-1 white"
+				>
+					<page-content
+						v-if="!showEdit"
+						:page="page"
+						fluid
+						app
+						class="container"
+					></page-content>
+					<!-- START OF EDIT SECTION -->
 					<v-container v-if="showEdit" fluid app class="px-0">
 						<v-form ref="form" v-model="valid">
 							<v-card>
 								<v-toolbar dark color="teal">
 									<v-toolbar-title
-										v-if="slug !='new'"
+										v-if="slug != 'new'"
 										class="teal white--text"
 										@click="checkSlug()"
-									>EDIT {{page.title}} PAGE</v-toolbar-title>
-									<v-toolbar-title v-if="slug =='new'" class="teal white--text">CREATE NEW PAGE</v-toolbar-title>
+										>EDIT {{ page.title }} PAGE</v-toolbar-title
+									>
+									<v-toolbar-title v-if="slug == 'new'" class="teal white--text"
+										>CREATE NEW PAGE</v-toolbar-title
+									>
 									<v-spacer></v-spacer>
 									<v-toolbar-items>
-										<v-btn dark v-if="showEdit" text @click="savePage()">Save</v-btn>
+										<v-btn dark v-if="showEdit" text @click="savePage()"
+											>Save</v-btn
+										>
 									</v-toolbar-items>
 								</v-toolbar>
 								<v-col>
@@ -56,6 +70,7 @@
 										item-value="id"
 										label="Page Section"
 										outlined
+                    readonly
 										v-model="page.section_id"
 										:rules="[() => !!page.section_id || 'A Section required']"
 									></v-select>
@@ -69,9 +84,11 @@
 										required
 										ref="title"
 										:rules="[
-                      () => !!page.title || 'A page title required',
-                      () => !!checkTitle || 'A page with this title already exists, please choose a new title'
-                    ]"
+											() => !!page.title || 'A page title required',
+											() =>
+												!!checkTitle ||
+												'A page with this title already exists, please choose a new title',
+										]"
 										:error-messages="errorMessages"
 									></v-text-field>
 								</v-col>
@@ -92,7 +109,11 @@
 											outlined
 											v-model="computedslug"
 											label="Default Page Link"
-											:rules="[() => !!checkDefaultSlug || 'A page with this link already exists, please choose a new link']"
+											:rules="[
+												() =>
+													!!checkDefaultSlug ||
+													'A page with this link already exists, please choose a new link',
+											]"
 											required
 										>
 											<template v-slot:append>
@@ -100,7 +121,8 @@
 													<template v-slot:activator="{ on }">
 														<v-icon v-on="on">mdi-help-circle-outline</v-icon>
 													</template>
-													This is the default page link generated from the page title.
+													This is the default page link generated from the page
+													title.
 												</v-tooltip>
 											</template>
 										</v-text-field>
@@ -115,26 +137,42 @@
 											v-model="page.slug"
 											label="Add Custom Page Link"
 											:rules="[
-                        () => !!checkCustomSlug || 'A page with this link already exists, please choose a new link'
-                      ]"
+												() =>
+													!!checkCustomSlug ||
+													'A page with this link already exists, please choose a new link',
+											]"
 										>
 											<template v-slot:append>
 												<v-tooltip bottom>
 													<template v-slot:activator="{ on }">
 														<v-icon v-on="on">mdi-help-circle-outline</v-icon>
 													</template>
-													The custom link will overide the default link and form part of the page link URL
+													The custom link will overide the default link and form
+													part of the page link URL
 												</v-tooltip>
 											</template>
 										</v-text-field>
 									</v-col>
 								</v-row>
+								<v-col cols="12">
+									<v-select
+										v-model="page.role"
+										:items="roles"
+										item-text="name"
+										item-value="id"
+										label="Select Access Roles for Page"
+										multiple
+                    outlined
+										chips
+										return-object
+									></v-select>
+								</v-col>
 								<v-col>
 									<div class="content-label px-1">Page Content</div>
 									<div class="white drag-area">
 										<draggable
 											class="list-group pt-3"
-											style="border: thin solid rgba(0,0,0,0.38)"
+											style="border: thin solid rgba(0, 0, 0, 0.38)"
 											:list="list2"
 											group="pageElements"
 											v-bind="dragOptions"
@@ -142,7 +180,10 @@
 											@end="drag = false"
 											@change="updateHTML"
 										>
-											<transition-group type="transition" :name="!drag ? 'flip-list' : null">
+											<transition-group
+												type="transition"
+												:name="!drag ? 'flip-list' : null"
+											>
 												<tip-tap-editor
 													class="editor__content"
 													v-for="(item, idx) in list2"
@@ -160,12 +201,27 @@
 								</v-col>
 								<v-card-actions>
 									<v-spacer></v-spacer>
-									<v-btn @click="scrollToTop(); onShowEditClick();" dark color="grey">Close</v-btn>
-									<v-btn :disabled="!valid" @click="savePage()" :dark="valid" color="green">Save</v-btn>
+									<v-btn
+										@click="
+											scrollToTop();
+											onShowEditClick();
+										"
+										dark
+										color="grey"
+										>Close</v-btn
+									>
+									<v-btn
+										:disabled="!valid"
+										@click="savePage()"
+										:dark="valid"
+										color="green"
+										>Save</v-btn
+									>
 								</v-card-actions>
 							</v-card>
 						</v-form>
 					</v-container>
+					<!-- END OF EDIT SECTION -->
 				</div>
 
 				<file-manager
@@ -179,15 +235,39 @@
 			</v-row>
 		</div>
 		<!-- START OF CONFIRM DELETE PAGE DIALOG BOX -->
-		<v-dialog v-model="showConfirmDelete" persistent min-width="300" max-width="30%">
+		<v-dialog
+			v-model="showConfirmDelete"
+			persistent
+			min-width="300"
+			max-width="30%"
+		>
 			<v-card>
-				<v-card-title class="headline red darken-2 white--text">Confirm Delete Page</v-card-title>
-				<v-card-text class="text-body-1 pt-3">Are you sure you want to delete this page?</v-card-text>
-				<v-card-text class="text-body-1 red--text">This action will delete this page and all content!</v-card-text>
+				<v-card-title class="headline red darken-2 white--text"
+					>Confirm Delete Page</v-card-title
+				>
+				<v-card-text class="text-body-1 pt-3"
+					>Are you sure you want to delete this page?</v-card-text
+				>
+				<v-card-text class="text-body-1 red--text"
+					>This action will delete this page and all content!</v-card-text
+				>
 				<v-card-actions>
-					<v-btn color="grey darken-1" outlined @click="showConfirmDelete = false">NO, Cancel</v-btn>
+					<v-btn
+						color="grey darken-1"
+						outlined
+						@click="showConfirmDelete = false"
+						>NO, Cancel</v-btn
+					>
 					<v-spacer></v-spacer>
-					<v-btn color="red darken-1" text @click="showConfirmDelete = false; deletePage()">YES, DELETE</v-btn>
+					<v-btn
+						color="red darken-1"
+						text
+						@click="
+							showConfirmDelete = false;
+							deletePage();
+						"
+						>YES, DELETE</v-btn
+					>
 				</v-card-actions>
 			</v-card>
 		</v-dialog>
@@ -209,7 +289,7 @@ import draggable from "vuedraggable";
 import Axios from "axios";
 export default {
 	components: {
-		draggable
+		draggable,
 	},
 	props: ["areaname", "slug"],
 	data() {
@@ -229,11 +309,12 @@ export default {
 				title: "",
 				htmlcontent: "",
 				jsoncontent: {
-					content: []
-				}
+					content: [],
+				},
 			},
 			valid: "",
 			sections: [],
+			roles: [],
 			// selectedFile: "",
 			// selectedFileDetails: {
 			// 	name: "",
@@ -261,21 +342,25 @@ export default {
 				show: false,
 				text: "",
 				timeout: 2000,
-				y: "top"
-			}
+				y: "top",
+			},
 		};
 	},
 	mounted() {
 		this.getContent();
 		this.currentFolder = "uploads";
-    this.getFolders();
+		this.getFolders();
+		this.getRoles();
 	},
 	methods: {
 		getContent() {
 			this.loading = true;
 			axios
 				.get("/get/page/content/" + this.areaname + "/" + this.slug)
-				.then(res => {
+				.then((res) => {
+					if (res.data === "NOPE") {
+						this.$router.push("/" + this.areaname);
+					}
 					if (this.slug != "newpage") {
 						this.list2 = JSON.parse(res.data.pagecontent.jsoncontent);
 						this.page = res.data.pagecontent;
@@ -291,15 +376,15 @@ export default {
 							name: "Text Block",
 							id: this.randID(),
 							content:
-								"<p>Replace this text with new page content using the edit tools on the right.</p>"
+								"<p>Replace this text with new page content using the edit tools on the right.</p>",
 						});
 						this.showEdit = true;
 					}
 					this.sections = res.data.sections;
 					this.sidemenuitems = res.data.sidemenuitems;
 					this.updateHTMLContent();
-          this.scrollToTop();
-          document.title = this.title;
+					this.scrollToTop();
+					document.title = this.title;
 
 					this.loading = false;
 					// this.endUpload();
@@ -322,9 +407,12 @@ export default {
 				newpage.append("htmlcontent", this.page.htmlcontent);
 				newpage.append("jsoncontent", this.page.jsoncontent);
 				newpage.append("state_id", this.page.state_id);
+				for(var i = 0; i < this.page.role.length; i++) {
+          newpage.append("role[] ", this.page.role[i]['id']);
+        }
 				axios
 					.post("/post/savepage2", newpage)
-					.then(res => {
+					.then((res) => {
 						if (res.status == 200) {
 							this.$router.push(this.page.slug).catch(() => {
 								this.getContent();
@@ -332,7 +420,7 @@ export default {
 							this.onShowEditClick();
 						}
 					})
-					.catch(error => {
+					.catch((error) => {
 						this.scrollToTop();
 						this.$refs.title.focus();
 						this.snackbar.color = "red";
@@ -348,7 +436,7 @@ export default {
 		deletePage() {
 			if (this.valid) {
 				var section = this.page.section.link;
-				axios.delete("/delete/page/" + this.page.id).then(res => {
+				axios.delete("/delete/page/" + this.page.id).then((res) => {
 					if (res.status == 200) {
 						this.$router.push(section).catch(() => {
 							this.getContent();
@@ -369,7 +457,7 @@ export default {
 			let fdfolders = new FormData();
 			fdfolders.append("folder", this.currentFolder);
 
-			axios.post("/getFolders", fdfolders).then(res => {
+			axios.post("/getFolders", fdfolders).then((res) => {
 				if (res.status == 200) {
 					this.allFolders = res.data.allFolders;
 					this.dirFiles = res.data.dirFiles;
@@ -377,6 +465,14 @@ export default {
 				}
 			});
 			// }
+		},
+		getRoles() {
+			axios.get("/get/getRoles").then((res) => {
+				if (res.status == 200) {
+					console.log(res.data);
+					this.roles = res.data;
+				}
+			});
 		},
 		showFolderName(folder) {
 			return folder.replace("public/uploads/", "");
@@ -411,11 +507,11 @@ export default {
 				name: file.type,
 				id: this.randID(),
 				content:
-          '<div role="imageHolder">' +
-          '<video width="600" controls><source src="' +
+					'<div role="imageHolder">' +
+					'<video width="600" controls><source src="' +
 					file.url +
 					'" type="video/mp4" /></video>' +
-					'</div>' +
+					"</div>" +
 					// '<div class="row"><div class="text-left col-12"><a href="' +
 					// file.url +
 					// '" target="_blank">' +
@@ -424,8 +520,8 @@ export default {
 					// '<i class="far fa-file-video"></i>' +
 					// '</div>' +
 					// file.name +
-          // '</div></a></div>' +
-          '</div>'
+					// '</div></a></div>' +
+					"</div>",
 			});
 		},
 		insertImage(file) {
@@ -440,7 +536,7 @@ export default {
 					'"><img src="' +
 					file.url +
 					'" /></a>' +
-					"</div>"
+					"</div>",
 			});
 		},
 		insertFile(file) {
@@ -455,7 +551,7 @@ export default {
 					this.getFileIcon(file.type) +
 					"</div>" +
 					file.name +
-					"</div></a></div></div>"
+					"</div></a></div></div>",
 			});
 		},
 		getFileIcon(type) {
@@ -489,21 +585,21 @@ export default {
 			this.list2.push({
 				name: item.name,
 				id: this.randID(),
-				content: item.content
+				content: item.content,
 			});
 		},
 		addTextBlock(item) {
 			this.list2.push({
 				name: item.name,
 				id: this.randID(),
-				content: item.content
+				content: item.content,
 			});
 		},
 		addDivider(item) {
 			this.list2.push({
 				name: item.name,
 				id: this.randID(),
-				content: item.content
+				content: item.content,
 			});
 		},
 		addGoolgeDriveFile(gFiles) {
@@ -521,7 +617,7 @@ export default {
 							gFiles[i].iconUrl +
 							'"/></div>' +
 							gFiles[i].name +
-							"</div></a></div></div>"
+							"</div></a></div></div>",
 					});
 				}
 				if (gFiles[i].type == "photo") {
@@ -536,7 +632,7 @@ export default {
 							'"><img src="https://drive.google.com/uc?export=download&amp;id=' +
 							gFiles[i].id +
 							'" /></a>' +
-							"</div>"
+							"</div>",
 					});
 				}
 				if (gFiles[i].type == "video") {
@@ -555,7 +651,7 @@ export default {
 							gFiles[i].iconUrl +
 							'"/></div>' +
 							gFiles[i].name +
-							"</div></a></div></div>"
+							"</div></a></div></div>",
 					});
 				}
 				// if (gFiles[i].type == "video") {
@@ -580,16 +676,12 @@ export default {
 			}
 		},
 		randID() {
-			return Math.random()
-				.toString(16)
-				.slice(2);
+			return Math.random().toString(16).slice(2);
 		},
 		newId(e) {
 			if (e.id) return e.id;
 
-			const key = Math.random()
-				.toString(16)
-				.slice(2);
+			const key = Math.random().toString(16).slice(2);
 
 			this.$set(e, "id", key);
 
@@ -645,18 +737,21 @@ export default {
 				this.page.slug = this.page.slug + "-";
 				e.preventDefault();
 			}
-		}
+		},
 	},
 	computed: {
+		isHrUser() {
+			this.$isHrUser();
+		},
+
 		dragOptions() {
 			return {
 				animation: 200,
 				group: "description",
 				disabled: false,
-				ghostClass: "ghost"
+				ghostClass: "ghost",
 			};
 		},
-
 		computedslug() {
 			return this.sanitizeTitle(this.page.title);
 		},
@@ -698,13 +793,13 @@ export default {
 				check = true;
 			}
 			return check;
-		}
+		},
 	},
 	watch: {
 		slug(val) {
 			this.page.slug = val.replace(/\W/g, "");
-		}
-	}
+		},
+	},
 };
 </script>
 <style lang="scss" scoped>

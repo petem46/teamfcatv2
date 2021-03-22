@@ -62,7 +62,7 @@
 								absolute
 								top
 								right
-								v-if="showEditHeaderButton && $canEdit()"
+								v-if="showEditHeaderButton && $canEdit(this.pagearea)"
 								@click="editTitle = true"
 								>EDIT</v-btn
 							>
@@ -397,7 +397,7 @@
 									class="mt-2"
 									absolute
 									right
-									v-if="showEditCardOneButton && card.id == 1 && $canEdit()"
+									v-if="showEditCardOneButton && card.id == 1 && $canEdit(pagearea)"
 									@click="onEditCard(index)"
 								>
 									<v-icon small :color="card.color">fa-edit</v-icon>
@@ -408,7 +408,7 @@
 									class="mt-2"
 									absolute
 									right
-									v-if="showEditCardTwoButton && card.id == 2 && $canEdit()"
+									v-if="showEditCardTwoButton && card.id == 2 && $canEdit(pagearea)"
 									@click="onEditCard(index)"
 								>
 									<v-icon small :color="card.color">fa-edit</v-icon>
@@ -419,7 +419,7 @@
 									class="mt-2"
 									absolute
 									right
-									v-if="showEditCardThreeButton && card.id == 3 && $canEdit()"
+									v-if="showEditCardThreeButton && card.id == 3 && $canEdit(pagearea)"
 									@click="onEditCard(index)"
 								>
 									<v-icon small :color="card.color">fa-edit</v-icon>
@@ -1005,6 +1005,7 @@ export default {
 			area: {},
 			sections: {},
 			pages: {},
+      pagearea: "",
 			showEditHeaderButton: false,
 			showEditCardOneButton: false,
 			showEditCardTwoButton: false,
@@ -1082,7 +1083,7 @@ export default {
 	},
 	methods: {
 		canEdit() {
-			this.$canEdit();
+			this.$canEdit(this.pagearea);
 		},
 		getContent() {
 			this.loading = true;
@@ -1091,6 +1092,7 @@ export default {
 				.get("/get/arealanding/" + this.$route.name)
 				.then(({ data }) => {
 					this.area = data;
+          this.pagearea = this.area.name;
 				})
 				.then(() => {
 					this.getPages();

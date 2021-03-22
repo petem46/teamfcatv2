@@ -5,8 +5,9 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
-class User extends Authenticatable
+Class User extends Authenticatable
 {
   use Notifiable;
 
@@ -26,6 +27,22 @@ class User extends Authenticatable
   public function role()
   {
     return $this->belongsToMany('App\Role');
+  }
+
+  public static function hasRole($section)
+  {
+    $user = self::with('role')->where('id', Auth::id())->first();
+    $rolesLength = count($user->role);
+    // dd(Auth::id());
+    for ($x = 0; $x < $rolesLength; $x++) {
+      if (strpos($user->role[$x]['name'], 'Editor') >= 0 && $user->role[$x]['area'] === $section) {
+        return true;
+      }
+      if ($user->role[$x]['name'] === 'Site Editor') {
+        return true;
+      }
+    }
+    return false;
   }
 
   public static function checkAccess($email)

@@ -15,4 +15,8 @@ class Page extends Model
   {
     return $this->belongsTo('App\Section');
   }
+  public function role()
+  {
+    return $this->belongsToMany('App\Role');
+  }
 }
