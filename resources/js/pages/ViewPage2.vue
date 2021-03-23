@@ -445,7 +445,7 @@ export default {
 				}
 
 				for (var i = 0; i < this.page.role.length; i++) {
-					newpage.append("role[] ", this.page.role[i]["id"]);
+					newpage.append("role[]", this.page.role[i]["id"]);
 				}
 				// console.log(newpage.getAll());
 				axios

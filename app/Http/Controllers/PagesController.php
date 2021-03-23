@@ -208,8 +208,6 @@ class PagesController extends Controller
       $uid = 1;
     }
 
-    // dd($request);
-
     $page = Page::find($request->get('id'));
     try {
       if ($page) {
@@ -247,9 +245,9 @@ class PagesController extends Controller
         ]);
 
         if (!empty($request->get('role'))) {
-          $page->role()->detach();
+          $newpage->role()->detach();
           foreach ($request->get('role') as $role) {
-            $page->role()->attach($role);
+            $newpage->role()->attach($role);
           }
         }
         return response('New Page Created', Response::HTTP_OK)->header('page_id', $newpage->id);
@@ -258,6 +256,10 @@ class PagesController extends Controller
       $errorCode = $e->errorInfo[1];
       if ($errorCode == 1062) {
         return response('A page with this TITLE or PAGE LINK already exists.', Response::HTTP_NOT_ACCEPTABLE)->header('error_code', $errorCode);
+      }
+      else {
+        return response($e, Response::HTTP_NOT_ACCEPTABLE)->header('error_code', $errorCode);
+
       }
     }
   }
