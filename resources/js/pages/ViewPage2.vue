@@ -331,7 +331,7 @@ export default {
 					content: [],
 				},
 				role: [],
-				showinupdates: true,
+				showinupdates: "",
 			},
 			valid: "",
 			sections: [],

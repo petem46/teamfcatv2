@@ -179,7 +179,7 @@ class PagesController extends Controller
     return $data = [
       'pagecontent' => $pagecontent,
       'roles' => Role::get(),
-      'sections' => Section::get(),
+      'sections' => Section::select('id', 'title', 'link')->where('area_id', $section_id)->where('active', 1)->orderBy('created_at', 'DESC')->get(),
       'sidemenuitems' => Page::select('slug', 'title')->with('section')->where('section_id', $section_id)->get(),
       'section_id' => $section_id,
     ];
