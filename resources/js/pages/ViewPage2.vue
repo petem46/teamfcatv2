@@ -851,9 +851,9 @@ export default {
 	min-width: 80%;
 	padding-bottom: 2rem;
 }
->>> img {
-	max-width: 100%;
-	border-radius: 4px;
+img {
+	max-width: 100% !important;
+	border-radius: 4px !important;
 }
 .handle {
 	float: left;
