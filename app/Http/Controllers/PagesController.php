@@ -139,11 +139,13 @@ class PagesController extends Controller
     return Page::with('section')->where('slug', $slug)->first();
   }
 
-  public function getContent($section, $slug)
+  public function getContent($areaname, $slug)
   {
     $prArr = [];
     $urArr = [];
     $pagecontent = '';
+    $area_id = Area::select('id')->where('name', $areaname)->first();
+
     if ($slug != 'newpage') {
 
       $user = User::with('role')->where('id', Auth::id())->first();
@@ -169,17 +171,16 @@ class PagesController extends Controller
       $section_id = $pagecontent->section_id;
     }
     // }
-    if ($slug == 'newpage' && !User::hasRole($section)) {
+    if ($slug == 'newpage' && !User::hasRole($areaname)) {
       return "NOPE";
     }
-    if ($slug == 'newpage' && User::hasRole($section)) {
-      $section_id = Area::select('id')->where('name', $section)->first();
+    if ($slug == 'newpage' && User::hasRole($areaname)) {
       $section_id = $section_id->id;
     }
     return $data = [
       'pagecontent' => $pagecontent,
       'roles' => Role::get(),
-      'sections' => Section::select('id', 'title', 'link')->where('area_id', $section_id)->where('active', 1)->orderBy('created_at', 'DESC')->get(),
+      'sections' => Section::select('id', 'title', 'link')->where('area_id', $area_id)->where('active', 1)->orderBy('created_at', 'DESC')->get(),
       'sidemenuitems' => Page::select('slug', 'title')->with('section')->where('section_id', $section_id)->get(),
       'section_id' => $section_id,
     ];
