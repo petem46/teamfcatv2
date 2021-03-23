@@ -389,6 +389,7 @@ export default {
 						this.list2 = JSON.parse(res.data.pagecontent.jsoncontent);
 						this.page = res.data.pagecontent;
 						this.page.section_id = this.page.section.id;
+            this.page.showinupdates = parseInt(this.page.showinupdates);
 						this.page.jsoncontent = JSON.parse(
 							res.data.pagecontent.jsoncontent
 						);
