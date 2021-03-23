@@ -82,11 +82,11 @@
 											color="success"
 										>
 											<template v-slot:label>
-												<span v-if="page.showinupdates === 1" class="success--text"
+												<span v-if="page.showinupdates === '1'" class="success--text"
 													>Show In Updates</span
 												>
 												<span
-													v-if="page.showinupdates === 0"
+													v-if="page.showinupdates === '0'"
 													class="red--text text--darken-3"
 													>Do Not Show In Updates</span
 												>
@@ -442,7 +442,7 @@ export default {
 				if ((this.page.showinupdates = true)) {
 					newpage.append("showinupdates", 1);
 				}
-				if ((this.page.showinupdates = true)) {
+				if ((this.page.showinupdates = false)) {
 					newpage.append("showinupdates", 0);
 				}
 
