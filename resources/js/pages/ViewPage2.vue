@@ -82,11 +82,11 @@
 											color="success"
 										>
 											<template v-slot:label>
-												<span v-if="page.showinupdates === '1'" class="success--text"
+												<span v-if="page.showinupdates === 1 || page.showinupdates === true" class="success--text"
 													>Show In Updates</span
 												>
 												<span
-													v-if="page.showinupdates === '0'"
+													v-if="page.showinupdates === 0 || page.showinupdates === false"
 													class="red--text text--darken-3"
 													>Do Not Show In Updates</span
 												>
@@ -439,10 +439,10 @@ export default {
 				newpage.append("jsoncontent", this.page.jsoncontent);
 				newpage.append("state_id", this.page.state_id);
 				newpage.append("showinupdates", this.page.showinupdates);
-				if ((this.page.showinupdates = true)) {
+				if ((this.page.showinupdates === true)) {
 					newpage.append("showinupdates", 1);
 				}
-				if ((this.page.showinupdates = false)) {
+				if ((this.page.showinupdates === false)) {
 					newpage.append("showinupdates", 0);
 				}
 
