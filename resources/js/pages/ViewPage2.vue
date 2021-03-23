@@ -184,6 +184,9 @@
 										outlined
 										chips
 										return-object
+										:rules="[
+											() => !!checkRoles || 'At least one role is required',
+										]"
 									></v-select>
 								</v-col>
 								<v-col>
@@ -399,11 +402,11 @@ export default {
 							content:
 								"<p>Replace this text with new page content using the edit tools on the right.</p>",
 						});
-						this.page.role.push({
-							area: "user",
-							id: 2,
-							name: "Standard User",
-						});
+						// this.page.role.push({
+						// 	area: "user",
+						// 	id: 2,
+						// 	name: "Standard User",
+						// });
 						this.showEdit = true;
 					}
 					this.sections = res.data.sections;
@@ -787,6 +790,15 @@ export default {
 		},
 		computedslug() {
 			return this.sanitizeTitle(this.page.title);
+		},
+		checkRoles() {
+			var check = true;
+			length = this.page.role.length;
+			if (length < 1) {
+				check = false;
+				return check;
+			}
+			return check;
 		},
 		checkCustomSlug() {
 			var check = true;
