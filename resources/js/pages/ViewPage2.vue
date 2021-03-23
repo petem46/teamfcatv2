@@ -390,7 +390,7 @@ export default {
 						this.page = res.data.pagecontent;
             console.log(res.data.pagecontent);
 						this.page.section_id = this.page.section.id;
-						this.page.showinupdates = res.data.page.showinupdates;
+						this.page.showinupdates = res.data.pagecontent.showinupdates;
 						this.page.jsoncontent = JSON.parse(
 							res.data.pagecontent.jsoncontent
 						);
