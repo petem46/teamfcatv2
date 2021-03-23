@@ -145,6 +145,9 @@ class PagesController extends Controller
     $urArr = [];
     $pagecontent = '';
     $area_id = Area::select('id')->where('name', $areaname)->first();
+    $area_id = $area_id->id;
+
+    $sections = Section::select('id', 'title', 'link')->where('area_id', $area_id)->where('active', 1)->orderBy('created_at', 'DESC')->get();
 
     if ($slug != 'newpage') {
 
@@ -175,12 +178,13 @@ class PagesController extends Controller
       return "NOPE";
     }
     if ($slug == 'newpage' && User::hasRole($areaname)) {
+      $section_id = Section::select('id')->where('area_id', $area_id)->first();
       $section_id = $section_id->id;
     }
     return $data = [
       'pagecontent' => $pagecontent,
       'roles' => Role::get(),
-      'sections' => Section::select('id', 'title', 'link')->where('area_id', $area_id)->where('active', 1)->orderBy('created_at', 'DESC')->get(),
+      'sections' => $sections,
       'sidemenuitems' => Page::select('slug', 'title')->with('section')->where('section_id', $section_id)->get(),
       'section_id' => $section_id,
     ];
