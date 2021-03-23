@@ -436,9 +436,11 @@ export default {
 				newpage.append("htmlcontent", this.page.htmlcontent);
 				newpage.append("jsoncontent", this.page.jsoncontent);
 				newpage.append("state_id", this.page.state_id);
-				if (this.page.showinupdates) {
+				newpage.append("showinupdates", this.page.showinupdates);
+				if ((this.page.showinupdates = true)) {
 					newpage.append("showinupdates", 1);
-				} else {
+				}
+				if ((this.page.showinupdates = true)) {
 					newpage.append("showinupdates", 0);
 				}
 
