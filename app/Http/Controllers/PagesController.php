@@ -94,6 +94,7 @@ class PagesController extends Controller
         ->join('areas', 'areas.id', '=', 'sections.area_id')
         // ->select('pages.*', DB::raw("CONCAT('/p2',areas.link,'/',pages.slug) as link"), 'sections.link as section_link', 'areas.id as area_id', 'areas.tealTitle as area_title')
         ->select('pages.title', 'pages.subtitle', 'pages.slug', DB::raw("CONCAT('/p2',areas.link,'/',pages.slug) as link"))
+        ->where('pages.showinupdates', 1)
         ->orderBy('pages.updated_at', 'desc')->limit(5)->get(),
     ];
     return $data;
@@ -201,6 +202,9 @@ class PagesController extends Controller
     if (!$uid) {
       $uid = 1;
     }
+
+    // dd($request);
+
     $page = Page::find($request->get('id'));
     try {
       if ($page) {
@@ -211,6 +215,7 @@ class PagesController extends Controller
         $page->htmlcontent = $request->get('htmlcontent');
         $page->jsoncontent = $request->get('jsoncontent');
         // $page->state_id = $request->get('state_id');
+        $page->showinupdates = $request->get('showinupdates');
         $page->user_id = $uid;
         $page->touch();
         $page->save();
@@ -232,6 +237,7 @@ class PagesController extends Controller
           'htmlcontent' => $request->get('htmlcontent'),
           'jsoncontent' => $request->get('jsoncontent'),
           'state_id' => 1,
+          'showinupdates' => $request->get('showinupdates'),
           'user_id' => $uid,
         ]);
 

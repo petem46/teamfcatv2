@@ -45,7 +45,7 @@
 					<v-container v-if="showEdit" fluid app class="px-0">
 						<v-form ref="form" v-model="valid">
 							<v-card>
-								<v-toolbar dark color="teal">
+								<v-toolbar dark color="teal" class="mb-5">
 									<v-toolbar-title
 										v-if="slug != 'new'"
 										class="teal white--text"
@@ -62,19 +62,39 @@
 										>
 									</v-toolbar-items>
 								</v-toolbar>
-								<v-col>
-									<v-select
-										hide-details="auto"
-										:items="sections"
-										item-text="title"
-										item-value="id"
-										label="Page Section"
-										outlined
-                    readonly
-										v-model="page.section_id"
-										:rules="[() => !!page.section_id || 'A Section required']"
-									></v-select>
-								</v-col>
+								<v-row class="px-4">
+									<v-col cols="7">
+										<v-select
+											hide-details="auto"
+											:items="sections"
+											item-text="title"
+											item-value="id"
+											label="Page Section"
+											outlined
+											readonly
+											v-model="page.section_id"
+											:rules="[() => !!page.section_id || 'A Section required']"
+										></v-select>
+									</v-col>
+									<v-col cols="5">
+										<v-switch
+											v-model="page.showinupdates"
+											inset
+											color="success"
+										>
+											<template v-slot:label>
+												<span v-if="page.showinupdates" class="success--text"
+													>Show In Updates</span
+												>
+												<span
+													v-if="!page.showinupdates"
+													class="red--text text--darken-3"
+													>Do Not Show In Updates</span
+												>
+											</template>
+										</v-switch>
+									</v-col>
+								</v-row>
 								<v-col>
 									<v-text-field
 										hide-details="auto"
@@ -162,7 +182,7 @@
 										item-value="id"
 										label="Select Access Roles for Page"
 										multiple
-                    outlined
+										outlined
 										chips
 										return-object
 									></v-select>
@@ -311,6 +331,8 @@ export default {
 				jsoncontent: {
 					content: [],
 				},
+				role: [],
+				showinupdates: true,
 			},
 			valid: "",
 			sections: [],
@@ -378,6 +400,11 @@ export default {
 							content:
 								"<p>Replace this text with new page content using the edit tools on the right.</p>",
 						});
+						this.page.role.push({
+							area: "user",
+							id: 2,
+							name: "Standard User",
+						});
 						this.showEdit = true;
 					}
 					this.sections = res.data.sections;
@@ -407,9 +434,16 @@ export default {
 				newpage.append("htmlcontent", this.page.htmlcontent);
 				newpage.append("jsoncontent", this.page.jsoncontent);
 				newpage.append("state_id", this.page.state_id);
-				for(var i = 0; i < this.page.role.length; i++) {
-          newpage.append("role[] ", this.page.role[i]['id']);
-        }
+				if (this.page.showinupdates) {
+					newpage.append("showinupdates", 1);
+				} else {
+					newpage.append("showinupdates", 0);
+				}
+
+				for (var i = 0; i < this.page.role.length; i++) {
+					newpage.append("role[] ", this.page.role[i]["id"]);
+				}
+				// console.log(newpage.getAll());
 				axios
 					.post("/post/savepage2", newpage)
 					.then((res) => {

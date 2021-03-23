@@ -13,6 +13,10 @@ a {
   text-overflow: ellipsis;
 }
 
+.v-label {
+  margin-bottom: 0px;
+}
+
 .v-application a {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
@@ -191,3 +195,5 @@ a:hover {
 .ProseMirror-selectednode {
   // outline: red dashed 3px !important;
 }
+
+
