@@ -569,7 +569,7 @@ export default {
 					file.type +
 					'"><img src="' +
 					file.url +
-					'" /></a>' +
+					'" class="w100" /></a>' +
 					"</div>",
 			});
 		},
@@ -665,7 +665,7 @@ export default {
 							gFiles[i].type +
 							'"><img src="https://drive.google.com/uc?export=download&amp;id=' +
 							gFiles[i].id +
-							'" /></a>' +
+							'" class="w100" /></a>' +
 							"</div>",
 					});
 				}
