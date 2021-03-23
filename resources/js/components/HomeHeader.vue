@@ -67,7 +67,7 @@
 						>Tweets by FCATrust</a>
 					</v-card>
 				</v-col>
-				<v-col cols="12" md="6" lg="4">
+				<v-col cols="12" lg="4">
 					<v-card class="align-self-stretch">
 						<v-system-bar dark height="8" color="teal lighten-2"></v-system-bar>
 						<v-toolbar dark class="teal">

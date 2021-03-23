@@ -71,7 +71,6 @@
 											item-value="id"
 											label="Page Section"
 											outlined
-											readonly
 											v-model="page.section_id"
 											:rules="[() => !!page.section_id || 'A Section required']"
 										></v-select>
