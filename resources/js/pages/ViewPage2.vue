@@ -567,13 +567,11 @@ export default {
 				name: file.type,
 				id: this.randID(),
 				content:
-					'<div role="imageHolder"><a href="' +
-					file.url +
-					'" target="_blank" class="' +
+					'<div role="imageHolder">' +
 					file.type +
-					'"><img src="' +
+					'<img src="' +
 					file.url +
-					'" class="w100" /></a>' +
+					'" class="w100" />' +
 					"</div>",
 			});
 		},

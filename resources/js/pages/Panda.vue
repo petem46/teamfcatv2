@@ -411,11 +411,8 @@ export default {
 				name: file.type,
 				id: this.randID(),
 				content:
-					'<div role="imageHolder"><a href="' +
-					file.path +
-					'" target="_blank" class="' +
-					file.type +
-					'"><img src="' +
+					'<div role="imageHolder">' +
+					'<img src="' +
 					file.path +
 					'" />' +
 					'</div></div>'
