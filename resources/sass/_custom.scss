@@ -17,6 +17,11 @@ a {
   margin-bottom: 0px;
 }
 
+img {
+  max-width: 100% !important;
+  border-radius: 4px !important;
+}
+
 .v-application a {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
@@ -41,7 +46,8 @@ a {
 .v-application {
   // line-height: $line-height-base !important;
 }
-.v-breadcrumbs a, #pageview p a {
+.v-breadcrumbs a,
+#pageview p a {
   color: teal !important;
 }
 
@@ -149,7 +155,6 @@ a:hover {
 }
 
 @media only screen and (min-width: 992px) {
-
   .mt-md-30 {
     margin-top: 12rem !important;
   }
@@ -181,19 +186,14 @@ a:hover {
   .w50 {
     width: 50% !important;
   }
-
 }
 
 @media only screen and (max-width: 992px) {
-
   .align-center-md {
     text-align: center !important;
   }
-
 }
 
 .ProseMirror-selectednode {
   // outline: red dashed 3px !important;
 }
-
-

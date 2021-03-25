@@ -299,10 +299,34 @@
 			:color="snackbar.color"
 			:timeout="snackbar.timeout"
 			multi-line
-			bottom
+			:bottom="snackbar.bottom"
+			:centered="snackbar.centered"
+			:top="snackbar.top"
 		>
 			{{ snackbar.text }}
 			<v-btn dark text @click="snackbar.show = false">Close</v-btn>
+		</v-snackbar>
+		<v-snackbar
+			v-model="nopesnackbar.show"
+			:color="nopesnackbar.color"
+			:timeout="nopesnackbar.timeout"
+			multi-line
+			elevation="24"
+			:bottom="nopesnackbar.bottom"
+			:centered="nopesnackbar.centered"
+			:top="nopesnackbar.top"
+			:vertical="nopesnackbar.vertical"
+		>
+			{{ nopesnackbar.text }}
+			<v-btn
+				color="white"
+				outlined
+				@click="
+					nopesnackbar.show = false;
+					backToArea();
+				"
+				>Continue</v-btn
+			>
 		</v-snackbar>
 	</div>
 </template>
@@ -367,6 +391,23 @@ export default {
 				text: "",
 				timeout: 2000,
 				y: "top",
+				absolute: false,
+				bottom: true,
+				centered: false,
+				top: false,
+			},
+			nopesnackbar: {
+				color: "",
+				mode: "",
+				show: false,
+				text: "",
+				timeout: 2000,
+				y: "top",
+				absolute: false,
+				bottom: true,
+				centered: false,
+				top: false,
+				vertical: true,
 			},
 		};
 	},
@@ -383,13 +424,21 @@ export default {
 				.get("/get/page/content/" + this.areaname + "/" + this.slug)
 				.then((res) => {
 					if (res.data === "NOPE") {
-						this.$router.push("/" + this.areaname);
+						this.scrollToTop();
+						this.nopesnackbar.color = "red darken-2";
+						this.nopesnackbar.text =
+							"You do not have permissions to access this resource";
+						this.nopesnackbar.show = true;
+						this.nopesnackbar.timeout = -1;
+						this.nopesnackbar.bottom = false;
+						this.nopesnackbar.centered = true;
+						this.nopesnackbar.absolute = true;
 					}
 					if (this.slug != "newpage") {
 						this.list2 = JSON.parse(res.data.pagecontent.jsoncontent);
 						this.page = res.data.pagecontent;
 						this.page.section_id = this.page.section.id;
-            this.page.showinupdates = parseInt(this.page.showinupdates);
+						this.page.showinupdates = parseInt(this.page.showinupdates);
 						this.page.jsoncontent = JSON.parse(
 							res.data.pagecontent.jsoncontent
 						);
@@ -418,7 +467,18 @@ export default {
 
 					this.loading = false;
 					// this.endUpload();
+				})
+				.catch((error) => {
+					this.scrollToTop();
+					this.$refs.title.focus();
+					this.snackbar.color = "red";
+					this.snackbar.text = error.response.data;
+					this.snackbar.show = true;
+					console.log(error.response);
 				});
+		},
+		backToArea() {
+			this.$router.push("/" + this.areaname);
 		},
 		savePage() {
 			if (this.valid) {
@@ -550,15 +610,6 @@ export default {
 					file.url +
 					'" type="video/mp4" /></video>' +
 					"</div>" +
-					// '<div class="row"><div class="text-left col-12"><a href="' +
-					// file.url +
-					// '" target="_blank">' +
-					// '<div role="listitem" class="v-list-item v-list-item--link">' +
-					// '<div class="v-avatar v-list-item__avatar rounded-0 v-avatar--tile" style="height: 16px; min-width: 16px; width: 16px;">' +
-					// '<i class="far fa-file-video"></i>' +
-					// '</div>' +
-					// file.name +
-					// '</div></a></div>' +
 					"</div>",
 			});
 		},
@@ -568,10 +619,14 @@ export default {
 				id: this.randID(),
 				content:
 					'<div role="imageHolder">' +
-					file.type +
 					'<img src="' +
 					file.url +
-					'" class="w100" />' +
+					'" />' +
+					'<br><a href="' +
+					file.url +
+					'" target="_blank">' +
+					"[View Full Size Image]" +
+					"</a>" +
 					"</div>",
 			});
 		},
@@ -861,6 +916,10 @@ export default {
 	// min-height: 200px;
 	min-width: 80%;
 	padding-bottom: 2rem;
+}
+>>> img {
+	max-width: 100% !important;
+	border-radius: 4px !important;
 }
 img {
 	max-width: 100% !important;

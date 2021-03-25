@@ -415,7 +415,7 @@ export default {
 					'<img src="' +
 					file.path +
 					'" />' +
-					'</div></div>'
+					'</div>'
 			});
 		},
 		insertFile(file) {
