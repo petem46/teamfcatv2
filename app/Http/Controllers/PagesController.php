@@ -268,8 +268,11 @@ class PagesController extends Controller
   {
     $page = Page::find($id);
     if ($page) {
+      $page->showinupdates = 0;
+      $page->touch();
+      $page->save();
       $page->delete();
     }
-    return response('New Page Created', Response::HTTP_OK)->header('section_id', $page->section_id);
+    return response('Page Deleted', Response::HTTP_OK)->header('section_id', $page->section_id);
   }
 }

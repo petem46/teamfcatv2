@@ -395,6 +395,7 @@ export default {
 				bottom: true,
 				centered: false,
 				top: false,
+				vertical: true,
 			},
 			nopesnackbar: {
 				color: "",
@@ -446,17 +447,18 @@ export default {
 					}
 					if (this.slug == "newpage") {
 						this.page.section_id = res.data.section_id;
+						this.page.showinupdates = true;
 						this.list2.push({
 							name: "Text Block",
 							id: this.randID(),
 							content:
 								"<p>Replace this text with new page content using the edit tools on the right.</p>",
 						});
-						// this.page.role.push({
-						// 	area: "user",
-						// 	id: 2,
-						// 	name: "Standard User",
-						// });
+						this.page.role.push({
+							area: "user",
+							id: 2,
+							name: "Standard User",
+						});
 						this.showEdit = true;
 					}
 					this.sections = res.data.sections;
@@ -534,12 +536,24 @@ export default {
 		deletePage() {
 			if (this.valid) {
 				var section = this.page.section.link;
+				console.log("DA FOOK A?");
 				axios.delete("/delete/page/" + this.page.id).then((res) => {
 					if (res.status == 200) {
-						this.$router.push(section).catch(() => {
-							this.getContent();
+						this.$router.push("/" + this.areaname).catch(() => {
+							console.log("DA FOOK B?");
+							// this.getContent();
 						});
+						console.log("DA FOOK C?");
 						this.onShowEditClick();
+						this.scrollToTop();
+						this.snackbar.color = "success";
+						this.snackbar.text = "Page deleted";
+						this.snackbar.show = true;
+						this.snackbar.timeout = 2000;
+						this.snackbar.bottom = true;
+						this.snackbar.centered = false;
+						this.snackbar.absolute = false;
+						this.$router.push("/" + this.areaname);
 					}
 				});
 			}
