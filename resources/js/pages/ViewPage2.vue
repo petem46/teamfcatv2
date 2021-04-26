@@ -83,12 +83,12 @@
 										>
 											<template v-slot:label>
 												<span v-if="page.showinupdates" class="success--text"
-													>Show In Updates</span
+													>Page will be shown in updates</span
 												>
 												<span
 													v-if="!page.showinupdates"
 													class="red--text text--darken-3"
-													>Do Not Show In Updates</span
+													>Page will not be shown in updatess</span
 												>
 											</template>
 										</v-switch>
