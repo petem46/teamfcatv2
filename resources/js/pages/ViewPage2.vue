@@ -924,7 +924,7 @@ export default {
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
-	background: url("/images/bady-qb-hxi_yRxODNc-unsplash.jpg");
+	// background: url("../../../public/images/bady-qb-hxi_yRxODNc-unsplash.jpg");
 }
 .drag-area {
 	// min-height: 200px;

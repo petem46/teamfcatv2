@@ -1149,7 +1149,7 @@ section:after {
 	height: 100px;
 }
 .rtl-banner {
-	background-image: url("/images/rtl-banner-bg.png");
+	background-image: url("../../../public/images/rtl-banner-bg.png");
 	background-repeat: repeat;
 }
 .rtl-card {

@@ -463,7 +463,7 @@ section {
 	width: 100%;
 }
 .christmas-bg-1 {
-	background-image: url("/images/winter-bg-1.jpg");
+	background-image: url("../../../public/images/winter-bg-1.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: right;
