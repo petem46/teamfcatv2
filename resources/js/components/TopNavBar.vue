@@ -9,18 +9,22 @@
 			<span class>Team FCAT</span>
 		</v-toolbar-title>
 		<v-spacer></v-spacer>
-		<v-responsive max-width="225" v-if="this.$vuetify.breakpoint.lgAndUp">
+		<v-responsive
+			class="noOverflowHide"
+			max-width="225"
+			v-if="this.$vuetify.breakpoint.lgAndUp"
+		>
 			<a href="http://www.google.co.uk" target="_blank">
 				<v-text-field
 					dense
-          readonly
+					readonly
 					outlined
 					hide-details
 					rounded
 					placeholder="Search Google"
 					prepend-inner-icon="mdi-magnify"
 					clearable
-          class="mr-2"
+					class="mr-2"
 				></v-text-field>
 			</a>
 		</v-responsive>
@@ -30,7 +34,7 @@
 		</v-btn> -->
 
 		<v-btn
-    text
+			text
 			class="mr-2"
 			v-if="this.$vuetify.breakpoint.mdAndUp"
 			to="/pagesearch"
@@ -120,7 +124,7 @@
 	</v-app-bar>
 </template>
 <script>
-import { mdiArrowRightThinCircleOutline } from '@mdi/js';
+import { mdiArrowRightThinCircleOutline } from "@mdi/js";
 export default {
 	// props: ["navdrawer"],
 	methods: {
@@ -153,3 +157,11 @@ export default {
 	},
 };
 </script>
+<style lang="scss" scoped>
+.noOverflowHide {
+	overflow: visible;
+  .v-responsive__content a {
+    text-decoration: none;
+  }
+}
+</style>

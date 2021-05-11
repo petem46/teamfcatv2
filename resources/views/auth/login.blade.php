@@ -13,7 +13,7 @@
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-responsive max-width="360" v-if="this.$vuetify.breakpoint.smAndUp">
-        <a href="http://www.google.co.uk">
+        <a href="http://www.google.co.uk" class="text-decoration-none">
           <v-text-field
             dense
             flat
@@ -28,9 +28,9 @@
         </a>
         </v-responsive>
         <v-spacer></v-spacer>
-        <a href="http://mail.google.com">
+        <a href="http://mail.google.com" class="text-decoration-none">
           <v-btn text class="mr-2 blue--text lighten-1" v-if="this.$vuetify.breakpoint.smAndUp">
-            <v-icon class="mr-2 red--text lighten-1">far fa-envelope</v-icon>GMAIL
+            <v-icon class="mr-2 red--text lighten-1 ">far fa-envelope</v-icon>GMAIL
           </v-btn>
         </a>
       </v-app-bar>

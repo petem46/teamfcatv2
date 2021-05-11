@@ -4,12 +4,11 @@
 			<v-progress-circular indeterminate teal></v-progress-circular>
 		</div>
 		<div v-if="!loading">
-			<section>
-				<div
-					class="container pt-md-6rem"
-					@mouseover="showEditHeaderButton = true"
-					@mouseleave="showEditHeaderButton = false"
-				>
+			<section
+				@mouseover="showEditHeaderButton = true"
+				@mouseleave="showEditHeaderButton = false"
+			>
+				<div class="container pt-md-6rem">
 					<v-row>
 						<v-col
 							data-aos="zoom-out-left"
@@ -64,6 +63,7 @@
 								right
 								v-if="showEditHeaderButton && $canEdit(this.pagearea)"
 								@click="editTitle = true"
+								class="mt-15"
 								>EDIT</v-btn
 							>
 							<v-img
@@ -80,7 +80,7 @@
 					</v-row>
 				</div>
 
-        <covid-ticker v-if="area.name === 'covid'"></covid-ticker>
+				<covid-ticker v-if="area.name === 'covid'"></covid-ticker>
 
 				<v-dialog v-model="editTitle">
 					<v-card>
@@ -302,7 +302,6 @@
 												</template>
 											</v-select>
 											<v-text-field
-
 												@keyup="save"
 												@change="save"
 												:hint="hint"
@@ -398,7 +397,9 @@
 									class="mt-2"
 									absolute
 									right
-									v-if="showEditCardOneButton && card.id == 1 && $canEdit(pagearea)"
+									v-if="
+										showEditCardOneButton && card.id == 1 && $canEdit(pagearea)
+									"
 									@click="onEditCard(index)"
 								>
 									<v-icon small :color="card.color">fa-edit</v-icon>
@@ -409,7 +410,9 @@
 									class="mt-2"
 									absolute
 									right
-									v-if="showEditCardTwoButton && card.id == 2 && $canEdit(pagearea)"
+									v-if="
+										showEditCardTwoButton && card.id == 2 && $canEdit(pagearea)
+									"
 									@click="onEditCard(index)"
 								>
 									<v-icon small :color="card.color">fa-edit</v-icon>
@@ -420,7 +423,11 @@
 									class="mt-2"
 									absolute
 									right
-									v-if="showEditCardThreeButton && card.id == 3 && $canEdit(pagearea)"
+									v-if="
+										showEditCardThreeButton &&
+										card.id == 3 &&
+										$canEdit(pagearea)
+									"
 									@click="onEditCard(index)"
 								>
 									<v-icon small :color="card.color">fa-edit</v-icon>
@@ -1006,7 +1013,7 @@ export default {
 			area: {},
 			sections: {},
 			pages: {},
-      pagearea: "",
+			pagearea: "",
 			showEditHeaderButton: false,
 			showEditCardOneButton: false,
 			showEditCardTwoButton: false,
@@ -1093,7 +1100,7 @@ export default {
 				.get("/get/arealanding/" + this.$route.name)
 				.then(({ data }) => {
 					this.area = data;
-          this.pagearea = this.area.name;
+					this.pagearea = this.area.name;
 				})
 				.then(() => {
 					this.getPages();

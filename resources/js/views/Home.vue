@@ -72,18 +72,18 @@
 						</a>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<a href="https://cpd.teamfcat.co.uk" target="_blank">
+						<a href="https://www.mentalhealth.org.uk/campaigns/mental-health-awareness-week" target="_blank" class="text-decoration-none">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="green"></v-system-bar>
 									<v-sheet color="green lighten-2">
-										<v-img src="/images/cpd-thumbnail.jpg" height="200">
+										<v-img src="/images/mental-health-week.jpg" height="200">
 											<v-expand-transition>
 												<div
 													v-if="hover"
 													class="d-flex transition-fast-in-fast-out green darken-2 v-card--reveal display-1 white--text"
 													style="height: 100%;"
-												>CPD PORTAL</div>
+												>MENTAL HEALTH<br>AWARENESS<br>WEEK 2021</div>
 											</v-expand-transition>
 										</v-img>
 									</v-sheet>
@@ -91,11 +91,11 @@
 									<v-list>
 										<v-list-item>
 											<v-list-item-avatar color="green">
-												<v-icon dark>fa-user-graduate fa-fw</v-icon>
+												<v-icon dark>fas fa-spa fa-fw</v-icon>
 											</v-list-item-avatar>
 											<v-list-item-content>
-												<v-list-item-title class="h5">FCAT CPD Portal</v-list-item-title>
-												<v-list-item-subtitle>Search large selection of CPD</v-list-item-subtitle>
+												<v-list-item-title class="h5">MENTAL HEALTH AWARENESS</v-list-item-title>
+												<v-list-item-subtitle>Mental Health Awareness Week 2021</v-list-item-subtitle>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
@@ -136,7 +136,39 @@
 						</a>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<a href="#">
+						<a href="https://cpd.teamfcat.co.uk" target="_blank" class="text-decoration-none">
+							<v-hover v-slot="{ hover }" close-delay="200">
+								<v-card class="align-self-stretch">
+									<v-system-bar dark height="8" color="blue"></v-system-bar>
+									<v-sheet color="blue lighten-2">
+										<v-img src="/images/cpd-thumbnail.jpg" height="200">
+											<v-expand-transition>
+												<div
+													v-if="hover"
+													class="d-flex transition-fast-in-fast-out blue darken-2 v-card--reveal display-1 white--text"
+													style="height: 100%;"
+												>CPD PORTAL</div>
+											</v-expand-transition>
+										</v-img>
+									</v-sheet>
+									<v-system-bar dark height="1" color="black"></v-system-bar>
+									<v-list>
+										<v-list-item>
+											<v-list-item-avatar color="blue">
+												<v-icon dark>fa-user-graduate fa-fw</v-icon>
+											</v-list-item-avatar>
+											<v-list-item-content>
+												<v-list-item-title class="h5">FCAT CPD Portal</v-list-item-title>
+												<v-list-item-subtitle>Search large selection of CPD</v-list-item-subtitle>
+											</v-list-item-content>
+										</v-list-item>
+									</v-list>
+								</v-card>
+							</v-hover>
+						</a>
+					</v-col>
+					<v-col cols="12" md="6" lg="4" class="d-none">
+						<a href="#" class="text-decoration-none">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="blue darken-4"></v-system-bar>
@@ -168,7 +200,7 @@
 						</a>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<a href="https://forms.gle/ySav4sUtmV1Yx3Qc6" target="_blank">
+						<a href="https://forms.gle/ySav4sUtmV1Yx3Qc6" target="_blank" class="text-decoration-none">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="amber"></v-system-bar>
@@ -200,7 +232,7 @@
 						</a>
 					</v-col>
 					<v-col cols="12" md="6" lg="4" hidden>
-						<a href="#">
+						<a href="#" class="text-decoration-none">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="deep-purple lighten-2"></v-system-bar>
