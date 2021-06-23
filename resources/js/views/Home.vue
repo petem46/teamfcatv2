@@ -72,7 +72,7 @@
 						</a>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<a disabled href="#" class="text-decoration-none">
+						<a @click="gotoPage('/p2/hr/fcatstaffsurvey2021')"  class="text-decoration-none">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="teal"></v-system-bar>
