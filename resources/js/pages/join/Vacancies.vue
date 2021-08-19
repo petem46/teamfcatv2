@@ -23,7 +23,7 @@
 		</div>
 
 		<v-container fluid v-if="!loading">
-			<v-data-iterator :items="vacancies" :items-per-page.sync="itemsPerPage">
+			<v-data-iterator :items="vacancies" :items-per-page.sync="itemsPerPage" hide-default-footer>
 				<template v-slot:header>
 					<v-toolbar class="mb-2 d-none" color="indigo darken-5" dark flat>
 						<v-toolbar-title>This is a header</v-toolbar-title>
@@ -77,7 +77,7 @@
 												<v-icon class="mr-2 grey--text lighten-2"
 													>far fa-calendar-alt fa-fw</v-icon
 												>
-												Start: {{ item.details.startDate }}
+												Start: {{ item.details.contractStartDate }}
 											</v-col>
 											<v-col cols="12" md="6">
 												<v-icon class="mr-2 grey--text lighten-2"
@@ -125,7 +125,7 @@ export default {
 	data() {
 		return {
 			loading: false,
-			itemsPerPage: 5,
+			itemsPerPage: 50,
 			vacancies: [],
 		};
 	},

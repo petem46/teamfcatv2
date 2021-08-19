@@ -47,9 +47,7 @@
 										<!-- SELECT SALARY SCALE -->
 										<v-col
 											cols="12"
-											v-if="
-												vacancyDetails.postTitle && vacancyDetails.location
-											"
+											v-if="vacancyDetails.postTitle && vacancyDetails.location"
 										>
 											<v-select
 												prepend-icon="fas fa-balance-scale fa-fw"
@@ -666,7 +664,7 @@ export default {
 		},
 		saveVacancy() {
 			console.log(this.vacancy);
-      let details = JSON.stringify(this.vacancyDetails);
+			let details = JSON.stringify(this.vacancyDetails);
 			let vacancy = new FormData();
 			vacancy.append("academy_id", this.vacancy.academy_id);
 			vacancy.append("closingDate", this.vacancy.closingDate);
@@ -674,7 +672,8 @@ export default {
 			vacancy.append("details", details);
 
 			axios.post("/post/saveVacancy", vacancy).then((res) => {
-				console.log(res);
+				// console.log(res);
+				this.$router.push("/join");
 			});
 		},
 		formatDate(date) {

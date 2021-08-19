@@ -10493,8 +10493,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -10663,6 +10661,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       });
     },
     saveVacancy: function saveVacancy() {
+      var _this6 = this;
+
       console.log(this.vacancy);
       var details = JSON.stringify(this.vacancyDetails);
       var vacancy = new FormData();
@@ -10671,7 +10671,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       vacancy.append("closingDateFormatted", this.vacancy.closingDateFormatted);
       vacancy.append("details", details);
       axios__WEBPACK_IMPORTED_MODULE_0___default().post("/post/saveVacancy", vacancy).then(function (res) {
-        console.log(res);
+        // console.log(res);
+        _this6.$router.push("/join");
       });
     },
     formatDate: function formatDate(date) {
@@ -10838,7 +10839,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       loading: false,
-      itemsPerPage: 5,
+      itemsPerPage: 50,
       vacancies: []
     };
   },
@@ -40013,7 +40014,8 @@ var render = function() {
               _c("v-data-iterator", {
                 attrs: {
                   items: _vm.vacancies,
-                  "items-per-page": _vm.itemsPerPage
+                  "items-per-page": _vm.itemsPerPage,
+                  "hide-default-footer": ""
                 },
                 on: {
                   "update:itemsPerPage": function($event) {
@@ -40281,7 +40283,7 @@ var render = function() {
                                                         "\n\t\t\t\t\t\t\t\t\t\t\tStart: " +
                                                           _vm._s(
                                                             item.details
-                                                              .startDate
+                                                              .contractStartDate
                                                           ) +
                                                           "\n\t\t\t\t\t\t\t\t\t\t"
                                                       )
@@ -40436,7 +40438,7 @@ var render = function() {
                   ],
                   null,
                   false,
-                  1676315717
+                  2382901367
                 )
               })
             ],

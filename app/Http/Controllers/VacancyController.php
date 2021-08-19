@@ -57,11 +57,12 @@ class VacancyController extends Controller
         'closingDateFormatted' => $request->get('closingDateFormatted'),
         'details' => $request->get('details'),
       ]);
-      return response('New Page Created', Response::HTTP_OK);
+      // return redirect('/join')->with('success', 'New Vacancy Created');
+      return response('New Vacancy Created', Response::HTTP_OK);
     } catch (QueryException $e) {
       $errorCode = $e->errorInfo[1];
       if ($errorCode == 1062) {
-        return response('A page with this TITLE or PAGE LINK already exists.', Response::HTTP_NOT_ACCEPTABLE)->header('error_code', $errorCode);
+        return response('Beep boop bop! There is a problem!.', Response::HTTP_NOT_ACCEPTABLE)->header('error_code', $errorCode);
       } else {
         return response($e, Response::HTTP_NOT_ACCEPTABLE)->header('error_code', $errorCode);
       }
