@@ -46,7 +46,6 @@
 			</v-app-bar>
 
 			<Banner />
-			<remotetl-cox :updates="updates"></remotetl-cox>
 			<Vacancies />
 			<SectionOne />
 			<SectionTwo />

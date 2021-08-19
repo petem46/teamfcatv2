@@ -4693,7 +4693,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -28907,8 +28906,6 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("Banner"),
-            _vm._v(" "),
-            _c("remotetl-cox", { attrs: { updates: _vm.updates } }),
             _vm._v(" "),
             _c("Vacancies"),
             _vm._v(" "),
