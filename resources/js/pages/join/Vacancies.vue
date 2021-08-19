@@ -77,7 +77,7 @@
 												<v-icon class="mr-2 grey--text lighten-2"
 													>far fa-calendar-alt fa-fw</v-icon
 												>
-												Start: {{ item.details.contractStartDate }}
+												Start: {{ item.details.contractStartDateFormatted }}
 											</v-col>
 											<v-col cols="12" md="6">
 												<v-icon class="mr-2 grey--text lighten-2"
@@ -95,7 +95,7 @@
 												<v-icon class="mr-2 grey--text lighten-2"
 													>fas fa-stopwatch fa-fw</v-icon
 												>
-												Closing: {{ item.closingDate }}
+												Closing: {{ item.closingDateFormatted }}
 											</v-col>
 										</v-row>
 									</v-col>

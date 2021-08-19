@@ -40283,7 +40283,7 @@ var render = function() {
                                                         "\n\t\t\t\t\t\t\t\t\t\t\tStart: " +
                                                           _vm._s(
                                                             item.details
-                                                              .contractStartDate
+                                                              .contractStartDateFormatted
                                                           ) +
                                                           "\n\t\t\t\t\t\t\t\t\t\t"
                                                       )
@@ -40388,7 +40388,7 @@ var render = function() {
                                                       _vm._v(
                                                         "\n\t\t\t\t\t\t\t\t\t\t\tClosing: " +
                                                           _vm._s(
-                                                            item.closingDate
+                                                            item.closingDateFormatted
                                                           ) +
                                                           "\n\t\t\t\t\t\t\t\t\t\t"
                                                       )
@@ -40438,7 +40438,7 @@ var render = function() {
                   ],
                   null,
                   false,
-                  2382901367
+                  4123991831
                 )
               })
             ],
