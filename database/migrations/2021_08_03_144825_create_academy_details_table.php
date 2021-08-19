@@ -17,6 +17,7 @@ class CreateAcademyDetailsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('logourl');
+            $table->text('color');
             $table->text('about');
             $table->integer('active');
             $table->timestamps();

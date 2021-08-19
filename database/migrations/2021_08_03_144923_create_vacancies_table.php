@@ -17,7 +17,8 @@ class CreateVacanciesTable extends Migration
             $table->id();
             $table->integer('academy_id');
             $table->JSON('details');
-            $table->date('closing_date');
+            $table->date('closingDate');
+            $table->string('closingDateFormatted');
             $table->timestamps();
             $table->softDeletes();
         });
