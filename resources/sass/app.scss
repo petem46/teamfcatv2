@@ -4,6 +4,7 @@
 @import 'variables';
 
 // Bootstrap
+$enable-responsive-font-sizes: true;
 @import '~bootstrap/scss/bootstrap';
 
 // Vuetify

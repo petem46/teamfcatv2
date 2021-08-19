@@ -19,6 +19,11 @@ Route::get('/callback', 'SocialAuthMSGraphController@callback');
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/get/allInternalVacancies', 'VacancyController@index')->name('join');
+Route::get('/get/createVacancy', 'VacancyController@create')->name('join.create');
+Route::get('/get/payScales/{id}', 'VacancyController@getPayScaleRanges')->name('join.create');
+Route::post('/post/saveVacancy', 'VacancyController@save')->name('join.save');
+
 Route::group(['middleware' => ['auth']], function () {
   Route::get('/get/pages/all', 'PagesController@getAll');
   Route::get('/gdpr', 'HomeController@gdpr')->name('gdpr');
@@ -31,8 +36,8 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/get/seanslatestletter', 'PagesController@getSeansLatestLetter');
 
-  Route::get('/get/userDetails','AppController@getUserDetails');
-  Route::post('/post/userDetails/{id}','UsersController@updateUserDetails');
+  Route::get('/get/userDetails', 'AppController@getUserDetails');
+  Route::post('/post/userDetails/{id}', 'UsersController@updateUserDetails');
 
   Route::get('/get/arealanding/{id}', 'PagesController@getAreaLanding');
   Route::put('/put/updateAreaLanding/{id}', 'PagesController@updateAreaLanding');
@@ -64,7 +69,4 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('/post/saveRTLUpdates', 'PagesController@postRemoteTLUpdates');
 
   Route::get('/{any}', 'AppController@index')->where('any', '.*');
-
 });
-
-

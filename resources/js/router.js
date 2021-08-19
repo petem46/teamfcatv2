@@ -10,6 +10,9 @@ import CovidLandingPage from './pages/CovidLandingPage'
 import QIGLandingPage from './pages/QIGLandingPage'
 import FinanceLandingPage from './pages/FinanceLandingPage'
 import HRLandingPage from './pages/HRLandingPage'
+import JoinLandingPage from './pages/JoinLandingPage'
+import JoinTeamFCATPage from './pages/JoinTeamFCATPage'
+import CreateVacancyPage from './pages/join/Create'
 import ICTLandingPage from './pages/ICTLandingPage'
 import HealthandSafetyLandingPage from './pages/HealthandSafetyLandingPage'
 import DataProtectionLandingPage from './pages/DataProtectionLandingPage'
@@ -171,6 +174,36 @@ export default new Router({
       meta: {
         auth: true,
         title: 'HR Landing Page'
+      }
+    },
+    {
+      path: '/jointeamfcat',
+      name: 'jointeamfcat',
+      component: JoinLandingPage,
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Join TeamFCAT Page'
+      }
+    },
+    {
+      path: '/join',
+      name: 'join',
+      component: JoinTeamFCATPage,
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Join TeamFCAT Landing Page'
+      }
+    },
+    {
+      path: '/join/create',
+      name: 'join.create',
+      component: CreateVacancyPage,
+      props: true,
+      meta: {
+        auth: true,
+        title: 'Join TeamFCAT New Vacancy'
       }
     },
     {

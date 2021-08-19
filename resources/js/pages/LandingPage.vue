@@ -19,7 +19,7 @@
 							@dblclick="editTitle = true"
 						>
 							<h1 class="text-h3 py-0 align-center-md">
-								{{ area.title }}
+								{{ area.title ? area.title : "" }}
 								<span class="teal--text">{{ area.tealTitle }}</span>
 							</h1>
 							<h2 class="text-h4 text-subtitle py-0 align-center-md">
@@ -33,24 +33,21 @@
 								{{ area.welcomeSubText }}
 							</p>
 							<v-row>
-								<section
-									cols="12"
-									lg="4"
-									v-for="button in area.buttons"
-									:key="button.id"
-								>
-									<v-col v-if="button.show == 'show'">
-										<a :href="button.link">
-											<v-btn
-												dark
-												:class="button.color + ' v-size--' + getBtnSize"
-												class="btn-block"
-											>
-												<v-icon class="mr-2">{{ button.icon }}</v-icon>
-												{{ button.text }}
-											</v-btn>
-										</a>
-									</v-col>
+								<section cols="12" lg="4">
+									<v-row>
+										<v-col v-for="button in area.buttons" :key="button.id">
+											<a :href="button.link" v-if="button.show == 'show'">
+												<v-btn
+													dark
+													:class="button.color + ' v-size--' + getBtnSize"
+													class="btn-block"
+												>
+													<v-icon class="mr-2">{{ button.icon }}</v-icon>
+													{{ button.text }}
+												</v-btn>
+											</a>
+										</v-col>
+									</v-row>
 								</section>
 							</v-row>
 						</v-col>
@@ -1106,11 +1103,13 @@ export default {
 					this.getPages();
 				})
 				.then(() => {
-					this.area.actioncards[2].title = this.seanslatestletter.title;
-					this.area.actioncards[2].chipIsLink = "page";
-					this.area.actioncards[2].chipPageLink = this.seanslatestletter.link;
-					this.area.actioncards[2].text = this.seanslatestletter.subtitle;
-					this.area.actioncards[2].chip = "Read Sean's Latest Letter";
+					if (this.$route.name === "base") {
+						this.area.actioncards[2].title = this.seanslatestletter.title;
+						this.area.actioncards[2].chipIsLink = "page";
+						this.area.actioncards[2].chipPageLink = this.seanslatestletter.link;
+						this.area.actioncards[2].text = this.seanslatestletter.subtitle;
+						this.area.actioncards[2].chip = "Read Sean's Latest Letter";
+					}
 				});
 		},
 		getPages() {

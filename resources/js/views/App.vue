@@ -130,6 +130,23 @@
 		<v-footer app clipped class="px-10">
 			<span>TeamFCAT 2021</span>
 		</v-footer>
+
+		<!-- FAB SCROLL TO TOP SECTION ------------------------------------->
+		<v-fab-transition>
+			<v-btn
+				v-scroll="onScroll"
+				v-show="scrollTopfab"
+				fab
+				dark
+				fixed
+				bottom
+				right
+				color="teal"
+				@click="toTop"
+			>
+				<v-icon>mdi-chevron-up</v-icon>
+			</v-btn>
+		</v-fab-transition>
 	</v-app>
 </template>
 <script>
@@ -146,6 +163,7 @@ export default {
 		navdrawer: false,
 		showCheckDetailsDialog: false,
 		user: "",
+    scrollTopfab: false,
 	}),
 	created() {
 		// this.$vuetify.theme.dark = false;
@@ -190,6 +208,14 @@ export default {
 			} else {
 				this.navdrawer = false;
 			}
+		},
+		onScroll(e) {
+			if (typeof window === "undefined") return;
+			const top = window.pageYOffset || e.target.scrollTop || 0;
+			this.scrollTopfab = top > 20;
+		},
+		toTop() {
+			this.$vuetify.goTo(0);
 		},
 		logout() {
 			// console.log("logout");

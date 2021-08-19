@@ -29,6 +29,21 @@
 					<v-list-item-title class="grey--text">Updates</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
+			<!--
+        Join TeamFCAT Menu Item
+      -->
+			<v-list-item link @click="navdrawerClick" to="/join">
+				<v-list-item-action>
+					<v-icon class="grey--icon grey--text"
+						>mdi-account-multiple-plus-outline</v-icon
+					>
+				</v-list-item-action>
+				<v-list-item-content>
+					<v-list-item-title class="grey--text"
+						>Join TeamFCAT</v-list-item-title
+					>
+				</v-list-item-content>
+			</v-list-item>
 			<v-list-item link @click="navdrawerClick" to="/remotetl">
 				<v-list-item-action>
 					<v-icon class="grey--icon grey--text">mdi-cast-education</v-icon>
@@ -84,14 +99,17 @@
 				</v-list-item>
 			</v-list-group>
 			<v-divider v-if="$isSiteAdmin()"></v-divider>
-			<v-list-item v-if="$isSiteAdmin()" link @click="navdrawerClick" to="/usermanagement">
+			<v-list-item
+				v-if="$isSiteAdmin()"
+				link
+				@click="navdrawerClick"
+				to="/usermanagement"
+			>
 				<v-list-item-action>
 					<v-icon class="grey--icon grey--text">mdi-account-group</v-icon>
 				</v-list-item-action>
 				<v-list-item-content>
-					<v-list-item-title class="grey--text"
-						>User Manager</v-list-item-title
-					>
+					<v-list-item-title class="grey--text">User Manager</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
 			<v-divider></v-divider>
