@@ -43,7 +43,7 @@
 										class="text-center text-md-right"
 									>
 										<div class="text-center text-md-right">
-											<v-img contain width="150" :src="item.details.icon" />
+											<v-img contain width="150" :src="'/images/icons/' + item.details.icon" />
 										</div>
 									</v-col>
 									<v-col cols="12" md="10" order="10" order-sm="1">
