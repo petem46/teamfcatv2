@@ -10,6 +10,9 @@ import VueFilterDateParse from "vue-filter-date-parse";
 import colors from "vuetify/lib/util/colors";
 import vueFilterPrettyBytes from 'vue-filter-pretty-bytes'
 
+import VideoBackground from "vue-responsive-video-background-player";
+Vue.component("video-background", VideoBackground);
+
 import RolesCheck from "./plugins/roles-check";
 Vue.use(RolesCheck);
 

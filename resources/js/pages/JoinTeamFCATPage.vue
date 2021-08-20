@@ -52,7 +52,6 @@
 			<SectionThree />
 			<SectionFour />
 			<SectionFive />
-
 		</div>
 	</div>
 </template>
