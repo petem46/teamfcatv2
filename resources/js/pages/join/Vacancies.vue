@@ -4,7 +4,7 @@
 			<div class="row align-items-center">
 				<div class="col-6" data-aos="zoom-out-left" data-aos-duration="1500">
 					<div class="p-lg-1">
-						<h1 class="text-lg-h1 text-md-h2">TeamFCAT Internal Vacancies</h1>
+						<h1 class="text-lg-h1 text-md-h2">Internal Vacancies</h1>
 					</div>
 					<v-btn
 						v-if="$isHrUser()"
