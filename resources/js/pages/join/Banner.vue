@@ -6,7 +6,7 @@
 		>
 			<v-container class="py-lg-10">
 				<v-col cols="12" class="join-card elevation-10 p-5 rounded-xl">
-					<h1 class="display-3">Join TeamFCAT</h1>
+					<div class="text-h5 text-md-h2 text-md-div">Join Team<span class="teal--text font-weight-bold">FCAT</span></div>
 					<p class="subtitle-1">
 						Lorem ipsum dolor sit amet, abhorreant constituam appellantur quo
 						ei, ei nostrum propriae constituto est. Has no munere sanctus
