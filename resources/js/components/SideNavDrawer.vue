@@ -32,7 +32,7 @@
 			<!--
         Join TeamFCAT Menu Item
       -->
-			<v-list-item link @click="navdrawerClick" to="/join">
+			<v-list-item v-if="$isHrUser() || $isSiteAdmin()" link @click="navdrawerClick" to="/join">
 				<v-list-item-action>
 					<v-icon class="grey--icon grey--text"
 						>mdi-account-multiple-plus-outline</v-icon
@@ -41,6 +41,21 @@
 				<v-list-item-content>
 					<v-list-item-title class="grey--text"
 						>Join TeamFCAT</v-list-item-title
+					>
+				</v-list-item-content>
+			</v-list-item>
+			<!--
+        Join TeamFCAT Menu Item
+      -->
+			<v-list-item v-if="$isHrUser() || $isSiteAdmin()" link @click="navdrawerClick" to="/join/create">
+				<v-list-item-action>
+					<v-icon class="grey--icon grey--text"
+						>mdi-account-multiple-plus-outline</v-icon
+					>
+				</v-list-item-action>
+				<v-list-item-content>
+					<v-list-item-title class="grey--text"
+						>Create Join</v-list-item-title
 					>
 				</v-list-item-content>
 			</v-list-item>

@@ -1,38 +1,67 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home'
-import Covid from './pages/Covid'
-import LandingPage from './pages/LandingPage'
-import UserManagement from './pages/UserManagement'
-import StaffSearch from './pages/StaffSearch'
-import PageSearch from './pages/PageSearch'
-import CovidLandingPage from './pages/CovidLandingPage'
-import QIGLandingPage from './pages/QIGLandingPage'
-import FinanceLandingPage from './pages/FinanceLandingPage'
-import HRLandingPage from './pages/HRLandingPage'
-import JoinLandingPage from './pages/JoinLandingPage'
-import JoinTeamFCATPage from './pages/JoinTeamFCATPage'
-import CreateVacancyPage from './pages/join/Create'
-import ICTLandingPage from './pages/ICTLandingPage'
-import HealthandSafetyLandingPage from './pages/HealthandSafetyLandingPage'
-import DataProtectionLandingPage from './pages/DataProtectionLandingPage'
-import MediaPRLandingPage from './pages/MediaPRLandingPage'
-import PremisesLandingPage from './pages/PremisesLandingPage'
-import DataInformationLandingPage from './pages/DataInformationLandingPage'
-import UpdatesLandingPage from './pages/UpdatesLandingPage'
-import SafeguardingLandingPage from './pages/SafeguardingLandingPage'
-import PolicyDocsLandingPage from './pages/PolicyDocsLandingPage'
-import EventsDatesLandingPage from './pages/EventsDatesLandingPage'
-import RemoteTLPage from './pages/RemoteTLPage'
-import Panda from './pages/Panda'
-import Penguin from './pages/Penguin'
-import ViewPage from './pages/ViewPage'
-import ViewPage2 from './pages/ViewPage2'
+import Vue from "vue";
+import Router from "vue-router";
+import Home from "./views/Home";
+import Covid from "./pages/Covid";
+import LandingPage from "./pages/LandingPage";
+import UserManagement from "./pages/UserManagement";
+import StaffSearch from "./pages/StaffSearch";
+import PageSearch from "./pages/PageSearch";
+import CovidLandingPage from "./pages/CovidLandingPage";
+import QIGLandingPage from "./pages/QIGLandingPage";
+import FinanceLandingPage from "./pages/FinanceLandingPage";
+import HRLandingPage from "./pages/HRLandingPage";
+import JoinLandingPage from "./pages/JoinLandingPage";
+import JoinTeamFCATPage from "./pages/JoinTeamFCATPage";
+import CreateVacancyPage from "./pages/join/Create";
+import ICTLandingPage from "./pages/ICTLandingPage";
+import HealthandSafetyLandingPage from "./pages/HealthandSafetyLandingPage";
+import DataProtectionLandingPage from "./pages/DataProtectionLandingPage";
+import MediaPRLandingPage from "./pages/MediaPRLandingPage";
+import PremisesLandingPage from "./pages/PremisesLandingPage";
+import DataInformationLandingPage from "./pages/DataInformationLandingPage";
+import UpdatesLandingPage from "./pages/UpdatesLandingPage";
+import SafeguardingLandingPage from "./pages/SafeguardingLandingPage";
+import PolicyDocsLandingPage from "./pages/PolicyDocsLandingPage";
+import EventsDatesLandingPage from "./pages/EventsDatesLandingPage";
+import RemoteTLPage from "./pages/RemoteTLPage";
+import Panda from "./pages/Panda";
+import Penguin from "./pages/Penguin";
+import ViewPage from "./pages/ViewPage";
+import ViewPage2 from "./pages/ViewPage2";
+import store from "./store";
 
-Vue.use(Router)
+Vue.use(Router);
+
+async function isHrUser(to, from, next) {
+  const user = await getUserState();
+  let arr = store.state.roles;
+  if (
+    arr.some(i => i.name.includes("Site Admin")) ||
+    arr.some(i => i.name.includes("HR Lead")) ||
+    arr.some(i => i.name.includes("HR Content Editor"))
+  ) {
+    next();
+  } else next("/home");
+}
+
+function getUserState() {
+  return new Promise((resolve, reject) => {
+    if (store.state.user === undefined) {
+      const unwatch = store.watch(
+        () => store.state.user,
+        value => {
+          unwatch();
+          resolve(value);
+        }
+      );
+    } else {
+      resolve(store.state.user);
+    }
+  });
+}
 
 export default new Router({
-  mode: 'history',
+  mode: "history",
   routes: [
     // {
     //   path: '/:sectionname',
@@ -42,21 +71,21 @@ export default new Router({
     // },
 
     {
-      path: '/',
-      name: 'base',
+      path: "/",
+      name: "base",
       component: Home,
       meta: {
         auth: true,
-        title: 'Home Page'
+        title: "Home Page"
       }
     },
     {
-      path: '/home',
-      name: 'home',
+      path: "/home",
+      name: "home",
       component: Home,
       meta: {
         auth: true,
-        title: 'Home Page'
+        title: "Home Page"
       }
     },
 
@@ -67,249 +96,251 @@ export default new Router({
     //   props: true
     // },
     {
-      path: '/p2/:areaname/:slug',
-      name: 'viewpage2',
+      path: "/p2/:areaname/:slug",
+      name: "viewpage2",
       component: ViewPage2,
       props: true,
       meta: {
         auth: true,
-        title: ':areaname Page'
+        title: ":areaname Page"
       }
     },
     {
-      path: '/newpage/:areaname/:slug',
-      name: 'newpage',
+      path: "/newpage/:areaname/:slug",
+      name: "newpage",
       component: ViewPage2,
       props: true,
       meta: {
         auth: true,
-        title: ':areaname New Page'
+        title: ":areaname New Page"
       }
     },
     {
-      path: '/finance',
-      name: 'finance',
+      path: "/finance",
+      name: "finance",
       component: FinanceLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Finance Landing Page'
+        title: "Finance Landing Page"
       }
     },
     {
-      path: '/covid',
-      name: 'covid',
+      path: "/covid",
+      name: "covid",
       component: CovidLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Covid Landing Page'
+        title: "Covid Landing Page"
       }
     },
     {
-      path: '/safeguarding',
-      name: 'safeguarding',
+      path: "/safeguarding",
+      name: "safeguarding",
       component: SafeguardingLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Safeguarding Landing Page'
+        title: "Safeguarding Landing Page"
       }
     },
     {
-      path: '/qigs',
-      name: 'qigs',
+      path: "/qigs",
+      name: "qigs",
       component: QIGLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'QIG Landing Page'
+        title: "QIG Landing Page"
       }
     },
     {
-      path: '/ict',
-      name: 'ict',
+      path: "/ict",
+      name: "ict",
       component: ICTLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'ICT Landing Page'
+        title: "ICT Landing Page"
       }
     },
     {
-      path: '/healthandsafety',
-      name: 'healthandsafety',
+      path: "/healthandsafety",
+      name: "healthandsafety",
       component: HealthandSafetyLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Health & Safety Landing Page'
+        title: "Health & Safety Landing Page"
       }
     },
     {
-      path: '/dataprotection',
-      name: 'dataprotection',
+      path: "/dataprotection",
+      name: "dataprotection",
       component: DataProtectionLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Data Protection Landing Page'
+        title: "Data Protection Landing Page"
       }
     },
     {
-      path: '/mediaandpr',
-      name: 'mediaandpr',
+      path: "/mediaandpr",
+      name: "mediaandpr",
       component: MediaPRLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Media & PR Landing Page'
+        title: "Media & PR Landing Page"
       }
     },
     {
-      path: '/hr',
-      name: 'hr',
+      path: "/hr",
+      name: "hr",
       component: HRLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'HR Landing Page'
+        title: "HR Landing Page"
       }
     },
     {
-      path: '/jointeamfcat',
-      name: 'jointeamfcat',
+      path: "/jointeamfcat",
+      name: "jointeamfcat",
       component: JoinLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Join TeamFCAT Page'
+        title: "Join TeamFCAT Page"
       }
     },
     {
-      path: '/join',
-      name: 'join',
+      path: "/join",
+      name: "join",
       component: JoinTeamFCATPage,
+      // beforeEnter: isHrUser,
       props: true,
       meta: {
         auth: true,
-        title: 'Join TeamFCAT Landing Page'
+        title: "Join TeamFCAT Landing Page"
       }
     },
     {
-      path: '/join/create',
-      name: 'join.create',
+      path: "/join/create",
+      name: "join.create",
       component: CreateVacancyPage,
+      // beforeEnter: isHrUser,
       props: true,
       meta: {
         auth: true,
-        title: 'Join TeamFCAT New Vacancy'
+        title: "Join TeamFCAT New Vacancy"
       }
     },
     {
-      path: '/premises',
-      name: 'premises',
+      path: "/premises",
+      name: "premises",
       component: PremisesLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Premises Landing Page'
+        title: "Premises Landing Page"
       }
     },
     {
-      path: '/datamis',
-      name: 'datamis',
+      path: "/datamis",
+      name: "datamis",
       component: DataInformationLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Data Landing Page'
+        title: "Data Landing Page"
       }
     },
     {
-      path: '/updates',
-      name: 'updates',
+      path: "/updates",
+      name: "updates",
       component: UpdatesLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Updates Landing Page'
+        title: "Updates Landing Page"
       }
     },
     {
-      path: '/policies',
-      name: 'policies',
+      path: "/policies",
+      name: "policies",
       component: PolicyDocsLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Policies Landing Page'
+        title: "Policies Landing Page"
       }
     },
     {
-      path: '/calendar',
-      name: 'calendar',
+      path: "/calendar",
+      name: "calendar",
       component: EventsDatesLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Calendar Landing Page'
+        title: "Calendar Landing Page"
       }
     },
     {
-      path: '/remotetl',
-      name: 'remotetl',
+      path: "/remotetl",
+      name: "remotetl",
       component: RemoteTLPage,
       props: true,
       meta: {
         auth: true,
-        title: 'Remote T&L Landing Page'
+        title: "Remote T&L Landing Page"
       }
     },
     {
-      path: '/panda',
-      name: 'panda',
+      path: "/panda",
+      name: "panda",
       component: Panda,
       props: true
     },
     {
-      path: '/penguin',
-      name: 'penguin',
+      path: "/penguin",
+      name: "penguin",
       component: Penguin,
       props: true
     },
     {
-      path: '/usermanagement',
-      name: 'usermanagement',
+      path: "/usermanagement",
+      name: "usermanagement",
       component: UserManagement,
       // props: true,
       meta: {
         auth: true,
-        title: 'User Management Page'
+        title: "User Management Page"
       }
     },
     {
-      path: '/staffsearch',
-      name: 'staffsearch',
+      path: "/staffsearch",
+      name: "staffsearch",
       component: StaffSearch,
       // props: true,
       meta: {
         auth: true,
-        title: 'Staff Search Page'
+        title: "Staff Search Page"
       }
     },
     {
-      path: '/pagesearch',
-      name: 'pagesearch',
+      path: "/pagesearch",
+      name: "pagesearch",
       component: PageSearch,
       // props: true,
       meta: {
         auth: true,
-        title: 'Page Search Page'
+        title: "Page Search Page"
       }
-    },
-  ],
+    }
+  ]
   // scrollBehavior(to, from, savedPosition) {
   //   return { x: 0, y: 0 }
   // },
-})
+});

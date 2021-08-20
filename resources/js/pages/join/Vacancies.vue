@@ -6,7 +6,7 @@
 					<div class="p-lg-1">
 						<h1 class="text-lg-h1 text-md-h2">TeamFCAT Internal Vacancies</h1>
 					</div>
-					<v-btn to="/join/create" class="mt-6" color="teal" dark
+					<v-btn v-if="$isHrUser()" to="/join/create" class="mt-6" color="teal" dark
 						>Create Vacancy</v-btn
 					>
 				</div>
@@ -145,7 +145,6 @@ export default {
 			this.loading = true;
 			this.scrollToTop();
 			axios.get("/get/allInternalVacancies").then(({ data }) => {
-				console.log(data);
 				this.vacancies = data;
 				this.loading = false;
 			});

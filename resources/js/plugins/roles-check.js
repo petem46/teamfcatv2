@@ -44,24 +44,5 @@ export default {
       }
       return res;
     };
-
-    /*
-     * CHECK IS HR USER
-     */
-    Vue.prototype.$isHrUser = function() {
-      var res = false;
-      var check = -1;
-      let arr = this.$store.getters.getRoles;
-      if (arr) {
-        var check = Math.max(
-          arr.indexOf("HR Lead"),
-          arr.indexOf("HR Content Editor")
-        );
-      }
-      if (check >= 0) {
-        res = true;
-      }
-      return res;
-    };
   }
 };

@@ -636,6 +636,10 @@ export default {
 	},
 	created() {
 		this.loading = true;
+		if (!this.$isHrUser() || !this.$isSiteAdmin()) {
+			console.log("Thou Shall Not Pass");
+			this.$router.push("/");
+		}
 	},
 	mounted() {
 		this.scrollToTop();

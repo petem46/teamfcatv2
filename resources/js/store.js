@@ -3,7 +3,7 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     user: null,
     userid: null,
@@ -11,7 +11,7 @@ export default new Vuex.Store({
     avatar: null,
     name: null,
     school: null,
-    gtoken: null,
+    gtoken: null
   },
   mutations: {
     setUser(state, id) {
@@ -61,3 +61,5 @@ export default new Vuex.Store({
     }
   }
 });
+
+export default store;

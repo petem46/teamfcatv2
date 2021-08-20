@@ -19,12 +19,13 @@ Route::get('/callback', 'SocialAuthMSGraphController@callback');
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/get/allInternalVacancies', 'VacancyController@index')->name('join');
-Route::get('/get/createVacancy', 'VacancyController@create')->name('join.create');
-Route::get('/get/payScales/{id}', 'VacancyController@getPayScaleRanges')->name('join.create');
-Route::post('/post/saveVacancy', 'VacancyController@save')->name('join.save');
-
 Route::group(['middleware' => ['auth']], function () {
+
+  Route::get('/get/allInternalVacancies', 'VacancyController@index')->name('join');
+  Route::get('/get/createVacancy', 'VacancyController@create')->name('join.create');
+  Route::get('/get/payScales/{id}', 'VacancyController@getPayScaleRanges')->name('join.create');
+  Route::post('/post/saveVacancy', 'VacancyController@save')->name('join.save');
+
   Route::get('/get/pages/all', 'PagesController@getAll');
   Route::get('/gdpr', 'HomeController@gdpr')->name('gdpr');
 
