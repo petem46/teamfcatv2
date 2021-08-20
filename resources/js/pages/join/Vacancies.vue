@@ -6,7 +6,12 @@
 					<div class="p-lg-1">
 						<h1 class="text-lg-h1 text-md-h2">TeamFCAT Internal Vacancies</h1>
 					</div>
-					<v-btn v-if="$isHrUser()" to="/join/create" class="mt-6" color="teal" dark
+					<v-btn
+						v-if="$isHrUser()"
+						to="/join/create"
+						class="mt-6"
+						color="teal"
+						dark
 						>Create Vacancy</v-btn
 					>
 				</div>
@@ -23,7 +28,11 @@
 		</div>
 
 		<v-container fluid v-if="!loading">
-			<v-data-iterator :items="vacancies" :items-per-page.sync="itemsPerPage" hide-default-footer>
+			<v-data-iterator
+				:items="vacancies"
+				:items-per-page.sync="itemsPerPage"
+				hide-default-footer
+			>
 				<template v-slot:header>
 					<v-toolbar class="mb-2 d-none" color="indigo darken-5" dark flat>
 						<v-toolbar-title>This is a header</v-toolbar-title>
@@ -33,7 +42,12 @@
 				<template v-slot:default="props">
 					<v-row>
 						<v-col v-for="item in props.items" :key="item.id" cols="12">
-							<v-card class="pa-5" :class="item.details.topBorder">
+							<v-card
+								class="pa-5"
+								:class="item.details.topBorder"
+								data-aos="zoom-in-left"
+								data-aos-duration="2500"
+							>
 								<v-row>
 									<v-col
 										cols="12"
@@ -43,7 +57,13 @@
 										class="text-center text-md-right"
 									>
 										<div class="text-center text-md-right">
-											<v-img contain eager width="150" :src="'/images/icons/' + item.details.icon" :alt="item.details.icon"/>
+											<v-img
+												contain
+												eager
+												width="150"
+												:src="'/images/icons/' + item.details.icon"
+												:alt="item.details.icon"
+											/>
 										</div>
 									</v-col>
 									<v-col cols="12" md="10" order="10" order-sm="1">
@@ -71,7 +91,8 @@
 												<v-icon class="mr-2 grey--text lighten-2"
 													>fa-clock fa-fw</v-icon
 												>
-												{{ item.details.contractHours }} {{item.details.contractWeeks }}
+												{{ item.details.contractHours }}
+												{{ item.details.contractWeeks }}
 											</v-col>
 											<v-col cols="12" md="6">
 												<v-icon class="mr-2 grey--text lighten-2"
@@ -83,7 +104,8 @@
 												<v-icon class="mr-2 grey--text lighten-2"
 													>fas fa-pound-sign fa-fw</v-icon
 												>
-												{{ item.details.salarypayscale }} {{ item.details.grade }} {{ item.details.range }}
+												{{ item.details.salarypayscale }}
+												{{ item.details.grade }} {{ item.details.range }}
 											</v-col>
 											<v-col cols="12" md="6">
 												<v-icon class="mr-2 grey--text lighten-2"
