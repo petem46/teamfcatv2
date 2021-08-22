@@ -55,39 +55,39 @@
 								class="mt-0"
 							></v-divider>
 							<div>
-								<p v-if="this.vacancy.details.salarypayscale">
+								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.salarypayscale">
 									Scale: {{ this.vacancy.details.salarypayscale }}
-								</p>
-								<p v-if="this.vacancy.details.grade">
+								</v-col>
+								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.grade">
 									Grade: {{ this.vacancy.details.grade }}
-								</p>
-								<p v-if="this.vacancy.details.range">
+								</v-col>
+								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.range">
 									Range: {{ this.vacancy.details.range }}
-								</p>
-								<p v-if="this.vacancy.details.salary">
+								</v-col>
+								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.salary">
 									Salary: {{ this.vacancy.details.salary }}
-								</p>
-								<p v-if="this.vacancy.details.contractType">
+								</v-col>
+								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.contractType">
 									Contract: {{ this.vacancy.details.contractType }}
 									{{ this.vacancy.details.contractTime }}
 									{{ this.vacancy.details.contractTermTimeOnly }}
-								</p>
-								<p v-if="this.vacancy.details.contractHours">
+								</v-col>
+								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.contractHours">
 									Hours:
 									{{ this.vacancy.details.contractHours }}
-								</p>
-								<p v-if="this.vacancy.details.contractWeeks">
+								</v-col>
+								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.contractWeeks">
 									Weeks:
 									{{ this.vacancy.details.contractWeeks }}
-								</p>
-								<p v-if="this.vacancy.details.contractEndDateFormatted">
+								</v-col>
+								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.contractEndDateFormatted">
 									Fixed End Date:
 									{{ this.vacancy.details.contractEndDateFormatted }}
-								</p>
-								<p v-if="this.vacancy.details.contractStartDateFormatted">
+								</v-col>
+								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.contractStartDateFormatted">
 									Start Date:
 									{{ this.vacancy.details.contractStartDateFormatted }}
-								</p>
+								</v-col>
 							</div>
 						</v-card-text>
 					</v-card>

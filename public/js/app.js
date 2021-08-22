@@ -40710,124 +40710,227 @@ var render = function() {
                                   ? _c("v-divider", { staticClass: "mt-0" })
                                   : _vm._e(),
                                 _vm._v(" "),
-                                _c("div", [
-                                  this.vacancy.details.salarypayscale
-                                    ? _c("p", [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\tScale: " +
-                                            _vm._s(
-                                              this.vacancy.details
-                                                .salarypayscale
-                                            ) +
-                                            "\n\t\t\t\t\t\t\t"
+                                _c(
+                                  "div",
+                                  [
+                                    this.vacancy.details.salarypayscale
+                                      ? _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              md: "6",
+                                              lg: "4"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\tScale: " +
+                                                _vm._s(
+                                                  this.vacancy.details
+                                                    .salarypayscale
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
                                         )
-                                      ])
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  this.vacancy.details.grade
-                                    ? _c("p", [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\tGrade: " +
-                                            _vm._s(this.vacancy.details.grade) +
-                                            "\n\t\t\t\t\t\t\t"
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    this.vacancy.details.grade
+                                      ? _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              md: "6",
+                                              lg: "4"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\tGrade: " +
+                                                _vm._s(
+                                                  this.vacancy.details.grade
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
                                         )
-                                      ])
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  this.vacancy.details.range
-                                    ? _c("p", [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\tRange: " +
-                                            _vm._s(this.vacancy.details.range) +
-                                            "\n\t\t\t\t\t\t\t"
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    this.vacancy.details.range
+                                      ? _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              md: "6",
+                                              lg: "4"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\tRange: " +
+                                                _vm._s(
+                                                  this.vacancy.details.range
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
                                         )
-                                      ])
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  this.vacancy.details.salary
-                                    ? _c("p", [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\tSalary: " +
-                                            _vm._s(
-                                              this.vacancy.details.salary
-                                            ) +
-                                            "\n\t\t\t\t\t\t\t"
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    this.vacancy.details.salary
+                                      ? _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              md: "6",
+                                              lg: "4"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\tSalary: " +
+                                                _vm._s(
+                                                  this.vacancy.details.salary
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
                                         )
-                                      ])
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  this.vacancy.details.contractType
-                                    ? _c("p", [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\tContract: " +
-                                            _vm._s(
-                                              this.vacancy.details.contractType
-                                            ) +
-                                            "\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(
-                                              this.vacancy.details.contractTime
-                                            ) +
-                                            "\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(
-                                              this.vacancy.details
-                                                .contractTermTimeOnly
-                                            ) +
-                                            "\n\t\t\t\t\t\t\t"
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    this.vacancy.details.contractType
+                                      ? _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              md: "6",
+                                              lg: "4"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\tContract: " +
+                                                _vm._s(
+                                                  this.vacancy.details
+                                                    .contractType
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(
+                                                  this.vacancy.details
+                                                    .contractTime
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(
+                                                  this.vacancy.details
+                                                    .contractTermTimeOnly
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
                                         )
-                                      ])
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  this.vacancy.details.contractHours
-                                    ? _c("p", [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\tHours:\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(
-                                              this.vacancy.details.contractHours
-                                            ) +
-                                            "\n\t\t\t\t\t\t\t"
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    this.vacancy.details.contractHours
+                                      ? _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              md: "6",
+                                              lg: "4"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\tHours:\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(
+                                                  this.vacancy.details
+                                                    .contractHours
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
                                         )
-                                      ])
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  this.vacancy.details.contractWeeks
-                                    ? _c("p", [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\tWeeks:\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(
-                                              this.vacancy.details.contractWeeks
-                                            ) +
-                                            "\n\t\t\t\t\t\t\t"
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    this.vacancy.details.contractWeeks
+                                      ? _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              md: "6",
+                                              lg: "4"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\tWeeks:\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(
+                                                  this.vacancy.details
+                                                    .contractWeeks
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
                                         )
-                                      ])
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  this.vacancy.details.contractEndDateFormatted
-                                    ? _c("p", [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\tFixed End Date:\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(
-                                              this.vacancy.details
-                                                .contractEndDateFormatted
-                                            ) +
-                                            "\n\t\t\t\t\t\t\t"
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    this.vacancy.details
+                                      .contractEndDateFormatted
+                                      ? _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              md: "6",
+                                              lg: "4"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\tFixed End Date:\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(
+                                                  this.vacancy.details
+                                                    .contractEndDateFormatted
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
                                         )
-                                      ])
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  this.vacancy.details
-                                    .contractStartDateFormatted
-                                    ? _c("p", [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\tStart Date:\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(
-                                              this.vacancy.details
-                                                .contractStartDateFormatted
-                                            ) +
-                                            "\n\t\t\t\t\t\t\t"
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    this.vacancy.details
+                                      .contractStartDateFormatted
+                                      ? _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              md: "6",
+                                              lg: "4"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\tStart Date:\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(
+                                                  this.vacancy.details
+                                                    .contractStartDateFormatted
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
                                         )
-                                      ])
-                                    : _vm._e()
-                                ])
+                                      : _vm._e()
+                                  ],
+                                  1
+                                )
                               ],
                               1
                             )
