@@ -10,18 +10,16 @@
 			<video-background
 				src="/videos/hr.mp4"
 				style="min-height: 300px; max-height: 450px; height: 100vh"
+				class="d-none d-sm-block"
 			>
-				<v-container class="py-lg-10">
+				<v-container class="pt-lg-15">
 					<v-card
 						elevation="10"
 						outlined
 						v-if="this.vacancy.details.postTitle || this.academy.icon"
 						cols="12"
-						class="join-card"
+						class="banner-opacity"
 					>
-						<!-- <div class="text-h5 text-md-h2 text-md-div">
-							Join Team<span class="teal--text font-weight-bold">FCAT</span>
-						</div> -->
 						<v-card-title
 							class="p-1"
 							:class="academy.color || 'grey'"
@@ -147,13 +145,101 @@
 				>
 					<v-card-title class="p-1" :class="academy.color || 'grey'">
 					</v-card-title>
-					<v-card-text>
+					<v-list-item three-line class="d-block d-sm-none">
+						<v-list-item-content>
+							<div class="text-overline mb-4">INTERNAL ONLY</div>
+							<v-list-item-title class="text-h4 mb-1" v-if="academy">
+								{{ this.vacancy.details.postTitle }}
+							</v-list-item-title>
+							<v-list-item-subtitle
+								class="text-h5"
+								v-if="
+									this.vacancy.details.location &&
+									this.vacancy.details.postTitle
+								"
+								>{{ this.vacancy.details.location }}</v-list-item-subtitle
+							>
+						</v-list-item-content>
+
+						<v-list-item-avatar v-if="academy.icon" size="100">
+							<v-img :src="'/images/icons/' + this.academy.icon"></v-img
+						></v-list-item-avatar>
+					</v-list-item>
+					<v-card-text class="d-block d-sm-none">
 						<v-divider
 							v-if="
-								this.vacancy.details.location &&
-								this.vacancy.details.salarypayscale
+								this.vacancy.details.location && this.vacancy.details.postTitle
 							"
+							class="mt-0"
 						></v-divider>
+						<v-row>
+							<v-col
+								cols="12"
+								md="6"
+								lg="4"
+								v-if="this.vacancy.details.salarypayscale"
+							>
+								Scale: {{ this.vacancy.details.salarypayscale }}
+							</v-col>
+							<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.grade">
+								Grade: {{ this.vacancy.details.grade }}
+							</v-col>
+							<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.range">
+								Range: {{ this.vacancy.details.range }}
+							</v-col>
+							<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.salary">
+								Salary: {{ this.vacancy.details.salary }}
+							</v-col>
+							<v-col
+								cols="12"
+								md="6"
+								lg="4"
+								v-if="this.vacancy.details.contractType"
+							>
+								Contract: {{ this.vacancy.details.contractType }}
+								{{ this.vacancy.details.contractTime }}
+								{{ this.vacancy.details.contractTermTimeOnly }}
+							</v-col>
+							<v-col
+								cols="12"
+								md="6"
+								lg="4"
+								v-if="this.vacancy.details.contractHours"
+							>
+								Hours:
+								{{ this.vacancy.details.contractHours }}
+							</v-col>
+							<v-col
+								cols="12"
+								md="6"
+								lg="4"
+								v-if="this.vacancy.details.contractWeeks"
+							>
+								Weeks:
+								{{ this.vacancy.details.contractWeeks }}
+							</v-col>
+							<v-col
+								cols="12"
+								md="6"
+								lg="4"
+								v-if="this.vacancy.details.contractEndDateFormatted"
+							>
+								Fixed End Date:
+								{{ this.vacancy.details.contractEndDateFormatted }}
+							</v-col>
+							<v-col
+								cols="12"
+								md="6"
+								lg="4"
+								v-if="this.vacancy.details.contractStartDateFormatted"
+							>
+								Start Date:
+								{{ this.vacancy.details.contractStartDateFormatted }}
+							</v-col>
+						</v-row>
+					</v-card-text>
+					<v-card-text>
+						<v-divider class="d-block d-sm-none"></v-divider>
 						<div v-if="academy.about" class="pt-3">
 							<div class="text-h4">
 								About {{ this.vacancy.details.location }}
@@ -251,14 +337,26 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.join-banner {
-	background-image: url("../../../../public/images/rtl-banner-bg.png");
-	background-repeat: repeat;
-}
-.join-card {
-	background-color: rgba(255, 255, 255, 0.7);
-}
-.slight-op {
-	background-color: rgba(255, 255, 255, 0.5);
+.banner-opacity {
+	background: rgb(255, 255, 255);
+	background: -moz-linear-gradient(
+		0deg,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(255, 255, 255, 0.75) 50%,
+		rgba(255, 255, 255, 0.5) 100%
+	);
+	background: -webkit-linear-gradient(
+		0deg,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(255, 255, 255, 0.75) 50%,
+		rgba(255, 255, 255, 0.5) 100%
+	);
+	background: linear-gradient(
+		0deg,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(255, 255, 255, 0.75) 50%,
+		rgba(255, 255, 255, 0.5) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
 }
 </style>

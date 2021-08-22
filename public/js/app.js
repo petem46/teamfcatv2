@@ -10937,6 +10937,92 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -13781,17 +13867,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _public_images_rtl_banner_bg_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../public/images/rtl-banner-bg.png */ "./public/images/rtl-banner-bg.png");
 // Imports
 
-
-
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_public_images_rtl_banner_bg_png__WEBPACK_IMPORTED_MODULE_2__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".join-banner[data-v-02b154c9] {\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-repeat: repeat;\n}\n.join-card[data-v-02b154c9] {\n  background-color: rgba(255, 255, 255, 0.7);\n}\n.slight-op[data-v-02b154c9] {\n  background-color: rgba(255, 255, 255, 0.5);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".banner-opacity[data-v-02b154c9] {\n  background: white;\n  background: linear-gradient(0deg, white 0%, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 0.5) 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffffff\",endColorstr=\"#ffffff\",GradientType=1);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -40655,6 +40735,7 @@ var render = function() {
             _c(
               "video-background",
               {
+                staticClass: "d-none d-sm-block",
                 staticStyle: {
                   "min-height": "300px",
                   "max-height": "450px",
@@ -40665,13 +40746,13 @@ var render = function() {
               [
                 _c(
                   "v-container",
-                  { staticClass: "py-lg-10" },
+                  { staticClass: "pt-lg-15" },
                   [
                     this.vacancy.details.postTitle || this.academy.icon
                       ? _c(
                           "v-card",
                           {
-                            staticClass: "join-card",
+                            staticClass: "banner-opacity",
                             attrs: { elevation: "10", outlined: "", cols: "12" }
                           },
                           [
@@ -41005,12 +41086,266 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c(
+                          "v-list-item",
+                          {
+                            staticClass: "d-block d-sm-none",
+                            attrs: { "three-line": "" }
+                          },
+                          [
+                            _c(
+                              "v-list-item-content",
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "text-overline mb-4" },
+                                  [_vm._v("INTERNAL ONLY")]
+                                ),
+                                _vm._v(" "),
+                                _vm.academy
+                                  ? _c(
+                                      "v-list-item-title",
+                                      { staticClass: "text-h4 mb-1" },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t" +
+                                            _vm._s(
+                                              this.vacancy.details.postTitle
+                                            ) +
+                                            "\n\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                this.vacancy.details.location &&
+                                this.vacancy.details.postTitle
+                                  ? _c(
+                                      "v-list-item-subtitle",
+                                      { staticClass: "text-h5" },
+                                      [
+                                        _vm._v(
+                                          _vm._s(this.vacancy.details.location)
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _vm.academy.icon
+                              ? _c(
+                                  "v-list-item-avatar",
+                                  { attrs: { size: "100" } },
+                                  [
+                                    _c("v-img", {
+                                      attrs: {
+                                        src:
+                                          "/images/icons/" + this.academy.icon
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
                           "v-card-text",
+                          { staticClass: "d-block d-sm-none" },
                           [
                             this.vacancy.details.location &&
-                            this.vacancy.details.salarypayscale
-                              ? _c("v-divider")
+                            this.vacancy.details.postTitle
+                              ? _c("v-divider", { staticClass: "mt-0" })
                               : _vm._e(),
+                            _vm._v(" "),
+                            _c(
+                              "v-row",
+                              [
+                                this.vacancy.details.salarypayscale
+                                  ? _c(
+                                      "v-col",
+                                      {
+                                        attrs: { cols: "12", md: "6", lg: "4" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\tScale: " +
+                                            _vm._s(
+                                              this.vacancy.details
+                                                .salarypayscale
+                                            ) +
+                                            "\n\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                this.vacancy.details.grade
+                                  ? _c(
+                                      "v-col",
+                                      {
+                                        attrs: { cols: "12", md: "6", lg: "4" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\tGrade: " +
+                                            _vm._s(this.vacancy.details.grade) +
+                                            "\n\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                this.vacancy.details.range
+                                  ? _c(
+                                      "v-col",
+                                      {
+                                        attrs: { cols: "12", md: "6", lg: "4" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\tRange: " +
+                                            _vm._s(this.vacancy.details.range) +
+                                            "\n\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                this.vacancy.details.salary
+                                  ? _c(
+                                      "v-col",
+                                      {
+                                        attrs: { cols: "12", md: "6", lg: "4" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\tSalary: " +
+                                            _vm._s(
+                                              this.vacancy.details.salary
+                                            ) +
+                                            "\n\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                this.vacancy.details.contractType
+                                  ? _c(
+                                      "v-col",
+                                      {
+                                        attrs: { cols: "12", md: "6", lg: "4" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\tContract: " +
+                                            _vm._s(
+                                              this.vacancy.details.contractType
+                                            ) +
+                                            "\n\t\t\t\t\t\t\t" +
+                                            _vm._s(
+                                              this.vacancy.details.contractTime
+                                            ) +
+                                            "\n\t\t\t\t\t\t\t" +
+                                            _vm._s(
+                                              this.vacancy.details
+                                                .contractTermTimeOnly
+                                            ) +
+                                            "\n\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                this.vacancy.details.contractHours
+                                  ? _c(
+                                      "v-col",
+                                      {
+                                        attrs: { cols: "12", md: "6", lg: "4" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\tHours:\n\t\t\t\t\t\t\t" +
+                                            _vm._s(
+                                              this.vacancy.details.contractHours
+                                            ) +
+                                            "\n\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                this.vacancy.details.contractWeeks
+                                  ? _c(
+                                      "v-col",
+                                      {
+                                        attrs: { cols: "12", md: "6", lg: "4" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\tWeeks:\n\t\t\t\t\t\t\t" +
+                                            _vm._s(
+                                              this.vacancy.details.contractWeeks
+                                            ) +
+                                            "\n\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                this.vacancy.details.contractEndDateFormatted
+                                  ? _c(
+                                      "v-col",
+                                      {
+                                        attrs: { cols: "12", md: "6", lg: "4" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\tFixed End Date:\n\t\t\t\t\t\t\t" +
+                                            _vm._s(
+                                              this.vacancy.details
+                                                .contractEndDateFormatted
+                                            ) +
+                                            "\n\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                this.vacancy.details.contractStartDateFormatted
+                                  ? _c(
+                                      "v-col",
+                                      {
+                                        attrs: { cols: "12", md: "6", lg: "4" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\tStart Date:\n\t\t\t\t\t\t\t" +
+                                            _vm._s(
+                                              this.vacancy.details
+                                                .contractStartDateFormatted
+                                            ) +
+                                            "\n\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-card-text",
+                          [
+                            _c("v-divider", {
+                              staticClass: "d-block d-sm-none"
+                            }),
                             _vm._v(" "),
                             _vm.academy.about
                               ? _c("div", { staticClass: "pt-3" }, [
