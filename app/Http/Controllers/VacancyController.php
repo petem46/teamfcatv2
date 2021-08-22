@@ -69,6 +69,20 @@ class VacancyController extends Controller
     }
   }
 
+  public function show($id)
+  {
+    return Vacancy::find($id);
+    // ->map(function ($v) {
+    //   return [
+    //     'id' => $v->id,
+    //     'academy_id' => $v->academy_id,
+    //     'details' => json_decode($v->details),
+    //     'closingDate' => $v->closingDate,
+    //     'closingDateFormatted' => $v->closingDateFormatted,
+    //   ];
+    // });
+  }
+
   public function getPayScaleRanges($id)
   {
     return PayScaleRanges::all()->where('salary_pay_scale_id', $id)->map(function ($psr) {

@@ -1,0 +1,216 @@
+<template>
+	<div>
+		<div v-if="loading">
+			<v-progress-linear indeterminate> </v-progress-linear>
+			<v-skeleton-loader
+				type="list-item-avatar, divider, list-item-three-line, card-heading, image, actions"
+			></v-skeleton-loader>
+		</div>
+		<div v-if="!loading">
+			<video-background
+				src="/videos/hr.mp4"
+				style="min-height: 300px; max-height: 450px; height: 100vh"
+			>
+				<v-container class="py-lg-10">
+					<v-card
+						elevation="10"
+						outlined
+						v-if="this.vacancy.details.postTitle || this.academy.icon"
+						cols="12"
+						class="join-card"
+					>
+						<!-- <div class="text-h5 text-md-h2 text-md-div">
+							Join Team<span class="teal--text font-weight-bold">FCAT</span>
+						</div> -->
+						<v-card-title
+							class="p-1"
+							:class="academy.color || 'grey'"
+						></v-card-title>
+						<v-list-item three-line>
+							<v-list-item-content>
+								<div class="text-overline mb-4">INTERNAL ONLY</div>
+								<v-list-item-title class="text-h4 mb-1" v-if="academy">
+									{{ this.vacancy.details.postTitle }}
+								</v-list-item-title>
+								<v-list-item-subtitle
+									class="text-h5"
+									v-if="
+										this.vacancy.details.location &&
+										this.vacancy.details.postTitle
+									"
+									>{{ this.vacancy.details.location }}</v-list-item-subtitle
+								>
+							</v-list-item-content>
+
+							<v-list-item-avatar v-if="academy.icon" size="100">
+								<v-img :src="'/images/icons/' + this.academy.icon"></v-img
+							></v-list-item-avatar>
+						</v-list-item>
+						<v-card-text>
+							<v-divider
+								v-if="
+									this.vacancy.details.location &&
+									this.vacancy.details.postTitle
+								"
+								class="mt-0"
+							></v-divider>
+							<div>
+								<p v-if="this.vacancy.details.salarypayscale">
+									Scale: {{ this.vacancy.details.salarypayscale }}
+								</p>
+								<p v-if="this.vacancy.details.grade">
+									Grade: {{ this.vacancy.details.grade }}
+								</p>
+								<p v-if="this.vacancy.details.range">
+									Range: {{ this.vacancy.details.range }}
+								</p>
+								<p v-if="this.vacancy.details.salary">
+									Salary: {{ this.vacancy.details.salary }}
+								</p>
+								<p v-if="this.vacancy.details.contractType">
+									Contract: {{ this.vacancy.details.contractType }}
+									{{ this.vacancy.details.contractTime }}
+									{{ this.vacancy.details.contractTermTimeOnly }}
+								</p>
+								<p v-if="this.vacancy.details.contractHours">
+									Hours:
+									{{ this.vacancy.details.contractHours }}
+								</p>
+								<p v-if="this.vacancy.details.contractWeeks">
+									Weeks:
+									{{ this.vacancy.details.contractWeeks }}
+								</p>
+								<p v-if="this.vacancy.details.contractEndDateFormatted">
+									Fixed End Date:
+									{{ this.vacancy.details.contractEndDateFormatted }}
+								</p>
+								<p v-if="this.vacancy.details.contractStartDateFormatted">
+									Start Date:
+									{{ this.vacancy.details.contractStartDateFormatted }}
+								</p>
+							</div>
+						</v-card-text>
+					</v-card>
+				</v-container>
+			</video-background>
+			<!-- ADVERT MOCK UP -->
+			<v-container>
+				<v-card
+					elevation="2"
+					outlined
+					v-if="this.vacancy.details.postTitle || this.academy.icon"
+				>
+					<v-card-title class="p-1" :class="academy.color || 'grey'">
+					</v-card-title>
+					<v-card-text>
+						<v-divider
+							v-if="
+								this.vacancy.details.location &&
+								this.vacancy.details.salarypayscale
+							"
+						></v-divider>
+						<div v-if="academy.about" class="pt-3">
+							<div class="text-h4">
+								About {{ this.vacancy.details.location }}
+							</div>
+							<div class="whitespace-pre-line">
+								{{ academy.about }}
+							</div>
+						</div>
+						<div v-if="this.vacancy.details.aboutTheRole">
+							<v-divider></v-divider>
+							<div class="text-h4">About The Role</div>
+							<div class="whitespace-pre-line">
+								{{ this.vacancy.details.aboutTheRole }}
+							</div>
+						</div>
+						<v-divider></v-divider>
+						<div v-if="academy.about">
+							<div class="text-h4 mb-4">How to apply</div>
+							<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+								commodi. Asperiores possimus explicabo voluptate. Dolore quam,
+								ab voluptatum deserunt similique in culpa esse vero laboriosam
+								numquam aliquid suscipit optio aut sequi corporis veniam,
+								consectetur deleniti sapiente ipsam voluptatibus nobis
+								necessitatibus officia? Repudiandae natus dolor vero molestias
+								possimus, officiis voluptas excepturi fuga suscipit, repellendus
+								quibusdam porro, voluptatem reprehenderit soluta tempore enim
+								quia?
+							</p>
+							<p>
+								Maiores, harum. Aliquam, totam laborum nesciunt, perspiciatis
+								tempora necessitatibus porro, commodi ipsa quidem quam quas
+								quisquam laboriosam ea nihil. Deserunt sequi nihil aliquid nobis
+								optio asperiores!
+							</p>
+							<p>
+								Totam reprehenderit veritatis accusantium. Consequuntur, error
+								dignissimos perferendis modi architecto ipsam doloribus eius.
+							</p>
+						</div>
+					</v-card-text>
+				</v-card>
+			</v-container>
+		</div>
+	</div>
+</template>
+<script>
+import axios from "axios";
+import Banner from "./Banner.vue";
+export default {
+	props: ["vacancy_id"],
+	components: {
+		Banner,
+	},
+	data() {
+		return {
+			loading: false,
+			vacancy: {},
+			academy: {},
+		};
+	},
+	created() {
+		this.loading = true;
+		// if (!this.$isHrUser() || !this.$isSiteAdmin()) {
+		// 	console.log("Thou Shall Not Pass");
+		// 	this.$router.push("/");
+		// }
+	},
+	mounted() {
+		this.scrollToTop();
+		this.getContent();
+		// this.loading = false;
+	},
+	methods: {
+		scrollToTop() {
+			window.scrollTo(0, 0);
+		},
+		getContent() {
+			this.loading = true;
+			axios.get("/get/vacancy/" + this.vacancy_id).then(({ data }) => {
+				this.vacancy = data;
+				this.vacancy.details = JSON.parse(data.details);
+				this.getAcademyDetails();
+			});
+		},
+		getAcademyDetails() {
+			this.loading = true;
+			axios.get("/get/academy/" + this.vacancy.academy_id).then(({ data }) => {
+				this.academy = data;
+				this.academy.icon = this.academy.logourl;
+				this.loading = false;
+			});
+		},
+	},
+};
+</script>
+<style lang="scss" scoped>
+.join-banner {
+	background-image: url("../../../../public/images/rtl-banner-bg.png");
+	background-repeat: repeat;
+}
+.join-card {
+	background-color: rgba(255, 255, 255, 0.7);
+}
+</style>

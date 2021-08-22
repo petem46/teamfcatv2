@@ -13,6 +13,8 @@ import HRLandingPage from "./pages/HRLandingPage";
 import JoinLandingPage from "./pages/JoinLandingPage";
 import JoinTeamFCATPage from "./pages/JoinTeamFCATPage";
 import CreateVacancyPage from "./pages/join/Create";
+import ShowVacancyPage from "./pages/join/Show";
+import EditVacancyPage from "./pages/join/Edit";
 import ICTLandingPage from "./pages/ICTLandingPage";
 import HealthandSafetyLandingPage from "./pages/HealthandSafetyLandingPage";
 import DataProtectionLandingPage from "./pages/DataProtectionLandingPage";
@@ -113,6 +115,17 @@ export default new Router({
       meta: {
         auth: true,
         title: ":areaname New Page"
+      }
+    },
+    {
+      path: "/join/show/:vacancy_id",
+      name: "join.show",
+      component: ShowVacancyPage,
+      // beforeEnter: isHrUser,
+      props: true,
+      meta: {
+        auth: true,
+        title: "Show Vacancy TeamFCAT"
       }
     },
     {
@@ -235,6 +248,18 @@ export default new Router({
       meta: {
         auth: true,
         title: "Join TeamFCAT New Vacancy"
+      }
+    },
+
+    {
+      path: "/join/edit",
+      name: "join.edit",
+      component: EditVacancyPage,
+      // beforeEnter: isHrUser,
+      props: true,
+      meta: {
+        auth: true,
+        title: "TeamFCAT Edit Vacancy"
       }
     },
     {

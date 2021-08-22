@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AcademyController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\UploadsController;
 use Illuminate\Support\Facades\Route;
@@ -16,12 +17,15 @@ Route::get('/redirect', 'SocialAuthMSGraphController@redirect');
 Route::get('/callback', 'SocialAuthMSGraphController@callback');
 
 // Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/get/vacancy/{id}', 'VacancyController@show')->name('join.show');
+Route::get('/get/allInternalVacancies', 'VacancyController@index')->name('join');
+
+Route::get('get/academy/{id}', 'AcademyController@getAcademybyId')->name('academy.get');
 
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
 
-  Route::get('/get/allInternalVacancies', 'VacancyController@index')->name('join');
   Route::get('/get/createVacancy', 'VacancyController@create')->name('join.create');
   Route::get('/get/payScales/{id}', 'VacancyController@getPayScaleRanges')->name('join.create');
   Route::post('/post/saveVacancy', 'VacancyController@save')->name('join.save');
