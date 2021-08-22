@@ -46,7 +46,7 @@
 								<v-img :src="'/images/icons/' + this.academy.icon"></v-img
 							></v-list-item-avatar>
 						</v-list-item>
-						<v-card-text>
+						<v-card-text class="slight-op">
 							<v-divider
 								v-if="
 									this.vacancy.details.location &&
@@ -55,36 +55,81 @@
 								class="mt-0"
 							></v-divider>
 							<v-row>
-								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.salarypayscale">
+								<v-col
+									cols="12"
+									md="6"
+									lg="4"
+									v-if="this.vacancy.details.salarypayscale"
+								>
 									Scale: {{ this.vacancy.details.salarypayscale }}
 								</v-col>
-								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.grade">
+								<v-col
+									cols="12"
+									md="6"
+									lg="4"
+									v-if="this.vacancy.details.grade"
+								>
 									Grade: {{ this.vacancy.details.grade }}
 								</v-col>
-								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.range">
+								<v-col
+									cols="12"
+									md="6"
+									lg="4"
+									v-if="this.vacancy.details.range"
+								>
 									Range: {{ this.vacancy.details.range }}
 								</v-col>
-								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.salary">
+								<v-col
+									cols="12"
+									md="6"
+									lg="4"
+									v-if="this.vacancy.details.salary"
+								>
 									Salary: {{ this.vacancy.details.salary }}
 								</v-col>
-								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.contractType">
+								<v-col
+									cols="12"
+									md="6"
+									lg="4"
+									v-if="this.vacancy.details.contractType"
+								>
 									Contract: {{ this.vacancy.details.contractType }}
 									{{ this.vacancy.details.contractTime }}
 									{{ this.vacancy.details.contractTermTimeOnly }}
 								</v-col>
-								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.contractHours">
+								<v-col
+									cols="12"
+									md="6"
+									lg="4"
+									v-if="this.vacancy.details.contractHours"
+								>
 									Hours:
 									{{ this.vacancy.details.contractHours }}
 								</v-col>
-								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.contractWeeks">
+								<v-col
+									cols="12"
+									md="6"
+									lg="4"
+									v-if="this.vacancy.details.contractWeeks"
+								>
 									Weeks:
 									{{ this.vacancy.details.contractWeeks }}
 								</v-col>
-								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.contractEndDateFormatted">
+								<v-col
+									cols="12"
+									md="6"
+									lg="4"
+									v-if="this.vacancy.details.contractEndDateFormatted"
+								>
 									Fixed End Date:
 									{{ this.vacancy.details.contractEndDateFormatted }}
 								</v-col>
-								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.contractStartDateFormatted">
+								<v-col
+									cols="12"
+									md="6"
+									lg="4"
+									v-if="this.vacancy.details.contractStartDateFormatted"
+								>
 									Start Date:
 									{{ this.vacancy.details.contractStartDateFormatted }}
 								</v-col>
@@ -212,5 +257,8 @@ export default {
 }
 .join-card {
 	background-color: rgba(255, 255, 255, 0.7);
+}
+.slight-op {
+	background-color: rgba(255, 255, 255, 0.5);
 }
 </style>
