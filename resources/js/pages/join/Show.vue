@@ -54,7 +54,7 @@
 								"
 								class="mt-0"
 							></v-divider>
-							<div>
+							<v-row>
 								<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.salarypayscale">
 									Scale: {{ this.vacancy.details.salarypayscale }}
 								</v-col>
@@ -88,7 +88,7 @@
 									Start Date:
 									{{ this.vacancy.details.contractStartDateFormatted }}
 								</v-col>
-							</div>
+							</v-row>
 						</v-card-text>
 					</v-card>
 				</v-container>
