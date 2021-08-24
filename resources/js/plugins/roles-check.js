@@ -37,7 +37,7 @@ export default {
         var check = Math.max(
           arr.indexOf("HR Lead"),
           arr.indexOf("HR Content Editor"),
-          arr.indexOf("Site ADmin")
+          arr.indexOf("Site Admin")
         );
       }
       if (check >= 0) {
