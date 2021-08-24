@@ -10642,7 +10642,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   },
   created: function created() {
     this.loading = true;
-    console.log(!this.$isSiteAdmin());
+    console.log(!this.$isHrUser());
 
     if (this.$isHrUser() === false || this.$isSiteAdmin() === false) {
       console.log("Thou Shall Not Pass");
