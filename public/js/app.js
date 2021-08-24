@@ -10644,7 +10644,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     this.loading = true;
     console.log(this.$isSiteAdmin());
 
-    if (!this.$isHrUser() || !this.$isSiteAdmin()) {
+    if (this.$isHrUser() == false || this.$isSiteAdmin() == false) {
       console.log("Thou Shall Not Pass");
       this.$router.push("/");
     }
