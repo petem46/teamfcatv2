@@ -636,6 +636,7 @@ export default {
 	},
 	created() {
 		this.loading = true;
+    console.log(this.$isSiteAdmin());
 		if (!this.$isHrUser() || !this.$isSiteAdmin()) {
 			console.log("Thou Shall Not Pass");
 			this.$router.push("/");
