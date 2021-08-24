@@ -355,16 +355,16 @@ svg {
 .vh-rtl-100 {
 	min-height: calc(100vh - 128px);
 }
-section:before {
-	content: "";
-	display: block;
-	height: 100px;
-}
-section:after {
-	content: "";
-	display: block;
-	height: 100px;
-}
+// section:before {
+// 	content: "";
+// 	display: block;
+// 	height: 100px;
+// }
+// section:after {
+// 	content: "";
+// 	display: block;
+// 	height: 100px;
+// }
 
 @-webkit-keyframes AnimationName {
 	0% {
