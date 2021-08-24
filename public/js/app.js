@@ -12369,7 +12369,9 @@ __webpack_require__.r(__webpack_exports__);
       var arr = this.$store.getters.getRoles;
 
       if (arr) {
-        var check = Math.max(arr.indexOf("HR Lead"), arr.indexOf("HR Content Editor"), arr.indexOf("Site Admin"));
+        var check = Math.max(arr.indexOf("HR Lead"));
+        check + Math.max(arr.indexOf("HR Content Editor"));
+        check + Math.max(arr.indexOf("Site Admin"));
       }
 
       if (check >= 0) {
