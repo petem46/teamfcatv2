@@ -640,7 +640,7 @@ export default {
 		console.log('hr' + this.$isHrUser());
 		console.log('site' + this.$isSiteAdmin());
 		console.log('!site' + !this.$isSiteAdmin());
-		if (this.$isHrUser() === false || this.$isSiteAdmin() === false) {
+		if (!this.$isHrUser()) {
 			console.log("Thou Shall Not Pass");
 			this.$router.push("/");
 		}
