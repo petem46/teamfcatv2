@@ -10640,17 +10640,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       leadershipMaxPoint: 43
     };
   },
-  created: function created() {
-    this.loading = true;
-    console.log('!hr' + !this.$isHrUser());
-    console.log('hr' + this.$isHrUser());
-    console.log('site' + this.$isSiteAdmin());
-    console.log('!site' + !this.$isSiteAdmin());
-
-    if (!this.$isHrUser()) {
-      console.log("Thou Shall Not Pass");
-      this.$router.push("/");
-    }
+  created: function created() {// this.loading = true;
+    // console.log('!hr' + !this.$isHrUser());
+    // console.log('hr' + this.$isHrUser());
+    // console.log('site' + this.$isSiteAdmin());
+    // console.log('!site' + !this.$isSiteAdmin());
+    // if (!this.$isHrUser()) {
+    // 	console.log("Thou Shall Not Pass");
+    // 	this.$router.push("/");
+    // }
   },
   mounted: function mounted() {
     this.scrollToTop();
