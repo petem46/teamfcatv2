@@ -636,7 +636,10 @@ export default {
 	},
 	created() {
 		this.loading = true;
-		console.log(!this.$isHrUser());
+		console.log('!hr' + !this.$isHrUser());
+		console.log('hr' + this.$isHrUser());
+		console.log('site' + this.$isSiteAdmin());
+		console.log('!site' + !this.$isSiteAdmin());
 		if (this.$isHrUser() === false || this.$isSiteAdmin() === false) {
 			console.log("Thou Shall Not Pass");
 			this.$router.push("/");
