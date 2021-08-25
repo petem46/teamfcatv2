@@ -11025,6 +11025,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -13875,7 +13876,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".banner-opacity[data-v-02b154c9] {\n  background: white;\n  background: linear-gradient(0deg, white 0%, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 0.5) 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffffff\",endColorstr=\"#ffffff\",GradientType=1);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".mt-neg15[data-v-02b154c9] {\n  position: absolute;\n  top: 15%;\n  left: 50%;\n  transform: translate(-50%, 0);\n}\n@media (max-width: 576px) {\n.mt-neg15[data-v-02b154c9] {\n    top: 15px;\n}\n}\n.banner-opacity[data-v-02b154c9] {\n  background: white;\n  background: linear-gradient(0deg, white 0%, rgba(255, 255, 255, 0.8) 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffffff\",endColorstr=\"#ffffff\",GradientType=1);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28088,7 +28089,7 @@ var render = function() {
                     "v-list-item-content",
                     [
                       _c("v-list-item-title", { staticClass: "grey--text" }, [
-                        _vm._v("Join TeamFCAT")
+                        _vm._v("Interal Vacancies")
                       ])
                     ],
                     1
@@ -40750,7 +40751,7 @@ var render = function() {
               [
                 _c(
                   "v-container",
-                  { staticClass: "pt-lg-15" },
+                  { staticClass: "pt-lg-15 d-none" },
                   [
                     this.vacancy.details.postTitle || this.academy.icon
                       ? _c(
@@ -41078,11 +41079,15 @@ var render = function() {
             _vm._v(" "),
             _c(
               "v-container",
+              { staticClass: "mt-neg15" },
               [
                 this.vacancy.details.postTitle || this.academy.icon
                   ? _c(
                       "v-card",
-                      { attrs: { elevation: "2", outlined: "" } },
+                      {
+                        staticClass: "banner-opacity",
+                        attrs: { elevation: "2", outlined: "" }
+                      },
                       [
                         _c("v-card-title", {
                           staticClass: "p-1",
@@ -41091,10 +41096,7 @@ var render = function() {
                         _vm._v(" "),
                         _c(
                           "v-list-item",
-                          {
-                            staticClass: "d-block d-sm-none",
-                            attrs: { "three-line": "" }
-                          },
+                          { attrs: { "three-line": "" } },
                           [
                             _c(
                               "v-list-item-content",
@@ -41108,7 +41110,9 @@ var render = function() {
                                 _vm.academy
                                   ? _c(
                                       "v-list-item-title",
-                                      { staticClass: "text-h4 mb-1" },
+                                      {
+                                        staticClass: "text-h4 mb-1 text-wrap "
+                                      },
                                       [
                                         _vm._v(
                                           "\n\t\t\t\t\t\t\t" +
@@ -41158,7 +41162,7 @@ var render = function() {
                         _vm._v(" "),
                         _c(
                           "v-card-text",
-                          { staticClass: "d-block d-sm-none" },
+                          {},
                           [
                             this.vacancy.details.location &&
                             this.vacancy.details.postTitle
@@ -41347,9 +41351,7 @@ var render = function() {
                         _c(
                           "v-card-text",
                           [
-                            _c("v-divider", {
-                              staticClass: "d-block d-sm-none"
-                            }),
+                            _c("v-divider", {}),
                             _vm._v(" "),
                             _vm.academy.about
                               ? _c("div", { staticClass: "pt-3" }, [
@@ -41481,7 +41483,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "col-6",
+              staticClass: "col-8",
               attrs: {
                 "data-aos": "zoom-out-left",
                 "data-aos-duration": "1500"
@@ -41979,7 +41981,7 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "col-6",
+        staticClass: "col-4",
         attrs: { "data-aos": "zoom-out-left", "data-aos-duration": "1500" }
       },
       [

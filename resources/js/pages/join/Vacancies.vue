@@ -2,7 +2,7 @@
 	<section id="internalvacancies" class="grey lighten-2 vh-rtl-100">
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-6" data-aos="zoom-out-left" data-aos-duration="1500">
+				<div class="col-8" data-aos="zoom-out-left" data-aos-duration="1500">
 					<div class="p-lg-1">
 						<h1 class="text-lg-h1 text-md-h2">Internal Vacancies</h1>
 					</div>
@@ -15,7 +15,7 @@
 						>Create Vacancy</v-btn
 					>
 				</div>
-				<div class="col-6" data-aos="zoom-out-left" data-aos-duration="1500">
+				<div class="col-4" data-aos="zoom-out-left" data-aos-duration="1500">
 					<div class="p-lg-5">
 						<img
 							class="img-fluid rounded-circle"

@@ -12,7 +12,7 @@
 				style="min-height: 300px; max-height: 450px; height: 100vh"
 				class="d-none d-sm-block"
 			>
-				<v-container class="pt-lg-15">
+				<v-container class="pt-lg-15 d-none">
 					<v-card
 						elevation="10"
 						outlined
@@ -137,18 +137,19 @@
 				</v-container>
 			</video-background>
 			<!-- ADVERT MOCK UP -->
-			<v-container>
+			<v-container class="mt-neg15">
 				<v-card
 					elevation="2"
 					outlined
 					v-if="this.vacancy.details.postTitle || this.academy.icon"
+					class="banner-opacity"
 				>
 					<v-card-title class="p-1" :class="academy.color || 'grey'">
 					</v-card-title>
-					<v-list-item three-line class="d-block d-sm-none">
+					<v-list-item three-line class="">
 						<v-list-item-content>
 							<div class="text-overline mb-4">INTERNAL ONLY</div>
-							<v-list-item-title class="text-h4 mb-1" v-if="academy">
+							<v-list-item-title class="text-h4 mb-1 text-wrap " v-if="academy">
 								{{ this.vacancy.details.postTitle }}
 							</v-list-item-title>
 							<v-list-item-subtitle
@@ -161,11 +162,11 @@
 							>
 						</v-list-item-content>
 
-						<v-list-item-avatar v-if="academy.icon" size="100">
+						<v-list-item-avatar v-if="academy.icon" size="100" class="">
 							<v-img :src="'/images/icons/' + this.academy.icon"></v-img
 						></v-list-item-avatar>
 					</v-list-item>
-					<v-card-text class="d-block d-sm-none">
+					<v-card-text class="">
 						<v-divider
 							v-if="
 								this.vacancy.details.location && this.vacancy.details.postTitle
@@ -239,7 +240,7 @@
 						</v-row>
 					</v-card-text>
 					<v-card-text>
-						<v-divider class="d-block d-sm-none"></v-divider>
+						<v-divider class=""></v-divider>
 						<div v-if="academy.about" class="pt-3">
 							<div class="text-h4">
 								About {{ this.vacancy.details.location }}
@@ -337,25 +338,31 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.mt-neg15 {
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, 0);
+  @media (max-width: 576px) {
+    top: 15px;
+   }
+}
 .banner-opacity {
 	background: rgb(255, 255, 255);
 	background: -moz-linear-gradient(
 		0deg,
 		rgba(255, 255, 255, 1) 0%,
-		rgba(255, 255, 255, 0.75) 50%,
-		rgba(255, 255, 255, 0.5) 100%
+		rgba(255, 255, 255, 0.8) 100%
 	);
 	background: -webkit-linear-gradient(
 		0deg,
 		rgba(255, 255, 255, 1) 0%,
-		rgba(255, 255, 255, 0.75) 50%,
-		rgba(255, 255, 255, 0.5) 100%
+		rgba(255, 255, 255, 0.8) 100%
 	);
 	background: linear-gradient(
 		0deg,
 		rgba(255, 255, 255, 1) 0%,
-		rgba(255, 255, 255, 0.75) 50%,
-		rgba(255, 255, 255, 0.5) 100%
+		rgba(255, 255, 255, 0.8) 100%
 	);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
 }
