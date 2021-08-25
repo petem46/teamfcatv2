@@ -11254,14 +11254,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.selectedAcademyDetails = this.academies.find(function (a) {
         return a.id === _this.selectedAcademy;
       });
-
-      if (this.selectedAcademyDetails.about) {
-        this.vacancyDetails.about = this.selectedAcademyDetails.about;
-        this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
-        this.vacancy.academy_id = this.selectedAcademyDetails.id;
-        this.vacancyDetails.location = this.selectedAcademyDetails.name;
-        this.vacancyDetails.name = this.selectedAcademyDetails.name;
-      }
+      this.vacancyDetails.about = this.selectedAcademyDetails.about;
+      this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
+      this.vacancy.academy_id = this.selectedAcademyDetails.id;
+      this.vacancyDetails.location = this.selectedAcademyDetails.name;
+      this.vacancyDetails.name = this.selectedAcademyDetails.name;
     },
     selectedSalary: function selectedSalary() {
       var _this2 = this;
@@ -11375,11 +11372,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         type: "Fixed Term"
       }],
       selectedAcademy: null,
-      selectedAcademyDetails: {},
+      selectedAcademyDetails: null,
       selectedSalary: null,
-      selectedSalaryDetails: {},
+      selectedSalaryDetails: null,
       selectedPayScale: null,
-      selectedPayScaleDetails: {},
+      selectedPayScaleDetails: null,
       leadershipScaleRange: [1, 43],
       leadershipMinPoint: 1,
       leadershipMaxPoint: 43

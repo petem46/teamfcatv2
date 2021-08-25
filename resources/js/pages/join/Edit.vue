@@ -493,13 +493,12 @@ export default {
 			this.selectedAcademyDetails = this.academies.find(
 				(a) => a.id === this.selectedAcademy
 			);
-			if (this.selectedAcademyDetails.about) {
-				this.vacancyDetails.about = this.selectedAcademyDetails.about;
-				this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
-				this.vacancy.academy_id = this.selectedAcademyDetails.id;
-				this.vacancyDetails.location = this.selectedAcademyDetails.name;
-				this.vacancyDetails.name = this.selectedAcademyDetails.name;
-			}
+
+			this.vacancyDetails.about = this.selectedAcademyDetails.about;
+			this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
+			this.vacancy.academy_id = this.selectedAcademyDetails.id;
+			this.vacancyDetails.location = this.selectedAcademyDetails.name;
+			this.vacancyDetails.name = this.selectedAcademyDetails.name;
 		},
 		selectedSalary() {
 			this.selectedSalaryDetails = this.salaryscales.find(
@@ -633,11 +632,11 @@ export default {
 				},
 			],
 			selectedAcademy: null,
-			selectedAcademyDetails: {},
+			selectedAcademyDetails: null,
 			selectedSalary: null,
-			selectedSalaryDetails: {},
+			selectedSalaryDetails: null,
 			selectedPayScale: null,
-			selectedPayScaleDetails: {},
+			selectedPayScaleDetails: null,
 			leadershipScaleRange: [1, 43],
 			leadershipMinPoint: 1,
 			leadershipMaxPoint: 43,
