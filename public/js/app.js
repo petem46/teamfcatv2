@@ -11456,6 +11456,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this5.vacancy.details = JSON.parse(data.details);
                   _this5.vacancyDetails = _this5.vacancy.details;
                   _this5.vacancy.academy_id = parseInt(_this5.vacancy.academy_id);
+
+                  _this5.getAcademyDetails(parseInt(data.academy_id));
+
                   _this5.selectedAcademy = parseInt(data.academy_id);
                   _this5.selectedSalary = parseInt(data.details.selectedSalaryPayScale_id);
 
@@ -11479,7 +11482,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
-    getAcademyDetails: function getAcademyDetails() {
+    getAcademyDetails: function getAcademyDetails($id) {
       var _this6 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
@@ -11489,7 +11492,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this6.loading = true;
                 _context3.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/get/academy/" + _this6.vacancy.academy_id).then(function (_ref3) {
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/get/academy/" + $id).then(function (_ref3) {
                   var data = _ref3.data;
                   _this6.selectedAcademyDetails = data;
                   _this6.selectedAcademyDetails.icon = _this6.selectedAcademyDetails.logourl;
@@ -11516,14 +11519,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     saveVacancy: function saveVacancy() {
       var _this8 = this;
 
-      // console.log(this.vacancy);
-      // let details = JSON.stringify(this.vacancyDetails);
-      // let vacancy = new FormData();
-      // vacancy.append("academy_id", this.vacancy.academy_id);
-      // vacancy.append("closingDate", this.vacancy.closingDate);
-      // vacancy.append("closingDateFormatted", this.vacancy.closingDateFormatted);
-      // vacancy.append("details", details);
-      // this.vacancy.details = this.vacancyDetails;
       console.log(this.vacancy);
       axios__WEBPACK_IMPORTED_MODULE_1___default().put("/put/updateVacancy/" + this.vacancy.id, this.vacancy).then(function (res) {
         if (res.status == 200) {

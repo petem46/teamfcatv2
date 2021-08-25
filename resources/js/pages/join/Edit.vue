@@ -688,6 +688,7 @@ export default {
 				this.vacancy.details = JSON.parse(data.details);
 				this.vacancyDetails = this.vacancy.details;
         this.vacancy.academy_id = parseInt(this.vacancy.academy_id);
+        this.getAcademyDetails(parseInt(data.academy_id));
 				this.selectedAcademy = parseInt(data.academy_id);
 				this.selectedSalary = parseInt(data.details.selectedSalaryPayScale_id);
 				this.getPayScales();
@@ -702,10 +703,10 @@ export default {
 				this.selectedContractType = data.details.contractType;
 			});
 		},
-		async getAcademyDetails() {
+		async getAcademyDetails($id) {
 			this.loading = true;
 			await axios
-				.get("/get/academy/" + this.vacancy.academy_id)
+				.get("/get/academy/" + $id)
 				.then(({ data }) => {
 					this.selectedAcademyDetails = data;
 					this.selectedAcademyDetails.icon = this.selectedAcademyDetails.logourl;
@@ -719,15 +720,6 @@ export default {
 			});
 		},
 		saveVacancy() {
-			// console.log(this.vacancy);
-			// let details = JSON.stringify(this.vacancyDetails);
-			// let vacancy = new FormData();
-			// vacancy.append("academy_id", this.vacancy.academy_id);
-			// vacancy.append("closingDate", this.vacancy.closingDate);
-			// vacancy.append("closingDateFormatted", this.vacancy.closingDateFormatted);
-			// vacancy.append("details", details);
-
-			// this.vacancy.details = this.vacancyDetails;
 			console.log(this.vacancy);
 			axios
 				.put("/put/updateVacancy/" + this.vacancy.id, this.vacancy)
