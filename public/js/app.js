@@ -43988,7 +43988,7 @@ var render = function() {
                                               attrs: {
                                                 color: "teal",
                                                 link: "",
-                                                to: "/join/show/" + item.id,
+                                                to: "/join/" + item.id,
                                                 outlined: ""
                                               }
                                             },
@@ -44012,7 +44012,7 @@ var render = function() {
                   ],
                   null,
                   false,
-                  3835368869
+                  3478112201
                 )
               })
             ],
