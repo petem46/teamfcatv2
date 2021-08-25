@@ -10539,7 +10539,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       this.leadershipScaleRange[0] = 1;
       this.leadershipScaleRange[1] = 43;
       delete this.vacancyDetails.grade;
-      delete this.vacancyDetails.range; // Check Salary Pay Scale then set appropriate Pay Scale Range options
+      delete this.vacancyDetails.range;
+      this.vacancyDetails.selectedSalaryPayScale_id = this.selectedSalary; // Check Salary Pay Scale then set appropriate Pay Scale Range options
 
       this.selectedSalary === 1 // NJC Pay Scale
       ? this.getPayScales() : this.selectedSalary === 2 // Leadership Pay Scale
@@ -10554,6 +10555,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       this.selectedPayScaleDetails = this.payScales.find(function (a) {
         return a.id === _this3.selectedPayScale;
       });
+      this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
 
       if (this.selectedPayScaleDetails.grade) {
         this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
@@ -10723,6 +10725,829 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/join/Edit.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/join/Edit.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["vacancy_id"],
+  watch: {
+    selectedAcademy: function selectedAcademy() {
+      var _this = this;
+
+      this.selectedAcademyDetails = this.academies.find(function (a) {
+        return a.id === _this.selectedAcademy;
+      });
+      this.vacancyDetails.about = this.selectedAcademyDetails.about;
+      this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
+      this.vacancy.academy_id = this.selectedAcademyDetails.id;
+      this.vacancyDetails.location = this.selectedAcademyDetails.name;
+      this.vacancyDetails.name = this.selectedAcademyDetails.name;
+    },
+    selectedSalary: function selectedSalary() {
+      var _this2 = this;
+
+      this.selectedSalaryDetails = this.salaryscales.find(function (a) {
+        return a.id === _this2.selectedSalary;
+      });
+      this.vacancyDetails.salarypayscale = this.selectedSalaryDetails.name;
+      this.payScales = [];
+      this.selectedPayScaleDetails = null;
+      this.selectedPayScale = null;
+      this.leadershipScaleRange[0] = 1;
+      this.leadershipScaleRange[1] = 43;
+      delete this.vacancyDetails.grade;
+      delete this.vacancyDetails.range;
+      this.vacancyDetails.selectedSalaryPayScale_id = this.selectedSalary; // Check Salary Pay Scale then set appropriate Pay Scale Range options
+
+      this.selectedSalary === 1 // NJC Pay Scale
+      ? this.getPayScales() : this.selectedSalary === 2 // Leadership Pay Scale
+      ? this.vacancyDetails.range = this.leadershipScaleRange[0] + "-" + this.leadershipScaleRange[1] : this.selectedSalary === 3 // Teacher Main Pay Scale
+      ? this.vacancyDetails.range = "M1-M6" : this.selectedSalary === 4 // Upper Pay Scale
+      ? this.vacancyDetails.range = "U1-U3" : this.selectedSalary === 5 // Unqualified Teacher Pay Scale
+      ? this.vacancyDetails.range = "UQ1-UQ6" : this.payScales = [];
+    },
+    selectedPayScale: function selectedPayScale() {
+      var _this3 = this;
+
+      this.selectedPayScaleDetails = this.payScales.find(function (a) {
+        return a.id === _this3.selectedPayScale;
+      });
+      this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
+
+      if (this.selectedPayScaleDetails.grade) {
+        this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
+      }
+
+      if (this.selectedPayScaleDetails.range) {
+        this.vacancyDetails.range = this.selectedPayScaleDetails.range;
+      }
+    },
+    leadershipScaleRange: function leadershipScaleRange() {
+      this.vacancyDetails.range = this.leadershipScaleRange[0] + "-" + this.leadershipScaleRange[1];
+    },
+    selectedContractType: function selectedContractType() {
+      this.vacancyDetails.contractType = this.selectedContractType;
+
+      if (this.selectedContractType === "Permanent") {
+        this.contractEndDate = null;
+        this.contractEndDateFormatted = null;
+        delete this.vacancyDetails.contractEndDate;
+        delete this.vacancyDetails.contractEndDateFormatted;
+      }
+    },
+    contractEndDate: function contractEndDate(val) {
+      this.contractEndDateFormatted = this.formatDate(this.contractEndDate);
+      this.vacancyDetails.contractEndDateFormatted = this.contractEndDateFormatted;
+      this.vacancyDetails.contractEndDate = this.contractEndDate;
+    },
+    contractStartDate: function contractStartDate(val) {
+      this.contractStartDateFormatted = this.formatDate(this.contractStartDate);
+      this.vacancyDetails.contractStartDateFormatted = this.contractStartDateFormatted;
+      this.vacancyDetails.contractStartDate = this.contractStartDate;
+    },
+    closingDate: function closingDate(val) {
+      this.closingDateFormatted = this.formatDate(this.closingDate);
+      this.vacancy.closingDateFormatted = this.closingDateFormatted;
+      this.vacancy.closingDate = this.closingDate;
+    }
+  },
+  data: function data() {
+    (function (vm) {
+      return {
+        contractEndDate: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
+        contractEndDateFormatted: vm.formatDate(new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10)),
+        contractStartDate: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
+        contractStartDateFormatted: vm.formatDate(new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10)),
+        closingDate: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10),
+        closingDateFormatted: vm.formatDate(new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().substr(0, 10)),
+        fixedEndPicker: false,
+        startDatePicker: false,
+        closingDatePicker: false
+      };
+    });
+
+    return {
+      contractEndDate: null,
+      contractEndDateFormatted: null,
+      fixedEndPicker: false,
+      contractStartDate: null,
+      contractStartDateFormatted: null,
+      startDatePicker: false,
+      closingDate: null,
+      closingDateFormatted: null,
+      closingDatePicker: false,
+      selectedContractType: null,
+      loading: false,
+      academies: [],
+      salaryscales: [],
+      payScales: [],
+      vacancy: {},
+      vacancyDetails: {},
+      contracts: [{
+        type: "Permanent"
+      }, {
+        type: "Fixed Term"
+      }],
+      selectedAcademy: null,
+      selectedAcademyDetails: {},
+      selectedSalary: null,
+      selectedSalaryDetails: {},
+      selectedPayScale: null,
+      selectedPayScaleDetails: {},
+      leadershipScaleRange: [1, 43],
+      leadershipMinPoint: 1,
+      leadershipMaxPoint: 43
+    };
+  },
+  created: function created() {// this.loading = true;
+    // console.log('!hr' + !this.$isHrUser());
+    // console.log('hr' + this.$isHrUser());
+    // console.log('site' + this.$isSiteAdmin());
+    // console.log('!site' + !this.$isSiteAdmin());
+    // if (!this.$isHrUser()) {
+    // 	console.log("Thou Shall Not Pass");
+    // 	this.$router.push("/");
+    // }
+  },
+  mounted: function mounted() {
+    // this.getAcademyDetails();
+    this.scrollToTop();
+    this.getContent();
+    this.getVacancy();
+    this.getPayScales();
+    this.loading = false;
+  },
+  methods: {
+    scrollToTop: function scrollToTop() {
+      window.scrollTo(0, 0);
+    },
+    goBack: function goBack() {
+      this.$router.go(-1);
+    },
+    getContent: function getContent() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this4.loading = true;
+
+                _this4.scrollToTop();
+
+                _context.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/get/createVacancy").then(function (_ref) {
+                  var data = _ref.data;
+                  // console.log(data);
+                  _this4.academies = data.academies;
+                  _this4.salaryscales = data.salaryscales; // this.loading = false;
+                });
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    getVacancy: function getVacancy() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this5.loading = true;
+                _context2.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/get/vacancy/" + _this5.vacancy_id).then(function (_ref2) {
+                  var data = _ref2.data;
+                  _this5.vacancy = data;
+                  _this5.vacancy.details = JSON.parse(data.details);
+                  _this5.vacancyDetails = _this5.vacancy.details;
+                  _this5.selectedAcademy = data.academy_id;
+                  _this5.selectedSalary = data.details.selectedSalaryPayScale_id;
+
+                  _this5.getPayScales();
+
+                  _this5.selectedPayScale = data.details.selectedPayScale_id;
+                  _this5.contractStartDate = data.details.contractStartDate;
+                  _this5.contractStartDateFormatted = data.details.contractStartDateFormatted;
+                  _this5.contractEndDate = data.details.contractEndDate;
+                  _this5.contractEndDateFormatted = data.details.contractEndDateFormatted;
+                  _this5.closingDate = data.closingDate;
+                  _this5.closingDateFormatted = data.closingDateFormatted;
+                  _this5.selectedContractType = data.details.contractType;
+                });
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    getAcademyDetails: function getAcademyDetails() {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _this6.loading = true;
+                _context3.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/get/academy/" + _this6.vacancy.academy_id).then(function (_ref3) {
+                  var data = _ref3.data;
+                  _this6.selectedAcademyDetails = data;
+                  _this6.selectedAcademyDetails.icon = _this6.selectedAcademyDetails.logourl;
+                  _this6.loading = false;
+                });
+
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    getPayScales: function getPayScales() {
+      var _this7 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("/get/payScales/" + this.selectedSalary).then(function (_ref4) {
+        var data = _ref4.data;
+        // console.log(data);
+        _this7.payScales = data;
+      });
+    },
+    saveVacancy: function saveVacancy() {
+      var _this8 = this;
+
+      // console.log(this.vacancy);
+      // let details = JSON.stringify(this.vacancyDetails);
+      // let vacancy = new FormData();
+      // vacancy.append("academy_id", this.vacancy.academy_id);
+      // vacancy.append("closingDate", this.vacancy.closingDate);
+      // vacancy.append("closingDateFormatted", this.vacancy.closingDateFormatted);
+      // vacancy.append("details", details);
+      // this.vacancy.details = this.vacancyDetails;
+      console.log(this.vacancy);
+      axios__WEBPACK_IMPORTED_MODULE_1___default().put("/put/updateVacancy/" + this.vacancy.id, this.vacancy).then(function (res) {
+        if (res.status == 200) {
+          console.log(res.status);
+
+          _this8.$router.push('/join/' + _this8.vacancy.id);
+        }
+      });
+    },
+    formatDate: function formatDate(date) {
+      if (!date) return null;
+
+      var _date$split = date.split("-"),
+          _date$split2 = _slicedToArray(_date$split, 3),
+          year = _date$split2[0],
+          month = _date$split2[1],
+          day = _date$split2[2];
+
+      return "".concat(day, "/").concat(month, "/").concat(year);
+    },
+    parseDate: function parseDate(date) {
+      if (!date) return null;
+
+      var _date$split3 = date.split("/"),
+          _date$split4 = _slicedToArray(_date$split3, 3),
+          month = _date$split4[0],
+          day = _date$split4[1],
+          year = _date$split4[2];
+
+      return "".concat(year, "-").concat(month.padStart(2, "0"), "-").concat(day.padStart(2, "0"));
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/join/Show.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/join/Show.vue?vue&type=script&lang=js& ***!
@@ -10737,6 +11562,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Banner_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Banner.vue */ "./resources/js/pages/join/Banner.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12583,7 +13419,7 @@ function getUserState() {
       title: ":areaname New Page"
     }
   }, {
-    path: "/join/show/:vacancy_id",
+    path: "/join/:vacancy_id",
     name: "join.show",
     component: _pages_join_Show__WEBPACK_IMPORTED_MODULE_14__.default,
     // beforeEnter: isHrUser,
@@ -12591,6 +13427,16 @@ function getUserState() {
     meta: {
       auth: true,
       title: "Show Vacancy TeamFCAT"
+    }
+  }, {
+    path: "/join/:vacancy_id/edit",
+    name: "join.edit",
+    component: _pages_join_Edit__WEBPACK_IMPORTED_MODULE_15__.default,
+    // beforeEnter: isHrUser,
+    props: true,
+    meta: {
+      auth: true,
+      title: "Edit Vacancy TeamFCAT"
     }
   }, {
     path: "/finance",
@@ -17534,15 +18380,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Edit_vue_vue_type_template_id_76609956___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit.vue?vue&type=template&id=76609956& */ "./resources/js/pages/join/Edit.vue?vue&type=template&id=76609956&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit.vue?vue&type=script&lang=js& */ "./resources/js/pages/join/Edit.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
   _Edit_vue_vue_type_template_id_76609956___WEBPACK_IMPORTED_MODULE_0__.render,
   _Edit_vue_vue_type_template_id_76609956___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -18769,6 +19617,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/join/Create.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/join/Edit.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/pages/join/Edit.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/join/Edit.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -39979,7 +40843,1456 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("EDIT")])
+  return _c("div", [
+    _vm.loading && !this.selectedAcademy
+      ? _c(
+          "div",
+          { staticClass: "container pt-md-6rem" },
+          [
+            _c("v-progress-circular", {
+              attrs: { indeterminate: "", teal: "" }
+            })
+          ],
+          1
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.loading && this.selectedAcademy && this.selectedAcademyDetails
+      ? _c(
+          "div",
+          [
+            _c(
+              "v-app-bar",
+              {
+                staticStyle: { position: "sticky", top: "64px" },
+                attrs: {
+                  absolute: "",
+                  "elevate-on-scroll": "",
+                  color: "grey lighten-3"
+                }
+              },
+              [
+                _c("v-toolbar-title", [_vm._v("Join TeamFCAT - Edit vacancy")]),
+                _vm._v(" "),
+                _c("v-spacer")
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "v-form",
+              { staticClass: "teal" },
+              [
+                _c(
+                  "v-container",
+                  [
+                    _c(
+                      "v-row",
+                      [
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "12", md: "6" } },
+                          [
+                            _c(
+                              "v-card",
+                              { attrs: { outlined: "" } },
+                              [
+                                _c("v-card-title", {
+                                  staticClass: "p-1 orange darken-2"
+                                }),
+                                _vm._v(" "),
+                                _c("v-card-title", [
+                                  _vm._v("New Vacancy Details ")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card-text",
+                                  [
+                                    _c(
+                                      "v-row",
+                                      [
+                                        _c(
+                                          "v-col",
+                                          { attrs: { cols: "12" } },
+                                          [
+                                            _c("v-text-field", {
+                                              attrs: {
+                                                "prepend-icon":
+                                                  "fas fa-user fa-fw",
+                                                label: "Post Title",
+                                                required: ""
+                                              },
+                                              model: {
+                                                value:
+                                                  _vm.vacancyDetails.postTitle,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.vacancyDetails,
+                                                    "postTitle",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "vacancyDetails.postTitle"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-col",
+                                          { attrs: { cols: "12" } },
+                                          [
+                                            _c("v-select", {
+                                              attrs: {
+                                                "prepend-icon":
+                                                  "fas fa-map-marker-alt fa-fw",
+                                                items: _vm.academies,
+                                                "item-text": "label",
+                                                "item-value": "value",
+                                                label: "Academy",
+                                                required: ""
+                                              },
+                                              model: {
+                                                value: _vm.selectedAcademy,
+                                                callback: function($$v) {
+                                                  _vm.selectedAcademy = $$v
+                                                },
+                                                expression: "selectedAcademy"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _vm.vacancyDetails.postTitle &&
+                                        _vm.vacancyDetails.location
+                                          ? _c(
+                                              "v-col",
+                                              { attrs: { cols: "12" } },
+                                              [
+                                                _c("v-select", {
+                                                  attrs: {
+                                                    "prepend-icon":
+                                                      "fas fa-balance-scale fa-fw",
+                                                    items: _vm.salaryscales,
+                                                    "item-text": "name",
+                                                    "item-value": "id",
+                                                    label: "Salary Pay Scale",
+                                                    required: ""
+                                                  },
+                                                  model: {
+                                                    value: _vm.selectedSalary,
+                                                    callback: function($$v) {
+                                                      _vm.selectedSalary = $$v
+                                                    },
+                                                    expression: "selectedSalary"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.selectedSalary === 1
+                                          ? _c(
+                                              "v-col",
+                                              { attrs: { cols: "12" } },
+                                              [
+                                                _c("v-select", {
+                                                  attrs: {
+                                                    "prepend-icon":
+                                                      "fas fa-sliders-h fa-fw",
+                                                    items: _vm.payScales,
+                                                    "item-text": "details",
+                                                    "item-value": "id",
+                                                    label:
+                                                      "Select Pay Scale Range",
+                                                    required: ""
+                                                  },
+                                                  model: {
+                                                    value: _vm.selectedPayScale,
+                                                    callback: function($$v) {
+                                                      _vm.selectedPayScale = $$v
+                                                    },
+                                                    expression:
+                                                      "selectedPayScale"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.selectedSalary === 2 ||
+                                        _vm.selectedPayScale === 10
+                                          ? _c(
+                                              "v-col",
+                                              { attrs: { cols: "12" } },
+                                              [
+                                                _c("v-range-slider", {
+                                                  staticClass: "align-center",
+                                                  attrs: {
+                                                    "prepend-icon":
+                                                      "fas fa-sliders-h fa-fw",
+                                                    max: _vm.leadershipMaxPoint,
+                                                    min: _vm.leadershipMinPoint,
+                                                    "hide-details": "",
+                                                    "thumb-color": "teal",
+                                                    "thumb-size": "32",
+                                                    "thumb-label": "always",
+                                                    label: "Set Scale Range",
+                                                    "inverse-label": ""
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.leadershipScaleRange,
+                                                    callback: function($$v) {
+                                                      _vm.leadershipScaleRange = $$v
+                                                    },
+                                                    expression:
+                                                      "leadershipScaleRange"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.selectedSalary === 3
+                                          ? _c(
+                                              "v-col",
+                                              { attrs: { cols: "12" } },
+                                              [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    "prepend-icon":
+                                                      "fas fas fa-sliders-h fa-fw",
+                                                    label: "Scale Range",
+                                                    disabled: ""
+                                                  },
+                                                  model: {
+                                                    value: this.vacancyDetails
+                                                      .range,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        this.vacancyDetails,
+                                                        "range",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "this.vacancyDetails.range"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.selectedSalary === 5
+                                          ? _c(
+                                              "v-col",
+                                              { attrs: { cols: "12" } },
+                                              [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    "prepend-icon":
+                                                      "fas fas fa-sliders-h fa-fw",
+                                                    label: "Scale Range",
+                                                    disabled: ""
+                                                  },
+                                                  model: {
+                                                    value: this.vacancyDetails
+                                                      .range,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        this.vacancyDetails,
+                                                        "range",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "this.vacancyDetails.range"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.selectedSalary
+                                          ? _c(
+                                              "v-col",
+                                              { attrs: { cols: "12" } },
+                                              [
+                                                _c("v-text-field", {
+                                                  attrs: {
+                                                    "prepend-icon":
+                                                      "fas fa-pound-sign fa-fw",
+                                                    label: "Salary"
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.vacancyDetails.salary,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.vacancyDetails,
+                                                        "salary",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "vacancyDetails.salary"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.selectedSalary
+                                          ? _c(
+                                              "v-col",
+                                              {
+                                                staticClass: "py-2",
+                                                attrs: { cols: "12" }
+                                              },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  [
+                                                    _c("v-icon", [
+                                                      _vm._v(
+                                                        "fas fa-map-marker-alt fa-fw"
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        staticClass: "v-label"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          " Select Contract Type "
+                                                        )
+                                                      ]
+                                                    )
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-row",
+                                                  [
+                                                    _c(
+                                                      "v-col",
+                                                      [
+                                                        _c(
+                                                          "v-btn-toggle",
+                                                          {
+                                                            attrs: {
+                                                              color: "teal"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm.selectedContractType,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.selectedContractType = $$v
+                                                              },
+                                                              expression:
+                                                                "selectedContractType"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "v-btn",
+                                                              {
+                                                                attrs: {
+                                                                  outlined: "",
+                                                                  value:
+                                                                    "Permanent"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Permanent"
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "v-btn",
+                                                              {
+                                                                attrs: {
+                                                                  outlined: "",
+                                                                  value:
+                                                                    "Fixed Term"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Fixed Term"
+                                                                )
+                                                              ]
+                                                            )
+                                                          ],
+                                                          1
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "v-btn-toggle",
+                                                          {
+                                                            attrs: {
+                                                              color: "teal"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .vacancyDetails
+                                                                  .contractTime,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.vacancyDetails,
+                                                                  "contractTime",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "vacancyDetails.contractTime"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "v-btn",
+                                                              {
+                                                                attrs: {
+                                                                  outlined: "",
+                                                                  value:
+                                                                    "Full Time"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Full Time"
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "v-btn",
+                                                              {
+                                                                attrs: {
+                                                                  outlined: "",
+                                                                  value:
+                                                                    "Part Time"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Part Time"
+                                                                )
+                                                              ]
+                                                            )
+                                                          ],
+                                                          1
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "v-btn-toggle",
+                                                          {
+                                                            attrs: {
+                                                              color: "teal"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .vacancyDetails
+                                                                  .contractTermTimeOnly,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.vacancyDetails,
+                                                                  "contractTermTimeOnly",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "vacancyDetails.contractTermTimeOnly"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "v-btn",
+                                                              {
+                                                                attrs: {
+                                                                  outlined: "",
+                                                                  value:
+                                                                    "Term Time Only"
+                                                                },
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    !_vm
+                                                                      .vacancyDetails
+                                                                      .contractTermTimeOnly
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Term Time"
+                                                                )
+                                                              ]
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ],
+                                                      1
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-row",
+                                          [
+                                            _vm.vacancyDetails.contractTime
+                                              ? _c(
+                                                  "v-col",
+                                                  {
+                                                    attrs: {
+                                                      cols: "12",
+                                                      md: "6"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        "prepend-icon":
+                                                          "fas fa-hourglass-half fa-fw",
+                                                        label: "Contract Hours"
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.vacancyDetails
+                                                            .contractHours,
+                                                        callback: function(
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.vacancyDetails,
+                                                            "contractHours",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "vacancyDetails.contractHours"
+                                                      }
+                                                    })
+                                                  ],
+                                                  1
+                                                )
+                                              : _vm._e(),
+                                            _vm._v(" "),
+                                            _vm.vacancyDetails
+                                              .contractTermTimeOnly
+                                              ? _c(
+                                                  "v-col",
+                                                  {
+                                                    attrs: {
+                                                      cols: "12",
+                                                      md: "6"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        "prepend-icon":
+                                                          "fas fa-calendar-week fa-fw",
+                                                        label: "Contract Weeks"
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.vacancyDetails
+                                                            .contractWeeks,
+                                                        callback: function(
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.vacancyDetails,
+                                                            "contractWeeks",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "vacancyDetails.contractWeeks"
+                                                      }
+                                                    })
+                                                  ],
+                                                  1
+                                                )
+                                              : _vm._e()
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-row",
+                                          [
+                                            _vm.vacancyDetails.contractType &&
+                                            _vm.vacancyDetails.contractTime
+                                              ? _c(
+                                                  "v-col",
+                                                  {
+                                                    attrs: {
+                                                      cols: "12",
+                                                      md: "6"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "v-menu",
+                                                      {
+                                                        attrs: {
+                                                          "close-on-content-click": false,
+                                                          transition:
+                                                            "scale-transition",
+                                                          "offset-y": "",
+                                                          "max-width": "290px",
+                                                          "min-width": "auto"
+                                                        },
+                                                        scopedSlots: _vm._u(
+                                                          [
+                                                            {
+                                                              key: "activator",
+                                                              fn: function(
+                                                                ref
+                                                              ) {
+                                                                var on = ref.on
+                                                                var attrs =
+                                                                  ref.attrs
+                                                                return [
+                                                                  _c(
+                                                                    "v-text-field",
+                                                                    _vm._g(
+                                                                      _vm._b(
+                                                                        {
+                                                                          attrs: {
+                                                                            label:
+                                                                              "Start Date",
+                                                                            readonly:
+                                                                              "",
+                                                                            "prepend-icon":
+                                                                              "far fa-calendar-check fa-fw"
+                                                                          },
+                                                                          on: {
+                                                                            blur: function(
+                                                                              $event
+                                                                            ) {
+                                                                              _vm.contractStartDate = _vm.parseDate(
+                                                                                _vm.contractStartDateFormatted
+                                                                              )
+                                                                            }
+                                                                          },
+                                                                          model: {
+                                                                            value:
+                                                                              _vm.contractStartDateFormatted,
+                                                                            callback: function(
+                                                                              $$v
+                                                                            ) {
+                                                                              _vm.contractStartDateFormatted = $$v
+                                                                            },
+                                                                            expression:
+                                                                              "contractStartDateFormatted"
+                                                                          }
+                                                                        },
+                                                                        "v-text-field",
+                                                                        attrs,
+                                                                        false
+                                                                      ),
+                                                                      on
+                                                                    )
+                                                                  )
+                                                                ]
+                                                              }
+                                                            }
+                                                          ],
+                                                          null,
+                                                          false,
+                                                          3491036669
+                                                        ),
+                                                        model: {
+                                                          value:
+                                                            _vm.startDatePicker,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.startDatePicker = $$v
+                                                          },
+                                                          expression:
+                                                            "startDatePicker"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(" "),
+                                                        _c("v-date-picker", {
+                                                          attrs: {
+                                                            "no-title": ""
+                                                          },
+                                                          on: {
+                                                            input: function(
+                                                              $event
+                                                            ) {
+                                                              _vm.startDatePicker = false
+                                                            }
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              _vm.contractStartDate,
+                                                            callback: function(
+                                                              $$v
+                                                            ) {
+                                                              _vm.contractStartDate = $$v
+                                                            },
+                                                            expression:
+                                                              "contractStartDate"
+                                                          }
+                                                        })
+                                                      ],
+                                                      1
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              : _vm._e(),
+                                            _vm._v(" "),
+                                            _vm.vacancyDetails.contractType ===
+                                              "Fixed Term" &&
+                                            _vm.vacancyDetails.contractTime
+                                              ? _c(
+                                                  "v-col",
+                                                  {
+                                                    attrs: {
+                                                      cols: "12",
+                                                      md: "6"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "v-menu",
+                                                      {
+                                                        attrs: {
+                                                          "close-on-content-click": false,
+                                                          transition:
+                                                            "scale-transition",
+                                                          "offset-y": "",
+                                                          "max-width": "290px",
+                                                          "min-width": "auto"
+                                                        },
+                                                        scopedSlots: _vm._u(
+                                                          [
+                                                            {
+                                                              key: "activator",
+                                                              fn: function(
+                                                                ref
+                                                              ) {
+                                                                var on = ref.on
+                                                                var attrs =
+                                                                  ref.attrs
+                                                                return [
+                                                                  _c(
+                                                                    "v-text-field",
+                                                                    _vm._g(
+                                                                      _vm._b(
+                                                                        {
+                                                                          attrs: {
+                                                                            label:
+                                                                              "Fixed Term End Date",
+                                                                            readonly:
+                                                                              "",
+                                                                            "prepend-icon":
+                                                                              "far fa-calendar-times fa-fw"
+                                                                          },
+                                                                          on: {
+                                                                            blur: function(
+                                                                              $event
+                                                                            ) {
+                                                                              _vm.contractEndDate = _vm.parseDate(
+                                                                                _vm.contractEndDateFormatted
+                                                                              )
+                                                                            }
+                                                                          },
+                                                                          model: {
+                                                                            value:
+                                                                              _vm.contractEndDateFormatted,
+                                                                            callback: function(
+                                                                              $$v
+                                                                            ) {
+                                                                              _vm.contractEndDateFormatted = $$v
+                                                                            },
+                                                                            expression:
+                                                                              "contractEndDateFormatted"
+                                                                          }
+                                                                        },
+                                                                        "v-text-field",
+                                                                        attrs,
+                                                                        false
+                                                                      ),
+                                                                      on
+                                                                    )
+                                                                  )
+                                                                ]
+                                                              }
+                                                            }
+                                                          ],
+                                                          null,
+                                                          false,
+                                                          2641277477
+                                                        ),
+                                                        model: {
+                                                          value:
+                                                            _vm.fixedEndPicker,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.fixedEndPicker = $$v
+                                                          },
+                                                          expression:
+                                                            "fixedEndPicker"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(" "),
+                                                        _c("v-date-picker", {
+                                                          attrs: {
+                                                            "no-title": ""
+                                                          },
+                                                          on: {
+                                                            input: function(
+                                                              $event
+                                                            ) {
+                                                              _vm.fixedEndPicker = false
+                                                            }
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              _vm.contractEndDate,
+                                                            callback: function(
+                                                              $$v
+                                                            ) {
+                                                              _vm.contractEndDate = $$v
+                                                            },
+                                                            expression:
+                                                              "contractEndDate"
+                                                          }
+                                                        })
+                                                      ],
+                                                      1
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              : _vm._e()
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _vm.vacancyDetails.contractType &&
+                                        _vm.vacancyDetails.contractHours
+                                          ? _c(
+                                              "v-col",
+                                              { attrs: { cols: "12" } },
+                                              [
+                                                _c(
+                                                  "v-menu",
+                                                  {
+                                                    attrs: {
+                                                      "close-on-content-click": false,
+                                                      transition:
+                                                        "scale-transition",
+                                                      "offset-y": "",
+                                                      "max-width": "290px",
+                                                      "min-width": "auto"
+                                                    },
+                                                    scopedSlots: _vm._u(
+                                                      [
+                                                        {
+                                                          key: "activator",
+                                                          fn: function(ref) {
+                                                            var on = ref.on
+                                                            var attrs =
+                                                              ref.attrs
+                                                            return [
+                                                              _c(
+                                                                "v-text-field",
+                                                                _vm._g(
+                                                                  _vm._b(
+                                                                    {
+                                                                      attrs: {
+                                                                        label:
+                                                                          "Closing Date",
+                                                                        readonly:
+                                                                          "",
+                                                                        "prepend-icon":
+                                                                          "fas fa-hourglass-end fa-fw"
+                                                                      },
+                                                                      on: {
+                                                                        blur: function(
+                                                                          $event
+                                                                        ) {
+                                                                          _vm.closingDate = _vm.parseDate(
+                                                                            _vm.closingDateFormatted
+                                                                          )
+                                                                        }
+                                                                      },
+                                                                      model: {
+                                                                        value:
+                                                                          _vm.closingDateFormatted,
+                                                                        callback: function(
+                                                                          $$v
+                                                                        ) {
+                                                                          _vm.closingDateFormatted = $$v
+                                                                        },
+                                                                        expression:
+                                                                          "closingDateFormatted"
+                                                                      }
+                                                                    },
+                                                                    "v-text-field",
+                                                                    attrs,
+                                                                    false
+                                                                  ),
+                                                                  on
+                                                                )
+                                                              )
+                                                            ]
+                                                          }
+                                                        }
+                                                      ],
+                                                      null,
+                                                      false,
+                                                      4167154646
+                                                    ),
+                                                    model: {
+                                                      value:
+                                                        _vm.closingDatePicker,
+                                                      callback: function($$v) {
+                                                        _vm.closingDatePicker = $$v
+                                                      },
+                                                      expression:
+                                                        "closingDatePicker"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(" "),
+                                                    _c("v-date-picker", {
+                                                      attrs: { "no-title": "" },
+                                                      on: {
+                                                        input: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.closingDatePicker = false
+                                                        }
+                                                      },
+                                                      model: {
+                                                        value: _vm.closingDate,
+                                                        callback: function(
+                                                          $$v
+                                                        ) {
+                                                          _vm.closingDate = $$v
+                                                        },
+                                                        expression:
+                                                          "closingDate"
+                                                      }
+                                                    })
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.contractStartDate
+                                          ? _c(
+                                              "v-col",
+                                              { attrs: { cols: "12" } },
+                                              [
+                                                _c("v-textarea", {
+                                                  attrs: {
+                                                    "prepend-icon":
+                                                      "fas fa-user-edit fa-fw",
+                                                    "auto-grow": "",
+                                                    color: "teal",
+                                                    label: "About the Role",
+                                                    rows: "4"
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.vacancyDetails
+                                                        .aboutTheRole,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.vacancyDetails,
+                                                        "aboutTheRole",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "vacancyDetails.aboutTheRole"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e()
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("v-divider"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-card-actions",
+                                      [
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              tile: "",
+                                              color: "warning"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.goBack()
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("CANCEL")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-spacer"),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              text: "",
+                                              tile: "",
+                                              color: "teal"
+                                            },
+                                            on: { click: _vm.saveVacancy }
+                                          },
+                                          [_vm._v("SAVE")]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "12", md: "6" } },
+                          [
+                            !this.vacancyDetails.postTitle &&
+                            !this.selectedAcademyDetails.icon
+                              ? _c(
+                                  "v-card",
+                                  { attrs: { elevation: "2", outlined: "" } },
+                                  [
+                                    _c("v-card-title", {
+                                      staticClass: "p-1",
+                                      class:
+                                        _vm.selectedAcademyDetails.color ||
+                                        "grey"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("v-skeleton-loader", {
+                                      attrs: {
+                                        type:
+                                          "list-item-avatar, divider, list-item-three-line, divider, article"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            this.vacancyDetails.postTitle ||
+                            this.selectedAcademyDetails.icon
+                              ? _c(
+                                  "v-card",
+                                  { attrs: { elevation: "2", outlined: "" } },
+                                  [
+                                    _c("v-card-title", {
+                                      staticClass: "p-1",
+                                      class:
+                                        _vm.selectedAcademyDetails.color ||
+                                        "grey"
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-list-item",
+                                      { attrs: { "three-line": "" } },
+                                      [
+                                        _c(
+                                          "v-list-item-content",
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "text-overline mb-4"
+                                              },
+                                              [_vm._v("INTERNAL ONLY")]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm.selectedAcademyDetails
+                                              ? _c(
+                                                  "v-list-item-title",
+                                                  {
+                                                    staticClass: "text-h4 mb-1"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n\t\t\t\t\t\t\t\t\t\t" +
+                                                        _vm._s(
+                                                          this.vacancyDetails
+                                                            .postTitle
+                                                        ) +
+                                                        "\n\t\t\t\t\t\t\t\t\t"
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e(),
+                                            _vm._v(" "),
+                                            this.vacancyDetails.location &&
+                                            this.vacancyDetails.postTitle
+                                              ? _c("v-list-item-subtitle", [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      this.vacancyDetails
+                                                        .location
+                                                    )
+                                                  )
+                                                ])
+                                              : _vm._e()
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _vm.selectedAcademyDetails.icon
+                                          ? _c(
+                                              "v-list-item-avatar",
+                                              { attrs: { size: "100" } },
+                                              [
+                                                _c("v-img", {
+                                                  attrs: {
+                                                    src:
+                                                      "/images/icons/" +
+                                                      this
+                                                        .selectedAcademyDetails
+                                                        .icon
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e()
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-card-text",
+                                      [
+                                        this.vacancyDetails.location &&
+                                        this.vacancyDetails.postTitle
+                                          ? _c("v-divider", {
+                                              staticClass: "mt-0"
+                                            })
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _c("div", [
+                                          this.vacancyDetails.salarypayscale
+                                            ? _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tScale: " +
+                                                    _vm._s(
+                                                      this.vacancyDetails
+                                                        .salarypayscale
+                                                    ) +
+                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          this.vacancyDetails.grade
+                                            ? _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tGrade: " +
+                                                    _vm._s(
+                                                      this.vacancyDetails.grade
+                                                    ) +
+                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          this.vacancyDetails.range
+                                            ? _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tRange: " +
+                                                    _vm._s(
+                                                      this.vacancyDetails.range
+                                                    ) +
+                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          this.vacancyDetails.salary
+                                            ? _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tSalary: " +
+                                                    _vm._s(
+                                                      this.vacancyDetails.salary
+                                                    ) +
+                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          this.vacancyDetails.contractType
+                                            ? _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tContract: " +
+                                                    _vm._s(
+                                                      this.vacancyDetails
+                                                        .contractType
+                                                    ) +
+                                                    "\n\t\t\t\t\t\t\t\t\t\t" +
+                                                    _vm._s(
+                                                      this.vacancyDetails
+                                                        .contractTime
+                                                    ) +
+                                                    "\n\t\t\t\t\t\t\t\t\t\t" +
+                                                    _vm._s(
+                                                      this.vacancyDetails
+                                                        .contractTermTimeOnly
+                                                    ) +
+                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          this.vacancyDetails.contractHours
+                                            ? _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tHours:\n\t\t\t\t\t\t\t\t\t\t" +
+                                                    _vm._s(
+                                                      this.vacancyDetails
+                                                        .contractHours
+                                                    ) +
+                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          this.vacancyDetails.contractWeeks
+                                            ? _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tWeeks:\n\t\t\t\t\t\t\t\t\t\t" +
+                                                    _vm._s(
+                                                      this.vacancyDetails
+                                                        .contractWeeks
+                                                    ) +
+                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          this.vacancyDetails
+                                            .contractEndDateFormatted
+                                            ? _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tFixed End Date:\n\t\t\t\t\t\t\t\t\t\t" +
+                                                    _vm._s(
+                                                      this.vacancyDetails
+                                                        .contractEndDateFormatted
+                                                    ) +
+                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          this.vacancyDetails
+                                            .contractStartDateFormatted
+                                            ? _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tStart Date:\n\t\t\t\t\t\t\t\t\t\t" +
+                                                    _vm._s(
+                                                      this.vacancyDetails
+                                                        .contractStartDateFormatted
+                                                    ) +
+                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ])
+                                            : _vm._e()
+                                        ]),
+                                        _vm._v(" "),
+                                        this.vacancyDetails.location &&
+                                        this.vacancyDetails.salarypayscale
+                                          ? _c("v-divider")
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.selectedAcademyDetails.about
+                                          ? _c("div", [
+                                              _c(
+                                                "div",
+                                                { staticClass: "text-h4" },
+                                                [
+                                                  _vm._v(
+                                                    "\n\t\t\t\t\t\t\t\t\t\tAbout " +
+                                                      _vm._s(
+                                                        this.vacancyDetails
+                                                          .location
+                                                      ) +
+                                                      "\n\t\t\t\t\t\t\t\t\t"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "whitespace-pre-line"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n\t\t\t\t\t\t\t\t\t\t" +
+                                                      _vm._s(
+                                                        _vm
+                                                          .selectedAcademyDetails
+                                                          .about
+                                                      ) +
+                                                      "\n\t\t\t\t\t\t\t\t\t"
+                                                  )
+                                                ]
+                                              )
+                                            ])
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        this.vacancyDetails.aboutTheRole
+                                          ? _c(
+                                              "div",
+                                              [
+                                                _c("v-divider"),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "text-h4" },
+                                                  [_vm._v("About The Role")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "whitespace-pre-line"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n\t\t\t\t\t\t\t\t\t\t" +
+                                                        _vm._s(
+                                                          this.vacancyDetails
+                                                            .aboutTheRole
+                                                        ) +
+                                                        "\n\t\t\t\t\t\t\t\t\t"
+                                                    )
+                                                  ]
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _c("v-divider"),
+                                        _vm._v(" "),
+                                        _vm.selectedAcademyDetails.about
+                                          ? _c("div", [
+                                              _c(
+                                                "div",
+                                                { staticClass: "text-h4 mb-4" },
+                                                [_vm._v("How to apply")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tLorem ipsum dolor sit amet consectetur adipisicing elit.\n\t\t\t\t\t\t\t\t\t\tDolor, commodi. Asperiores possimus explicabo voluptate.\n\t\t\t\t\t\t\t\t\t\tDolore quam, ab voluptatum deserunt similique in culpa\n\t\t\t\t\t\t\t\t\t\tesse vero laboriosam numquam aliquid suscipit optio aut\n\t\t\t\t\t\t\t\t\t\tsequi corporis veniam, consectetur deleniti sapiente ipsam\n\t\t\t\t\t\t\t\t\t\tvoluptatibus nobis necessitatibus officia? Repudiandae\n\t\t\t\t\t\t\t\t\t\tnatus dolor vero molestias possimus, officiis voluptas\n\t\t\t\t\t\t\t\t\t\texcepturi fuga suscipit, repellendus quibusdam porro,\n\t\t\t\t\t\t\t\t\t\tvoluptatem reprehenderit soluta tempore enim quia?\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ]),
+                                              _vm._v(" "),
+                                              _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tMaiores, harum. Aliquam, totam laborum nesciunt,\n\t\t\t\t\t\t\t\t\t\tperspiciatis tempora necessitatibus porro, commodi ipsa\n\t\t\t\t\t\t\t\t\t\tquidem quam quas quisquam laboriosam ea nihil. Deserunt\n\t\t\t\t\t\t\t\t\t\tsequi nihil aliquid nobis optio asperiores!\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ]),
+                                              _vm._v(" "),
+                                              _c("p", [
+                                                _vm._v(
+                                                  "\n\t\t\t\t\t\t\t\t\t\tTotam reprehenderit veritatis accusantium. Consequuntur,\n\t\t\t\t\t\t\t\t\t\terror dignissimos perferendis modi architecto ipsam\n\t\t\t\t\t\t\t\t\t\tdoloribus eius.\n\t\t\t\t\t\t\t\t\t"
+                                                )
+                                              ])
+                                            ])
+                                          : _vm._e()
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40747,408 +43060,15 @@ var render = function() {
       ? _c(
           "div",
           [
-            _c(
-              "video-background",
-              {
-                staticClass: "d-none d-sm-block",
-                staticStyle: {
-                  "min-height": "300px",
-                  "max-height": "450px",
-                  height: "100vh"
-                },
-                attrs: { src: "/videos/hr.mp4" }
+            _c("video-background", {
+              staticClass: "d-none d-sm-block",
+              staticStyle: {
+                "min-height": "300px",
+                "max-height": "450px",
+                height: "100vh"
               },
-              [
-                _c(
-                  "v-container",
-                  { staticClass: "pt-lg-15 d-none" },
-                  [
-                    this.vacancy.details.postTitle || this.academy.icon
-                      ? _c(
-                          "v-card",
-                          {
-                            staticClass: "banner-opacity",
-                            attrs: { elevation: "10", outlined: "", cols: "12" }
-                          },
-                          [
-                            _c("v-card-title", {
-                              staticClass: "p-1",
-                              class: _vm.academy.color || "grey"
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "v-list-item",
-                              { attrs: { "three-line": "" } },
-                              [
-                                _c(
-                                  "v-list-item-content",
-                                  [
-                                    _c(
-                                      "div",
-                                      { staticClass: "text-overline mb-4" },
-                                      [_vm._v("INTERNAL ONLY")]
-                                    ),
-                                    _vm._v(" "),
-                                    _vm.academy
-                                      ? _c(
-                                          "v-list-item-title",
-                                          { staticClass: "text-h4 mb-1" },
-                                          [
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details.postTitle
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t"
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    this.vacancy.details.location &&
-                                    this.vacancy.details.postTitle
-                                      ? _c(
-                                          "v-list-item-subtitle",
-                                          { staticClass: "text-h5" },
-                                          [
-                                            _vm._v(
-                                              _vm._s(
-                                                this.vacancy.details.location
-                                              )
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e()
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _vm.academy.icon
-                                  ? _c(
-                                      "v-list-item-avatar",
-                                      { attrs: { size: "100" } },
-                                      [
-                                        _c("v-img", {
-                                          attrs: {
-                                            src:
-                                              "/images/icons/" +
-                                              this.academy.icon
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  : _vm._e()
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-card-text",
-                              { staticClass: "slight-op" },
-                              [
-                                this.vacancy.details.location &&
-                                this.vacancy.details.postTitle
-                                  ? _c("v-divider", { staticClass: "mt-0" })
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _c(
-                                  "v-row",
-                                  [
-                                    this.vacancy.details.salarypayscale
-                                      ? _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              md: "6",
-                                              lg: "4"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass: "font-weight-bold"
-                                              },
-                                              [_vm._v("Scale:")]
-                                            ),
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details
-                                                    .salarypayscale
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t"
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    this.vacancy.details.grade
-                                      ? _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              md: "6",
-                                              lg: "4"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass: "font-weight-bold"
-                                              },
-                                              [_vm._v("Grade:")]
-                                            ),
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details.grade
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t"
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    this.vacancy.details.range
-                                      ? _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              md: "6",
-                                              lg: "4"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass: "font-weight-bold"
-                                              },
-                                              [_vm._v("Range:")]
-                                            ),
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details.range
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t"
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    this.vacancy.details.salary
-                                      ? _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              md: "6",
-                                              lg: "4"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass: "font-weight-bold"
-                                              },
-                                              [_vm._v("Salary:")]
-                                            ),
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details.salary
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t"
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    this.vacancy.details.contractType
-                                      ? _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              md: "6",
-                                              lg: "4"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass: "font-weight-bold"
-                                              },
-                                              [_vm._v("Contract:")]
-                                            ),
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details
-                                                    .contractType
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details
-                                                    .contractTime
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details
-                                                    .contractTermTimeOnly
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t"
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    this.vacancy.details.contractHours
-                                      ? _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              md: "6",
-                                              lg: "4"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass: "font-weight-bold"
-                                              },
-                                              [_vm._v("Hours:")]
-                                            ),
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details
-                                                    .contractHours
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t"
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    this.vacancy.details.contractWeeks
-                                      ? _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              md: "6",
-                                              lg: "4"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass: "font-weight-bold"
-                                              },
-                                              [_vm._v("Weeks:")]
-                                            ),
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details
-                                                    .contractWeeks
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t"
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    this.vacancy.details
-                                      .contractEndDateFormatted
-                                      ? _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              md: "6",
-                                              lg: "4"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass: "font-weight-bold"
-                                              },
-                                              [_vm._v("Fixed End Date:")]
-                                            ),
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details
-                                                    .contractEndDateFormatted
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t"
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    this.vacancy.details
-                                      .contractStartDateFormatted
-                                      ? _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              md: "6",
-                                              lg: "4"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass: "font-weight-bold"
-                                              },
-                                              [_vm._v("Start Date:")]
-                                            ),
-                                            _vm._v(
-                                              "\n\t\t\t\t\t\t\t\t" +
-                                                _vm._s(
-                                                  this.vacancy.details
-                                                    .contractStartDateFormatted
-                                                ) +
-                                                "\n\t\t\t\t\t\t\t"
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e()
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      : _vm._e()
-                  ],
-                  1
-                )
-              ],
-              1
-            ),
+              attrs: { src: "/videos/hr.mp4" }
+            }),
             _vm._v(" "),
             _c(
               "v-container",
@@ -41547,7 +43467,31 @@ var render = function() {
                                     )
                                   ])
                                 ])
-                              : _vm._e()
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("v-divider"),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-actions",
+                              [
+                                this.$isHrUser() || this.$isSiteAdmin()
+                                  ? _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          color: "red",
+                                          outlined: "",
+                                          link: "",
+                                          to:
+                                            "/join/" + this.vacancy_id + "/edit"
+                                        }
+                                      },
+                                      [_vm._v("Edit Vacancy")]
+                                    )
+                                  : _vm._e()
+                              ],
+                              1
+                            )
                           ],
                           1
                         )

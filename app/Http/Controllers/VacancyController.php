@@ -72,15 +72,30 @@ class VacancyController extends Controller
   public function show($id)
   {
     return Vacancy::find($id);
-    // ->map(function ($v) {
-    //   return [
-    //     'id' => $v->id,
-    //     'academy_id' => $v->academy_id,
-    //     'details' => json_decode($v->details),
-    //     'closingDate' => $v->closingDate,
-    //     'closingDateFormatted' => $v->closingDateFormatted,
-    //   ];
-    // });
+  }
+
+  public function updateVacancy($id, Request $request)
+  {
+    try {
+
+      $v = Vacancy::find($id);
+      if ($v) {
+        $v->academy_id = $request->get('academy_id');
+        $v->closingDate = $request->get('closingDate');
+        $v->closingDateFormatted = $request->get('closingDateFormatted');
+        $v->details = $request->get('details');
+        $v->touch();
+        $v->save();
+      }
+      return response('Vacancy Edited Successfully', Response::HTTP_OK);
+    } catch (QueryException $e) {
+      $errorCode = $e->errorInfo[1];
+      if ($errorCode == 1062) {
+        return response('Beep boop bop! There is a problem!.', Response::HTTP_NOT_ACCEPTABLE)->header('error_code', $errorCode);
+      } else {
+        return response($e, Response::HTTP_NOT_ACCEPTABLE)->header('error_code', $errorCode);
+      }
+    }
   }
 
   public function getPayScaleRanges($id)

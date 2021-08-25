@@ -118,7 +118,7 @@ export default new Router({
       }
     },
     {
-      path: "/join/show/:vacancy_id",
+      path: "/join/:vacancy_id",
       name: "join.show",
       component: ShowVacancyPage,
       // beforeEnter: isHrUser,
@@ -126,6 +126,17 @@ export default new Router({
       meta: {
         auth: true,
         title: "Show Vacancy TeamFCAT"
+      }
+    },
+    {
+      path: "/join/:vacancy_id/edit",
+      name: "join.edit",
+      component: EditVacancyPage,
+      // beforeEnter: isHrUser,
+      props: true,
+      meta: {
+        auth: true,
+        title: "Edit Vacancy TeamFCAT"
       }
     },
     {

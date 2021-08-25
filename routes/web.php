@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/get/createVacancy', 'VacancyController@create')->name('join.create');
   Route::get('/get/payScales/{id}', 'VacancyController@getPayScaleRanges')->name('join.create');
   Route::post('/post/saveVacancy', 'VacancyController@save')->name('join.save');
+  Route::put('/put/updateVacancy/{id}', 'VacancyController@updateVacancy')->name('join.update');
 
   Route::get('/get/pages/all', 'PagesController@getAll');
   Route::get('/gdpr', 'HomeController@gdpr')->name('gdpr');

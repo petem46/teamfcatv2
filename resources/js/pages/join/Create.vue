@@ -510,6 +510,7 @@ export default {
 			this.leadershipScaleRange[1] = 43;
 			delete this.vacancyDetails.grade;
 			delete this.vacancyDetails.range;
+      this.vacancyDetails.selectedSalaryPayScale_id = this.selectedSalary;
 			// Check Salary Pay Scale then set appropriate Pay Scale Range options
 			this.selectedSalary === 1 // NJC Pay Scale
 				? this.getPayScales()
@@ -528,6 +529,7 @@ export default {
 			this.selectedPayScaleDetails = this.payScales.find(
 				(a) => a.id === this.selectedPayScale
 			);
+      this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
 			if (this.selectedPayScaleDetails.grade) {
 				this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
 			}

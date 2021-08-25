@@ -12,7 +12,7 @@
 				style="min-height: 300px; max-height: 450px; height: 100vh"
 				class="d-none d-sm-block"
 			>
-				<v-container class="pt-lg-15 d-none">
+				<!-- <v-container class="pt-lg-15 d-none">
 					<v-card
 						elevation="10"
 						outlined
@@ -139,7 +139,7 @@
 							</v-row>
 						</v-card-text>
 					</v-card>
-				</v-container>
+				</v-container> -->
 			</video-background>
 			<!-- ADVERT MOCK UP -->
 			<v-container class="mt-neg15">
@@ -291,6 +291,17 @@
 								dignissimos perferendis modi architecto ipsam doloribus eius.
 							</p>
 						</div>
+						<v-divider></v-divider>
+						<v-card-actions>
+							<v-btn
+								color="red"
+								outlined
+								link
+								:to="'/join/' + this.vacancy_id + '/edit'"
+								v-if="this.$isHrUser() || this.$isSiteAdmin()"
+								>Edit Vacancy</v-btn
+							>
+						</v-card-actions>
 					</v-card-text>
 				</v-card>
 			</v-container>
