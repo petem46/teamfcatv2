@@ -493,49 +493,55 @@ export default {
 			this.selectedAcademyDetails = this.academies.find(
 				(a) => a.id === this.selectedAcademy
 			);
-			this.vacancyDetails.about = this.selectedAcademyDetails.about;
-			this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
-			this.vacancy.academy_id = this.selectedAcademyDetails.id;
-			this.vacancyDetails.location = this.selectedAcademyDetails.name;
-			this.vacancyDetails.name = this.selectedAcademyDetails.name;
+			if (this.selectedAcademyDetails !== "undefined") {
+				this.vacancyDetails.about = this.selectedAcademyDetails.about;
+				this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
+				this.vacancy.academy_id = this.selectedAcademyDetails.id;
+				this.vacancyDetails.location = this.selectedAcademyDetails.name;
+				this.vacancyDetails.name = this.selectedAcademyDetails.name;
+			}
 		},
 		selectedSalary() {
 			this.selectedSalaryDetails = this.salaryscales.find(
 				(a) => a.id === this.selectedSalary
 			);
-			this.vacancyDetails.salarypayscale = this.selectedSalaryDetails.name;
-			this.payScales = [];
-			this.selectedPayScaleDetails = null;
-			this.selectedPayScale = null;
-			this.leadershipScaleRange[0] = 1;
-			this.leadershipScaleRange[1] = 43;
-			delete this.vacancyDetails.grade;
-			delete this.vacancyDetails.range;
-			this.vacancyDetails.selectedSalaryPayScale_id = this.selectedSalary;
-			// Check Salary Pay Scale then set appropriate Pay Scale Range options
-			this.selectedSalary === 1 // NJC Pay Scale
-				? this.getPayScales()
-				: this.selectedSalary === 2 // Leadership Pay Scale
-				? (this.vacancyDetails.range =
-						this.leadershipScaleRange[0] + "-" + this.leadershipScaleRange[1])
-				: this.selectedSalary === 3 // Teacher Main Pay Scale
-				? (this.vacancyDetails.range = "M1-M6")
-				: this.selectedSalary === 4 // Upper Pay Scale
-				? (this.vacancyDetails.range = "U1-U3")
-				: this.selectedSalary === 5 // Unqualified Teacher Pay Scale
-				? (this.vacancyDetails.range = "UQ1-UQ6")
-				: (this.payScales = []);
+			if (this.selectedAcademyDetails !== "undefined") {
+				this.vacancyDetails.salarypayscale = this.selectedSalaryDetails.name;
+				this.payScales = [];
+				this.selectedPayScaleDetails = null;
+				this.selectedPayScale = null;
+				this.leadershipScaleRange[0] = 1;
+				this.leadershipScaleRange[1] = 43;
+				delete this.vacancyDetails.grade;
+				delete this.vacancyDetails.range;
+				this.vacancyDetails.selectedSalaryPayScale_id = this.selectedSalary;
+				// Check Salary Pay Scale then set appropriate Pay Scale Range options
+				this.selectedSalary === 1 // NJC Pay Scale
+					? this.getPayScales()
+					: this.selectedSalary === 2 // Leadership Pay Scale
+					? (this.vacancyDetails.range =
+							this.leadershipScaleRange[0] + "-" + this.leadershipScaleRange[1])
+					: this.selectedSalary === 3 // Teacher Main Pay Scale
+					? (this.vacancyDetails.range = "M1-M6")
+					: this.selectedSalary === 4 // Upper Pay Scale
+					? (this.vacancyDetails.range = "U1-U3")
+					: this.selectedSalary === 5 // Unqualified Teacher Pay Scale
+					? (this.vacancyDetails.range = "UQ1-UQ6")
+					: (this.payScales = []);
+			}
 		},
 		selectedPayScale() {
 			this.selectedPayScaleDetails = this.payScales.find(
 				(a) => a.id === this.selectedPayScale
 			);
-			this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
-			if (this.selectedPayScaleDetails.grade) {
-				this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
-			}
-			if (this.selectedPayScaleDetails.range) {
-				this.vacancyDetails.range = this.selectedPayScaleDetails.range;
+			if (this.selectedPayScaleDetails !== "undefined") {
+				this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
+				if (this.selectedPayScaleDetails.grade) {
+					this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
+				}
+				if (this.selectedPayScaleDetails.range) {
+					this.vacancyDetails.range = this.selectedPayScaleDetails.range;
+				}
 			}
 		},
 		leadershipScaleRange() {
@@ -725,7 +731,7 @@ export default {
 				.then((res) => {
 					if (res.status == 200) {
 						console.log(res.status);
-            this.$router.push('/join/' + this.vacancy.id);
+						this.$router.push("/join/" + this.vacancy.id);
 					}
 				});
 		},
