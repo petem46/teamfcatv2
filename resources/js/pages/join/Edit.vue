@@ -493,7 +493,7 @@ export default {
 			this.selectedAcademyDetails = this.academies.find(
 				(a) => a.id === this.selectedAcademy
 			);
-			if (this.selectedAcademyDetails !== "undefined") {
+			if (this.selectedAcademyDetails.about) {
 				this.vacancyDetails.about = this.selectedAcademyDetails.about;
 				this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
 				this.vacancy.academy_id = this.selectedAcademyDetails.id;
