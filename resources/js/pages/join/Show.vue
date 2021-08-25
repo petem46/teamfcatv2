@@ -59,7 +59,8 @@
 									lg="4"
 									v-if="this.vacancy.details.salarypayscale"
 								>
-									<span class="font-weight-bold">Scale:</span> {{ this.vacancy.details.salarypayscale }}
+									<span class="font-weight-bold">Scale:</span>
+									{{ this.vacancy.details.salarypayscale }}
 								</v-col>
 								<v-col
 									cols="12"
@@ -67,7 +68,8 @@
 									lg="4"
 									v-if="this.vacancy.details.grade"
 								>
-									<span class="font-weight-bold">Grade:</span> {{ this.vacancy.details.grade }}
+									<span class="font-weight-bold">Grade:</span>
+									{{ this.vacancy.details.grade }}
 								</v-col>
 								<v-col
 									cols="12"
@@ -75,7 +77,8 @@
 									lg="4"
 									v-if="this.vacancy.details.range"
 								>
-									<span class="font-weight-bold">Range:</span> {{ this.vacancy.details.range }}
+									<span class="font-weight-bold">Range:</span>
+									{{ this.vacancy.details.range }}
 								</v-col>
 								<v-col
 									cols="12"
@@ -83,7 +86,8 @@
 									lg="4"
 									v-if="this.vacancy.details.salary"
 								>
-									<span class="font-weight-bold">Salary:</span> {{ this.vacancy.details.salary }}
+									<span class="font-weight-bold">Salary:</span>
+									{{ this.vacancy.details.salary }}
 								</v-col>
 								<v-col
 									cols="12"
@@ -91,7 +95,8 @@
 									lg="4"
 									v-if="this.vacancy.details.contractType"
 								>
-									<span class="font-weight-bold">Contract:</span> {{ this.vacancy.details.contractType }}
+									<span class="font-weight-bold">Contract:</span>
+									{{ this.vacancy.details.contractType }}
 									{{ this.vacancy.details.contractTime }}
 									{{ this.vacancy.details.contractTermTimeOnly }}
 								</v-col>
@@ -149,7 +154,7 @@
 					<v-list-item three-line class="">
 						<v-list-item-content>
 							<div class="text-overline mb-4">INTERNAL ONLY</div>
-							<v-list-item-title class="text-h4 mb-1 text-wrap " v-if="academy">
+							<v-list-item-title class="text-h4 mb-1 text-wrap" v-if="academy">
 								{{ this.vacancy.details.postTitle }}
 							</v-list-item-title>
 							<v-list-item-subtitle
@@ -180,16 +185,20 @@
 								lg="4"
 								v-if="this.vacancy.details.salarypayscale"
 							>
-								<span class="font-weight-bold">Scale:</span> {{ this.vacancy.details.salarypayscale }}
+								<span class="font-weight-bold">Scale:</span>
+								{{ this.vacancy.details.salarypayscale }}
 							</v-col>
 							<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.grade">
-								<span class="font-weight-bold">Grade:</span> {{ this.vacancy.details.grade }}
+								<span class="font-weight-bold">Grade:</span>
+								{{ this.vacancy.details.grade }}
 							</v-col>
 							<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.range">
-								<span class="font-weight-bold">Range:</span> {{ this.vacancy.details.range }}
+								<span class="font-weight-bold">Range:</span>
+								{{ this.vacancy.details.range }}
 							</v-col>
 							<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.salary">
-								<span class="font-weight-bold">Salary:</span> {{ this.vacancy.details.salary }}
+								<span class="font-weight-bold">Salary:</span>
+								{{ this.vacancy.details.salary }}
 							</v-col>
 							<v-col
 								cols="12"
@@ -197,7 +206,8 @@
 								lg="4"
 								v-if="this.vacancy.details.contractType"
 							>
-								<span class="font-weight-bold">Contract:</span> {{ this.vacancy.details.contractType }}
+								<span class="font-weight-bold">Contract:</span>
+								{{ this.vacancy.details.contractType }}
 								{{ this.vacancy.details.contractTime }}
 								{{ this.vacancy.details.contractTermTimeOnly }}
 							</v-col>
@@ -339,13 +349,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mt-neg15 {
-	position: absolute;
-	top: 15%;
-	left: 50%;
-	transform: translate(-50%, 0);
-  @media (max-width: 576px) {
-    top: 15px;
-   }
+	position: relative;
+	top: -25%;
+	left: 0;
+	transform: translate(0, -25%);
+	@media (max-width: 576px) {
+		position: relative;
+		transform: translate(0px, 0px);
+	}
 }
 .banner-opacity {
 	background: rgb(255, 255, 255);

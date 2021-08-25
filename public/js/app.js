@@ -11026,6 +11026,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -13876,7 +13886,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".mt-neg15[data-v-02b154c9] {\n  position: absolute;\n  top: 15%;\n  left: 50%;\n  transform: translate(-50%, 0);\n}\n@media (max-width: 576px) {\n.mt-neg15[data-v-02b154c9] {\n    top: 15px;\n}\n}\n.banner-opacity[data-v-02b154c9] {\n  background: white;\n  background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0.8) 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffffff\",endColorstr=\"#ffffff\",GradientType=1);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".mt-neg15[data-v-02b154c9] {\n  position: relative;\n  top: -25%;\n  left: 0;\n  transform: translate(0, -25%);\n}\n@media (max-width: 576px) {\n.mt-neg15[data-v-02b154c9] {\n    position: relative;\n    transform: translate(0px, 0px);\n}\n}\n.banner-opacity[data-v-02b154c9] {\n  background: white;\n  background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0.8) 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffffff\",endColorstr=\"#ffffff\",GradientType=1);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -40864,7 +40874,7 @@ var render = function() {
                                               [_vm._v("Scale:")]
                                             ),
                                             _vm._v(
-                                              " " +
+                                              "\n\t\t\t\t\t\t\t\t" +
                                                 _vm._s(
                                                   this.vacancy.details
                                                     .salarypayscale
@@ -40894,7 +40904,7 @@ var render = function() {
                                               [_vm._v("Grade:")]
                                             ),
                                             _vm._v(
-                                              " " +
+                                              "\n\t\t\t\t\t\t\t\t" +
                                                 _vm._s(
                                                   this.vacancy.details.grade
                                                 ) +
@@ -40923,7 +40933,7 @@ var render = function() {
                                               [_vm._v("Range:")]
                                             ),
                                             _vm._v(
-                                              " " +
+                                              "\n\t\t\t\t\t\t\t\t" +
                                                 _vm._s(
                                                   this.vacancy.details.range
                                                 ) +
@@ -40952,7 +40962,7 @@ var render = function() {
                                               [_vm._v("Salary:")]
                                             ),
                                             _vm._v(
-                                              " " +
+                                              "\n\t\t\t\t\t\t\t\t" +
                                                 _vm._s(
                                                   this.vacancy.details.salary
                                                 ) +
@@ -40981,7 +40991,7 @@ var render = function() {
                                               [_vm._v("Contract:")]
                                             ),
                                             _vm._v(
-                                              " " +
+                                              "\n\t\t\t\t\t\t\t\t" +
                                                 _vm._s(
                                                   this.vacancy.details
                                                     .contractType
@@ -41173,9 +41183,7 @@ var render = function() {
                                 _vm.academy
                                   ? _c(
                                       "v-list-item-title",
-                                      {
-                                        staticClass: "text-h4 mb-1 text-wrap "
-                                      },
+                                      { staticClass: "text-h4 mb-1 text-wrap" },
                                       [
                                         _vm._v(
                                           "\n\t\t\t\t\t\t\t" +
@@ -41248,7 +41256,7 @@ var render = function() {
                                           [_vm._v("Scale:")]
                                         ),
                                         _vm._v(
-                                          " " +
+                                          "\n\t\t\t\t\t\t\t" +
                                             _vm._s(
                                               this.vacancy.details
                                                 .salarypayscale
@@ -41272,7 +41280,7 @@ var render = function() {
                                           [_vm._v("Grade:")]
                                         ),
                                         _vm._v(
-                                          " " +
+                                          "\n\t\t\t\t\t\t\t" +
                                             _vm._s(this.vacancy.details.grade) +
                                             "\n\t\t\t\t\t\t"
                                         )
@@ -41293,7 +41301,7 @@ var render = function() {
                                           [_vm._v("Range:")]
                                         ),
                                         _vm._v(
-                                          " " +
+                                          "\n\t\t\t\t\t\t\t" +
                                             _vm._s(this.vacancy.details.range) +
                                             "\n\t\t\t\t\t\t"
                                         )
@@ -41314,7 +41322,7 @@ var render = function() {
                                           [_vm._v("Salary:")]
                                         ),
                                         _vm._v(
-                                          " " +
+                                          "\n\t\t\t\t\t\t\t" +
                                             _vm._s(
                                               this.vacancy.details.salary
                                             ) +
@@ -41337,7 +41345,7 @@ var render = function() {
                                           [_vm._v("Contract:")]
                                         ),
                                         _vm._v(
-                                          " " +
+                                          "\n\t\t\t\t\t\t\t" +
                                             _vm._s(
                                               this.vacancy.details.contractType
                                             ) +
