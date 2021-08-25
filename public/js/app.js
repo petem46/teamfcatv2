@@ -11255,7 +11255,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return a.id === _this.selectedAcademy;
       });
 
-      if (this.selectedPayScaleDetails !== null) {
+      if (this.selectedAcademyDetails !== null) {
         this.vacancyDetails.about = this.selectedAcademyDetails.about;
         this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
         this.vacancy.academy_id = this.selectedAcademyDetails.id;
