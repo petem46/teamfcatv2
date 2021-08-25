@@ -687,6 +687,7 @@ export default {
 				this.vacancy = data;
 				this.vacancy.details = JSON.parse(data.details);
 				this.vacancyDetails = this.vacancy.details;
+        this.vacancy.academy_id = parseInt(this.vacancy.academy_id);
 				this.selectedAcademy = parseInt(data.academy_id);
 				this.selectedSalary = parseInt(data.details.selectedSalaryPayScale_id);
 				this.getPayScales();
