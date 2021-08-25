@@ -692,7 +692,7 @@ export default {
 				this.selectedAcademy = parseInt(data.academy_id);
 				this.selectedSalary = parseInt(data.details.selectedSalaryPayScale_id);
 				this.getPayScales();
-				this.selectedPayScale = parseInt(data.details.selectedPayScale_id);
+				this.selectedPayScale = parseInt(this.vacancy.details.selectedPayScale_id);
 				this.contractStartDate = data.details.contractStartDate;
 				this.contractStartDateFormatted =
 					data.details.contractStartDateFormatted;
@@ -701,6 +701,7 @@ export default {
 				this.closingDate = data.closingDate;
 				this.closingDateFormatted = data.closingDateFormatted;
 				this.selectedContractType = data.details.contractType;
+        this.selectedPayScale = parseInt(data.details.selectedPayScale_id);
 			});
 		},
 		async getAcademyDetails($id) {

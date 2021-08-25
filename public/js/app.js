@@ -11464,7 +11464,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   _this5.getPayScales();
 
-                  _this5.selectedPayScale = parseInt(data.details.selectedPayScale_id);
+                  _this5.selectedPayScale = parseInt(_this5.vacancy.details.selectedPayScale_id);
                   _this5.contractStartDate = data.details.contractStartDate;
                   _this5.contractStartDateFormatted = data.details.contractStartDateFormatted;
                   _this5.contractEndDate = data.details.contractEndDate;
@@ -11472,6 +11472,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this5.closingDate = data.closingDate;
                   _this5.closingDateFormatted = data.closingDateFormatted;
                   _this5.selectedContractType = data.details.contractType;
+                  _this5.selectedPayScale = parseInt(data.details.selectedPayScale_id);
                 });
 
               case 3:
