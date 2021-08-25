@@ -493,18 +493,19 @@ export default {
 			this.selectedAcademyDetails = this.academies.find(
 				(a) => a.id === this.selectedAcademy
 			);
-
-			this.vacancyDetails.about = this.selectedAcademyDetails.about;
-			this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
-			this.vacancy.academy_id = this.selectedAcademyDetails.id;
-			this.vacancyDetails.location = this.selectedAcademyDetails.name;
-			this.vacancyDetails.name = this.selectedAcademyDetails.name;
+			if (this.selectedPayScaleDetails !== null) {
+				this.vacancyDetails.about = this.selectedAcademyDetails.about;
+				this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
+				this.vacancy.academy_id = this.selectedAcademyDetails.id;
+				this.vacancyDetails.location = this.selectedAcademyDetails.name;
+				this.vacancyDetails.name = this.selectedAcademyDetails.name;
+			}
 		},
 		selectedSalary() {
 			this.selectedSalaryDetails = this.salaryscales.find(
 				(a) => a.id === this.selectedSalary
 			);
-			if (this.selectedAcademyDetails !== "undefined") {
+			if (this.selectedAcademyDetails !== null) {
 				this.vacancyDetails.salarypayscale = this.selectedSalaryDetails.name;
 				this.payScales = [];
 				this.selectedPayScaleDetails = null;

@@ -11254,11 +11254,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.selectedAcademyDetails = this.academies.find(function (a) {
         return a.id === _this.selectedAcademy;
       });
-      this.vacancyDetails.about = this.selectedAcademyDetails.about;
-      this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
-      this.vacancy.academy_id = this.selectedAcademyDetails.id;
-      this.vacancyDetails.location = this.selectedAcademyDetails.name;
-      this.vacancyDetails.name = this.selectedAcademyDetails.name;
+
+      if (this.selectedPayScaleDetails !== null) {
+        this.vacancyDetails.about = this.selectedAcademyDetails.about;
+        this.vacancyDetails.icon = this.selectedAcademyDetails.icon;
+        this.vacancy.academy_id = this.selectedAcademyDetails.id;
+        this.vacancyDetails.location = this.selectedAcademyDetails.name;
+        this.vacancyDetails.name = this.selectedAcademyDetails.name;
+      }
     },
     selectedSalary: function selectedSalary() {
       var _this2 = this;
@@ -11267,7 +11270,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return a.id === _this2.selectedSalary;
       });
 
-      if (this.selectedAcademyDetails !== "undefined") {
+      if (this.selectedAcademyDetails !== null) {
         this.vacancyDetails.salarypayscale = this.selectedSalaryDetails.name;
         this.payScales = [];
         this.selectedPayScaleDetails = null;
