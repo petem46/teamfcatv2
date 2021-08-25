@@ -11455,12 +11455,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this5.vacancy = data;
                   _this5.vacancy.details = JSON.parse(data.details);
                   _this5.vacancyDetails = _this5.vacancy.details;
-                  _this5.selectedAcademy = data.academy_id;
-                  _this5.selectedSalary = data.details.selectedSalaryPayScale_id;
+                  _this5.selectedAcademy = parseInt(data.academy_id);
+                  _this5.selectedSalary = parseInt(data.details.selectedSalaryPayScale_id);
 
                   _this5.getPayScales();
 
-                  _this5.selectedPayScale = data.details.selectedPayScale_id;
+                  _this5.selectedPayScale = parseInt(data.details.selectedPayScale_id);
                   _this5.contractStartDate = data.details.contractStartDate;
                   _this5.contractStartDateFormatted = data.details.contractStartDateFormatted;
                   _this5.contractEndDate = data.details.contractEndDate;

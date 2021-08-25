@@ -687,10 +687,10 @@ export default {
 				this.vacancy = data;
 				this.vacancy.details = JSON.parse(data.details);
 				this.vacancyDetails = this.vacancy.details;
-				this.selectedAcademy = data.academy_id;
-				this.selectedSalary = data.details.selectedSalaryPayScale_id;
+				this.selectedAcademy = parseInt(data.academy_id);
+				this.selectedSalary = parseInt(data.details.selectedSalaryPayScale_id);
 				this.getPayScales();
-				this.selectedPayScale = data.details.selectedPayScale_id;
+				this.selectedPayScale = parseInt(data.details.selectedPayScale_id);
 				this.contractStartDate = data.details.contractStartDate;
 				this.contractStartDateFormatted =
 					data.details.contractStartDateFormatted;
