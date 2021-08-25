@@ -505,7 +505,7 @@ export default {
 			this.selectedSalaryDetails = this.salaryscales.find(
 				(a) => a.id === this.selectedSalary
 			);
-			if (this.selectedAcademyDetails !== null) {
+			if (this.selectedSalaryDetails !== null) {
 				this.vacancyDetails.salarypayscale = this.selectedSalaryDetails.name;
 				this.payScales = [];
 				this.selectedPayScaleDetails = null;
@@ -534,13 +534,15 @@ export default {
 			this.selectedPayScaleDetails = this.payScales.find(
 				(a) => a.id === this.selectedPayScale
 			);
-			if (this.selectedPayScaleDetails !== "undefined") {
-				this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
-				if (this.selectedPayScaleDetails.grade) {
-					this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
-				}
-				if (this.selectedPayScaleDetails.range) {
-					this.vacancyDetails.range = this.selectedPayScaleDetails.range;
+			if (this.selectedPayScaleDetails !== null) {
+				if (this.selectedPayScaleDetails !== "undefined") {
+					this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
+					if (this.selectedPayScaleDetails.grade) {
+						this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
+					}
+					if (this.selectedPayScaleDetails.range) {
+						this.vacancyDetails.range = this.selectedPayScaleDetails.range;
+					}
 				}
 			}
 		},

@@ -11270,7 +11270,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return a.id === _this2.selectedSalary;
       });
 
-      if (this.selectedAcademyDetails !== null) {
+      if (this.selectedSalaryDetails !== null) {
         this.vacancyDetails.salarypayscale = this.selectedSalaryDetails.name;
         this.payScales = [];
         this.selectedPayScaleDetails = null;
@@ -11296,15 +11296,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return a.id === _this3.selectedPayScale;
       });
 
-      if (this.selectedPayScaleDetails !== "undefined") {
-        this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
+      if (this.selectedPayScaleDetails !== null) {
+        if (this.selectedPayScaleDetails !== "undefined") {
+          this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
 
-        if (this.selectedPayScaleDetails.grade) {
-          this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
-        }
+          if (this.selectedPayScaleDetails.grade) {
+            this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
+          }
 
-        if (this.selectedPayScaleDetails.range) {
-          this.vacancyDetails.range = this.selectedPayScaleDetails.range;
+          if (this.selectedPayScaleDetails.range) {
+            this.vacancyDetails.range = this.selectedPayScaleDetails.range;
+          }
         }
       }
     },
