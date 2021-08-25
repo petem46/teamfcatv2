@@ -13876,7 +13876,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".mt-neg15[data-v-02b154c9] {\n  position: absolute;\n  top: 15%;\n  left: 50%;\n  transform: translate(-50%, 0);\n}\n@media (max-width: 576px) {\n.mt-neg15[data-v-02b154c9] {\n    top: 15px;\n}\n}\n.banner-opacity[data-v-02b154c9] {\n  background: white;\n  background: linear-gradient(0deg, white 0%, rgba(255, 255, 255, 0.8) 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffffff\",endColorstr=\"#ffffff\",GradientType=1);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".mt-neg15[data-v-02b154c9] {\n  position: absolute;\n  top: 15%;\n  left: 50%;\n  transform: translate(-50%, 0);\n}\n@media (max-width: 576px) {\n.mt-neg15[data-v-02b154c9] {\n    top: 15px;\n}\n}\n.banner-opacity[data-v-02b154c9] {\n  background: white;\n  background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0.8) 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffffff\",endColorstr=\"#ffffff\",GradientType=1);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28089,7 +28089,7 @@ var render = function() {
                     "v-list-item-content",
                     [
                       _c("v-list-item-title", { staticClass: "grey--text" }, [
-                        _vm._v("Interal Vacancies")
+                        _vm._v("Internal Vacancies")
                       ])
                     ],
                     1
@@ -40856,8 +40856,15 @@ var render = function() {
                                             }
                                           },
                                           [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "font-weight-bold"
+                                              },
+                                              [_vm._v("Scale:")]
+                                            ),
                                             _vm._v(
-                                              "\n\t\t\t\t\t\t\t\tScale: " +
+                                              " " +
                                                 _vm._s(
                                                   this.vacancy.details
                                                     .salarypayscale
@@ -40879,8 +40886,15 @@ var render = function() {
                                             }
                                           },
                                           [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "font-weight-bold"
+                                              },
+                                              [_vm._v("Grade:")]
+                                            ),
                                             _vm._v(
-                                              "\n\t\t\t\t\t\t\t\tGrade: " +
+                                              " " +
                                                 _vm._s(
                                                   this.vacancy.details.grade
                                                 ) +
@@ -40901,8 +40915,15 @@ var render = function() {
                                             }
                                           },
                                           [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "font-weight-bold"
+                                              },
+                                              [_vm._v("Range:")]
+                                            ),
                                             _vm._v(
-                                              "\n\t\t\t\t\t\t\t\tRange: " +
+                                              " " +
                                                 _vm._s(
                                                   this.vacancy.details.range
                                                 ) +
@@ -40923,8 +40944,15 @@ var render = function() {
                                             }
                                           },
                                           [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "font-weight-bold"
+                                              },
+                                              [_vm._v("Salary:")]
+                                            ),
                                             _vm._v(
-                                              "\n\t\t\t\t\t\t\t\tSalary: " +
+                                              " " +
                                                 _vm._s(
                                                   this.vacancy.details.salary
                                                 ) +
@@ -40945,8 +40973,15 @@ var render = function() {
                                             }
                                           },
                                           [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "font-weight-bold"
+                                              },
+                                              [_vm._v("Contract:")]
+                                            ),
                                             _vm._v(
-                                              "\n\t\t\t\t\t\t\t\tContract: " +
+                                              " " +
                                                 _vm._s(
                                                   this.vacancy.details
                                                     .contractType
@@ -40978,8 +41013,15 @@ var render = function() {
                                             }
                                           },
                                           [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "font-weight-bold"
+                                              },
+                                              [_vm._v("Hours:")]
+                                            ),
                                             _vm._v(
-                                              "\n\t\t\t\t\t\t\t\tHours:\n\t\t\t\t\t\t\t\t" +
+                                              "\n\t\t\t\t\t\t\t\t" +
                                                 _vm._s(
                                                   this.vacancy.details
                                                     .contractHours
@@ -41001,8 +41043,15 @@ var render = function() {
                                             }
                                           },
                                           [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "font-weight-bold"
+                                              },
+                                              [_vm._v("Weeks:")]
+                                            ),
                                             _vm._v(
-                                              "\n\t\t\t\t\t\t\t\tWeeks:\n\t\t\t\t\t\t\t\t" +
+                                              "\n\t\t\t\t\t\t\t\t" +
                                                 _vm._s(
                                                   this.vacancy.details
                                                     .contractWeeks
@@ -41025,8 +41074,15 @@ var render = function() {
                                             }
                                           },
                                           [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "font-weight-bold"
+                                              },
+                                              [_vm._v("Fixed End Date:")]
+                                            ),
                                             _vm._v(
-                                              "\n\t\t\t\t\t\t\t\tFixed End Date:\n\t\t\t\t\t\t\t\t" +
+                                              "\n\t\t\t\t\t\t\t\t" +
                                                 _vm._s(
                                                   this.vacancy.details
                                                     .contractEndDateFormatted
@@ -41049,8 +41105,15 @@ var render = function() {
                                             }
                                           },
                                           [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "font-weight-bold"
+                                              },
+                                              [_vm._v("Start Date:")]
+                                            ),
                                             _vm._v(
-                                              "\n\t\t\t\t\t\t\t\tStart Date:\n\t\t\t\t\t\t\t\t" +
+                                              "\n\t\t\t\t\t\t\t\t" +
                                                 _vm._s(
                                                   this.vacancy.details
                                                     .contractStartDateFormatted
@@ -41179,8 +41242,13 @@ var render = function() {
                                         attrs: { cols: "12", md: "6", lg: "4" }
                                       },
                                       [
+                                        _c(
+                                          "span",
+                                          { staticClass: "font-weight-bold" },
+                                          [_vm._v("Scale:")]
+                                        ),
                                         _vm._v(
-                                          "\n\t\t\t\t\t\t\tScale: " +
+                                          " " +
                                             _vm._s(
                                               this.vacancy.details
                                                 .salarypayscale
@@ -41198,8 +41266,13 @@ var render = function() {
                                         attrs: { cols: "12", md: "6", lg: "4" }
                                       },
                                       [
+                                        _c(
+                                          "span",
+                                          { staticClass: "font-weight-bold" },
+                                          [_vm._v("Grade:")]
+                                        ),
                                         _vm._v(
-                                          "\n\t\t\t\t\t\t\tGrade: " +
+                                          " " +
                                             _vm._s(this.vacancy.details.grade) +
                                             "\n\t\t\t\t\t\t"
                                         )
@@ -41214,8 +41287,13 @@ var render = function() {
                                         attrs: { cols: "12", md: "6", lg: "4" }
                                       },
                                       [
+                                        _c(
+                                          "span",
+                                          { staticClass: "font-weight-bold" },
+                                          [_vm._v("Range:")]
+                                        ),
                                         _vm._v(
-                                          "\n\t\t\t\t\t\t\tRange: " +
+                                          " " +
                                             _vm._s(this.vacancy.details.range) +
                                             "\n\t\t\t\t\t\t"
                                         )
@@ -41230,8 +41308,13 @@ var render = function() {
                                         attrs: { cols: "12", md: "6", lg: "4" }
                                       },
                                       [
+                                        _c(
+                                          "span",
+                                          { staticClass: "font-weight-bold" },
+                                          [_vm._v("Salary:")]
+                                        ),
                                         _vm._v(
-                                          "\n\t\t\t\t\t\t\tSalary: " +
+                                          " " +
                                             _vm._s(
                                               this.vacancy.details.salary
                                             ) +
@@ -41248,8 +41331,13 @@ var render = function() {
                                         attrs: { cols: "12", md: "6", lg: "4" }
                                       },
                                       [
+                                        _c(
+                                          "span",
+                                          { staticClass: "font-weight-bold" },
+                                          [_vm._v("Contract:")]
+                                        ),
                                         _vm._v(
-                                          "\n\t\t\t\t\t\t\tContract: " +
+                                          " " +
                                             _vm._s(
                                               this.vacancy.details.contractType
                                             ) +
@@ -41275,8 +41363,13 @@ var render = function() {
                                         attrs: { cols: "12", md: "6", lg: "4" }
                                       },
                                       [
+                                        _c(
+                                          "span",
+                                          { staticClass: "font-weight-bold" },
+                                          [_vm._v("Hours:")]
+                                        ),
                                         _vm._v(
-                                          "\n\t\t\t\t\t\t\tHours:\n\t\t\t\t\t\t\t" +
+                                          "\n\t\t\t\t\t\t\t" +
                                             _vm._s(
                                               this.vacancy.details.contractHours
                                             ) +
@@ -41293,8 +41386,13 @@ var render = function() {
                                         attrs: { cols: "12", md: "6", lg: "4" }
                                       },
                                       [
+                                        _c(
+                                          "span",
+                                          { staticClass: "font-weight-bold" },
+                                          [_vm._v("Weeks:")]
+                                        ),
                                         _vm._v(
-                                          "\n\t\t\t\t\t\t\tWeeks:\n\t\t\t\t\t\t\t" +
+                                          "\n\t\t\t\t\t\t\t" +
                                             _vm._s(
                                               this.vacancy.details.contractWeeks
                                             ) +
@@ -41311,8 +41409,13 @@ var render = function() {
                                         attrs: { cols: "12", md: "6", lg: "4" }
                                       },
                                       [
+                                        _c(
+                                          "span",
+                                          { staticClass: "font-weight-bold" },
+                                          [_vm._v("Fixed End Date:")]
+                                        ),
                                         _vm._v(
-                                          "\n\t\t\t\t\t\t\tFixed End Date:\n\t\t\t\t\t\t\t" +
+                                          "\n\t\t\t\t\t\t\t" +
                                             _vm._s(
                                               this.vacancy.details
                                                 .contractEndDateFormatted
@@ -41330,8 +41433,13 @@ var render = function() {
                                         attrs: { cols: "12", md: "6", lg: "4" }
                                       },
                                       [
+                                        _c(
+                                          "span",
+                                          { staticClass: "font-weight-bold" },
+                                          [_vm._v("Start Date:")]
+                                        ),
                                         _vm._v(
-                                          "\n\t\t\t\t\t\t\tStart Date:\n\t\t\t\t\t\t\t" +
+                                          "\n\t\t\t\t\t\t\t" +
                                             _vm._s(
                                               this.vacancy.details
                                                 .contractStartDateFormatted

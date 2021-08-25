@@ -40,7 +40,7 @@
 				</v-list-item-action>
 				<v-list-item-content>
 					<v-list-item-title class="grey--text"
-						>Interal Vacancies</v-list-item-title
+						>Internal Vacancies</v-list-item-title
 					>
 				</v-list-item-content>
 			</v-list-item>

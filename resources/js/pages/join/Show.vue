@@ -59,7 +59,7 @@
 									lg="4"
 									v-if="this.vacancy.details.salarypayscale"
 								>
-									Scale: {{ this.vacancy.details.salarypayscale }}
+									<span class="font-weight-bold">Scale:</span> {{ this.vacancy.details.salarypayscale }}
 								</v-col>
 								<v-col
 									cols="12"
@@ -67,7 +67,7 @@
 									lg="4"
 									v-if="this.vacancy.details.grade"
 								>
-									Grade: {{ this.vacancy.details.grade }}
+									<span class="font-weight-bold">Grade:</span> {{ this.vacancy.details.grade }}
 								</v-col>
 								<v-col
 									cols="12"
@@ -75,7 +75,7 @@
 									lg="4"
 									v-if="this.vacancy.details.range"
 								>
-									Range: {{ this.vacancy.details.range }}
+									<span class="font-weight-bold">Range:</span> {{ this.vacancy.details.range }}
 								</v-col>
 								<v-col
 									cols="12"
@@ -83,7 +83,7 @@
 									lg="4"
 									v-if="this.vacancy.details.salary"
 								>
-									Salary: {{ this.vacancy.details.salary }}
+									<span class="font-weight-bold">Salary:</span> {{ this.vacancy.details.salary }}
 								</v-col>
 								<v-col
 									cols="12"
@@ -91,7 +91,7 @@
 									lg="4"
 									v-if="this.vacancy.details.contractType"
 								>
-									Contract: {{ this.vacancy.details.contractType }}
+									<span class="font-weight-bold">Contract:</span> {{ this.vacancy.details.contractType }}
 									{{ this.vacancy.details.contractTime }}
 									{{ this.vacancy.details.contractTermTimeOnly }}
 								</v-col>
@@ -101,7 +101,7 @@
 									lg="4"
 									v-if="this.vacancy.details.contractHours"
 								>
-									Hours:
+									<span class="font-weight-bold">Hours:</span>
 									{{ this.vacancy.details.contractHours }}
 								</v-col>
 								<v-col
@@ -110,7 +110,7 @@
 									lg="4"
 									v-if="this.vacancy.details.contractWeeks"
 								>
-									Weeks:
+									<span class="font-weight-bold">Weeks:</span>
 									{{ this.vacancy.details.contractWeeks }}
 								</v-col>
 								<v-col
@@ -119,7 +119,7 @@
 									lg="4"
 									v-if="this.vacancy.details.contractEndDateFormatted"
 								>
-									Fixed End Date:
+									<span class="font-weight-bold">Fixed End Date:</span>
 									{{ this.vacancy.details.contractEndDateFormatted }}
 								</v-col>
 								<v-col
@@ -128,7 +128,7 @@
 									lg="4"
 									v-if="this.vacancy.details.contractStartDateFormatted"
 								>
-									Start Date:
+									<span class="font-weight-bold">Start Date:</span>
 									{{ this.vacancy.details.contractStartDateFormatted }}
 								</v-col>
 							</v-row>
@@ -180,16 +180,16 @@
 								lg="4"
 								v-if="this.vacancy.details.salarypayscale"
 							>
-								Scale: {{ this.vacancy.details.salarypayscale }}
+								<span class="font-weight-bold">Scale:</span> {{ this.vacancy.details.salarypayscale }}
 							</v-col>
 							<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.grade">
-								Grade: {{ this.vacancy.details.grade }}
+								<span class="font-weight-bold">Grade:</span> {{ this.vacancy.details.grade }}
 							</v-col>
 							<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.range">
-								Range: {{ this.vacancy.details.range }}
+								<span class="font-weight-bold">Range:</span> {{ this.vacancy.details.range }}
 							</v-col>
 							<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.salary">
-								Salary: {{ this.vacancy.details.salary }}
+								<span class="font-weight-bold">Salary:</span> {{ this.vacancy.details.salary }}
 							</v-col>
 							<v-col
 								cols="12"
@@ -197,7 +197,7 @@
 								lg="4"
 								v-if="this.vacancy.details.contractType"
 							>
-								Contract: {{ this.vacancy.details.contractType }}
+								<span class="font-weight-bold">Contract:</span> {{ this.vacancy.details.contractType }}
 								{{ this.vacancy.details.contractTime }}
 								{{ this.vacancy.details.contractTermTimeOnly }}
 							</v-col>
@@ -207,7 +207,7 @@
 								lg="4"
 								v-if="this.vacancy.details.contractHours"
 							>
-								Hours:
+								<span class="font-weight-bold">Hours:</span>
 								{{ this.vacancy.details.contractHours }}
 							</v-col>
 							<v-col
@@ -216,7 +216,7 @@
 								lg="4"
 								v-if="this.vacancy.details.contractWeeks"
 							>
-								Weeks:
+								<span class="font-weight-bold">Weeks:</span>
 								{{ this.vacancy.details.contractWeeks }}
 							</v-col>
 							<v-col
@@ -225,7 +225,7 @@
 								lg="4"
 								v-if="this.vacancy.details.contractEndDateFormatted"
 							>
-								Fixed End Date:
+								<span class="font-weight-bold">Fixed End Date:</span>
 								{{ this.vacancy.details.contractEndDateFormatted }}
 							</v-col>
 							<v-col
@@ -234,7 +234,7 @@
 								lg="4"
 								v-if="this.vacancy.details.contractStartDateFormatted"
 							>
-								Start Date:
+								<span class="font-weight-bold">Start Date:</span>
 								{{ this.vacancy.details.contractStartDateFormatted }}
 							</v-col>
 						</v-row>
@@ -351,17 +351,17 @@ export default {
 	background: rgb(255, 255, 255);
 	background: -moz-linear-gradient(
 		0deg,
-		rgba(255, 255, 255, 1) 0%,
+		rgba(255, 255, 255, 1) 50%,
 		rgba(255, 255, 255, 0.8) 100%
 	);
 	background: -webkit-linear-gradient(
 		0deg,
-		rgba(255, 255, 255, 1) 0%,
+		rgba(255, 255, 255, 1) 50%,
 		rgba(255, 255, 255, 0.8) 100%
 	);
 	background: linear-gradient(
 		0deg,
-		rgba(255, 255, 255, 1) 0%,
+		rgba(255, 255, 255, 1) 50%,
 		rgba(255, 255, 255, 0.8) 100%
 	);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
