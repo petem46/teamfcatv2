@@ -514,6 +514,8 @@ export default {
 				this.leadershipScaleRange[1] = 43;
 				delete this.vacancyDetails.grade;
 				delete this.vacancyDetails.range;
+				delete this.vacancyDetails.rangeBottom;
+				delete this.vacancyDetails.rangeTop;
 				this.vacancyDetails.selectedSalaryPayScale_id = this.selectedSalary;
 				// Check Salary Pay Scale then set appropriate Pay Scale Range options
 				this.selectedSalary === 1 // NJC Pay Scale
@@ -547,6 +549,12 @@ export default {
 			}
 		},
 		leadershipScaleRange() {
+			this.vacancyDetails.sliderRange =
+				"[" +
+				this.leadershipScaleRange[0] +
+				"," +
+				this.leadershipScaleRange[1] +
+				"]";
 			this.vacancyDetails.range =
 				this.leadershipScaleRange[0] + "-" + this.leadershipScaleRange[1];
 		},
@@ -687,12 +695,14 @@ export default {
 				this.vacancy = data;
 				this.vacancy.details = JSON.parse(data.details);
 				this.vacancyDetails = this.vacancy.details;
-        this.vacancy.academy_id = parseInt(this.vacancy.academy_id);
-        this.getAcademyDetails(parseInt(data.academy_id));
+				this.vacancy.academy_id = parseInt(this.vacancy.academy_id);
+				this.getAcademyDetails(parseInt(data.academy_id));
 				this.selectedAcademy = parseInt(data.academy_id);
 				this.selectedSalary = parseInt(data.details.selectedSalaryPayScale_id);
 				this.getPayScales();
-				this.selectedPayScale = parseInt(this.vacancy.details.selectedPayScale_id);
+				this.selectedPayScale = parseInt(
+					this.vacancy.details.selectedPayScale_id
+				);
 				this.contractStartDate = data.details.contractStartDate;
 				this.contractStartDateFormatted =
 					data.details.contractStartDateFormatted;
@@ -701,18 +711,19 @@ export default {
 				this.closingDate = data.closingDate;
 				this.closingDateFormatted = data.closingDateFormatted;
 				this.selectedContractType = data.details.contractType;
-				this.selectedPayScale = parseInt(this.vacancy.details.selectedPayScale_id);
+				this.selectedPayScale = parseInt(
+					this.vacancy.details.selectedPayScale_id
+				);
+				// this.leadershipScaleRange = this.vacancy.details.sliderRange;
 			});
 		},
 		async getAcademyDetails($id) {
 			this.loading = true;
-			await axios
-				.get("/get/academy/" + $id)
-				.then(({ data }) => {
-					this.selectedAcademyDetails = data;
-					this.selectedAcademyDetails.icon = this.selectedAcademyDetails.logourl;
-					this.loading = false;
-				});
+			await axios.get("/get/academy/" + $id).then(({ data }) => {
+				this.selectedAcademyDetails = data;
+				this.selectedAcademyDetails.icon = this.selectedAcademyDetails.logourl;
+				this.loading = false;
+			});
 		},
 		getPayScales() {
 			axios.get("/get/payScales/" + this.selectedSalary).then(({ data }) => {

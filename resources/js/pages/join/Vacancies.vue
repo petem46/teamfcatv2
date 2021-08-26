@@ -7,7 +7,6 @@
 						<h1 class="text-lg-h1 text-md-h2">Internal Vacancies</h1>
 					</div>
 					<v-btn
-						v-if="$isHrUser()"
 						to="/join/create"
 						class="mt-6"
 						color="teal"

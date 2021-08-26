@@ -298,7 +298,6 @@
 								outlined
 								link
 								:to="'/join/' + this.vacancy_id + '/edit'"
-								v-if="this.$isHrUser() || this.$isSiteAdmin()"
 								>Edit Vacancy</v-btn
 							>
 						</v-card-actions>

@@ -74,6 +74,16 @@ class VacancyController extends Controller
     return Vacancy::find($id);
   }
 
+  public function edit($id) {
+    $vacancy = Vacancy::find($id);
+    $data = [
+      'vacancy' => $vacancy,
+      'selectedAcademyDetails' => Academy::find($vacancy->academy_id),
+      // 'selectedPayScaleDetails' => getPayScaleRanges($vacancy->details[''])
+    ];
+    return $data;
+  }
+
   public function updateVacancy($id, Request $request)
   {
     try {

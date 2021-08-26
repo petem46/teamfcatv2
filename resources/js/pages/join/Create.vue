@@ -510,7 +510,9 @@ export default {
 			this.leadershipScaleRange[1] = 43;
 			delete this.vacancyDetails.grade;
 			delete this.vacancyDetails.range;
-      this.vacancyDetails.selectedSalaryPayScale_id = this.selectedSalary;
+			delete this.vacancyDetails.rangeBottom;
+			delete this.vacancyDetails.rangeTop;
+			this.vacancyDetails.selectedSalaryPayScale_id = this.selectedSalary;
 			// Check Salary Pay Scale then set appropriate Pay Scale Range options
 			this.selectedSalary === 1 // NJC Pay Scale
 				? this.getPayScales()
@@ -529,7 +531,7 @@ export default {
 			this.selectedPayScaleDetails = this.payScales.find(
 				(a) => a.id === this.selectedPayScale
 			);
-      this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
+			this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
 			if (this.selectedPayScaleDetails.grade) {
 				this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
 			}
@@ -540,6 +542,8 @@ export default {
 		leadershipScaleRange() {
 			this.vacancyDetails.range =
 				this.leadershipScaleRange[0] + "-" + this.leadershipScaleRange[1];
+			this.vacancyDetails.rangeBottom = this.leadershipScaleRange[0];
+			this.vacancyDetails.rangeTop = this.leadershipScaleRange[1];
 		},
 		selectedContractType() {
 			this.vacancyDetails.contractType = this.selectedContractType;
