@@ -5,36 +5,50 @@
 				<v-col cols="12" sm="12">
 					<v-card>
 						<v-toolbar color="teal" dark>
-							<v-toolbar-title class="white--text">File Manager | {{ currentFolderName }}</v-toolbar-title>
+							<v-toolbar-title class="white--text"
+								>File Manager | {{ currentFolderName }}</v-toolbar-title
+							>
 							<!-- <v-btn fab color="green" bottom right absolute @click="$refs.fileInputUpload.click()">
 										<v-icon>mdi-plus</v-icon>
 							</v-btn>-->
 							<v-spacer></v-spacer>
 							<v-menu bottom left offset-x>
 								<template v-slot:activator="{ on, attrs }">
-									<v-btn v-bind="attrs" v-on="on" fab color="green" bottom right absolute>
+									<v-btn
+										v-bind="attrs"
+										v-on="on"
+										fab
+										color="green"
+										bottom
+										right
+										absolute
+									>
 										<v-icon>mdi-plus</v-icon>
 									</v-btn>
 								</template>
 								<v-list>
 									<v-list-item @click.stop="showNewFolderDialog = true">
 										<v-list-item-title>
-											<v-icon large color="grey" class="mr-3">mdi-folder</v-icon>New Folder
+											<v-icon large color="grey" class="mr-3">mdi-folder</v-icon
+											>New Folder
 										</v-list-item-title>
 									</v-list-item>
 									<v-list-item @click="fileInputClick(fileDocAccept)">
 										<v-list-item-title>
-											<v-icon large color="blue" class="mr-3">mdi-file</v-icon>Upload File
+											<v-icon large color="blue" class="mr-3">mdi-file</v-icon
+											>Upload File
 										</v-list-item-title>
 									</v-list-item>
 									<v-list-item @click="fileInputClick(fileImageAccept)">
 										<v-list-item-title>
-											<v-icon large color="green" class="mr-3">mdi-image</v-icon>Upload Image
+											<v-icon large color="green" class="mr-3">mdi-image</v-icon
+											>Upload Image
 										</v-list-item-title>
 									</v-list-item>
 									<v-list-item @click="fileInputClick(fileVideoAccept)">
 										<v-list-item-title>
-											<v-icon large color="red" class="mr-3">mdi-video</v-icon>Upload Video
+											<v-icon large color="red" class="mr-3">mdi-video</v-icon
+											>Upload Video
 										</v-list-item-title>
 									</v-list-item>
 									<v-list-item hidden>
@@ -56,21 +70,34 @@
 								@click="onFolderClick(previousFolder)"
 							>
 								<v-list-item-avatar>
-									<v-icon class="grey lighten-1 white--text">fa-level-up-alt</v-icon>
+									<v-icon class="grey lighten-1 white--text"
+										>fa-level-up-alt</v-icon
+									>
 								</v-list-item-avatar>
 
 								<v-list-item-content>
-									<v-list-item-title>{{previousFolderName}}</v-list-item-title>
+									<v-list-item-title>{{
+										previousFolderName
+									}}</v-list-item-title>
 									<v-divider></v-divider>
 								</v-list-item-content>
 							</v-list-item>
-							<v-list-item v-for="folder in subFolders" :key="folder" link @click="onFolderClick(folder)">
+							<v-list-item
+								v-for="folder in subFolders"
+								:key="folder"
+								link
+								@click="onFolderClick(folder)"
+							>
 								<v-list-item-avatar>
-									<v-icon class="teal darken-2 white--text">far fa-folder-open</v-icon>
+									<v-icon class="teal darken-2 white--text"
+										>far fa-folder-open</v-icon
+									>
 								</v-list-item-avatar>
 
 								<v-list-item-content>
-									<v-list-item-title>{{ showFolderName(folder) }}</v-list-item-title>
+									<v-list-item-title>{{
+										showFolderName(folder)
+									}}</v-list-item-title>
 									<!-- <v-list-item-subtitle>subtitle</v-list-item-subtitle> -->
 								</v-list-item-content>
 							</v-list-item>
@@ -78,25 +105,40 @@
 						<v-divider inset></v-divider>
 						<div v-if="dirFiles.length > 0">
 							<v-list two-line subheader>
-								<v-subheader inset>Files {{currentFolderName}}</v-subheader>
+								<v-subheader inset>Files {{ currentFolderName }}</v-subheader>
 
-								<v-list-item v-for="file in dirFiles" :key="file.url" link @click="onFileClick(file)">
-									<v-list-item-avatar tile v-if="file.type.indexOf('image/') >= 0">
+								<v-list-item
+									v-for="file in dirFiles"
+									:key="file.url"
+									link
+									@click="onFileClick(file)"
+								>
+									<v-list-item-avatar
+										tile
+										v-if="file.type.indexOf('image/') >= 0"
+									>
 										<v-img :src="file.url" contain></v-img>
 									</v-list-item-avatar>
-									<v-list-item-avatar tile v-if="file.type.indexOf('application/') >= 0">
+									<v-list-item-avatar
+										tile
+										v-if="file.type.indexOf('application/') >= 0"
+									>
 										<span v-html="getFileIcon(file.type)"></span>
 									</v-list-item-avatar>
 									<v-list-item-content>
 										<v-list-item-title>{{ file.name }}</v-list-item-title>
-										<v-list-item-subtitle>{{file.size | prettyBytes}}</v-list-item-subtitle>
+										<v-list-item-subtitle>{{
+											file.size | prettyBytes
+										}}</v-list-item-subtitle>
 									</v-list-item-content>
 								</v-list-item>
 							</v-list>
 						</div>
 						<v-card-actions>
 							<v-spacer></v-spacer>
-							<v-btn outlined @click="$emit('hideFileManager')">Close File Manager</v-btn>
+							<v-btn outlined @click="$emit('hideFileManager')"
+								>Close File Manager</v-btn
+							>
 						</v-card-actions>
 					</v-card>
 				</v-col>
@@ -111,14 +153,20 @@
 					<v-container>
 						<v-row>
 							<v-col cols="12">
-								<v-text-field label="New Folder Name" required v-model="newFolderName"></v-text-field>
+								<v-text-field
+									label="New Folder Name"
+									required
+									v-model="newFolderName"
+								></v-text-field>
 							</v-col>
 						</v-row>
 					</v-container>
 				</v-card-text>
 				<v-card-actions>
 					<v-spacer></v-spacer>
-					<v-btn color="blue darken-1" text @click="showNewFolderDialog = false">Close</v-btn>
+					<v-btn color="blue darken-1" text @click="showNewFolderDialog = false"
+						>Close</v-btn
+					>
 					<v-btn color="blue darken-1" text @click="onMakeFolder()">Save</v-btn>
 				</v-card-actions>
 			</v-card>
@@ -127,13 +175,16 @@
 			<v-card v-if="this.selectedFile">
 				<v-toolbar dark color="teal">
 					<v-icon class="mr-5">fa-upload</v-icon>
-					<v-toolbar-title class="teal white--text">File Upload</v-toolbar-title>
+					<v-toolbar-title class="teal white--text"
+						>File Upload dev</v-toolbar-title
+					>
 					<v-spacer></v-spacer>
 					<v-divider class="mx-4" inset vertical></v-divider>
 					<v-btn class="mx-0 px-0" text @click="endUpload">
 						<v-icon>far fa-window-close</v-icon>
 					</v-btn>
 				</v-toolbar>
+				<v-card-title> DEV {{ this.currentFolder }} </v-card-title>
 				<div class="container">
 					<v-row>
 						<v-col cols="4">
@@ -143,11 +194,16 @@
 						</v-col>
 						<v-col>
 							<div>
-								<v-text-field v-model="selectedFileDetails.name" label="Name: "></v-text-field>
+								<v-text-field
+									v-model="selectedFileDetails.name"
+									label="Name: "
+								></v-text-field>
 							</div>
-							<div>Filename: {{this.selectedFile.name}}</div>
-							<div>Type: {{this.selectedFile.type}}</div>
-							<div class="overline">Size: {{this.selectedFile.size | prettyBytes }}</div>
+							<div>Filename: {{ this.selectedFile.name }}</div>
+							<div>Type: {{ this.selectedFile.type }}</div>
+							<div class="overline">
+								Size: {{ this.selectedFile.size | prettyBytes }}
+							</div>
 						</v-col>
 					</v-row>
 				</div>
@@ -169,7 +225,7 @@ export default {
 			selectedFile: "",
 			selectedFileDetails: {
 				name: "",
-				type: ""
+				type: "",
 			},
 			uploadedFile: {},
 			showFileUploadDialog: false,
@@ -184,7 +240,7 @@ export default {
 			previousFolder: "uploads",
 			allFolders: {},
 			dirFiles: {},
-			subFolders: {}
+			subFolders: {},
 		};
 	},
 	mounted() {
@@ -195,7 +251,7 @@ export default {
 			let fdfolders = new FormData();
 			fdfolders.append("folder", this.currentFolder);
 
-			axios.post("/getFolders", fdfolders).then(res => {
+			axios.post("/getFolders", fdfolders).then((res) => {
 				if (res.status == 200) {
 					this.allFolders = res.data.allFolders;
 					this.dirFiles = res.data.dirFiles;
@@ -213,12 +269,13 @@ export default {
 				this.currentFolder.lastIndexOf("/")
 			);
 			this.getFolders();
+			console.log("Current Folder: " + this.currentFolder);
 		},
 		onFileClick(file) {
-      // console.log(file);
-      if (file.type.indexOf("video/") >= 0) {
-        this.$emit("insertVideo", file);
-      }
+			// console.log(file);
+			if (file.type.indexOf("video/") >= 0) {
+				this.$emit("insertVideo", file);
+			}
 			if (file.type.indexOf("image/") >= 0) {
 				this.$emit("insertImage", file);
 			}
@@ -232,11 +289,30 @@ export default {
 			this.selectedFileDetails.name = this.selectedFile.name;
 			this.selectedFileDetails.type = this.selectedFile.type;
 			const reader = new FileReader();
-			reader.onload = e => {
+			reader.onload = (e) => {
 				this.imageData = e.target.result;
 			};
 			reader.readAsDataURL(event.target.files[0]);
-
+			// check if filename exists //
+			if (this.dirFiles) {
+				let arr = this.dirFiles;
+				if (arr.some((i) => i.name.includes(this.selectedFile.name))) {
+					console.log("Duplicate Filename");
+					console.log(
+						this.selectedFile.name.substr(0, dot) +
+							"-v" +
+							this.dirFiles.length +
+							this.selectedFile.name.substr(dot, len)
+					);
+					let dot = this.selectedFile.name.lastIndexOf(".");
+					let len = this.selectedFile.name.length;
+					this.selectedFileDetails.name =
+						this.selectedFile.name.substr(0, dot) +
+						"-v" +
+						this.dirFiles.length +
+						this.selectedFile.name.substr(dot, len);
+				}
+			}
 			this.showFileUploadDialog = true;
 		},
 		fileInputClick(AcceptType) {
@@ -258,26 +334,27 @@ export default {
 			this.selectedFile = "";
 			this.showFileUploadDialog = false;
 			this.fileAccept = "";
-			this.currentFolder = "uploads";
-			this.previousFolder = "";
+			// this.currentFolder = "uploads";
+			// this.previousFolder = "";
 		},
 		onUpload() {
 			this.selectedFileType = this.selectedFile.type;
 			let fd = new FormData();
-			fd.append("file", this.selectedFile, this.selectedFile.name);
+			fd.append("file", this.selectedFile, this.selectedFileDetails.name);
 			fd.append("name", this.selectedFileDetails.name);
 			fd.append("type", this.selectedFileDetails.type);
 			fd.append("folder", this.currentFolder);
-			axios.post("/upload", fd).then(res => {
+			axios.post("/upload", fd).then((res) => {
 				if (res.status == 200) {
 					this.showFileUploadDialog = false;
-					this.uploadedFile.name = this.selectedFile.name;
-					this.uploadedFile.type = this.selectedFile.type;
+					this.uploadedFile.name = this.selectedFileDetails.name;
+					this.uploadedFile.type = this.selectedFileDetails.type;
 					this.uploadedFile.src = res.data.src;
-					// this.endUpload();
+					this.endUpload();
 					this.getFolders();
 					this.$emit("showFileManager");
 				}
+				console.log(res);
 			});
 		},
 		onMakeFolder() {
@@ -286,7 +363,7 @@ export default {
 				"newFolder",
 				"public/" + this.currentFolder + "/" + this.newFolderName
 			);
-			axios.post("/makeFolder", fd).then(res => {
+			axios.post("/makeFolder", fd).then((res) => {
 				this.newFolderName = "";
 				this.showNewFolderDialog = false;
 				this.getFolders();
@@ -318,7 +395,7 @@ export default {
 			if (type == "application/x-zip-compressed") {
 				return '<i aria-hidden="true" class="v-icon notranslate white green--text far fa-file-archive theme--light" ></i>';
 			}
-		}
+		},
 	},
 	computed: {
 		previousFolderName() {
@@ -326,7 +403,7 @@ export default {
 		},
 		currentFolderName() {
 			return this.currentFolder.replace("uploads", "home");
-		}
-	}
+		},
+	},
 };
 </script>

@@ -2,7 +2,7 @@
 	<div>
 		<v-row @mouseover="showIcons = true" @mouseleave="showIcons = false">
 			<v-col cols="1" class="align-center py-0">
-				<v-btn icon id="handle">
+				<v-btn icon :id="'handle-' + this.idx">
 					<v-icon color="grey lighten-1">fa-bars</v-icon>
 				</v-btn>
 			</v-col>
