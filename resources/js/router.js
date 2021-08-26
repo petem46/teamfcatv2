@@ -118,28 +118,6 @@ export default new Router({
       }
     },
     {
-      path: "/join/:vacancy_id",
-      name: "join.show",
-      component: ShowVacancyPage,
-      // beforeEnter: isHrUser,
-      props: true,
-      meta: {
-        auth: true,
-        title: "Show Vacancy TeamFCAT"
-      }
-    },
-    {
-      path: "/join/:vacancy_id/edit",
-      name: "join.edit",
-      component: EditVacancyPage,
-      // beforeEnter: isHrUser,
-      props: true,
-      meta: {
-        auth: true,
-        title: "Edit Vacancy TeamFCAT"
-      }
-    },
-    {
       path: "/finance",
       name: "finance",
       component: FinanceLandingPage,
@@ -261,16 +239,26 @@ export default new Router({
         title: "Join TeamFCAT New Vacancy"
       }
     },
-
     {
-      path: "/join/edit",
+      path: "/join/:vacancy_id",
+      name: "join.show",
+      component: ShowVacancyPage,
+      // beforeEnter: isHrUser,
+      props: true,
+      meta: {
+        auth: true,
+        title: "Show Vacancy TeamFCAT"
+      }
+    },
+    {
+      path: "/join/:vacancy_id/edit",
       name: "join.edit",
       component: EditVacancyPage,
       // beforeEnter: isHrUser,
       props: true,
       meta: {
         auth: true,
-        title: "TeamFCAT Edit Vacancy"
+        title: "Edit Vacancy TeamFCAT"
       }
     },
     {

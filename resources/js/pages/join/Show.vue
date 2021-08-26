@@ -294,6 +294,7 @@
 						<v-divider></v-divider>
 						<v-card-actions>
 							<v-btn
+								v-if="$isHrUser()"
 								color="red"
 								outlined
 								link
@@ -324,10 +325,6 @@ export default {
 	},
 	created() {
 		this.loading = true;
-		// if (!this.$isHrUser() || !this.$isSiteAdmin()) {
-		// 	console.log("Thou Shall Not Pass");
-		// 	this.$router.push("/");
-		// }
 	},
 	mounted() {
 		this.scrollToTop();
@@ -342,7 +339,10 @@ export default {
 			this.loading = true;
 			axios.get("/get/vacancy/" + this.vacancy_id).then(({ data }) => {
 				this.vacancy = data;
-				this.vacancy.details = JSON.parse(data.details);
+				if (data.details) {
+					this.vacancy.details = JSON.parse(data.details);
+					this.vacancyDetails = this.vacancy.details;
+				}
 				this.getAcademyDetails();
 			});
 		},

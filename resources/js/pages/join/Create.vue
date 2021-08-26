@@ -484,9 +484,7 @@
 </template>
 <script>
 import axios from "axios";
-import CovidLandingPage from "../CovidLandingPage.vue";
 export default {
-	components: { CovidLandingPage },
 	watch: {
 		selectedAcademy() {
 			this.selectedAcademyDetails = this.academies.find(
@@ -510,9 +508,6 @@ export default {
 			this.leadershipScaleRange[1] = 43;
 			delete this.vacancyDetails.grade;
 			delete this.vacancyDetails.range;
-			delete this.vacancyDetails.rangeBottom;
-			delete this.vacancyDetails.rangeTop;
-			this.vacancyDetails.selectedSalaryPayScale_id = this.selectedSalary;
 			// Check Salary Pay Scale then set appropriate Pay Scale Range options
 			this.selectedSalary === 1 // NJC Pay Scale
 				? this.getPayScales()
@@ -531,7 +526,6 @@ export default {
 			this.selectedPayScaleDetails = this.payScales.find(
 				(a) => a.id === this.selectedPayScale
 			);
-			this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
 			if (this.selectedPayScaleDetails.grade) {
 				this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
 			}
@@ -542,8 +536,6 @@ export default {
 		leadershipScaleRange() {
 			this.vacancyDetails.range =
 				this.leadershipScaleRange[0] + "-" + this.leadershipScaleRange[1];
-			this.vacancyDetails.rangeBottom = this.leadershipScaleRange[0];
-			this.vacancyDetails.rangeTop = this.leadershipScaleRange[1];
 		},
 		selectedContractType() {
 			this.vacancyDetails.contractType = this.selectedContractType;
@@ -640,20 +632,34 @@ export default {
 			leadershipMaxPoint: 43,
 		};
 	},
-	created() {},
+	created() {
+		if (!this.$isHrUser() || !this.$isSiteAdmin()) {
+			console.log("Thou Shall Not Pass");
+			this.$router.push("/join");
+		}
+	},
 	mounted() {
+		this.loading = true;
 		this.scrollToTop();
-		this.getContent();
-		this.loading = false;
+		this.getContent().then(() => {
+			this.loading = false;
+		});
 	},
 	methods: {
 		scrollToTop() {
 			window.scrollTo(0, 0);
 		},
-		getContent() {
+		checkAccess() {
+			if (!this.$isHrUser() || !this.$isSiteAdmin()) {
+				console.log("Thou Shall Not Pass");
+				return "NOPE";
+			}
+			return "Yeahhh";
+		},
+		async getContent() {
 			this.loading = true;
 			this.scrollToTop();
-			axios.get("/get/createVacancy").then(({ data }) => {
+			await axios.get("/get/createVacancy").then(({ data }) => {
 				// console.log(data);
 				this.academies = data.academies;
 				this.salaryscales = data.salaryscales;

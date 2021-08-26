@@ -11,10 +11,11 @@
 						class="mt-6"
 						color="teal"
 						dark
+            data-aos="zoom-in-up" data-aos-duration="1200"
 						>Create Vacancy</v-btn
 					>
 				</div>
-				<div class="col-4" data-aos="zoom-out-left" data-aos-duration="1500">
+				<div class="col-4" data-aos="zoom-in-up" data-aos-duration="1500">
 					<div class="p-lg-5">
 						<img
 							class="img-fluid rounded-circle"

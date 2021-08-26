@@ -20,7 +20,7 @@
 						<v-col cols="12" md="6">
 							<v-card outlined>
 								<v-card-title class="p-1 orange darken-2"> </v-card-title>
-								<v-card-title>New Vacancy Details </v-card-title>
+								<v-card-title>Edit Vacancy Details </v-card-title>
 								<v-card-text>
 									<v-row>
 										<!-- POST TITLE -->
@@ -654,22 +654,24 @@ export default {
 		};
 	},
 	created() {
-		// this.loading = true;
-		// console.log('!hr' + !this.$isHrUser());
-		// console.log('hr' + this.$isHrUser());
-		// console.log('site' + this.$isSiteAdmin());
-		// console.log('!site' + !this.$isSiteAdmin());
-		// if (!this.$isHrUser()) {
-		// 	console.log("Thou Shall Not Pass");
-		// 	this.$router.push("/");
-		// }
+		this.loading = true;
+		if (!this.$isHrUser() || !this.$isSiteAdmin()) {
+			console.log("Thou Shall Not Pass");
+			this.$router.push("/join");
+		}
 	},
 	mounted() {
 		// this.getAcademyDetails();
 		this.scrollToTop();
-		this.getContent();
-		this.getVacancy();
-		this.getPayScales();
+		this.getContent().then(() => {
+			this.getVacancy().then(() => {
+				this.getPayScales().then(() => {
+					this.selectedPayScale = parseInt(
+						this.vacancy.details.selectedPayScale_id
+					);
+				});
+			});
+		});
 		this.loading = false;
 	},
 	methods: {
@@ -693,16 +695,18 @@ export default {
 			this.loading = true;
 			await axios.get("/get/vacancy/" + this.vacancy_id).then(({ data }) => {
 				this.vacancy = data;
-				this.vacancy.details = JSON.parse(data.details);
-				this.vacancyDetails = this.vacancy.details;
+				if (data.details) {
+					this.vacancy.details = JSON.parse(data.details);
+					this.vacancyDetails = this.vacancy.details;
+				}
 				this.vacancy.academy_id = parseInt(this.vacancy.academy_id);
 				this.getAcademyDetails(parseInt(data.academy_id));
 				this.selectedAcademy = parseInt(data.academy_id);
 				this.selectedSalary = parseInt(data.details.selectedSalaryPayScale_id);
 				this.getPayScales();
-				this.selectedPayScale = parseInt(
-					this.vacancy.details.selectedPayScale_id
-				);
+				// this.selectedPayScale = parseInt(
+				// 	this.vacancy.details.selectedPayScale_id
+				// );
 				this.contractStartDate = data.details.contractStartDate;
 				this.contractStartDateFormatted =
 					data.details.contractStartDateFormatted;
@@ -711,9 +715,9 @@ export default {
 				this.closingDate = data.closingDate;
 				this.closingDateFormatted = data.closingDateFormatted;
 				this.selectedContractType = data.details.contractType;
-				this.selectedPayScale = parseInt(
-					this.vacancy.details.selectedPayScale_id
-				);
+				// this.selectedPayScale = parseInt(
+				// 	this.vacancy.details.selectedPayScale_id
+				// );
 				// this.leadershipScaleRange = this.vacancy.details.sliderRange;
 			});
 		},
@@ -725,11 +729,13 @@ export default {
 				this.loading = false;
 			});
 		},
-		getPayScales() {
-			axios.get("/get/payScales/" + this.selectedSalary).then(({ data }) => {
-				// console.log(data);
-				this.payScales = data;
-			});
+		async getPayScales() {
+			await axios
+				.get("/get/payScales/" + this.selectedSalary)
+				.then(({ data }) => {
+					// console.log(data);
+					this.payScales = data;
+				});
 		},
 		saveVacancy() {
 			console.log(this.vacancy);

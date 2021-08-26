@@ -31,15 +31,11 @@ export default {
      */
     Vue.prototype.$isHrUser = function() {
       var res = false;
-      var check = -1;
       let arr = this.$store.getters.getRoles;
       if (arr) {
-        var check = Math.max(arr.indexOf("HR Lead"));
-        check + Math.max(arr.indexOf("HR Content Editor"));
-        check + Math.max(arr.indexOf("Site Admin"));
-      }
-      if (check >= 0) {
-        res = true;
+        if(arr.some(i => i.name.includes("HR Lead"))) {return true};
+        if(arr.some(i => i.name.includes("HR Content Editor"))) {return true};
+        if(arr.some(i => i.name.includes("Site Admin"))) {return true};
       }
       return res;
     };
