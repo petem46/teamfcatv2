@@ -640,17 +640,7 @@ export default {
 			leadershipMaxPoint: 43,
 		};
 	},
-	created() {
-		// this.loading = true;
-		// console.log('!hr' + !this.$isHrUser());
-		// console.log('hr' + this.$isHrUser());
-		// console.log('site' + this.$isSiteAdmin());
-		// console.log('!site' + !this.$isSiteAdmin());
-		// if (!this.$isHrUser()) {
-		// 	console.log("Thou Shall Not Pass");
-		// 	this.$router.push("/");
-		// }
-	},
+	created() {},
 	mounted() {
 		this.scrollToTop();
 		this.getContent();
