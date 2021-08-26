@@ -28954,69 +28954,65 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm.$isHrUser() || _vm.$isSiteAdmin()
-            ? _c(
-                "v-list-item",
-                {
-                  attrs: { link: "", to: "/join" },
-                  on: { click: _vm.navdrawerClick }
-                },
+          _c(
+            "v-list-item",
+            {
+              attrs: { link: "", to: "/join" },
+              on: { click: _vm.navdrawerClick }
+            },
+            [
+              _c(
+                "v-list-item-action",
                 [
-                  _c(
-                    "v-list-item-action",
-                    [
-                      _c("v-icon", { staticClass: "grey--icon grey--text" }, [
-                        _vm._v("mdi-account-multiple-plus-outline")
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-item-content",
-                    [
-                      _c("v-list-item-title", { staticClass: "grey--text" }, [
-                        _vm._v("Internal Vacancies")
-                      ])
-                    ],
-                    1
-                  )
+                  _c("v-icon", { staticClass: "grey--icon grey--text" }, [
+                    _vm._v("mdi-account-multiple-plus-outline")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item-content",
+                [
+                  _c("v-list-item-title", { staticClass: "grey--text" }, [
+                    _vm._v("Internal Vacancies")
+                  ])
                 ],
                 1
               )
-            : _vm._e(),
+            ],
+            1
+          ),
           _vm._v(" "),
-          _vm.$isHrUser() || _vm.$isSiteAdmin()
-            ? _c(
-                "v-list-item",
-                {
-                  attrs: { link: "", to: "/join/create" },
-                  on: { click: _vm.navdrawerClick }
-                },
+          _c(
+            "v-list-item",
+            {
+              attrs: { link: "", to: "/join/create" },
+              on: { click: _vm.navdrawerClick }
+            },
+            [
+              _c(
+                "v-list-item-action",
                 [
-                  _c(
-                    "v-list-item-action",
-                    [
-                      _c("v-icon", { staticClass: "grey--icon grey--text" }, [
-                        _vm._v("mdi-account-multiple-plus-outline")
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-item-content",
-                    [
-                      _c("v-list-item-title", { staticClass: "grey--text" }, [
-                        _vm._v("Create Join")
-                      ])
-                    ],
-                    1
-                  )
+                  _c("v-icon", { staticClass: "grey--icon grey--text" }, [
+                    _vm._v("mdi-account-multiple-plus-outline")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item-content",
+                [
+                  _c("v-list-item-title", { staticClass: "grey--text" }, [
+                    _vm._v("Create Join")
+                  ])
                 ],
                 1
               )
-            : _vm._e(),
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
             "v-list-item",
