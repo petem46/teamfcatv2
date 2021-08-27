@@ -14,7 +14,7 @@
 
 				<v-spacer></v-spacer>
 			</v-app-bar>
-			<v-form class="teal">
+			<v-form class="teal pb-15">
 				<v-container>
 					<v-row>
 						<v-col cols="12" md="6">

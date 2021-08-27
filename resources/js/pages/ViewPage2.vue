@@ -562,7 +562,8 @@ export default {
 			this.showFileManager = true;
 		},
 		onHideFileManager() {
-			this.showFileManager = false;
+			this.currentFolder = "uploads";
+      this.showFileManager = false;
 		},
 		getFolders() {
 			// if (this.currentFolderName.length > 1) {
