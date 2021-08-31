@@ -6,6 +6,7 @@ use App\Academy;
 use App\Vacancy;
 use App\SalaryPayScales;
 use App\PayScaleRanges;
+use App\Tlrs;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -17,7 +18,7 @@ class VacancyController extends Controller
 {
   public function index()
   {
-    return Vacancy::all()->map(function ($v) {
+    return Vacancy::whereDate('closingDate', '>=', date('Y-m-d'))->get()->map(function ($v) {
       return [
         'id' => $v->id,
         'academy_id' => $v->academy_id,
@@ -43,7 +44,7 @@ class VacancyController extends Controller
         ];
       }),
       'salaryscales' => SalaryPayScales::all(),
-
+      'tlrs' => Tlrs::getTLRs(),
     ];
     return $data;
   }
@@ -74,7 +75,8 @@ class VacancyController extends Controller
     return Vacancy::find($id);
   }
 
-  public function edit($id) {
+  public function edit($id)
+  {
     $vacancy = Vacancy::find($id);
     $data = [
       'vacancy' => $vacancy,

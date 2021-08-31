@@ -100,6 +100,26 @@
 												disabled
 											></v-text-field>
 										</v-col>
+										<!-- TLR TOGGLE BUTTONS PLACEHOLDER -->
+										<v-col cols="12" v-if="selectedSalary === 3">
+											<p>
+												<v-icon>fas fa-map-marker-alt fa-fw</v-icon>
+												<span class="v-label"> Select TLR </span>
+											</p>
+											<v-row>
+												<v-col>
+													<v-btn-toggle v-model="selectedTLR" color="teal">
+														<v-btn
+															v-for="tlr in tlrs"
+															:key="tlr.id"
+															outlined
+															:value="tlr.label"
+															>{{ tlr.label }}
+														</v-btn>
+													</v-btn-toggle>
+												</v-col>
+											</v-row>
+										</v-col>
 										<!-- UNQUALIFIFED TEACHER PAY SCALE PLACEHOLDER -->
 										<v-col cols="12" v-if="selectedSalary === 5">
 											<v-text-field
@@ -110,13 +130,39 @@
 											></v-text-field>
 										</v-col>
 										<!-- ENTER SALARY - FREE TEXT -->
-										<v-col cols="12" v-if="selectedSalary">
+										<v-col
+											cols="12"
+											v-if="selectedSalary && !vacancyDetails.tlrLabel"
+										>
 											<v-text-field
 												prepend-icon="fas fa-pound-sign fa-fw"
 												label="Salary"
 												v-model="vacancyDetails.salary"
 											></v-text-field>
 										</v-col>
+										<v-col
+											cols="8"
+											v-if="selectedSalary && vacancyDetails.tlrLabel"
+										>
+											<v-text-field
+												prepend-icon="fas fa-pound-sign fa-fw"
+												label="Salary"
+												v-model="vacancyDetails.salary"
+											></v-text-field>
+										</v-col>
+										<v-col
+											cols="4"
+											v-if="
+												vacancyDetails.tlrLabel && this.vacancyDetails.tlrAmount
+											"
+										>
+											<v-text-field
+												prepend-icon="fas fa-plus fa-fw"
+												label="TLR Amount"
+												v-model="tlrAmount"
+											></v-text-field>
+										</v-col>
+										<!-- CONTRACT TYPE -->
 										<v-col cols="12" class="py-2" v-if="selectedSalary">
 											<p>
 												<v-icon>fas fa-map-marker-alt fa-fw</v-icon>
@@ -402,9 +448,16 @@
 										</p>
 										<p v-if="this.vacancyDetails.range">
 											Range: {{ this.vacancyDetails.range }}
+											<span v-if="this.vacancyDetails.tlrLabel">
+												+ {{ this.vacancyDetails.tlrLabel }}</span
+											>
 										</p>
 										<p v-if="this.vacancyDetails.salary">
 											Salary: {{ this.vacancyDetails.salary }}
+											<span v-if="this.vacancyDetails.tlrAmount">
+												+ {{ this.vacancyDetails.tlrAmount }} TLR
+												allowance</span
+											>
 										</p>
 										<p v-if="this.vacancyDetails.contractType">
 											Contract: {{ this.vacancyDetails.contractType }}
@@ -505,7 +558,7 @@ export default {
 			this.selectedSalaryDetails = this.salaryscales.find(
 				(a) => a.id === this.selectedSalary
 			);
-			if (this.selectedSalaryDetails !== null) {
+			if (this.selectedSalaryDetails !== undefined) {
 				this.vacancyDetails.salarypayscale = this.selectedSalaryDetails.name;
 				this.payScales = [];
 				this.selectedPayScaleDetails = null;
@@ -537,7 +590,7 @@ export default {
 				(a) => a.id === this.selectedPayScale
 			);
 			if (this.selectedPayScaleDetails !== null) {
-				if (this.selectedPayScaleDetails !== "undefined") {
+				if (this.selectedPayScaleDetails !== undefined) {
 					this.vacancyDetails.selectedPayScale_id = this.selectedPayScale;
 					if (this.selectedPayScaleDetails.grade) {
 						this.vacancyDetails.grade = this.selectedPayScaleDetails.grade;
@@ -547,6 +600,27 @@ export default {
 					}
 				}
 			}
+		},
+		selectedTLR() {
+			// delete this.vacancyDetails.tlrLabel;
+			// delete this.vacancyDetails.tlrName;
+			// delete this.vacancyDetails.tlrAmount;
+			this.selectedTLRDetails = this.tlrs.find(
+				(a) => a.label === this.selectedTLR
+			);
+			if (this.selectedTLRDetails.label) {
+				this.vacancyDetails.tlrLabel = this.selectedTLRDetails.label;
+			}
+			if (this.selectedTLRDetails.name) {
+				this.vacancyDetails.tlrName = this.selectedTLRDetails.name;
+			}
+			if (this.selectedTLRDetails.amount) {
+				this.vacancyDetails.tlrAmount = this.selectedTLRDetails.amount;
+				this.tlrAmount = this.selectedTLRDetails.amount;
+			}
+		},
+		tlrAmount() {
+			this.vacancyDetails.tlrAmount = this.tlrAmount;
 		},
 		leadershipScaleRange() {
 			this.vacancyDetails.sliderRange =
@@ -632,6 +706,7 @@ export default {
 			academies: [],
 			salaryscales: [],
 			payScales: [],
+			tlrs: [],
 			vacancy: {},
 			vacancyDetails: {},
 			contracts: [
@@ -648,6 +723,9 @@ export default {
 			selectedSalaryDetails: null,
 			selectedPayScale: null,
 			selectedPayScaleDetails: null,
+			selectedTLR: null,
+			selectedTLRDetails: {},
+			tlrAmount: null,
 			leadershipScaleRange: [1, 43],
 			leadershipMinPoint: 1,
 			leadershipMaxPoint: 43,
@@ -688,6 +766,7 @@ export default {
 				// console.log(data);
 				this.academies = data.academies;
 				this.salaryscales = data.salaryscales;
+				this.tlrs = data.tlrs;
 				// this.loading = false;
 			});
 		},
@@ -703,6 +782,7 @@ export default {
 				this.getAcademyDetails(parseInt(data.academy_id));
 				this.selectedAcademy = parseInt(data.academy_id);
 				this.selectedSalary = parseInt(data.details.selectedSalaryPayScale_id);
+				this.selectedTLR = data.details.tlrLabel;
 				this.getPayScales();
 				// this.selectedPayScale = parseInt(
 				// 	this.vacancy.details.selectedPayScale_id

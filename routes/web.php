@@ -27,7 +27,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/get/createVacancy', 'VacancyController@create')->name('join.create');
-  Route::get('/get/payScales/{id}', 'VacancyController@getPayScaleRanges')->name('join.create');
+  Route::get('/get/payScales/{id}', 'VacancyController@getPayScaleRanges')->name('join.create.get.payscalerange');
+  Route::get('/get/tlrs', 'VacancyController@getTLRs')->name('join.create.get.tlrs');
   Route::post('/post/saveVacancy', 'VacancyController@save')->name('join.save');
   Route::put('/put/updateVacancy/{id}', 'VacancyController@updateVacancy')->name('join.update');
 

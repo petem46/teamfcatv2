@@ -196,9 +196,21 @@
 								<span class="font-weight-bold">Range:</span>
 								{{ this.vacancy.details.range }}
 							</v-col>
+							<v-col
+								cols="12"
+								md="6"
+								lg="4"
+								v-if="this.vacancy.details.tlrLabel"
+							>
+								<span class="font-weight-bold">TLR:</span>
+								{{ this.vacancy.details.tlrLabel }}
+							</v-col>
 							<v-col cols="12" md="6" lg="4" v-if="this.vacancy.details.salary">
 								<span class="font-weight-bold">Salary:</span>
 								{{ this.vacancy.details.salary }}
+								<span v-if="vacancy.details.tlrAmount">
+									+ {{ vacancy.details.tlrAmount }} TLR allowance</span
+								>
 							</v-col>
 							<v-col
 								cols="12"

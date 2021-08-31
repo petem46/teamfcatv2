@@ -11,7 +11,8 @@
 						class="mt-6"
 						color="teal"
 						dark
-            data-aos="zoom-in-up" data-aos-duration="1200"
+						data-aos="zoom-in-up"
+						data-aos-duration="1200"
 						>Create Vacancy</v-btn
 					>
 				</div>
@@ -106,12 +107,18 @@
 												>
 												{{ item.details.salarypayscale }}
 												{{ item.details.grade }} {{ item.details.range }}
+												<span v-if="item.details.tlrLabel">
+													+ {{ item.details.tlrLabel }}</span
+												>
 											</v-col>
 											<v-col cols="12" md="6">
 												<v-icon class="mr-2 grey--text lighten-2"
 													>fas fa-pound-sign fa-fw</v-icon
 												>
 												{{ item.details.salary }}
+												<span v-if="item.details.tlrAmount">
+													+ {{ item.details.tlrAmount }}</span
+												>
 											</v-col>
 											<v-col cols="12" md="6">
 												<v-icon class="mr-2 grey--text lighten-2"
@@ -124,7 +131,9 @@
 								</v-row>
 								<v-divider></v-divider>
 								<v-card-actions>
-									<v-btn color="teal" link :to="'/join/' + item.id" outlined>More Details</v-btn>
+									<v-btn color="teal" link :to="'/join/' + item.id" outlined
+										>More Details</v-btn
+									>
 								</v-card-actions>
 							</v-card>
 						</v-col>
