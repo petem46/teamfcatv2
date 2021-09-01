@@ -9,6 +9,7 @@
 
 /public/hot
 /public/storage
+/public/video/fluid.mp4
 
 /storage/*.key
 /vendor

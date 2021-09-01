@@ -1,5 +1,5 @@
 <template>
-  		<section class="grey lighten-2">
+  		<section class="grey lighten-2 text--grey">
 			<v-container>
 				<v-row class="align-items-center">
 					<v-col cols="12" class="display-3 text-center">OUR CORE VALUES</v-col>

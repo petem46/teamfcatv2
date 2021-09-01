@@ -2,22 +2,33 @@
 	<div>
 		<home-header></home-header>
 		<core-carousel></core-carousel>
-		<section class="mt-md-n15x christmas-bg-1">
-			<v-container class="mt-md-n15x">
+		<section class="mt-md-n15x">
+			<video-background
+				src="/videos/fluid.mp4"
+				style="min-height: 640px; max-height: 640px; height: 100vh"
+			>
+			</video-background>
+			<v-container class="mt-md-n15x nerd">
 				<v-row class="d-flex align-self-stretch" height="100px">
 					<v-col cols="12" md="6" lg="4">
 						<a @click="gotoPage(seanslatestletter.link)">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card>
-									<v-system-bar dark height="8" color="teal darken-2"></v-system-bar>
+									<v-system-bar
+										dark
+										height="8"
+										color="teal darken-2"
+									></v-system-bar>
 									<v-sheet color="grey lighten-2">
 										<v-img src="/images/seans-letter-image.jpg" height="200">
 											<v-expand-transition>
 												<div
 													v-if="hover"
 													class="d-flex transition-fast-in-fast-out teal darken-2 v-card--reveal display-1 white--text"
-													style="height: 100%;"
-												>READ LETTER</div>
+													style="height: 100%"
+												>
+													READ LETTER
+												</div>
 											</v-expand-transition>
 										</v-img>
 									</v-sheet>
@@ -25,11 +36,18 @@
 									<v-list>
 										<v-list-item>
 											<v-list-item-avatar>
-												<v-img src="/images/headshots/sean.jpg" position="top center"></v-img>
+												<v-img
+													src="/images/headshots/sean.jpg"
+													position="top center"
+												></v-img>
 											</v-list-item-avatar>
 											<v-list-item-content>
-												<v-list-item-title class="h5">Sean's Letter</v-list-item-title>
-												<v-list-item-subtitle v-text="seanslatestletter.subtitle"></v-list-item-subtitle>
+												<v-list-item-title class="h5"
+													>Sean's Letter</v-list-item-title
+												>
+												<v-list-item-subtitle
+													v-text="seanslatestletter.subtitle"
+												></v-list-item-subtitle>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
@@ -41,16 +59,22 @@
 						<a @click="gotoPage('/covid')">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
-									<v-system-bar dark height="8" color="blue lighten-2"></v-system-bar>
+									<v-system-bar
+										dark
+										height="8"
+										color="blue lighten-2"
+									></v-system-bar>
 									<v-sheet color="grey lighten-2">
 										<v-img src="/images/covid-update-image.jpg" height="200">
 											<v-expand-transition>
 												<div
 													v-if="hover"
 													class="d-flex transition-fast-in-fast-out blue darken-2 v-card--reveal display-1 white--text"
-													style="height: 100%;"
+													style="height: 100%"
 												>
-													<v-btn outlined x-large class="display-1" dark>COVID UPDATES</v-btn>
+													<v-btn outlined x-large class="display-1" dark
+														>COVID UPDATES</v-btn
+													>
 												</div>
 											</v-expand-transition>
 										</v-img>
@@ -59,11 +83,18 @@
 									<v-list>
 										<v-list-item>
 											<v-list-item-avatar>
-												<v-img src="/images/headshots/jane.jpg" position="top center"></v-img>
+												<v-img
+													src="/images/headshots/jane.jpg"
+													position="top center"
+												></v-img>
 											</v-list-item-avatar>
 											<v-list-item-content>
-												<v-list-item-title class="h5">COVID-19</v-list-item-title>
-												<v-list-item-subtitle>Important links &amp; updates</v-list-item-subtitle>
+												<v-list-item-title class="h5"
+													>COVID-19</v-list-item-title
+												>
+												<v-list-item-subtitle
+													>Important links &amp; updates</v-list-item-subtitle
+												>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
@@ -72,7 +103,10 @@
 						</a>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<a @click="gotoPage('/p2/hr/fcatstaffsurvey2021')"  class="text-decoration-none">
+						<a
+							@click="gotoPage('/p2/hr/fcatstaffsurvey2021')"
+							class="text-decoration-none"
+						>
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="teal"></v-system-bar>
@@ -82,8 +116,10 @@
 												<div
 													v-if="hover"
 													class="d-flex transition-fast-in-fast-out teal darken-2 v-card--reveal display-1 white--text"
-													style="height: 100%;"
-												>COMING SOON<br>TEAM FCAT<br>STAFF SURVEY<br>2021</div>
+													style="height: 100%"
+												>
+													COMING SOON<br />TEAM FCAT<br />STAFF SURVEY<br />2021
+												</div>
 											</v-expand-transition>
 										</v-img>
 									</v-sheet>
@@ -94,8 +130,12 @@
 												<v-icon dark>fas fa-question fa-fw</v-icon>
 											</v-list-item-avatar>
 											<v-list-item-content>
-												<v-list-item-title class="h5">STAFF SURVEY</v-list-item-title>
-												<v-list-item-subtitle>Team FCAT Staff Survey 2021</v-list-item-subtitle>
+												<v-list-item-title class="h5"
+													>STAFF SURVEY</v-list-item-title
+												>
+												<v-list-item-subtitle
+													>Team FCAT Staff Survey 2021</v-list-item-subtitle
+												>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
@@ -104,7 +144,11 @@
 						</a>
 					</v-col>
 					<v-col cols="12" md="6" lg="4" class="d-none">
-						<a href="https://www.mentalhealth.org.uk/campaigns/mental-health-awareness-week" target="_blank" class="text-decoration-none">
+						<a
+							href="https://www.mentalhealth.org.uk/campaigns/mental-health-awareness-week"
+							target="_blank"
+							class="text-decoration-none"
+						>
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="green"></v-system-bar>
@@ -114,8 +158,10 @@
 												<div
 													v-if="hover"
 													class="d-flex transition-fast-in-fast-out green darken-2 v-card--reveal display-1 white--text"
-													style="height: 100%;"
-												>MENTAL HEALTH<br>AWARENESS<br>WEEK 2021</div>
+													style="height: 100%"
+												>
+													MENTAL HEALTH<br />AWARENESS<br />WEEK 2021
+												</div>
 											</v-expand-transition>
 										</v-img>
 									</v-sheet>
@@ -126,8 +172,13 @@
 												<v-icon dark>fas fa-spa fa-fw</v-icon>
 											</v-list-item-avatar>
 											<v-list-item-content>
-												<v-list-item-title class="h5">MENTAL HEALTH AWARENESS</v-list-item-title>
-												<v-list-item-subtitle>Mental Health Awareness Week 2021</v-list-item-subtitle>
+												<v-list-item-title class="h5"
+													>MENTAL HEALTH AWARENESS</v-list-item-title
+												>
+												<v-list-item-subtitle
+													>Mental Health Awareness Week
+													2021</v-list-item-subtitle
+												>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
@@ -141,13 +192,18 @@
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="red"></v-system-bar>
 									<v-sheet color="red lighten-2">
-										<v-img src="/images/1_FINAL_JPG_FCAT_Work_-_Wellbeing_Charter.jpg" height="200">
+										<v-img
+											src="/images/1_FINAL_JPG_FCAT_Work_-_Wellbeing_Charter.jpg"
+											height="200"
+										>
 											<v-expand-transition>
 												<div
 													v-if="hover"
 													class="d-flex transition-fast-in-fast-out red darken-2 v-card--reveal display-1 white--text"
-													style="height: 100%;"
-												>WORK &amp; WELLBEING</div>
+													style="height: 100%"
+												>
+													WORK &amp; WELLBEING
+												</div>
 											</v-expand-transition>
 										</v-img>
 									</v-sheet>
@@ -158,8 +214,13 @@
 												<v-icon dark>fa-heartbeat fa-fw</v-icon>
 											</v-list-item-avatar>
 											<v-list-item-content>
-												<v-list-item-title class="h5">Work &amp; Wellbeing Charter</v-list-item-title>
-												<v-list-item-subtitle>Free &amp; confidential employee wellbeing support</v-list-item-subtitle>
+												<v-list-item-title class="h5"
+													>Work &amp; Wellbeing Charter</v-list-item-title
+												>
+												<v-list-item-subtitle
+													>Free &amp; confidential employee wellbeing
+													support</v-list-item-subtitle
+												>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
@@ -168,7 +229,11 @@
 						</a>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<a href="https://cpd.teamfcat.co.uk" target="_blank" class="text-decoration-none">
+						<a
+							href="https://cpd.teamfcat.co.uk"
+							target="_blank"
+							class="text-decoration-none"
+						>
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="blue"></v-system-bar>
@@ -178,8 +243,10 @@
 												<div
 													v-if="hover"
 													class="d-flex transition-fast-in-fast-out blue darken-2 v-card--reveal display-1 white--text"
-													style="height: 100%;"
-												>CPD PORTAL</div>
+													style="height: 100%"
+												>
+													CPD PORTAL
+												</div>
 											</v-expand-transition>
 										</v-img>
 									</v-sheet>
@@ -190,8 +257,12 @@
 												<v-icon dark>fa-user-graduate fa-fw</v-icon>
 											</v-list-item-avatar>
 											<v-list-item-content>
-												<v-list-item-title class="h5">FCAT CPD Portal</v-list-item-title>
-												<v-list-item-subtitle>Search large selection of CPD</v-list-item-subtitle>
+												<v-list-item-title class="h5"
+													>FCAT CPD Portal</v-list-item-title
+												>
+												<v-list-item-subtitle
+													>Search large selection of CPD</v-list-item-subtitle
+												>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
@@ -203,15 +274,21 @@
 						<a href="#" class="text-decoration-none">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
-									<v-system-bar dark height="8" color="blue darken-4"></v-system-bar>
+									<v-system-bar
+										dark
+										height="8"
+										color="blue darken-4"
+									></v-system-bar>
 									<v-sheet color="blue">
 										<v-img src="/images/slt-updates-tile.jpg" height="200">
 											<v-expand-transition>
 												<div
 													v-if="hover"
 													class="d-flex transition-fast-in-fast-out blue v-card--reveal display-1 white--text"
-													style="height: 100%;"
-												>SLT UPDATES</div>
+													style="height: 100%"
+												>
+													SLT UPDATES
+												</div>
 											</v-expand-transition>
 										</v-img>
 									</v-sheet>
@@ -222,8 +299,13 @@
 												<v-icon dark>fas fa-bullhorn fa-fw</v-icon>
 											</v-list-item-avatar>
 											<v-list-item-content>
-												<v-list-item-title class="h5">SLT Weekly Updates</v-list-item-title>
-												<v-list-item-subtitle>Information &amp; updates from FCAT SLT</v-list-item-subtitle>
+												<v-list-item-title class="h5"
+													>SLT Weekly Updates</v-list-item-title
+												>
+												<v-list-item-subtitle
+													>Information &amp; updates from FCAT
+													SLT</v-list-item-subtitle
+												>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
@@ -232,7 +314,11 @@
 						</a>
 					</v-col>
 					<v-col cols="12" md="6" lg="4">
-						<a href="https://forms.gle/ySav4sUtmV1Yx3Qc6" target="_blank" class="text-decoration-none">
+						<a
+							href="https://forms.gle/ySav4sUtmV1Yx3Qc6"
+							target="_blank"
+							class="text-decoration-none"
+						>
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
 									<v-system-bar dark height="8" color="amber"></v-system-bar>
@@ -242,8 +328,10 @@
 												<div
 													v-if="hover"
 													class="d-flex transition-fast-in-fast-out amber darken-2 v-card--reveal display-1 white--text"
-													style="height: 100%;"
-												>OPEN FORM</div>
+													style="height: 100%"
+												>
+													OPEN FORM
+												</div>
 											</v-expand-transition>
 										</v-img>
 									</v-sheet>
@@ -254,8 +342,13 @@
 												<v-icon dark>far fa-lightbulb fa-fw</v-icon>
 											</v-list-item-avatar>
 											<v-list-item-content>
-												<v-list-item-title class="h5">Suggestions & Feedback</v-list-item-title>
-												<v-list-item-subtitle>Share thoughts &amp; ideas for this site</v-list-item-subtitle>
+												<v-list-item-title class="h5"
+													>Suggestions & Feedback</v-list-item-title
+												>
+												<v-list-item-subtitle
+													>Share thoughts &amp; ideas for this
+													site</v-list-item-subtitle
+												>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
@@ -267,15 +360,21 @@
 						<a href="#" class="text-decoration-none">
 							<v-hover v-slot="{ hover }" close-delay="200">
 								<v-card class="align-self-stretch">
-									<v-system-bar dark height="8" color="deep-purple lighten-2"></v-system-bar>
+									<v-system-bar
+										dark
+										height="8"
+										color="deep-purple lighten-2"
+									></v-system-bar>
 									<v-sheet color="deep-purple lighten-4">
 										<v-img src="/images/undraw_Faq_re_31cw.png" height="200">
 											<v-expand-transition>
 												<div
 													v-if="hover"
 													class="d-flex transition-fast-in-fast-out deep-purple darken-2 v-card--reveal display-1 white--text"
-													style="height: 100%;"
-												>FAQs</div>
+													style="height: 100%"
+												>
+													FAQs
+												</div>
 											</v-expand-transition>
 										</v-img>
 									</v-sheet>
@@ -286,8 +385,13 @@
 												<v-icon dark>far fa-question-circle fa-fw</v-icon>
 											</v-list-item-avatar>
 											<v-list-item-content>
-												<v-list-item-title class="h5">STAFF FAQs</v-list-item-title>
-												<v-list-item-subtitle>Asnswers to Frequently Asked Questions</v-list-item-subtitle>
+												<v-list-item-title class="h5"
+													>STAFF FAQs</v-list-item-title
+												>
+												<v-list-item-subtitle
+													>Asnswers to Frequently Asked
+													Questions</v-list-item-subtitle
+												>
 											</v-list-item-content>
 										</v-list-item>
 									</v-list>
@@ -311,21 +415,21 @@ export default {
 		return {
 			loading: true,
 			index: 0,
-      latest: [],
-      seanslatestletter: {
-        title: "",
-        subtitle: "",
-        slug: "",
-        link: ""
-      },
+			latest: [],
+			seanslatestletter: {
+				title: "",
+				subtitle: "",
+				slug: "",
+				link: "",
+			},
 			snackbar: {
 				color: "",
 				mode: "",
 				show: false,
 				text: "",
 				timeout: 2000,
-				y: "top"
-			}
+				y: "top",
+			},
 		};
 	},
 	mounted() {
@@ -355,8 +459,8 @@ export default {
 		},
 		gotoPage(slug) {
 			this.$router.push(slug);
-		}
-	}
+		},
+	},
 };
 </script>
 
@@ -454,14 +558,14 @@ export default {
 	opacity: 0;
 }
 section {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	background: linear-gradient(90deg, #fafafa, #bebebe, #ebebeb);
-	background-size: 600% 600%;
+	// padding-top: 1rem;
+	// padding-bottom: 1rem;
+	background: linear-gradient(90deg, #000000, #272727, #000000);
+	// background-size: 600% 600%;
 
-	-webkit-animation: AnimationName 15s ease infinite;
-	-moz-animation: AnimationName 15s ease infinite;
-	animation: AnimationName 15s ease infinite;
+	// -webkit-animation: AnimationName 15s ease infinite;
+	// -moz-animation: AnimationName 15s ease infinite;
+	// animation: AnimationName 15s ease infinite;
 }
 
 @-webkit-keyframes AnimationName {
@@ -534,5 +638,8 @@ section {
 	-webkit-animation: none;
 	-moz-animation: none;
 	animation: none;
+}
+.nerd {
+	margin-top: -640px;
 }
 </style>
