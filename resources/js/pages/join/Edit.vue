@@ -78,7 +78,7 @@
 										>
 											<v-range-slider
 												prepend-icon="fas fa-sliders-h fa-fw"
-												v-model="leadershipScaleRange"
+												v-model="scaleRange"
 												:max="leadershipMaxPoint"
 												:min="leadershipMinPoint"
 												hide-details
@@ -358,6 +358,24 @@
 										</v-col>
 										<!-- ABOUT THE ROLE TEXT AREA END -->
 									</v-row>
+									<v-switch
+										:prepend-icon="liveIcon"
+										v-model="vacancyDetails.isLive"
+										color="success"
+									>
+										<template v-slot:label>
+											<span v-if="vacancyDetails.isLive" class="success--text"
+												>Vacancy will be listed on the Internal Vacanies
+												list</span
+											>
+											<span
+												v-if="!vacancyDetails.isLive"
+												class="red--text text--darken-3"
+												>Vacancy will not be listed on the Internal Vacanies
+												list</span
+											>
+										</template>
+									</v-switch>
 									<v-divider></v-divider>
 									<v-card-actions>
 										<v-btn @click="goBack()" text tile color="warning"
@@ -371,7 +389,13 @@
 								</v-card-text>
 							</v-card>
 						</v-col>
-						<!-- ADVERT MOCK UP PLACEHOLDER -->
+						<!--
+              -
+              -
+              ADVERT MOCK UP PLACEHOLDER
+              -
+              -
+              -->
 						<v-col cols="12" md="6">
 							<v-card
 								elevation="2"
@@ -563,19 +587,24 @@ export default {
 				this.payScales = [];
 				this.selectedPayScaleDetails = null;
 				this.selectedPayScale = null;
-				this.leadershipScaleRange[0] = 1;
-				this.leadershipScaleRange[1] = 43;
+				if (
+					(this.selectedSalary === 2 && this.vacancyDetails.sliderRange) ||
+					(this.selectedSalary === 1 && this.vacancyDetails.sliderRange)
+				) {
+					this.scaleRange = this.vacancyDetails.sliderRange;
+				} else {
+					this.scaleRange[0] = 1;
+					this.scaleRange[1] = 43;
+				}
 				delete this.vacancyDetails.grade;
 				delete this.vacancyDetails.range;
-				delete this.vacancyDetails.rangeBottom;
-				delete this.vacancyDetails.rangeTop;
 				this.vacancyDetails.selectedSalaryPayScale_id = this.selectedSalary;
 				// Check Salary Pay Scale then set appropriate Pay Scale Range options
 				this.selectedSalary === 1 // NJC Pay Scale
 					? this.getPayScales()
 					: this.selectedSalary === 2 // Leadership Pay Scale
 					? (this.vacancyDetails.range =
-							this.leadershipScaleRange[0] + "-" + this.leadershipScaleRange[1])
+							this.scaleRange[0] + "-" + this.scaleRange[1])
 					: this.selectedSalary === 3 // Teacher Main Pay Scale
 					? (this.vacancyDetails.range = "M1-M6")
 					: this.selectedSalary === 4 // Upper Pay Scale
@@ -608,13 +637,9 @@ export default {
 			this.selectedTLRDetails = this.tlrs.find(
 				(a) => a.label === this.selectedTLR
 			);
-			if (this.selectedTLRDetails.label) {
+			if (this.selectedTLRDetails !== undefined) {
 				this.vacancyDetails.tlrLabel = this.selectedTLRDetails.label;
-			}
-			if (this.selectedTLRDetails.name) {
 				this.vacancyDetails.tlrName = this.selectedTLRDetails.name;
-			}
-			if (this.selectedTLRDetails.amount) {
 				this.vacancyDetails.tlrAmount = this.selectedTLRDetails.amount;
 				this.tlrAmount = this.selectedTLRDetails.amount;
 			}
@@ -622,15 +647,11 @@ export default {
 		tlrAmount() {
 			this.vacancyDetails.tlrAmount = this.tlrAmount;
 		},
-		leadershipScaleRange() {
-			this.vacancyDetails.sliderRange =
-				"[" +
-				this.leadershipScaleRange[0] +
-				"," +
-				this.leadershipScaleRange[1] +
-				"]";
-			this.vacancyDetails.range =
-				this.leadershipScaleRange[0] + "-" + this.leadershipScaleRange[1];
+		scaleRange() {
+			this.vacancyDetails.sliderRange = [];
+			this.vacancyDetails.sliderRange[0] = this.scaleRange[0];
+			this.vacancyDetails.sliderRange[1] = this.scaleRange[1];
+			this.vacancyDetails.range = this.scaleRange[0] + "-" + this.scaleRange[1];
 		},
 		selectedContractType() {
 			this.vacancyDetails.contractType = this.selectedContractType;
@@ -726,7 +747,7 @@ export default {
 			selectedTLR: null,
 			selectedTLRDetails: {},
 			tlrAmount: null,
-			leadershipScaleRange: [1, 43],
+			scaleRange: [1, 43],
 			leadershipMinPoint: 1,
 			leadershipMaxPoint: 43,
 		};
@@ -798,7 +819,9 @@ export default {
 				// this.selectedPayScale = parseInt(
 				// 	this.vacancy.details.selectedPayScale_id
 				// );
-				// this.leadershipScaleRange = this.vacancy.details.sliderRange;
+				if (this.vacancy.details.sliderRange) {
+					this.scaleRange = this.vacancy.details.sliderRange;
+				}
 			});
 		},
 		async getAcademyDetails($id) {
@@ -839,6 +862,13 @@ export default {
 
 			const [month, day, year] = date.split("/");
 			return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+		},
+	},
+	computed: {
+		liveIcon() {
+			return this.vacancyDetails.isLive
+				? "far fa-thumbs-up fa-fw"
+				: "far fa-eye-slash fa-fw";
 		},
 	},
 };
