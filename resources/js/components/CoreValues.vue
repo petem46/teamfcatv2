@@ -4,7 +4,7 @@
 				<v-row class="align-items-center">
 					<v-col cols="12" class="display-3 text-center">OUR CORE VALUES</v-col>
 					<v-col cols="12" md="6">
-						<div class="text-center">
+						<div class="text-center text--grey">
 							<v-img height="400" contain src="/images/teamfcat-hexagon.png"></v-img>
 						</div>
 					</v-col>

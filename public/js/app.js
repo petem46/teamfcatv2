@@ -22410,7 +22410,7 @@ var render = function() {
               _c("v-col", { attrs: { cols: "12", md: "6" } }, [
                 _c(
                   "div",
-                  { staticClass: "text-center" },
+                  { staticClass: "text-center text--grey" },
                   [
                     _c("v-img", {
                       attrs: {
