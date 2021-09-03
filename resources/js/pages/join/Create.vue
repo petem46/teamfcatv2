@@ -223,6 +223,7 @@
 													prepend-icon="fas fa-calendar-week fa-fw"
 													label="Contract Weeks"
 													v-model="vacancyDetails.contractWeeks"
+                          @blur="this.loading = false"
 												></v-text-field>
 											</v-col>
 										</v-row>

@@ -193,7 +193,10 @@
 														<v-btn
 															outlined
 															value="Term Time Only"
-															@click="!vacancyDetails.contractTermTimeOnly; vacancyDetails.contractWeeks = null"
+															@click="
+																!vacancyDetails.contractTermTimeOnly;
+																vacancyDetails.contractWeeks = null;
+															"
 															>Term Time</v-btn
 														>
 													</v-btn-toggle>
@@ -223,6 +226,7 @@
 													prepend-icon="fas fa-calendar-week fa-fw"
 													label="Contract Weeks"
 													v-model="vacancyDetails.contractWeeks"
+													@blur="this.loading = false"
 												></v-text-field>
 											</v-col>
 										</v-row>
