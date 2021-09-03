@@ -150,14 +150,19 @@
 												v-model="vacancyDetails.salary"
 											></v-text-field>
 										</v-col>
-										<v-col cols="4" v-if="vacancyDetails.tlrLabel && this.vacancyDetails.tlrAmount">
+										<v-col
+											cols="4"
+											v-if="
+												vacancyDetails.tlrLabel && this.vacancyDetails.tlrAmount
+											"
+										>
 											<v-text-field
 												prepend-icon="fas fa-plus fa-fw"
 												label="TLR Amount"
 												v-model="tlrAmount"
 											></v-text-field>
 										</v-col>
-                    <!-- CONTRACT TYPE -->
+										<!-- CONTRACT TYPE -->
 										<v-col cols="12" class="py-2" v-if="selectedSalary">
 											<p>
 												<v-icon>fas fa-map-marker-alt fa-fw</v-icon>
@@ -353,6 +358,24 @@
 										</v-col>
 										<!-- ABOUT THE ROLE TEXT AREA END -->
 									</v-row>
+									<v-switch
+										:prepend-icon="liveIcon"
+										v-model="vacancyDetails.isLive"
+										color="success"
+									>
+										<template v-slot:label>
+											<span v-if="vacancyDetails.isLive" class="success--text"
+												>Vacancy will be listed on the Internal Vacanies
+												list</span
+											>
+											<span
+												v-if="!vacancyDetails.isLive"
+												class="red--text text--darken-3"
+												>Vacancy will not be listed on the Internal Vacanies
+												list</span
+											>
+										</template>
+									</v-switch>
 									<v-divider></v-divider>
 									<v-card-actions>
 										<v-btn text tile color="warning">CANCEL</v-btn>
@@ -603,12 +626,12 @@ export default {
 			}
 			if (this.selectedTLRDetails.amount) {
 				this.vacancyDetails.tlrAmount = this.selectedTLRDetails.amount;
-        this.tlrAmount = this.selectedTLRDetails.amount;
+				this.tlrAmount = this.selectedTLRDetails.amount;
 			}
 		},
-    tlrAmount() {
-      this.vacancyDetails.tlrAmount = this.tlrAmount;
-    },
+		tlrAmount() {
+			this.vacancyDetails.tlrAmount = this.tlrAmount;
+		},
 		leadershipScaleRange() {
 			this.vacancyDetails.range =
 				this.leadershipScaleRange[0] + "-" + this.leadershipScaleRange[1];
@@ -706,7 +729,7 @@ export default {
 			selectedPayScaleDetails: {},
 			selectedTLR: null,
 			selectedTLRDetails: {},
-      tlrAmount: null,
+			tlrAmount: null,
 			leadershipScaleRange: [1, 43],
 			leadershipMinPoint: 1,
 			leadershipMaxPoint: 43,
