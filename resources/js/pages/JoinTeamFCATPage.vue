@@ -13,34 +13,24 @@
 				<v-toolbar-title>Join TeamFCAT</v-toolbar-title>
 
 				<v-spacer></v-spacer>
-				<a href="#support">
-					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp"
-						>Link</v-btn
-					>
-				</a>
-				<a href="#safeguarding">
-					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp"
-						>Link</v-btn
-					>
-				</a>
-				<a href="#google">
-					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp"
-						>Link</v-btn
-					>
-				</a>
-				<a href="#microsoft">
-					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp"
-						>Link</v-btn
-					>
-				</a>
 				<a href="#internalvacancies">
 					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp"
 						>Internal Vacancies</v-btn
 					>
 				</a>
-				<a href="#research">
+				<a href="#section1">
 					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp"
-						>Link</v-btn
+						>Section One</v-btn
+					>
+				</a>
+				<a href="#section2">
+					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp"
+						>Section Two</v-btn
+					>
+				</a>
+				<a href="#section3">
+					<v-btn text class="mr-2" v-if="this.$vuetify.breakpoint.mdAndUp"
+						>Section Three</v-btn
 					>
 				</a>
 			</v-app-bar>

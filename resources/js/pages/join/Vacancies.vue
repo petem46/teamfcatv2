@@ -17,7 +17,7 @@
 					>
 				</div>
 				<div class="col-4" data-aos="zoom-in-up" data-aos-duration="1500">
-					<div class="p-lg-5">
+					<div class="p-lg-3">
 						<img
 							class="img-fluid rounded-circle"
 							src="/images/internal-vacancies.jpg"
@@ -27,7 +27,6 @@
 				</div>
 			</div>
 		</div>
-
 		<v-container fluid v-if="!loading">
 			<v-data-iterator
 				:items="vacancies"

@@ -3,6 +3,7 @@
 		<video-background
 			src="/videos/hr.mp4"
 			style="max-height: 600px; height: 100vh"
+      class="elevation-10"
 		>
 			<v-container class="py-lg-10">
 				<v-col cols="12" class="join-card elevation-10 p-5 rounded-xl">
