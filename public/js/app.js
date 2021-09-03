@@ -10654,6 +10654,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   watch: {
@@ -40132,7 +40133,7 @@ var render = function() {
                                                                     _vm._s(
                                                                       tlr.label
                                                                     ) +
-                                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
                                                                   )
                                                                 ]
                                                               )
@@ -40650,7 +40651,7 @@ var render = function() {
                                                           ],
                                                           null,
                                                           false,
-                                                          3491036669
+                                                          2673414525
                                                         ),
                                                         model: {
                                                           value:
@@ -40778,7 +40779,7 @@ var render = function() {
                                                           ],
                                                           null,
                                                           false,
-                                                          2641277477
+                                                          2584478469
                                                         ),
                                                         model: {
                                                           value:
@@ -40980,67 +40981,69 @@ var render = function() {
                                       1
                                     ),
                                     _vm._v(" "),
-                                    _c("v-switch", {
-                                      attrs: {
-                                        "prepend-icon": _vm.liveIcon,
-                                        color: "success"
-                                      },
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "label",
-                                            fn: function() {
-                                              return [
-                                                _vm.vacancyDetails.isLive
-                                                  ? _c(
-                                                      "span",
-                                                      {
-                                                        staticClass:
-                                                          "success--text"
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "Vacancy will be listed on the Internal Vacanies\n\t\t\t\t\t\t\t\t\t\t\tlist"
+                                    _vm.vacancyDetails.aboutTheRole
+                                      ? _c("v-switch", {
+                                          attrs: {
+                                            "prepend-icon": _vm.liveIcon,
+                                            color: "success"
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "label",
+                                                fn: function() {
+                                                  return [
+                                                    _vm.vacancyDetails.isLive
+                                                      ? _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "success--text"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "Vacancy will be listed on the Internal Vacanies\n\t\t\t\t\t\t\t\t\t\t\t\tlist"
+                                                            )
+                                                          ]
                                                         )
-                                                      ]
-                                                    )
-                                                  : _vm._e(),
-                                                _vm._v(" "),
-                                                !_vm.vacancyDetails.isLive
-                                                  ? _c(
-                                                      "span",
-                                                      {
-                                                        staticClass:
-                                                          "red--text text--darken-3"
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "Vacancy will not be listed on the Internal Vacanies\n\t\t\t\t\t\t\t\t\t\t\tlist"
+                                                      : _vm._e(),
+                                                    _vm._v(" "),
+                                                    !_vm.vacancyDetails.isLive
+                                                      ? _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "red--text text--darken-3"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "Vacancy will not be listed on the Internal Vacanies\n\t\t\t\t\t\t\t\t\t\t\t\tlist"
+                                                            )
+                                                          ]
                                                         )
-                                                      ]
-                                                    )
-                                                  : _vm._e()
-                                              ]
+                                                      : _vm._e()
+                                                  ]
+                                                },
+                                                proxy: true
+                                              }
+                                            ],
+                                            null,
+                                            false,
+                                            1227169707
+                                          ),
+                                          model: {
+                                            value: _vm.vacancyDetails.isLive,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.vacancyDetails,
+                                                "isLive",
+                                                $$v
+                                              )
                                             },
-                                            proxy: true
+                                            expression: "vacancyDetails.isLive"
                                           }
-                                        ],
-                                        null,
-                                        false,
-                                        1431233387
-                                      ),
-                                      model: {
-                                        value: _vm.vacancyDetails.isLive,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.vacancyDetails,
-                                            "isLive",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "vacancyDetails.isLive"
-                                      }
-                                    }),
+                                        })
+                                      : _vm._e(),
                                     _vm._v(" "),
                                     _c("v-divider"),
                                     _vm._v(" "),
@@ -41151,12 +41154,12 @@ var render = function() {
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n\t\t\t\t\t\t\t\t\t\t" +
+                                                      "\n\t\t\t\t\t\t\t\t\t\t\t" +
                                                         _vm._s(
                                                           this.vacancyDetails
                                                             .postTitle
                                                         ) +
-                                                        "\n\t\t\t\t\t\t\t\t\t"
+                                                        "\n\t\t\t\t\t\t\t\t\t\t"
                                                     )
                                                   ]
                                                 )
@@ -41213,12 +41216,12 @@ var render = function() {
                                           this.vacancyDetails.salarypayscale
                                             ? _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tScale: " +
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tScale: " +
                                                     _vm._s(
                                                       this.vacancyDetails
                                                         .salarypayscale
                                                     ) +
-                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                    "\n\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ])
                                             : _vm._e(),
@@ -41226,11 +41229,11 @@ var render = function() {
                                           this.vacancyDetails.grade
                                             ? _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tGrade: " +
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tGrade: " +
                                                     _vm._s(
                                                       this.vacancyDetails.grade
                                                     ) +
-                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                    "\n\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ])
                                             : _vm._e(),
@@ -41238,16 +41241,16 @@ var render = function() {
                                           this.vacancyDetails.range
                                             ? _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tRange: " +
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tRange: " +
                                                     _vm._s(
                                                       this.vacancyDetails.range
                                                     ) +
-                                                    "\n\t\t\t\t\t\t\t\t\t\t"
+                                                    "\n\t\t\t\t\t\t\t\t\t\t\t"
                                                 ),
                                                 this.vacancyDetails.tlrLabel
                                                   ? _c("span", [
                                                       _vm._v(
-                                                        "\n\t\t\t\t\t\t\t\t\t\t\t+ " +
+                                                        "\n\t\t\t\t\t\t\t\t\t\t\t\t+ " +
                                                           _vm._s(
                                                             this.vacancyDetails
                                                               .tlrLabel
@@ -41261,21 +41264,21 @@ var render = function() {
                                           this.vacancyDetails.salary
                                             ? _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tSalary: " +
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tSalary: " +
                                                     _vm._s(
                                                       this.vacancyDetails.salary
                                                     ) +
-                                                    "\n\t\t\t\t\t\t\t\t\t\t"
+                                                    "\n\t\t\t\t\t\t\t\t\t\t\t"
                                                 ),
                                                 this.vacancyDetails.tlrAmount
                                                   ? _c("span", [
                                                       _vm._v(
-                                                        "\n\t\t\t\t\t\t\t\t\t\t\t+ " +
+                                                        "\n\t\t\t\t\t\t\t\t\t\t\t\t+ " +
                                                           _vm._s(
                                                             this.vacancyDetails
                                                               .tlrAmount
                                                           ) +
-                                                          " TLR\n\t\t\t\t\t\t\t\t\t\t\tallowance"
+                                                          " TLR\n\t\t\t\t\t\t\t\t\t\t\t\tallowance"
                                                       )
                                                     ])
                                                   : _vm._e()
@@ -41285,22 +41288,22 @@ var render = function() {
                                           this.vacancyDetails.contractType
                                             ? _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tContract: " +
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tContract: " +
                                                     _vm._s(
                                                       this.vacancyDetails
                                                         .contractType
                                                     ) +
-                                                    "\n\t\t\t\t\t\t\t\t\t\t" +
+                                                    "\n\t\t\t\t\t\t\t\t\t\t\t" +
                                                     _vm._s(
                                                       this.vacancyDetails
                                                         .contractTime
                                                     ) +
-                                                    "\n\t\t\t\t\t\t\t\t\t\t" +
+                                                    "\n\t\t\t\t\t\t\t\t\t\t\t" +
                                                     _vm._s(
                                                       this.vacancyDetails
                                                         .contractTermTimeOnly
                                                     ) +
-                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                    "\n\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ])
                                             : _vm._e(),
@@ -41308,12 +41311,12 @@ var render = function() {
                                           this.vacancyDetails.contractHours
                                             ? _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tHours:\n\t\t\t\t\t\t\t\t\t\t" +
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tHours:\n\t\t\t\t\t\t\t\t\t\t\t" +
                                                     _vm._s(
                                                       this.vacancyDetails
                                                         .contractHours
                                                     ) +
-                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                    "\n\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ])
                                             : _vm._e(),
@@ -41321,12 +41324,12 @@ var render = function() {
                                           this.vacancyDetails.contractWeeks
                                             ? _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tWeeks:\n\t\t\t\t\t\t\t\t\t\t" +
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tWeeks:\n\t\t\t\t\t\t\t\t\t\t\t" +
                                                     _vm._s(
                                                       this.vacancyDetails
                                                         .contractWeeks
                                                     ) +
-                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                    "\n\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ])
                                             : _vm._e(),
@@ -41335,12 +41338,12 @@ var render = function() {
                                             .contractEndDateFormatted
                                             ? _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tFixed End Date:\n\t\t\t\t\t\t\t\t\t\t" +
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tFixed End Date:\n\t\t\t\t\t\t\t\t\t\t\t" +
                                                     _vm._s(
                                                       this.vacancyDetails
                                                         .contractEndDateFormatted
                                                     ) +
-                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                    "\n\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ])
                                             : _vm._e(),
@@ -41349,12 +41352,12 @@ var render = function() {
                                             .contractStartDateFormatted
                                             ? _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tStart Date:\n\t\t\t\t\t\t\t\t\t\t" +
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tStart Date:\n\t\t\t\t\t\t\t\t\t\t\t" +
                                                     _vm._s(
                                                       this.vacancyDetails
                                                         .contractStartDateFormatted
                                                     ) +
-                                                    "\n\t\t\t\t\t\t\t\t\t"
+                                                    "\n\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ])
                                             : _vm._e()
@@ -41372,12 +41375,12 @@ var render = function() {
                                                 { staticClass: "text-h4" },
                                                 [
                                                   _vm._v(
-                                                    "\n\t\t\t\t\t\t\t\t\t\tAbout " +
+                                                    "\n\t\t\t\t\t\t\t\t\t\t\tAbout " +
                                                       _vm._s(
                                                         this.vacancyDetails
                                                           .location
                                                       ) +
-                                                      "\n\t\t\t\t\t\t\t\t\t"
+                                                      "\n\t\t\t\t\t\t\t\t\t\t"
                                                   )
                                                 ]
                                               ),
@@ -41390,13 +41393,13 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n\t\t\t\t\t\t\t\t\t\t" +
+                                                    "\n\t\t\t\t\t\t\t\t\t\t\t" +
                                                       _vm._s(
                                                         _vm
                                                           .selectedAcademyDetails
                                                           .about
                                                       ) +
-                                                      "\n\t\t\t\t\t\t\t\t\t"
+                                                      "\n\t\t\t\t\t\t\t\t\t\t"
                                                   )
                                                 ]
                                               )
@@ -41423,12 +41426,12 @@ var render = function() {
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n\t\t\t\t\t\t\t\t\t\t" +
+                                                      "\n\t\t\t\t\t\t\t\t\t\t\t" +
                                                         _vm._s(
                                                           this.vacancyDetails
                                                             .aboutTheRole
                                                         ) +
-                                                        "\n\t\t\t\t\t\t\t\t\t"
+                                                        "\n\t\t\t\t\t\t\t\t\t\t"
                                                     )
                                                   ]
                                                 )
@@ -41449,19 +41452,19 @@ var render = function() {
                                               _vm._v(" "),
                                               _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tLorem ipsum dolor sit amet consectetur adipisicing elit.\n\t\t\t\t\t\t\t\t\t\tDolor, commodi. Asperiores possimus explicabo voluptate.\n\t\t\t\t\t\t\t\t\t\tDolore quam, ab voluptatum deserunt similique in culpa\n\t\t\t\t\t\t\t\t\t\tesse vero laboriosam numquam aliquid suscipit optio aut\n\t\t\t\t\t\t\t\t\t\tsequi corporis veniam, consectetur deleniti sapiente ipsam\n\t\t\t\t\t\t\t\t\t\tvoluptatibus nobis necessitatibus officia? Repudiandae\n\t\t\t\t\t\t\t\t\t\tnatus dolor vero molestias possimus, officiis voluptas\n\t\t\t\t\t\t\t\t\t\texcepturi fuga suscipit, repellendus quibusdam porro,\n\t\t\t\t\t\t\t\t\t\tvoluptatem reprehenderit soluta tempore enim quia?\n\t\t\t\t\t\t\t\t\t"
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tLorem ipsum dolor sit amet consectetur adipisicing elit.\n\t\t\t\t\t\t\t\t\t\t\tDolor, commodi. Asperiores possimus explicabo voluptate.\n\t\t\t\t\t\t\t\t\t\t\tDolore quam, ab voluptatum deserunt similique in culpa\n\t\t\t\t\t\t\t\t\t\t\tesse vero laboriosam numquam aliquid suscipit optio aut\n\t\t\t\t\t\t\t\t\t\t\tsequi corporis veniam, consectetur deleniti sapiente ipsam\n\t\t\t\t\t\t\t\t\t\t\tvoluptatibus nobis necessitatibus officia? Repudiandae\n\t\t\t\t\t\t\t\t\t\t\tnatus dolor vero molestias possimus, officiis voluptas\n\t\t\t\t\t\t\t\t\t\t\texcepturi fuga suscipit, repellendus quibusdam porro,\n\t\t\t\t\t\t\t\t\t\t\tvoluptatem reprehenderit soluta tempore enim quia?\n\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ]),
                                               _vm._v(" "),
                                               _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tMaiores, harum. Aliquam, totam laborum nesciunt,\n\t\t\t\t\t\t\t\t\t\tperspiciatis tempora necessitatibus porro, commodi ipsa\n\t\t\t\t\t\t\t\t\t\tquidem quam quas quisquam laboriosam ea nihil. Deserunt\n\t\t\t\t\t\t\t\t\t\tsequi nihil aliquid nobis optio asperiores!\n\t\t\t\t\t\t\t\t\t"
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tMaiores, harum. Aliquam, totam laborum nesciunt,\n\t\t\t\t\t\t\t\t\t\t\tperspiciatis tempora necessitatibus porro, commodi ipsa\n\t\t\t\t\t\t\t\t\t\t\tquidem quam quas quisquam laboriosam ea nihil. Deserunt\n\t\t\t\t\t\t\t\t\t\t\tsequi nihil aliquid nobis optio asperiores!\n\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ]),
                                               _vm._v(" "),
                                               _c("p", [
                                                 _vm._v(
-                                                  "\n\t\t\t\t\t\t\t\t\t\tTotam reprehenderit veritatis accusantium. Consequuntur,\n\t\t\t\t\t\t\t\t\t\terror dignissimos perferendis modi architecto ipsam\n\t\t\t\t\t\t\t\t\t\tdoloribus eius.\n\t\t\t\t\t\t\t\t\t"
+                                                  "\n\t\t\t\t\t\t\t\t\t\t\tTotam reprehenderit veritatis accusantium. Consequuntur,\n\t\t\t\t\t\t\t\t\t\t\terror dignissimos perferendis modi architecto ipsam\n\t\t\t\t\t\t\t\t\t\t\tdoloribus eius.\n\t\t\t\t\t\t\t\t\t\t"
                                                 )
                                               ])
                                             ])

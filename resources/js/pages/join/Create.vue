@@ -359,6 +359,7 @@
 										<!-- ABOUT THE ROLE TEXT AREA END -->
 									</v-row>
 									<v-switch
+                  v-if="vacancyDetails.aboutTheRole"
 										:prepend-icon="liveIcon"
 										v-model="vacancyDetails.isLive"
 										color="success"
