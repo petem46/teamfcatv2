@@ -713,10 +713,10 @@ export default {
 		};
 	},
 	created() {
-		if (!this.$isHrUser() || !this.$isSiteAdmin()) {
-			console.log("Thou Shall Not Pass");
-			this.$router.push("/join");
-		}
+		// if (!this.$isHrUser() || !this.$isSiteAdmin()) {
+		// 	console.log("Thou Shall Not Pass");
+		// 	this.$router.push("/join");
+		// }
 	},
 	mounted() {
 		this.loading = true;
