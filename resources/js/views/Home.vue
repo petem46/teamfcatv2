@@ -4,7 +4,7 @@
 		<core-carousel></core-carousel>
 		<section class="mt-md-n15x">
 			<video-background
-				src="/videos/fluid.mp4"
+				src="/videos/tealnetwork.mp4"
 				style="min-height: 640px; max-height: 640px; height: 100vh"
 			>
 			</video-background>

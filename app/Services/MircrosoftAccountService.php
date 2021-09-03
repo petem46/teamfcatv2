@@ -68,14 +68,13 @@ class MicrosoftAccountService
           'avatar' => 'avatar',
           'school' => User::getGoogleSchool($providerUser->getEmail()),
           'password' => md5(rand(1, 10000)),
-          'usergroup_id' => '5',
-          'role_id' => '3',
           'last_login_at' => Carbon::now()->toDateTimeString(),
           'token' => $providerUser->token,
           'refreshToken' => $providerUser->refreshToken,
           'expiresIn' => $providerUser->expiresIn,
           // 'last_login_ip' => $request->getClientIp()
         ]);
+        $user->role()->attach(2);
       }
       $account->user()->associate($user);
       $account->save();
