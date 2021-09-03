@@ -40462,6 +40462,7 @@ var render = function() {
                                                                     !_vm
                                                                       .vacancyDetails
                                                                       .contractTermTimeOnly
+                                                                    _vm.vacancyDetails.contractWeeks = null
                                                                   }
                                                                 }
                                                               },
@@ -42160,6 +42161,7 @@ var render = function() {
                                                                     !_vm
                                                                       .vacancyDetails
                                                                       .contractTermTimeOnly
+                                                                    _vm.vacancyDetails.contractWeeks = null
                                                                   }
                                                                 }
                                                               },

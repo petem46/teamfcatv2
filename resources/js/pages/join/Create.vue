@@ -193,7 +193,7 @@
 														<v-btn
 															outlined
 															value="Term Time Only"
-															@click="!vacancyDetails.contractTermTimeOnly"
+															@click="!vacancyDetails.contractTermTimeOnly; vacancyDetails.contractWeeks = null"
 															>Term Time</v-btn
 														>
 													</v-btn-toggle>
