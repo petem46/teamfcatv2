@@ -1,22 +1,24 @@
 <template>
-	<section id="internalvacancies" class="grey lighten-2 vh-rtl-100">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-8" data-aos="zoom-out-left" data-aos-duration="1500">
-					<div class="p-lg-1">
-						<h1 class="text-lg-h1 text-md-h2">Internal Vacancies</h1>
-					</div>
-					<v-btn
-						to="/join/create"
-						class="mt-6"
-						color="teal"
-						dark
-						data-aos="zoom-in-up"
-						data-aos-duration="1200"
+	<section id="internalvacancies" class="grey lighten-2">
+		<video-background
+			src="/videos/hr.mp4"
+			style="max-height: 300px; height: 100vh"
+			class="elevation-10"
+		>
+		</video-background>
+		<v-container class="mt-md-n15x nerd">
+			<div class="align-items-center">
+				<v-card
+					class="p-3 top-border--teal"
+					style="background-color: rgba(255, 255, 255, 0.7)"
+				>
+					<h1 class="text-lg-h2 text-md-h3">Team FCAT Internal Vacancies</h1>
+					<v-btn to="/join/create" class="mt-6" color="teal" dark
 						>Create Vacancy</v-btn
 					>
-				</div>
-				<div class="col-4" data-aos="zoom-in-up" data-aos-duration="1500">
+				</v-card>
+			</div>
+			<!-- <div class="col-4">
 					<div class="p-lg-3">
 						<img
 							class="img-fluid rounded-circle"
@@ -24,9 +26,8 @@
 							alt
 						/>
 					</div>
-				</div>
-			</div>
-		</div>
+				</div> -->
+		</v-container>
 		<v-container fluid v-if="!loading">
 			<v-data-iterator
 				:items="vacancies"
@@ -40,14 +41,9 @@
 				</template>
 
 				<template v-slot:default="props">
-					<v-row>
+					<v-row class="pb-15">
 						<v-col v-for="item in props.items" :key="item.id" cols="12">
-							<v-card
-								class="pa-5"
-								:class="item.details.topBorder"
-								data-aos="zoom-in-left"
-								data-aos-duration="2500"
-							>
+							<v-card class="pa-5" :class="item.details.topBorder">
 								<v-row>
 									<v-col
 										cols="12"
@@ -136,16 +132,16 @@
 								</v-card-actions>
 							</v-card>
 						</v-col>
+						<v-col cols="12">
+							<p>
+								These internal vacancies are only open to application to staff
+								employed by FCAT, colleagues seconded to work in FCAT from
+								another organisation or supply staff with 12+ weeks service with
+								FCAT who are covered by the Agency Worker Regulations (2010).
+							</p>
+						</v-col>
 					</v-row>
 				</template>
-
-				<!-- <template v-slot:footer>
-					<v-toolbar class="mt-2 d-none" color="indigo" dark flat>
-						<v-toolbar-title class="subheading">
-							This is a footer
-						</v-toolbar-title>
-					</v-toolbar>
-				</template> -->
 			</v-data-iterator>
 		</v-container>
 	</section>
@@ -182,3 +178,8 @@ export default {
 	},
 };
 </script>
+<style lang="scss" scoped>
+.nerd {
+	margin-top: -150px;
+}
+</style>

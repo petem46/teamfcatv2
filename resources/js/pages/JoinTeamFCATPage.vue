@@ -4,7 +4,7 @@
 			<v-progress-circular indeterminate teal></v-progress-circular>
 		</div>
 		<div v-if="!loading">
-			<v-app-bar
+			<!-- <v-app-bar
 				absolute
 				elevate-on-scroll
 				color="grey lighten-3"
@@ -33,15 +33,15 @@
 						>Section Three</v-btn
 					>
 				</a>
-			</v-app-bar>
+			</v-app-bar> -->
 
-			<Banner />
+			<!-- <Banner /> -->
 			<Vacancies />
-			<SectionOne />
+			<!-- <SectionOne />
 			<SectionTwo />
 			<SectionThree />
 			<SectionFour />
-			<SectionFive />
+			<SectionFive /> -->
 		</div>
 	</div>
 </template>

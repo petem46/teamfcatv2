@@ -192,9 +192,9 @@
 													>
 														<v-btn
 															outlined
-															value="Term Time Only"
+															value="Week Worked"
 															@click="!vacancyDetails.contractTermTimeOnly"
-															>Term Time</v-btn
+															>Contract+</v-btn
 														>
 													</v-btn-toggle>
 												</v-col>
@@ -219,11 +219,15 @@
 												md="6"
 												v-if="vacancyDetails.contractTermTimeOnly"
 											>
-												<v-text-field
+												<v-select
 													prepend-icon="fas fa-calendar-week fa-fw"
-													label="Contract Weeks"
+													:items="contractWeeks"
+													item-text="weeks"
+													item-value="weeks"
 													v-model="vacancyDetails.contractWeeks"
-												></v-text-field>
+													label="Contracted Weeks Worked"
+													required
+												></v-select>
 											</v-col>
 										</v-row>
 										<v-row>
@@ -359,7 +363,7 @@
 										<!-- ABOUT THE ROLE TEXT AREA END -->
 									</v-row>
 									<v-switch
-                  v-if="vacancyDetails.aboutTheRole"
+										v-if="vacancyDetails.aboutTheRole"
 										:prepend-icon="liveIcon"
 										v-model="vacancyDetails.isLive"
 										color="success"
@@ -720,6 +724,35 @@ export default {
 				},
 				{
 					type: "Fixed Term",
+				},
+			],
+			contractWeeks: [
+				{
+					weeks: "Term Time + 1 day",
+				},
+				{
+					weeks: "Term Time + 2 days",
+				},
+				{
+					weeks: "Term Time + 3 days",
+				},
+				{
+					weeks: "Term Time + 4 days",
+				},
+				{
+					weeks: "Term Time + 5 days",
+				},
+				{
+					weeks: "Term Time + 10 days",
+				},
+				{
+					weeks: "Term Time + 15 days",
+				},
+				{
+					weeks: "Term Time + 20 days",
+				},
+				{
+					weeks: "Term Time + 25 days",
 				},
 			],
 			selectedAcademy: null,
