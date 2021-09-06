@@ -192,9 +192,9 @@
 													>
 														<v-btn
 															outlined
-															value="Term Time Only"
+															value="Week Worked"
 															@click="!vacancyDetails.contractTermTimeOnly"
-															>Term Time</v-btn
+															>Contract+</v-btn
 														>
 													</v-btn-toggle>
 												</v-col>

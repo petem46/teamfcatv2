@@ -42170,7 +42170,7 @@ var render = function() {
                                                                 attrs: {
                                                                   outlined: "",
                                                                   value:
-                                                                    "Term Time Only"
+                                                                    "Week Worked"
                                                                 },
                                                                 on: {
                                                                   click: function(
@@ -42184,7 +42184,7 @@ var render = function() {
                                                               },
                                                               [
                                                                 _vm._v(
-                                                                  "Term Time"
+                                                                  "Contract+"
                                                                 )
                                                               ]
                                                             )
