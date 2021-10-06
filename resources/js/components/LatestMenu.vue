@@ -52,7 +52,7 @@
 							</v-list-item>
 							<v-list-item @click class="py-2">
 								<v-list-item-title>
-									<v-icon class="mr-2">fa-hammer fa-fw</v-icon>ICT
+									<v-icon class="mr-2">fa-hammer fa-fw</v-icon>IT
 									<p class="overline grey--text mt-2">some subtext for menu item</p>
 								</v-list-item-title>
 							</v-list-item>

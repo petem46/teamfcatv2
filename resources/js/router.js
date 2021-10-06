@@ -15,7 +15,7 @@ import JoinTeamFCATPage from "./pages/JoinTeamFCATPage";
 import CreateVacancyPage from "./pages/join/Create";
 import ShowVacancyPage from "./pages/join/Show";
 import EditVacancyPage from "./pages/join/Edit";
-import ICTLandingPage from "./pages/ICTLandingPage";
+import ITTLandingPage from "./pages/ITLandingPage";
 import HealthandSafetyLandingPage from "./pages/HealthandSafetyLandingPage";
 import DataProtectionLandingPage from "./pages/DataProtectionLandingPage";
 import MediaPRLandingPage from "./pages/MediaPRLandingPage";
@@ -158,13 +158,13 @@ export default new Router({
       }
     },
     {
-      path: "/ict",
-      name: "ict",
-      component: ICTLandingPage,
+      path: "/it",
+      name: "it",
+      component: ITLandingPage,
       props: true,
       meta: {
         auth: true,
-        title: "ICT Landing Page"
+        title: "IT Landing Page"
       }
     },
     {

@@ -206,9 +206,9 @@ export default {
 				{
 					icon: "mdi-hammer-screwdriver",
 					iconClass: "teal--text text--lighten-2",
-					title: "ICT Services",
+					title: "IT Services",
 					subtitle: "Help and support",
-					link: "/ict",
+					link: "/it",
 				},
 				{
 					icon: "mdi-bullhorn",
