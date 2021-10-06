@@ -15,7 +15,7 @@ import JoinTeamFCATPage from "./pages/JoinTeamFCATPage";
 import CreateVacancyPage from "./pages/join/Create";
 import ShowVacancyPage from "./pages/join/Show";
 import EditVacancyPage from "./pages/join/Edit";
-import ITTLandingPage from "./pages/ITLandingPage";
+import ITLandingPage from "./pages/ITLandingPage";
 import HealthandSafetyLandingPage from "./pages/HealthandSafetyLandingPage";
 import DataProtectionLandingPage from "./pages/DataProtectionLandingPage";
 import MediaPRLandingPage from "./pages/MediaPRLandingPage";
