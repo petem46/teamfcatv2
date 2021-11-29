@@ -116,6 +116,7 @@
 															:value="tlr.label"
 															>{{ tlr.label }}
 														</v-btn>
+														<v-btn outlined value="SEN">SEN </v-btn>
 													</v-btn-toggle>
 												</v-col>
 											</v-row>
@@ -150,12 +151,7 @@
 												v-model="vacancyDetails.salary"
 											></v-text-field>
 										</v-col>
-										<v-col
-											cols="4"
-											v-if="
-												vacancyDetails.tlrLabel && this.vacancyDetails.tlrAmount
-											"
-										>
+										<v-col cols="4" v-if="vacancyDetails.tlrLabel">
 											<v-text-field
 												prepend-icon="fas fa-plus fa-fw"
 												label="TLR Amount"
@@ -187,13 +183,13 @@
 														<v-btn outlined value="Part Time">Part Time</v-btn>
 													</v-btn-toggle>
 													<v-btn-toggle
-														v-model="vacancyDetails.contractTermTimeOnly"
+														v-model="selectedTermTimeOnly"
 														color="teal"
 													>
 														<v-btn
 															outlined
-															value="Week Worked"
-															@click="!vacancyDetails.contractTermTimeOnly"
+															value="Contract+"
+															@click="!selectedTermTimeOnly"
 															>Contract+</v-btn
 														>
 													</v-btn-toggle>
@@ -482,15 +478,15 @@
 										</p>
 										<p v-if="this.vacancyDetails.salary">
 											Salary: {{ this.vacancyDetails.salary }}
-											<span v-if="this.vacancyDetails.tlrAmount">
-												+ {{ this.vacancyDetails.tlrAmount }} TLR
-												allowance</span
+											<span v-if="this.vacancyDetails.tlrLabel">
+												+ {{ this.vacancyDetails.tlrAmount }}
+												{{ this.vacancyDetails.tlrLabel }} allowance</span
 											>
 										</p>
 										<p v-if="this.vacancyDetails.contractType">
 											Contract: {{ this.vacancyDetails.contractType }}
 											{{ this.vacancyDetails.contractTime }}
-											{{ this.vacancyDetails.contractTermTimeOnly }}
+											{{ this.vacancyDetails.contractWeeks }}
 										</p>
 										<p v-if="this.vacancyDetails.contractHours">
 											Hours:
@@ -635,9 +631,10 @@ export default {
 			}
 		},
 		selectedTLR() {
-			// delete this.vacancyDetails.tlrLabel;
-			// delete this.vacancyDetails.tlrName;
-			// delete this.vacancyDetails.tlrAmount;
+			delete this.vacancyDetails.tlrLabel;
+			delete this.vacancyDetails.tlrName;
+			delete this.vacancyDetails.tlrAmount;
+			delete this.tlrAmount;
 			this.selectedTLRDetails = this.tlrs.find(
 				(a) => a.label === this.selectedTLR
 			);
@@ -646,6 +643,12 @@ export default {
 				this.vacancyDetails.tlrName = this.selectedTLRDetails.name;
 				this.vacancyDetails.tlrAmount = this.selectedTLRDetails.amount;
 				this.tlrAmount = this.selectedTLRDetails.amount;
+			}
+			if (this.selectedTLR === "SEN") {
+				this.vacancyDetails.tlrLabel = "SEN";
+				this.vacancyDetails.tlrName = "SEN";
+				this.vacancyDetails.tlrAmount = "150000";
+				this.tlrAmount = this.vacancyDetails.tlrAmount;
 			}
 		},
 		tlrAmount() {
@@ -664,6 +667,15 @@ export default {
 				this.contractEndDateFormatted = null;
 				delete this.vacancyDetails.contractEndDate;
 				delete this.vacancyDetails.contractEndDateFormatted;
+			}
+		},
+		selectedTermTimeOnly() {
+			if (this.selectedTermTimeOnly) {
+				this.vacancyDetails.contractTermTimeOnly = this.selectedTermTimeOnly;
+			}
+			if (!this.selectedTermTimeOnly) {
+				delete this.vacancyDetails.contractTermTimeOnly;
+				delete this.vacancyDetails.contractWeeks;
 			}
 		},
 		contractEndDate(val) {
@@ -777,6 +789,7 @@ export default {
 			selectedSalaryDetails: null,
 			selectedPayScale: null,
 			selectedPayScaleDetails: null,
+			selectedTermTimeOnly: null,
 			selectedTLR: null,
 			selectedTLRDetails: {},
 			tlrAmount: null,
@@ -797,6 +810,7 @@ export default {
 		this.scrollToTop();
 		this.getContent().then(() => {
 			this.getVacancy().then(() => {
+				this.selectedTermTimeOnly = this.vacancyDetails.contractTermTimeOnly;
 				this.getPayScales().then(() => {
 					this.selectedPayScale = parseInt(
 						this.vacancy.details.selectedPayScale_id

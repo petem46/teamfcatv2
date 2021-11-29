@@ -18,7 +18,34 @@ class VacancyController extends Controller
 {
   public function index()
   {
-    return Vacancy::whereDate('closingDate', '>=', date('Y-m-d'))->get()->map(function ($v) {
+    return Vacancy::whereDate('closingDate', '>=', date('Y-m-d'))->where('isLive', 'true')->get()->map(function ($v) {
+      return [
+        'id' => $v->id,
+        'academy_id' => $v->academy_id,
+        'details' => json_decode($v->details),
+        'closingDate' => $v->closingDate,
+        'closingDateFormatted' => $v->closingDateFormatted,
+      ];
+    });
+  }
+
+  public function getDrafts()
+  {
+    // return Vacancy::whereDate('closingDate', '>=', date('Y-m-d'))->get()->map(function ($v) {
+    return Vacancy::where('isLive', 'false')->get()->map(function ($v) {
+      return [
+        'id' => $v->id,
+        'academy_id' => $v->academy_id,
+        'details' => json_decode($v->details),
+        'closingDate' => $v->closingDate,
+        'closingDateFormatted' => $v->closingDateFormatted,
+      ];
+    });
+  }
+
+  public function getExpired()
+  {
+    return Vacancy::whereDate('closingDate', '<=', date('Y-m-d'))->where('isLive', 'true')->get()->map(function ($v) {
       return [
         'id' => $v->id,
         'academy_id' => $v->academy_id,
@@ -57,6 +84,7 @@ class VacancyController extends Controller
         'closingDate' => $request->get('closingDate'),
         'closingDateFormatted' => $request->get('closingDateFormatted'),
         'details' => $request->get('details'),
+        'isLive' => $request->get('isLive'),
       ]);
       // return redirect('/join')->with('success', 'New Vacancy Created');
       return response('New Vacancy Created', Response::HTTP_OK);
@@ -96,6 +124,7 @@ class VacancyController extends Controller
         $v->closingDate = $request->get('closingDate');
         $v->closingDateFormatted = $request->get('closingDateFormatted');
         $v->details = $request->get('details');
+        $v->isLive = $request->get('isLive');
         $v->touch();
         $v->save();
       }

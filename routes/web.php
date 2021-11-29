@@ -19,6 +19,8 @@ Route::get('/callback', 'SocialAuthMSGraphController@callback');
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/get/vacancy/{id}', 'VacancyController@show')->name('join.show');
 Route::get('/get/allInternalVacancies', 'VacancyController@index')->name('join');
+Route::get('/get/draftInternalVacancies', 'VacancyController@getDrafts')->name('join.drafts');
+Route::get('/get/expiredInternalVacancies', 'VacancyController@getExpired')->name('join.expired');
 
 Route::get('get/academy/{id}', 'AcademyController@getAcademybyId')->name('academy.get');
 

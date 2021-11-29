@@ -116,6 +116,7 @@
 															:value="tlr.label"
 															>{{ tlr.label }}
 														</v-btn>
+														<v-btn outlined value="SEN">SEN </v-btn>
 													</v-btn-toggle>
 												</v-col>
 											</v-row>
@@ -150,12 +151,7 @@
 												v-model="vacancyDetails.salary"
 											></v-text-field>
 										</v-col>
-										<v-col
-											cols="4"
-											v-if="
-												vacancyDetails.tlrLabel && this.vacancyDetails.tlrAmount
-											"
-										>
+										<v-col cols="4" v-if="vacancyDetails.tlrLabel">
 											<v-text-field
 												prepend-icon="fas fa-plus fa-fw"
 												label="TLR Amount"
@@ -187,13 +183,14 @@
 														<v-btn outlined value="Part Time">Part Time</v-btn>
 													</v-btn-toggle>
 													<v-btn-toggle
-														v-model="vacancyDetails.contractTermTimeOnly"
+														v-model="selectedTermTimeOnly"
 														color="teal"
 													>
 														<v-btn
 															outlined
-															value="Week Worked"
-															@click="!vacancyDetails.contractTermTimeOnly"
+															value="Contract+"
+															@click="!selectedTermTimeOnly"
+															@change="checkTermTimeOnly()"
 															>Contract+</v-btn
 														>
 													</v-btn-toggle>
@@ -365,16 +362,16 @@
 									<v-switch
 										v-if="vacancyDetails.aboutTheRole"
 										:prepend-icon="liveIcon"
-										v-model="vacancyDetails.isLive"
+										v-model="isLiveSwitch"
 										color="success"
 									>
 										<template v-slot:label>
-											<span v-if="vacancyDetails.isLive" class="success--text"
+											<span v-if="isLiveSwitch" class="success--text"
 												>Vacancy will be listed on the Internal Vacanies
 												list</span
 											>
 											<span
-												v-if="!vacancyDetails.isLive"
+												v-if="!isLiveSwitch"
 												class="red--text text--darken-3"
 												>Vacancy will not be listed on the Internal Vacanies
 												list</span
@@ -475,15 +472,15 @@
 										</p>
 										<p v-if="this.vacancyDetails.salary">
 											Salary: {{ this.vacancyDetails.salary }}
-											<span v-if="this.vacancyDetails.tlrAmount">
-												+ {{ this.vacancyDetails.tlrAmount }} TLR
-												allowance</span
+											<span v-if="this.vacancyDetails.tlrLabel">
+												+ {{ this.vacancyDetails.tlrAmount }}
+												{{ this.vacancyDetails.tlrLabel }} allowance</span
 											>
 										</p>
 										<p v-if="this.vacancyDetails.contractType">
 											Contract: {{ this.vacancyDetails.contractType }}
 											{{ this.vacancyDetails.contractTime }}
-											{{ this.vacancyDetails.contractTermTimeOnly }}
+											{{ this.vacancyDetails.contractWeeks }}
 										</p>
 										<p v-if="this.vacancyDetails.contractHours">
 											Hours:
@@ -571,6 +568,8 @@ export default {
 			this.vacancy.academy_id = this.selectedAcademyDetails.id;
 			this.vacancyDetails.location = this.selectedAcademyDetails.name;
 			this.vacancyDetails.name = this.selectedAcademyDetails.name;
+      this.vacancy.isLive = false;
+      this.vacancyDetails.isLive = false;
 		},
 		selectedSalary() {
 			this.selectedSalaryDetails = this.salaryscales.find(
@@ -617,21 +616,24 @@ export default {
 			}
 		},
 		selectedTLR() {
-			// delete this.vacancyDetails.tlrLabel;
-			// delete this.vacancyDetails.tlrName;
-			// delete this.vacancyDetails.tlrAmount;
+			delete this.vacancyDetails.tlrLabel;
+			delete this.vacancyDetails.tlrName;
+			delete this.vacancyDetails.tlrAmount;
+			delete this.tlrAmount;
 			this.selectedTLRDetails = this.tlrs.find(
 				(a) => a.label === this.selectedTLR
 			);
-			if (this.selectedTLRDetails.label) {
+			if (this.selectedTLRDetails !== undefined) {
 				this.vacancyDetails.tlrLabel = this.selectedTLRDetails.label;
-			}
-			if (this.selectedTLRDetails.name) {
 				this.vacancyDetails.tlrName = this.selectedTLRDetails.name;
-			}
-			if (this.selectedTLRDetails.amount) {
 				this.vacancyDetails.tlrAmount = this.selectedTLRDetails.amount;
 				this.tlrAmount = this.selectedTLRDetails.amount;
+			}
+			if (this.selectedTLR === "SEN") {
+				this.vacancyDetails.tlrLabel = "SEN";
+				this.vacancyDetails.tlrName = "SEN";
+				this.vacancyDetails.tlrAmount = "150000";
+				this.tlrAmount = this.vacancyDetails.tlrAmount;
 			}
 		},
 		tlrAmount() {
@@ -650,6 +652,15 @@ export default {
 				delete this.vacancyDetails.contractEndDateFormatted;
 			}
 		},
+		selectedTermTimeOnly() {
+			if (this.selectedTermTimeOnly) {
+				this.vacancyDetails.contractTermTimeOnly = this.selectedTermTimeOnly;
+			}
+			if (!this.selectedTermTimeOnly) {
+				delete this.vacancyDetails.contractTermTimeOnly;
+				delete this.vacancyDetails.contractWeeks;
+			}
+		},
 		contractEndDate(val) {
 			this.contractEndDateFormatted = this.formatDate(this.contractEndDate);
 			this.vacancyDetails.contractEndDateFormatted = this.contractEndDateFormatted;
@@ -665,6 +676,10 @@ export default {
 			this.vacancy.closingDateFormatted = this.closingDateFormatted;
 			this.vacancy.closingDate = this.closingDate;
 		},
+    isLiveSwitch() {
+      this.vacancy.isLive = this.isLiveSwitch;
+      this.vacancyDetails.isLive = this.isLiveSwitch;
+    }
 	},
 	data() {
 		(vm) => ({
@@ -761,12 +776,14 @@ export default {
 			selectedSalaryDetails: {},
 			selectedPayScale: null,
 			selectedPayScaleDetails: {},
+      selectedTermTimeOnly: null,
 			selectedTLR: null,
 			selectedTLRDetails: {},
 			tlrAmount: null,
 			leadershipScaleRange: [1, 43],
 			leadershipMinPoint: 1,
 			leadershipMaxPoint: 43,
+      isLiveSwitch: false,
 		};
 	},
 	created() {
@@ -818,6 +835,7 @@ export default {
 			vacancy.append("closingDate", this.vacancy.closingDate);
 			vacancy.append("closingDateFormatted", this.vacancy.closingDateFormatted);
 			vacancy.append("details", details);
+			vacancy.append("isLive", this.vacancy.isLive);
 
 			axios.post("/post/saveVacancy", vacancy).then((res) => {
 				// console.log(res);
@@ -835,6 +853,11 @@ export default {
 
 			const [month, day, year] = date.split("/");
 			return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+		},
+		checkTermTimeOnly() {
+			if (!this.vacancyDetails.contractTermTimeOnly) {
+				delete this.vacancyDetails.contractWeeks;
+			}
 		},
 	},
 	computed: {

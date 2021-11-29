@@ -209,7 +209,7 @@
 								<span class="font-weight-bold">Salary:</span>
 								{{ this.vacancy.details.salary }}
 								<span v-if="vacancy.details.tlrAmount">
-									+ {{ vacancy.details.tlrAmount }} TLR allowance</span
+									+ {{ vacancy.details.tlrAmount }} {{ this.vacancy.details.tlrLabel }} allowance</span
 								>
 							</v-col>
 							<v-col

@@ -14,7 +14,7 @@ class Vacancy extends Model
    * @var array
    */
   protected $fillable = [
-    'academy_id', 'details', 'closingDate', 'closingDateFormatted'
+    'academy_id', 'details', 'closingDate', 'closingDateFormatted', 'isLive'
   ];
 
   /**
