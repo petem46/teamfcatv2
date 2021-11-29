@@ -261,6 +261,120 @@
 				</v-expansion-panel>
 			</v-expansion-panels>
 		</v-container>
+		<v-container fluid v-if="!loading && $isHrUser()">
+			<v-expansion-panels>
+				<v-expansion-panel>
+					<v-expansion-panel-header> Expired Vacancies </v-expansion-panel-header>
+					<v-expansion-panel-content>
+						<v-data-iterator
+							:items="expired"
+							:items-per-page.sync="itemsPerPage"
+							hide-default-footer
+						>
+							<template v-slot:default="props">
+								<v-row class="pb-15">
+									<v-col v-for="item in props.items" :key="item.id" cols="12">
+										<v-card class="pa-5" :class="item.details.topBorder">
+											<v-row>
+												<v-col
+													cols="12"
+													md="2"
+													order="1"
+													order-sm="10"
+													class="text-center text-md-right"
+												>
+													<div class="text-center text-md-right">
+														<v-img
+															contain
+															eager
+															width="150"
+															:src="'/images/icons/' + item.details.icon"
+															:alt="item.details.icon"
+														/>
+													</div>
+												</v-col>
+												<v-col cols="12" md="10" order="10" order-sm="1">
+													<v-row>
+														<v-col cols="12">
+															<div class="text-h6 text-md-h4">
+																{{ item.details.postTitle }}
+															</div>
+														</v-col>
+														<v-col cols="12" md="6">
+															<v-icon class="mr-2 grey--text lighten-2"
+																>fas fa-map-marker-alt fa-fw</v-icon
+															>
+															{{ item.details.location }}
+														</v-col>
+														<v-col cols="12" md="6">
+															<v-icon class="mr-2 grey--text lighten-2"
+																>fas fa-business-time fa-fw</v-icon
+															>
+															{{ item.details.contractType }}
+															{{ item.details.contractTime }}
+															{{ item.details.contractTermTimeOnly }}
+														</v-col>
+														<v-col cols="12" md="6">
+															<v-icon class="mr-2 grey--text lighten-2"
+																>fa-clock fa-fw</v-icon
+															>
+															{{ item.details.contractHours }}
+															{{ item.details.contractWeeks }}
+														</v-col>
+														<v-col cols="12" md="6">
+															<v-icon class="mr-2 grey--text lighten-2"
+																>far fa-calendar-alt fa-fw</v-icon
+															>
+															Start:
+															{{ item.details.contractStartDateFormatted }}
+														</v-col>
+														<v-col cols="12" md="6">
+															<v-icon class="mr-2 grey--text lighten-2"
+																>fas fa-pound-sign fa-fw</v-icon
+															>
+															{{ item.details.salarypayscale }}
+															{{ item.details.grade }} {{ item.details.range }}
+															<span v-if="item.details.tlrLabel">
+																+ {{ item.details.tlrLabel }}</span
+															>
+														</v-col>
+														<v-col cols="12" md="6">
+															<v-icon class="mr-2 grey--text lighten-2"
+																>fas fa-pound-sign fa-fw</v-icon
+															>
+															{{ item.details.salary }}
+															<span v-if="item.details.tlrAmount">
+																+ {{ item.details.tlrAmount }}</span
+															>
+														</v-col>
+														<v-col cols="12" md="6">
+															<v-icon class="mr-2 grey--text lighten-2"
+																>fas fa-stopwatch fa-fw</v-icon
+															>
+															Closing: {{ item.closingDateFormatted }}
+														</v-col>
+													</v-row>
+												</v-col>
+											</v-row>
+											<v-divider></v-divider>
+											<v-card-actions>
+												<v-btn
+													color="teal"
+													link
+													:to="'/join/' + item.id"
+													outlined
+													>More Details</v-btn
+												>
+											</v-card-actions>
+										</v-card>
+									</v-col>
+								</v-row>
+							</template>
+						</v-data-iterator>
+					</v-expansion-panel-content>
+				</v-expansion-panel>
+			</v-expansion-panels>
+		</v-container>
 	</section>
 </template>
 <script>
