@@ -13,7 +13,7 @@
 					style="background-color: rgba(255, 255, 255, 0.7)"
 				>
 					<h1 class="text-lg-h2 text-md-h3">Team FCAT Internal Vacancies</h1>
-					<v-btn to="/join/create" class="mt-6" color="teal" dark
+					<v-btn v-if="$isHrUser()" to="/join/create" class="mt-6" color="teal" dark
 						>Create Vacancy</v-btn
 					>
 				</v-card>
@@ -147,7 +147,7 @@
 			</v-row>
 		</v-container>
 
-		<v-container fluid v-if="!loading && $isHrUser()">
+		<v-container fluid v-if="!loading && $isHrUser() && drafts">
 			<v-expansion-panels>
 				<v-expansion-panel>
 					<v-expansion-panel-header> Draft Vacancies </v-expansion-panel-header>
@@ -261,7 +261,7 @@
 				</v-expansion-panel>
 			</v-expansion-panels>
 		</v-container>
-		<v-container fluid v-if="!loading && $isHrUser()">
+		<v-container fluid v-if="!loading && $isHrUser() && expired">
 			<v-expansion-panels>
 				<v-expansion-panel>
 					<v-expansion-panel-header> Expired Vacancies </v-expansion-panel-header>

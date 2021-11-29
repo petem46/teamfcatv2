@@ -237,6 +237,10 @@ export default new Router({
       meta: {
         auth: true,
         title: "Join TeamFCAT New Vacancy"
+      },
+      beforeEnter: (to, from, next) => {
+        if (to.name !== "Login" && !isAuthenticated) next({ name: "Login" });
+        else next();
       }
     },
     {

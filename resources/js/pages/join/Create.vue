@@ -814,7 +814,7 @@ export default {
 			this.loading = true;
 			this.scrollToTop();
 			await axios.get("/get/createVacancy").then(({ data }) => {
-				// console.log(data);
+				console.log(data);
 				this.academies = data.academies;
 				this.salaryscales = data.salaryscales;
 				this.tlrs = data.tlrs;
