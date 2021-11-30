@@ -14385,7 +14385,6 @@ function getUserState() {
     path: "/join/:vacancy_id",
     name: "join.show",
     component: _pages_join_Show__WEBPACK_IMPORTED_MODULE_14__.default,
-    // beforeEnter: isHrUser,
     props: true,
     meta: {
       auth: true,

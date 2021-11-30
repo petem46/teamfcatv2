@@ -243,7 +243,6 @@ export default new Router({
       path: "/join/:vacancy_id",
       name: "join.show",
       component: ShowVacancyPage,
-      // beforeEnter: isHrUser,
       props: true,
       meta: {
         auth: true,
