@@ -24,7 +24,7 @@ Route::get('get/academy/{id}', 'AcademyController@getAcademybyId')->name('academ
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'vacancy'], function () {
+Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/get/draftInternalVacancies', 'VacancyController@getDrafts')->name('join.drafts');
   Route::get('/get/expiredInternalVacancies', 'VacancyController@getExpired')->name('join.expired');
