@@ -238,10 +238,6 @@ export default new Router({
         auth: true,
         title: "Join TeamFCAT New Vacancy"
       },
-      // beforeEnter: (to, from, next) => {
-      //   if (to.name !== "Login" && !isAuthenticated) next({ name: "Login" });
-      //   else next();
-      // }
     },
     {
       path: "/join/:vacancy_id",
