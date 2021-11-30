@@ -241,7 +241,7 @@ export default new Router({
       // beforeEnter: (to, from, next) => {
       //   if (to.name !== "Login" && !isAuthenticated) next({ name: "Login" });
       //   else next();
-      }
+      // }
     },
     {
       path: "/join/:vacancy_id",
