@@ -36,10 +36,6 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::post('/post/saveVacancy', 'VacancyController@save')->name('join.save');
 
-});
-
-Route::group(['middleware' => ['auth']], function () {
-
   Route::get('/get/pages/all', 'PagesController@getAll');
   Route::get('/gdpr', 'HomeController@gdpr')->name('gdpr');
 
