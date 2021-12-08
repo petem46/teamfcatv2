@@ -27,7 +27,7 @@
 				</v-list>
 			</v-list-group>
 		</v-card>
-		<v-card v-if="$canEdit()" flat outlined>
+		<v-card v-if="$canEdit(this.areaname)" flat outlined>
 			<!-- <v-toolbar flat color="teal" dark dense>
 				<v-toolbar-title>Side Menu</v-toolbar-title>
 			</v-toolbar>-->

@@ -3,7 +3,7 @@
 		<v-card class="z2" elevation="8" style="min-height: 400px;">
 			<v-toolbar dark flat class="teal" src>
 				<v-toolbar-title :id="section.id" class="text-uppercase text-h4 py-2">{{section.title}}</v-toolbar-title>
-				<v-menu v-if="$canEdit()" bottom left offset-x>
+				<v-menu v-if="$canEdit(this.areaname)" bottom left offset-x>
 					<template v-slot:activator="{ on, attrs }">
 						<v-btn v-bind="attrs" v-on="on" fab color="green" bottom right absolute>
 							<v-icon>mdi-plus</v-icon>
