@@ -1,6 +1,10 @@
 @extends('layouts.vue')
 
 @section('content')
+@if(session('url.intended'))
+  @php $intended = session('url.intended'); @endphp
+@endif
+
 
   <template>
     <v-app id="inspire">
@@ -10,6 +14,8 @@
             <img src="/images/hexagon-icon.png" />
           </v-avatar>
           <span class>Team FCAT</span>
+          <p>{{ url()->previous() }}</p>
+          <p>{{ $intended }}</p>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-responsive max-width="360" v-if="this.$vuetify.breakpoint.smAndUp">
@@ -55,7 +61,7 @@
                   <v-card-text>
                     <v-row>
                       <v-col cols="12">
-                        <v-btn width="100%" href="{{ url('/gredirect') }}" tile dark color="green">
+                        <v-btn width="100%" href="{{ url('/gredirect/') }}" tile dark color="green">
                           <v-icon class="mr-3">mdi-google</v-icon>Sign In With FCAT Google
                         </v-btn>
                       </v-col>

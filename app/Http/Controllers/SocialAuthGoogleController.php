@@ -1,8 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Socialite;
 use App\Services\SocialGoogleAccountService;
+
 class SocialAuthGoogleController extends Controller
 {
   /**
@@ -10,24 +13,28 @@ class SocialAuthGoogleController extends Controller
    *
    * @return void
    */
-    public function redirect()
-    {
-        return Socialite::driver('google')->redirect();
+  public function redirect()
+  {
+    return Socialite::driver('google')->redirect();
+  }
+  /**
+   * Return a callback method from google api.
+   *
+   * @return callback URL from google
+   */
+  public function callback(SocialGoogleAccountService $service)
+  {
+    $user = $service->createOrGetUser(Socialite::driver('google')->user());
+    // return  $user;
+    if ($user === 'fail') {
+      return redirect()->to('/home')->with('fail', 'Some message here.');
+      sleep(3);
     }
-/**
-     * Return a callback method from google api.
-     *
-     * @return callback URL from google
-     */
-    public function callback(SocialGoogleAccountService $service)
-    {
-        $user = $service->createOrGetUser(Socialite::driver('google')->user());
-        // return  $user;
-        if($user === 'fail') {
-          return redirect()->to('/home')->with('fail','Some message here.');
-          sleep(3);
-        }
-        auth()->login($user);
-        return redirect()->to('/home');
+    auth()->login($user);
+    $intended = session('url.intended');
+    if ($intended != '') {
+      return redirect()->to($intended);
     }
+    return redirect()->to('/home');
+  }
 }

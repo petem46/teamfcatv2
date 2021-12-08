@@ -1,10 +1,13 @@
 @extends('layouts.vue')
 
 @section('content')
-@php
+    @php
     $avatar = '' . Auth::user()->avatar . '';
-@endphp
+    if (session('url.intended')) {
+        $intended = session('url.intended');
+    }
+    @endphp
 
-<app></app>
+    <app></app>
 
 @endsection
