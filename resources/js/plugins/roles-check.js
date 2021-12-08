@@ -8,7 +8,7 @@ export default {
       // console.log(array);
       for (let i = 0; i < array.length; i++) {
         var r = array[i].name.includes("Editor");
-        var a = array[i].name.includes($areaname.toUpperCase() + " Content Editor");
+        var a = array[i].name.includes($areaname + " Content Editor");
         if (r & a) {
           return true;
         }
