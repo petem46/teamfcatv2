@@ -103,7 +103,7 @@ class VacancyController extends Controller
           'color' => $academy->color,
         ];
       }),
-      'salaryscales' => SalaryPayScales::all(),
+      'salaryscales' => SalaryPayScales::where('active', 1)->get(),
       'tlrs' => Tlrs::getTLRs(),
     ];
     return $data;

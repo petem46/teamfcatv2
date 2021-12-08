@@ -597,7 +597,7 @@ export default {
 				? (this.vacancyDetails.range =
 						this.leadershipScaleRange[0] + "-" + this.leadershipScaleRange[1])
 				: this.selectedSalary === 3 // Teacher Main Pay Scale
-				? (this.vacancyDetails.range = "M1-M6")
+				? (this.vacancyDetails.range = "M1-U3")
 				: this.selectedSalary === 4 // Upper Pay Scale
 				? (this.vacancyDetails.range = "U1-U3")
 				: this.selectedSalary === 5 // Unqualified Teacher Pay Scale
