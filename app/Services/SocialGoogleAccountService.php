@@ -82,7 +82,7 @@ class SocialGoogleAccountService
         return $user;
       }
     } catch (QueryException $e) {
-      dd($e);
+      // dd($e);
     }
   }
 }
