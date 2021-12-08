@@ -14,7 +14,7 @@ class HRMiddleware
   {
     $user = User::with('role')->where('id', Auth::id())->first();
     if ($user) {
-      dd($user);
+      // dd($user);
       $rolesLength = count($user->role);
       for ($x = 0; $x < $rolesLength; $x++) {
         if ($user->role[$x]['role'] === "HR Content Editor" || $user->role[$x]['role'] === "HR Lead") {

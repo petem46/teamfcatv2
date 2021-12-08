@@ -3,19 +3,20 @@ export default {
     Vue.mixin({});
 
     Vue.prototype.$canEdit = function($areaname) {
-      let arr = this.$store.getters.getRoles;
-      if (arr) {
-        var r = arr.some(i => i.name.includes("Editor"));
-        var a = arr.some(i => i.area.includes($areaname));
-      }
-      if (r && a) {
-        return r;
-      }
-      if (arr) {
-        if (arr.some(i => i.name.includes("Site Editor"))) {
+      var res = false;
+      let array = this.$store.getters.getRoles;
+      // console.log(array);
+      for (let i = 0; i < array.length; i++) {
+        var r = array[i].name.includes("Editor");
+        var a = array[i].name.includes($areaname);
+        if (r & a) {
+          return true;
+        }
+        if (array[i].name.includes("Site Editor")) {
           return true;
         }
       }
+      return res;
     };
 
     Vue.prototype.$isSiteAdmin = function() {
@@ -31,11 +32,17 @@ export default {
      */
     Vue.prototype.$isHrUser = function() {
       var res = false;
-      let arr = this.$store.getters.getRoles;
-      if (arr) {
-        if(arr.some(i => i.name.includes("HR Lead"))) {return true};
-        if(arr.some(i => i.name.includes("HR Content Editor"))) {return true};
-        if(arr.some(i => i.name.includes("Site Admin"))) {return true};
+      const array = this.$store.getters.getRoles;
+      for (let i = 0; i < array.length; i++) {
+        if (array[i].name.includes("HR Lead")) {
+          return true;
+        }
+        if (array[i].name.includes("HR Content Editor")) {
+          return true;
+        }
+        if (array[i].name.includes("Site Admin")) {
+          return true;
+        }
       }
       return res;
     };

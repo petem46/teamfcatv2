@@ -17050,6 +17050,9 @@ img {
 .v-application a {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+  color: unset;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 
 .linkCursor:hover {

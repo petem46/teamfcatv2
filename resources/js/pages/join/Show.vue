@@ -153,6 +153,7 @@
 					</v-card-title>
 					<v-list-item three-line class="">
 						<v-list-item-content>
+							<div class="text-overline mb-4"><router-link to="/join">BACK</router-link></div>
 							<div class="text-overline mb-4">INTERNAL ONLY</div>
 							<v-list-item-title class="text-h4 mb-1 text-wrap" v-if="academy">
 								{{ this.vacancy.details.postTitle }}
@@ -209,7 +210,8 @@
 								<span class="font-weight-bold">Salary:</span>
 								{{ this.vacancy.details.salary }}
 								<span v-if="vacancy.details.tlrAmount">
-									+ {{ vacancy.details.tlrAmount }} {{ this.vacancy.details.tlrLabel }} allowance</span
+									+ {{ vacancy.details.tlrAmount }}
+									{{ this.vacancy.details.tlrLabel }} allowance</span
 								>
 							</v-col>
 							<v-col
@@ -349,14 +351,20 @@ export default {
 		},
 		getContent() {
 			this.loading = true;
-			axios.get("/get/vacancy/" + this.vacancy_id).then(({ data }) => {
-				this.vacancy = data;
-				if (data.details) {
+			axios
+				.get("/get/vacancy/" + this.vacancy_id)
+				.then(({ data }) => {
+					console.log(data);
+					this.vacancy = data;
 					this.vacancy.details = JSON.parse(data.details);
 					this.vacancyDetails = this.vacancy.details;
-				}
-				this.getAcademyDetails();
-			});
+					this.getAcademyDetails();
+				})
+				.catch((error) => {
+					console.log(error.response);
+					console.log("Thou Shall Not Pass");
+					this.$router.push("/join");
+				});
 		},
 		getAcademyDetails() {
 			this.loading = true;
@@ -366,6 +374,9 @@ export default {
 				this.loading = false;
 			});
 		},
+    gotoJoin() {
+      this.$router.push('/join')
+    }
 	},
 };
 </script>

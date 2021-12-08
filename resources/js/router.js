@@ -36,14 +36,26 @@ Vue.use(Router);
 
 async function isHrUser(to, from, next) {
   const user = await getUserState();
-  let arr = store.state.roles;
-  if (
-    arr.some(i => i.name.includes("Site Admin")) ||
-    arr.some(i => i.name.includes("HR Lead")) ||
-    arr.some(i => i.name.includes("HR Content Editor"))
-  ) {
+  let pass = false;
+  let array = store.state.roles;
+  console.log(array);
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].name === "HR Lead") {
+      console.log("NEXT");
+      pass = true;
+    }
+    if (array[i].name === "HR Content Editor") {
+      console.log("NEXT");
+      pass = true;
+    }
+    if (array[i].name === "Site Admin") {
+      console.log("NEXT");
+      pass = true;
+    }
+  }
+  if (pass) {
     next();
-  } else next("/home");
+  }
 }
 
 function getUserState() {
@@ -237,7 +249,7 @@ export default new Router({
       meta: {
         auth: true,
         title: "Join TeamFCAT New Vacancy"
-      },
+      }
     },
     {
       path: "/join/:vacancy_id",

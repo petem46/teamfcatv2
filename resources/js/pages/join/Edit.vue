@@ -154,7 +154,7 @@
 										<v-col cols="4" v-if="vacancyDetails.tlrLabel">
 											<v-text-field
 												prepend-icon="fas fa-plus fa-fw"
-												label="TLR Amount"
+												:label="vacancyDetails.tlrLabel + ' Allowance'"
 												v-model="tlrAmount"
 											></v-text-field>
 										</v-col>
@@ -840,36 +840,45 @@ export default {
 		},
 		async getVacancy() {
 			this.loading = true;
-			await axios.get("/get/vacancy/" + this.vacancy_id).then(({ data }) => {
-				this.vacancy = data;
-				if (data.details) {
-					this.vacancy.details = JSON.parse(data.details);
-					this.vacancyDetails = this.vacancy.details;
-				}
-				this.vacancy.academy_id = parseInt(this.vacancy.academy_id);
-				this.getAcademyDetails(parseInt(data.academy_id));
-				this.selectedAcademy = parseInt(data.academy_id);
-				this.selectedSalary = parseInt(data.details.selectedSalaryPayScale_id);
-				this.selectedTLR = data.details.tlrLabel;
-				this.getPayScales();
-				// this.selectedPayScale = parseInt(
-				// 	this.vacancy.details.selectedPayScale_id
-				// );
-				this.contractStartDate = data.details.contractStartDate;
-				this.contractStartDateFormatted =
-					data.details.contractStartDateFormatted;
-				this.contractEndDate = data.details.contractEndDate;
-				this.contractEndDateFormatted = data.details.contractEndDateFormatted;
-				this.closingDate = data.closingDate;
-				this.closingDateFormatted = data.closingDateFormatted;
-				this.selectedContractType = data.details.contractType;
-				// this.selectedPayScale = parseInt(
-				// 	this.vacancy.details.selectedPayScale_id
-				// );
-				if (this.vacancy.details.sliderRange) {
-					this.scaleRange = this.vacancy.details.sliderRange;
-				}
-			});
+			await axios
+				.get("/get/vacancy/" + this.vacancy_id)
+				.then(({ data }) => {
+					this.vacancy = data;
+					if (data.details) {
+						this.vacancy.details = JSON.parse(data.details);
+						this.vacancyDetails = this.vacancy.details;
+					}
+					this.vacancy.academy_id = parseInt(this.vacancy.academy_id);
+					this.getAcademyDetails(parseInt(data.academy_id));
+					this.selectedAcademy = parseInt(data.academy_id);
+					this.selectedSalary = parseInt(
+						data.details.selectedSalaryPayScale_id
+					);
+					this.selectedTLR = data.details.tlrLabel;
+					this.getPayScales();
+					// this.selectedPayScale = parseInt(
+					// 	this.vacancy.details.selectedPayScale_id
+					// );
+					this.contractStartDate = data.details.contractStartDate;
+					this.contractStartDateFormatted =
+						data.details.contractStartDateFormatted;
+					this.contractEndDate = data.details.contractEndDate;
+					this.contractEndDateFormatted = data.details.contractEndDateFormatted;
+					this.closingDate = data.closingDate;
+					this.closingDateFormatted = data.closingDateFormatted;
+					this.selectedContractType = data.details.contractType;
+					// this.selectedPayScale = parseInt(
+					// 	this.vacancy.details.selectedPayScale_id
+					// );
+					if (this.vacancy.details.sliderRange) {
+						this.scaleRange = this.vacancy.details.sliderRange;
+					}
+				})
+				.catch((error) => {
+					console.log(error.response);
+					console.log("Thou Shall Not Pass");
+					this.$router.push("/join");
+				});
 		},
 		async getAcademyDetails($id) {
 			this.loading = true;

@@ -17,24 +17,30 @@ Route::get('/redirect', 'SocialAuthMSGraphController@redirect');
 Route::get('/callback', 'SocialAuthMSGraphController@callback');
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/get/vacancy/{id}', 'VacancyController@show')->name('join.show');
-Route::get('/get/allInternalVacancies', 'VacancyController@index')->name('join');
-
-Route::get('get/academy/{id}', 'AcademyController@getAcademybyId')->name('academy.get');
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::group(['middleware' => 'hr'], function () {
+});
+
+
 Route::group(['middleware' => ['auth']], function () {
 
+  Route::put('/put/updateVacancy/{id}', 'VacancyController@updateVacancy')->name('join.update');
+  Route::post('/post/saveVacancy', 'VacancyController@save')->name('join.save');
+  Route::get('/get/vacancy/{id}', 'VacancyController@show')->name('join.show');
   Route::get('/get/draftInternalVacancies', 'VacancyController@getDrafts')->name('join.drafts');
   Route::get('/get/expiredInternalVacancies', 'VacancyController@getExpired')->name('join.expired');
+  Route::get('/get/vacancy/{id}', 'VacancyController@show')->name('join.show');
+
+  Route::get('/get/allInternalVacancies', 'VacancyController@index')->name('join');
+
+  Route::get('get/academy/{id}', 'AcademyController@getAcademybyId')->name('academy.get');
   Route::get('/get/createVacancy', 'VacancyController@create')->name('join.create');
   Route::get('/get/payScales/{id}', 'VacancyController@getPayScaleRanges')->name('join.create.get.payscalerange');
   Route::get('/get/tlrs', 'VacancyController@getTLRs')->name('join.create.get.tlrs');
 
-  Route::put('/put/updateVacancy/{id}', 'VacancyController@updateVacancy')->name('join.update');
 
-  Route::post('/post/saveVacancy', 'VacancyController@save')->name('join.save');
 
   Route::get('/get/pages/all', 'PagesController@getAll');
   Route::get('/gdpr', 'HomeController@gdpr')->name('gdpr');

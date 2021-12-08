@@ -7,9 +7,11 @@ use App\Vacancy;
 use App\SalaryPayScales;
 use App\PayScaleRanges;
 use App\Tlrs;
+use App\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
@@ -31,29 +33,60 @@ class VacancyController extends Controller
 
   public function getDrafts()
   {
-    // return Vacancy::whereDate('closingDate', '>=', date('Y-m-d'))->get()->map(function ($v) {
-    return Vacancy::where('isLive', 'false')->get()->map(function ($v) {
-      return [
-        'id' => $v->id,
-        'academy_id' => $v->academy_id,
-        'details' => json_decode($v->details),
-        'closingDate' => $v->closingDate,
-        'closingDateFormatted' => $v->closingDateFormatted,
-      ];
-    });
+    $user = User::with('role')->where('id', Auth::id())->first();
+    $userRoles = $user->role;
+    foreach ($userRoles as $role) {
+      if ($role->name === "Site Admin" || $role->name === "HR Lead" || $role->name === "HR Content Editor") {
+        try {
+          return Vacancy::where('isLive', 'false')->get()->map(function ($v) {
+            return [
+              'id' => $v->id,
+              'academy_id' => $v->academy_id,
+              'details' => json_decode($v->details),
+              'closingDate' => $v->closingDate,
+              'closingDateFormatted' => $v->closingDateFormatted,
+            ];
+          });
+        } catch (QueryException $e) {
+          $errorCode = $e->errorInfo[1];
+          if ($errorCode == 1062) {
+            return response('Beep boop bop! There is a problem!.', Response::HTTP_NOT_ACCEPTABLE)->header('error_code', $errorCode);
+          } else {
+            return response($e, Response::HTTP_NOT_ACCEPTABLE)->header('error_code', $errorCode);
+          }
+        }
+      }
+    }
+    return "NOPE!";
   }
 
   public function getExpired()
   {
-    return Vacancy::whereDate('closingDate', '<=', date('Y-m-d'))->where('isLive', 'true')->get()->map(function ($v) {
-      return [
-        'id' => $v->id,
-        'academy_id' => $v->academy_id,
-        'details' => json_decode($v->details),
-        'closingDate' => $v->closingDate,
-        'closingDateFormatted' => $v->closingDateFormatted,
-      ];
-    });
+    $user = User::with('role')->where('id', Auth::id())->first();
+    $userRoles = $user->role;
+    foreach ($userRoles as $role) {
+      if ($role->name === "Site Admin" || $role->name === "HR Lead" || $role->name === "HR Content Editor") {
+        try {
+          return Vacancy::whereDate('closingDate', '<=', date('Y-m-d'))->where('isLive', 'true')->get()->map(function ($v) {
+            return [
+              'id' => $v->id,
+              'academy_id' => $v->academy_id,
+              'details' => json_decode($v->details),
+              'closingDate' => $v->closingDate,
+              'closingDateFormatted' => $v->closingDateFormatted,
+            ];
+          });
+        } catch (QueryException $e) {
+          $errorCode = $e->errorInfo[1];
+          if ($errorCode == 1062) {
+            return response('Beep boop bop! There is a problem!.', Response::HTTP_NOT_ACCEPTABLE)->header('error_code', $errorCode);
+          } else {
+            return response($e, Response::HTTP_NOT_ACCEPTABLE)->header('error_code', $errorCode);
+          }
+        }
+      }
+    }
+    return "NOPE!";
   }
 
   public function create()
@@ -100,7 +133,18 @@ class VacancyController extends Controller
 
   public function show($id)
   {
-    return Vacancy::find($id);
+    $user = User::with('role')->where('id', Auth::id())->first();
+    $userRoles = $user->role;
+    $vacancy = Vacancy::find($id);
+    if ($vacancy->isLive === "true") {
+      return $vacancy;
+    }
+    foreach ($userRoles as $role) {
+      if ($role->name === "Site Admin") {
+        return $vacancy;
+      }
+    }
+    return response('Beep boop bop! There is a problem!.', Response::HTTP_NOT_ACCEPTABLE)->header('error_code', 'NOPE!');
   }
 
   public function edit($id)

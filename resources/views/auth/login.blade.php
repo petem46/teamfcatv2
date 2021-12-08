@@ -14,8 +14,6 @@
             <img src="/images/hexagon-icon.png" />
           </v-avatar>
           <span class>Team FCAT</span>
-          <p>{{ url()->previous() }}</p>
-          <p>{{ $intended }}</p>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-responsive max-width="360" v-if="this.$vuetify.breakpoint.smAndUp">

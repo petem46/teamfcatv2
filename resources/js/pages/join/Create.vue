@@ -154,7 +154,7 @@
 										<v-col cols="4" v-if="vacancyDetails.tlrLabel">
 											<v-text-field
 												prepend-icon="fas fa-plus fa-fw"
-												label="TLR Amount"
+												:label="vacancyDetails.tlrLabel + ' Allowance'"
 												v-model="tlrAmount"
 											></v-text-field>
 										</v-col>

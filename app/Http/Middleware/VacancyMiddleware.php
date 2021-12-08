@@ -15,12 +15,11 @@ class VacancyMiddleware
     if ($user) {
       $rolesLength = count($user->role);
       for ($x = 0; $x < $rolesLength; $x++) {
-        if (str_starts_with($user->role[$x]['role'], 'HR Lead')) {
+        if ($user->role[$x]['role'] === "HR Content Editor" || $user->role[$x]['role'] === "HR Lead" || $user->role[$x]['role'] === "Site Admin") {
           return $next($request);
         }
       }
     }
     return redirect(route('home'))->with('warning', 'No Access Permission');
-    return 'GET OUT';
   }
 }

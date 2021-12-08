@@ -13,7 +13,12 @@
 					style="background-color: rgba(255, 255, 255, 0.7)"
 				>
 					<h1 class="text-lg-h2 text-md-h3">Team FCAT Internal Vacancies</h1>
-					<v-btn v-if="$isHrUser()" to="/join/create" class="mt-6" color="teal" dark
+					<v-btn
+						v-if="$isHrUser()"
+						to="/join/create"
+						class="mt-6"
+						color="teal"
+						dark
 						>Create Vacancy</v-btn
 					>
 				</v-card>
@@ -147,7 +152,7 @@
 			</v-row>
 		</v-container>
 
-		<v-container fluid v-if="!loading && $isHrUser() && drafts">
+		<v-container fluid v-if="!loading && $isHrUser() && drafts.length >= 0">
 			<v-expansion-panels>
 				<v-expansion-panel>
 					<v-expansion-panel-header> Draft Vacancies </v-expansion-panel-header>
@@ -264,7 +269,9 @@
 		<v-container fluid v-if="!loading && $isHrUser() && expired">
 			<v-expansion-panels>
 				<v-expansion-panel>
-					<v-expansion-panel-header> Expired Vacancies </v-expansion-panel-header>
+					<v-expansion-panel-header>
+						Expired Vacancies
+					</v-expansion-panel-header>
 					<v-expansion-panel-content>
 						<v-data-iterator
 							:items="expired"
@@ -413,18 +420,29 @@ export default {
 		getDrafts() {
 			this.loading = true;
 			this.scrollToTop();
-			axios.get("/get/draftInternalVacancies").then(({ data }) => {
-				this.drafts = data;
-				this.loading = false;
-			});
+			axios
+				.get("/get/draftInternalVacancies")
+				.then(({ data }) => {
+					this.drafts = data;
+					this.loading = false;
+				})
+				.catch((e) => {
+					console.log(e);
+					console.log("no access");
+				});
 		},
 		getExpired() {
 			this.loading = true;
 			this.scrollToTop();
-			axios.get("/get/expiredInternalVacancies").then(({ data }) => {
-				this.expired = data;
-				this.loading = false;
-			});
+			axios
+				.get("/get/expiredInternalVacancies")
+				.then(({ data }) => {
+					this.expired = data;
+					this.loading = false;
+				})
+				.catch(() => {
+					console.log("no access");
+				});
 		},
 	},
 	computed: {

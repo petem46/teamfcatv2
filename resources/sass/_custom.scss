@@ -29,6 +29,8 @@ img {
 .v-application a {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+  color: unset;
+  text-decoration-line: none;
 }
 
 .linkCursor:hover {

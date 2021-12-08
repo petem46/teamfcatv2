@@ -11901,6 +11901,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   if (_this7.vacancy.details.sliderRange) {
                     _this7.scaleRange = _this7.vacancy.details.sliderRange;
                   }
+                })["catch"](function (error) {
+                  console.log(error.response);
+                  console.log("Thou Shall Not Pass");
+
+                  _this7.$router.push("/join");
                 });
 
               case 3:
@@ -12339,6 +12344,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -12370,14 +12377,17 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get("/get/vacancy/" + this.vacancy_id).then(function (_ref) {
         var data = _ref.data;
+        console.log(data);
         _this.vacancy = data;
-
-        if (data.details) {
-          _this.vacancy.details = JSON.parse(data.details);
-          _this.vacancyDetails = _this.vacancy.details;
-        }
+        _this.vacancy.details = JSON.parse(data.details);
+        _this.vacancyDetails = _this.vacancy.details;
 
         _this.getAcademyDetails();
+      })["catch"](function (error) {
+        console.log(error.response);
+        console.log("Thou Shall Not Pass");
+
+        _this.$router.push("/join");
       });
     },
     getAcademyDetails: function getAcademyDetails() {
@@ -12390,6 +12400,9 @@ __webpack_require__.r(__webpack_exports__);
         _this2.academy.icon = _this2.academy.logourl;
         _this2.loading = false;
       });
+    },
+    gotoJoin: function gotoJoin() {
+      this.$router.push('/join');
     }
   }
 });
@@ -12407,6 +12420,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12830,6 +12850,9 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref2.data;
         _this2.drafts = data;
         _this2.loading = false;
+      })["catch"](function (e) {
+        console.log(e);
+        console.log("no access");
       });
     },
     getExpired: function getExpired() {
@@ -12841,6 +12864,8 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref3.data;
         _this3.expired = data;
         _this3.loading = false;
+      })["catch"](function () {
+        console.log("no access");
       });
     }
   },
@@ -14006,28 +14031,23 @@ __webpack_require__.r(__webpack_exports__);
     Vue.mixin({});
 
     Vue.prototype.$canEdit = function ($areaname) {
-      var arr = this.$store.getters.getRoles;
+      var res = false;
+      var array = this.$store.getters.getRoles; // console.log(array);
 
-      if (arr) {
-        var r = arr.some(function (i) {
-          return i.name.includes("Editor");
-        });
-        var a = arr.some(function (i) {
-          return i.area.includes($areaname);
-        });
-      }
+      for (var i = 0; i < array.length; i++) {
+        var r = array[i].name.includes("Editor");
+        var a = array[i].name.includes($areaname);
 
-      if (r && a) {
-        return r;
-      }
+        if (r & a) {
+          return true;
+        }
 
-      if (arr) {
-        if (arr.some(function (i) {
-          return i.name.includes("Site Editor");
-        })) {
+        if (array[i].name.includes("Site Editor")) {
           return true;
         }
       }
+
+      return res;
     };
 
     Vue.prototype.$isSiteAdmin = function () {
@@ -14048,32 +14068,20 @@ __webpack_require__.r(__webpack_exports__);
 
     Vue.prototype.$isHrUser = function () {
       var res = false;
-      var arr = this.$store.getters.getRoles;
+      var array = this.$store.getters.getRoles;
 
-      if (arr) {
-        if (arr.some(function (i) {
-          return i.name.includes("HR Lead");
-        })) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i].name.includes("HR Lead")) {
           return true;
         }
 
-        ;
-
-        if (arr.some(function (i) {
-          return i.name.includes("HR Content Editor");
-        })) {
+        if (array[i].name.includes("HR Content Editor")) {
           return true;
         }
 
-        ;
-
-        if (arr.some(function (i) {
-          return i.name.includes("Site Admin");
-        })) {
+        if (array[i].name.includes("Site Admin")) {
           return true;
         }
-
-        ;
       }
 
       return res;
@@ -14176,7 +14184,7 @@ function isHrUser(_x, _x2, _x3) {
 
 function _isHrUser() {
   _isHrUser = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(to, from, next) {
-    var user, arr;
+    var user, pass, array, i;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -14186,19 +14194,32 @@ function _isHrUser() {
 
           case 2:
             user = _context.sent;
-            arr = _store__WEBPACK_IMPORTED_MODULE_31__.default.state.roles;
+            pass = false;
+            array = _store__WEBPACK_IMPORTED_MODULE_31__.default.state.roles;
+            console.log(array);
 
-            if (arr.some(function (i) {
-              return i.name.includes("Site Admin");
-            }) || arr.some(function (i) {
-              return i.name.includes("HR Lead");
-            }) || arr.some(function (i) {
-              return i.name.includes("HR Content Editor");
-            })) {
+            for (i = 0; i < array.length; i++) {
+              if (array[i].name === "HR Lead") {
+                console.log("NEXT");
+                pass = true;
+              }
+
+              if (array[i].name === "HR Content Editor") {
+                console.log("NEXT");
+                pass = true;
+              }
+
+              if (array[i].name === "Site Admin") {
+                console.log("NEXT");
+                pass = true;
+              }
+            }
+
+            if (pass) {
               next();
-            } else next("/home");
+            }
 
-          case 5:
+          case 8:
           case "end":
             return _context.stop();
         }
@@ -40580,7 +40601,9 @@ var render = function() {
                                                   attrs: {
                                                     "prepend-icon":
                                                       "fas fa-plus fa-fw",
-                                                    label: "TLR Amount"
+                                                    label:
+                                                      _vm.vacancyDetails
+                                                        .tlrLabel + " Allowance"
                                                   },
                                                   model: {
                                                     value: _vm.tlrAmount,
@@ -42294,7 +42317,9 @@ var render = function() {
                                                   attrs: {
                                                     "prepend-icon":
                                                       "fas fa-plus fa-fw",
-                                                    label: "TLR Amount"
+                                                    label:
+                                                      _vm.vacancyDetails
+                                                        .tlrLabel + " Allowance"
                                                   },
                                                   model: {
                                                     value: _vm.tlrAmount,
@@ -44342,6 +44367,19 @@ var render = function() {
                                 _c(
                                   "div",
                                   { staticClass: "text-overline mb-4" },
+                                  [
+                                    _c(
+                                      "router-link",
+                                      { attrs: { to: "/join" } },
+                                      [_vm._v("BACK")]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "text-overline mb-4" },
                                   [_vm._v("INTERNAL ONLY")]
                                 ),
                                 _vm._v(" "),
@@ -44524,7 +44562,7 @@ var render = function() {
                                                     _vm.vacancy.details
                                                       .tlrAmount
                                                   ) +
-                                                  " " +
+                                                  "\n\t\t\t\t\t\t\t\t" +
                                                   _vm._s(
                                                     this.vacancy.details
                                                       .tlrLabel
@@ -45343,7 +45381,7 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      !_vm.loading && _vm.$isHrUser() && _vm.drafts
+      !_vm.loading && _vm.$isHrUser() && _vm.drafts.length >= 0
         ? _c(
             "v-container",
             { attrs: { fluid: "" } },
@@ -45858,7 +45896,7 @@ var render = function() {
                     "v-expansion-panel",
                     [
                       _c("v-expansion-panel-header", [
-                        _vm._v(" Expired Vacancies ")
+                        _vm._v("\n\t\t\t\t\tExpired Vacancies\n\t\t\t\t")
                       ]),
                       _vm._v(" "),
                       _c(
