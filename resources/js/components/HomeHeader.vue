@@ -26,7 +26,7 @@
 							<v-card>
 								<v-system-bar dark height="8" color="blue"></v-system-bar>
 								<v-sheet color="grey lighten-2">
-									<v-img height="550" src="/images/7.jpg"></v-img>
+									<v-img height="550" src="/images/7.png"></v-img>
 								</v-sheet>
 							</v-card>
 						</v-carousel-item>
