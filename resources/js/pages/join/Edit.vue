@@ -898,6 +898,7 @@ export default {
 		},
 		saveVacancy() {
 			console.log(this.vacancy);
+      this.vacancy.isLive = this.vacancyDetails.isLive;
 			axios
 				.put("/put/updateVacancy/" + this.vacancy.id, this.vacancy)
 				.then((res) => {
