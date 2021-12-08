@@ -67,7 +67,7 @@ class VacancyController extends Controller
     foreach ($userRoles as $role) {
       if ($role->name === "Site Admin" || $role->name === "HR Lead" || $role->name === "HR Content Editor") {
         try {
-          return Vacancy::whereDate('closingDate', '<=', date('Y-m-d'))->where('isLive', 'true')->get()->map(function ($v) {
+          return Vacancy::whereDate('closingDate', '<=', date('Y-m-d'))->where('isLive', '1')->get()->map(function ($v) {
             return [
               'id' => $v->id,
               'academy_id' => $v->academy_id,
