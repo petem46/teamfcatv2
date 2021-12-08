@@ -568,8 +568,8 @@ export default {
 			this.vacancy.academy_id = this.selectedAcademyDetails.id;
 			this.vacancyDetails.location = this.selectedAcademyDetails.name;
 			this.vacancyDetails.name = this.selectedAcademyDetails.name;
-      this.vacancy.isLive = false;
-      this.vacancyDetails.isLive = false;
+			this.vacancy.isLive = false;
+			this.vacancyDetails.isLive = false;
 		},
 		selectedSalary() {
 			this.selectedSalaryDetails = this.salaryscales.find(
@@ -676,10 +676,10 @@ export default {
 			this.vacancy.closingDateFormatted = this.closingDateFormatted;
 			this.vacancy.closingDate = this.closingDate;
 		},
-    isLiveSwitch() {
-      this.vacancy.isLive = this.isLiveSwitch;
-      this.vacancyDetails.isLive = this.isLiveSwitch;
-    }
+		isLiveSwitch() {
+			this.vacancy.isLive = this.isLiveSwitch;
+			this.vacancyDetails.isLive = this.isLiveSwitch;
+		},
 	},
 	data() {
 		(vm) => ({
@@ -776,14 +776,14 @@ export default {
 			selectedSalaryDetails: {},
 			selectedPayScale: null,
 			selectedPayScaleDetails: {},
-      selectedTermTimeOnly: null,
+			selectedTermTimeOnly: null,
 			selectedTLR: null,
 			selectedTLRDetails: {},
 			tlrAmount: null,
 			leadershipScaleRange: [1, 43],
 			leadershipMinPoint: 1,
 			leadershipMaxPoint: 43,
-      isLiveSwitch: false,
+			isLiveSwitch: false,
 		};
 	},
 	created() {
