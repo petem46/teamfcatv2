@@ -25,7 +25,7 @@
 								absolute
 								top
 								right
-								v-if="$canEdit()"
+								v-if="$canEdit(page.areaname)"
 								@click="editing = true"
 								>EDIT</v-btn
 							>
@@ -38,7 +38,7 @@
 								absolute
 								top
 								right
-								v-if="$canEdit()"
+								v-if="$canEdit(page.areaname)"
 								@click="onClickOutside"
 								>SAVE</v-btn
 							>

@@ -410,6 +410,8 @@
 </template>
 <script>
 import Axios from "axios";
+import { mapState } from "vuex";
+
 export default {
 	data() {
 		return {
@@ -460,6 +462,11 @@ export default {
 		gotoPage(slug) {
 			this.$router.push(slug);
 		},
+	},
+	computed: {
+		...mapState(["roles"]),
+		...mapState(["gtoken"]),
+		...mapState(["user"]),
 	},
 };
 </script>

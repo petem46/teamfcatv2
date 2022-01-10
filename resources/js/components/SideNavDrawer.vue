@@ -67,6 +67,21 @@
 					>
 				</v-list-item-content>
 			</v-list-item>
+				<a
+					href="https://cpd.teamfcat.co.uk"
+					target="_blank"
+				>
+					<v-list-item link>
+						<v-list-item-action>
+							<v-icon class="grey--icon grey--text">mdi-open-in-new</v-icon>
+						</v-list-item-action>
+						<v-list-item-content>
+							<v-list-item-title
+								class="grey--text"
+							>CPD Portal</v-list-item-title>
+						</v-list-item-content>
+					</v-list-item>
+				</a>
 			<v-divider></v-divider>
 			<v-list-group prepend-icon="mdi-key-wireless">
 				<template v-slot:activator>
